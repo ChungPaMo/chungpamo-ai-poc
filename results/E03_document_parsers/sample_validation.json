@@ -1,0 +1,804 @@
+{
+ "D-01": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": null
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "python-docx 열림, XML 18개 파싱"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 4,
+   "denominator": 4,
+   "detail": {
+    "rendered": [
+     "CS1-b01",
+     "CS1-b02",
+     "CS1-b03",
+     "CS1-b04"
+    ],
+    "not_rendered": []
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "body_index_sequence": [
+     0,
+     1,
+     3,
+     5,
+     6
+    ]
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": "문서 2 / 명세 2"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 64,
+   "denominator": 64,
+   "detail": "셀 위치·텍스트 일치 (문서 앵커 수 차이는 분모에 더함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 8,
+   "denominator": 8,
+   "detail": null
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 6,
+   "denominator": 6,
+   "detail": "생성 기록 위치(part·body_index)의 실제 요소 내용 일치. 파서 추출 위치 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "NOT_MEASURED",
+   "numerator": null,
+   "denominator": null,
+   "detail": "DOCX 페이지 나눔은 뷰어 레이아웃에 따름 (자동 검증 불가)"
+  },
+  "12_header_footer_notes": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": {
+    "header_footer_blocks": [
+     "CS1-b02"
+    ],
+    "page_field": true
+   }
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "Word 등 뷰어로 레이아웃 미검수 (OOXML 구조 유효성과 별개)"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "creator": "chungpamo-poc (synthetic sample generator)",
+    "lastModifiedBy": "chungpamo-poc (synthetic sample generator)",
+    "company": null,
+    "external_rels": []
+   }
+  }
+ },
+ "D-02": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": null
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "python-docx 열림, XML 17개 파싱"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 4,
+   "denominator": 4,
+   "detail": {
+    "rendered": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-b03",
+     "CS2-b04"
+    ],
+    "not_rendered": []
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "body_index_sequence": [
+     0,
+     1,
+     3,
+     4,
+     6
+    ]
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": "문서 2 / 명세 2"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 241,
+   "denominator": 241,
+   "detail": "셀 위치·텍스트 일치 (문서 앵커 수 차이는 분모에 더함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 10,
+   "denominator": 10,
+   "detail": null
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 95,
+   "denominator": 95,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 95,
+   "denominator": 95,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 6,
+   "denominator": 6,
+   "detail": "생성 기록 위치(part·body_index)의 실제 요소 내용 일치. 파서 추출 위치 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "NOT_MEASURED",
+   "numerator": null,
+   "denominator": null,
+   "detail": "DOCX 페이지 나눔은 뷰어 레이아웃에 따름 (자동 검증 불가)"
+  },
+  "12_header_footer_notes": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": {
+    "header_footer_blocks": [
+     "CS2-b04"
+    ],
+    "page_field": true
+   }
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "Word 등 뷰어로 레이아웃 미검수 (OOXML 구조 유효성과 별개)"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "creator": "chungpamo-poc (synthetic sample generator)",
+    "lastModifiedBy": "chungpamo-poc (synthetic sample generator)",
+    "company": null,
+    "external_rels": []
+   }
+  }
+ },
+ "P-01": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "header": "%PDF-1.3",
+    "startxref_points_to_xref": true
+   }
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "자체 디코더로 1쪽 콘텐츠 해독"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 4,
+   "denominator": 4,
+   "detail": {
+    "rendered": [
+     "CS1-b01",
+     "CS1-b02",
+     "CS1-b03",
+     "CS1-b04"
+    ],
+    "not_rendered": []
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": "표 조각 2개 중 표 영역(테두리 합) IoU≥0.5 2개"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 64,
+   "denominator": 64,
+   "detail": "기록된 셀 영역 안의 텍스트 런이 정답 셀 텍스트와 일치 (반복 헤더 포함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 8,
+   "denominator": 8,
+   "detail": "병합 영역 크기의 셀 테두리 사각형 존재"
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 68,
+   "denominator": 68,
+   "detail": "PDF 내부 좌표(콘텐츠 스트림) 기준: 블록 IoU≥0.5, 셀 테두리 일치. 파서 추출 bbox 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "pages": 1,
+    "expected": 1,
+    "repeated_header_fragments": "0/0",
+    "page_labels": true
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "actual": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "expected_docx_body_order": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ]
+   }
+  },
+  "12_header_footer_notes": {
+   "status": "PASS",
+   "numerator": 1,
+   "denominator": 1,
+   "detail": {
+    "repeated_blocks": [
+     "CS1-b02"
+    ],
+    "per_page": {
+     "CS1-b02": 1
+    }
+   }
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "PDF 뷰어로 한글 렌더링·겹침 미검수"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "author": "chungpamo-poc (synthetic sample generator)",
+    "risky_keys": [],
+    "creation_date_fixed": true
+   }
+  },
+  "_text_layer": {
+   "truetype_fonts_with_tounicode": true,
+   "fonts": {
+    "F1": {
+     "subtype": "Type1",
+     "to_unicode": false
+    },
+    "F2+0": {
+     "subtype": "TrueType",
+     "to_unicode": true
+    }
+   },
+   "decoder": "자체 최소 디코더 (ToUnicode bfchar, Tj 연산자) — 외부 PDF 파서 추출 결과 아님"
+  }
+ },
+ "P-02": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "header": "%PDF-1.3",
+    "startxref_points_to_xref": true
+   }
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "자체 디코더로 3쪽 콘텐츠 해독"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 4,
+   "denominator": 4,
+   "detail": {
+    "rendered": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-b03",
+     "CS2-b04"
+    ],
+    "not_rendered": []
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 3,
+   "denominator": 3,
+   "detail": "표 조각 3개 중 표 영역(테두리 합) IoU≥0.5 3개"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 248,
+   "denominator": 248,
+   "detail": "기록된 셀 영역 안의 텍스트 런이 정답 셀 텍스트와 일치 (반복 헤더 포함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 15,
+   "denominator": 15,
+   "detail": "병합 영역 크기의 셀 테두리 사각형 존재"
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 95,
+   "denominator": 95,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 95,
+   "denominator": 95,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 254,
+   "denominator": 254,
+   "detail": "PDF 내부 좌표(콘텐츠 스트림) 기준: 블록 IoU≥0.5, 셀 테두리 일치. 파서 추출 bbox 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "pages": 3,
+    "expected": 3,
+    "repeated_header_fragments": "1/1",
+    "page_labels": true
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "actual": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "expected_docx_body_order": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ]
+   }
+  },
+  "12_header_footer_notes": {
+   "status": "PASS",
+   "numerator": 1,
+   "denominator": 1,
+   "detail": {
+    "repeated_blocks": [
+     "CS2-b04"
+    ],
+    "per_page": {
+     "CS2-b04": 3
+    }
+   }
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "PDF 뷰어로 한글 렌더링·겹침 미검수"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "author": "chungpamo-poc (synthetic sample generator)",
+    "risky_keys": [],
+    "creation_date_fixed": true
+   }
+  },
+  "_text_layer": {
+   "truetype_fonts_with_tounicode": true,
+   "fonts": {
+    "F1": {
+     "subtype": "Type1",
+     "to_unicode": false
+    },
+    "F2+0": {
+     "subtype": "TrueType",
+     "to_unicode": true
+    }
+   },
+   "decoder": "자체 최소 디코더 (ToUnicode bfchar, Tj 연산자) — 외부 PDF 파서 추출 결과 아님"
+  }
+ },
+ "T-01": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": null
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "python-pptx 열림, XML 47개 파싱"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 3,
+   "denominator": 3,
+   "detail": {
+    "rendered": [
+     "CS3-b01",
+     "CS3-b02",
+     "CS3-b03"
+    ],
+    "not_rendered": []
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "(slide, shape_order, id)": [
+     [
+      1,
+      0,
+      "CS3-b01"
+     ],
+     [
+      2,
+      1,
+      "CS3-T1#0"
+     ],
+     [
+      3,
+      0,
+      "CS3-T1#1"
+     ],
+     [
+      4,
+      1,
+      "CS3-T2#0"
+     ],
+     [
+      4,
+      4,
+      "CS3-b02"
+     ]
+    ],
+    "ids_checked_against_plan": [
+     "CS3-T1",
+     "CS3-T2",
+     "CS3-b01",
+     "CS3-b02"
+    ],
+    "problems": []
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 3,
+   "denominator": 3,
+   "detail": "표 도형 3 / 조각 3"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 62,
+   "denominator": 62,
+   "detail": "조각별 셀 텍스트 일치 (반복 헤더 포함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 7,
+   "denominator": 7,
+   "detail": null
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 31,
+   "denominator": 31,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 31,
+   "denominator": 31,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 6,
+   "denominator": 6,
+   "detail": "슬라이드 번호·도형 ID·이름·중첩 경로 일치. 파서 추출 위치 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "slides": 4,
+    "expected": 4,
+    "repeated_header_fragments": "1/1"
+   }
+  },
+  "12_header_footer_notes": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "notes_blocks": [
+     "CS3-b03"
+    ],
+    "groups": [
+     {
+      "group": "grp_CS3-b02",
+      "children": [
+       [
+        5,
+        "bg_CS3-b02"
+       ],
+       [
+        6,
+        "txt_CS3-b02"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "슬라이드 밖으로 벗어남·텍스트 겹침 등 시각 레이아웃 미검수"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "creator": "chungpamo-poc (synthetic sample generator)",
+    "lastModifiedBy": "chungpamo-poc (synthetic sample generator)",
+    "company": null,
+    "external_rels": []
+   }
+  }
+ },
+ "T-02": {
+  "1_package_format": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": null
+  },
+  "2_not_corrupted": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": "python-pptx 열림, XML 40개 파싱"
+  },
+  "3_text_blocks": {
+   "status": "PASS",
+   "numerator": 3,
+   "denominator": 3,
+   "detail": {
+    "rendered": [
+     "CS1-b01",
+     "CS1-b02",
+     "CS1-b03"
+    ],
+    "not_rendered": [
+     "CS1-b04"
+    ]
+   }
+  },
+  "4_text_order": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "(slide, shape_order, id)": [
+     [
+      1,
+      0,
+      "CS1-b01"
+     ],
+     [
+      1,
+      1,
+      "CS1-b02"
+     ],
+     [
+      2,
+      1,
+      "CS1-T1#0"
+     ],
+     [
+      3,
+      1,
+      "CS1-T2#0"
+     ],
+     [
+      3,
+      2,
+      "CS1-b03"
+     ]
+    ],
+    "ids_checked_against_plan": [
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b03"
+    ],
+    "problems": []
+   }
+  },
+  "5_table_count": {
+   "status": "PASS",
+   "numerator": 2,
+   "denominator": 2,
+   "detail": "표 도형 2 / 조각 2"
+  },
+  "6_cell_count": {
+   "status": "PASS",
+   "numerator": 64,
+   "denominator": 64,
+   "detail": "조각별 셀 텍스트 일치 (반복 헤더 포함)"
+  },
+  "7_merged_cells": {
+   "status": "PASS",
+   "numerator": 8,
+   "denominator": 8,
+   "detail": null
+  },
+  "8_numbers_units_dates": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "9_canonical_refs": {
+   "status": "PASS",
+   "numerator": 16,
+   "denominator": 16,
+   "detail": null
+  },
+  "10_source_location": {
+   "status": "PASS",
+   "numerator": 5,
+   "denominator": 5,
+   "detail": "슬라이드 번호·도형 ID·이름·중첩 경로 일치. 파서 추출 위치 정확도는 미측정"
+  },
+  "11_multi_page_slide": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "slides": 3,
+    "expected": 3,
+    "repeated_header_fragments": "0/0"
+   }
+  },
+  "12_header_footer_notes": {
+   "status": "NOT_MEASURED",
+   "numerator": null,
+   "denominator": null,
+   "detail": "이 문서에는 노트·그룹 도형이 없음 (명세 layout)"
+  },
+  "13_visual_layout": {
+   "status": "NEEDS_MANUAL_REVIEW",
+   "numerator": null,
+   "denominator": null,
+   "detail": "슬라이드 밖으로 벗어남·텍스트 겹침 등 시각 레이아웃 미검수"
+  },
+  "14_metadata_privacy": {
+   "status": "PASS",
+   "numerator": null,
+   "denominator": null,
+   "detail": {
+    "creator": "chungpamo-poc (synthetic sample generator)",
+    "lastModifiedBy": "chungpamo-poc (synthetic sample generator)",
+    "company": null,
+    "external_rels": []
+   }
+  }
+ }
+}

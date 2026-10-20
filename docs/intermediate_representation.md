@@ -1,6 +1,7 @@
 # 문서 파싱 공통 중간 JSON 표현 (E02~E04) — 설계안
 
-- 작성일: 2026-10-20 (설계안, **E03·E04 미구현**)
+- 작성일: 2026-10-20 (설계안, **E03·E04 파서 미구현**)
+- 현재 스키마 버전: **0.2** (2026-10-20, §8 변경 내역). 0.1 출력(E02 1차)은 변경하지 않으며 0.2 필드가 없는 것으로 해석한다.
 - 대상 형식 (전체 파싱 검증 범위 확정): **CSV, XLSX, DOCX, PDF, HWP, HWPX, PPTX**
 - 목적: 형식이 달라도 같은 채점기·같은 지표([evaluation_protocol.md](evaluation_protocol.md) §3, §10)로 비교할 수 있게, 파서 출력을 하나의 표현으로 맞춘다. 형식별 고유 정보(페이지 좌표, 슬라이드 도형, HWP 문단·컨트롤 등)는 버리지 않고 `location`과 `format_specific`에 보존한다.
 - E02 1차 출력(`results/E02_tabular_parsing/output/`)은 이 설계 이전에 만든 표 형식 전용 구조다. E02 구현 범위는 넓히지 않으며, 이 표현으로의 변환은 E03 착수 시 검토한다(§6).
@@ -9,7 +10,7 @@
 
 ```json
 {
-  "schema": "chungpamo.parse_ir", "schema_version": "0.1",
+  "schema": "chungpamo.parse_ir", "schema_version": "0.2",
   "document": {...},          // 원본 파일 메타데이터
   "parser": {...},            // 사용한 파서·버전·옵션
   "blocks": [...],            // 텍스트 블록 (읽기 순서)
@@ -134,6 +135,29 @@ E02의 레코드와 같은 의미: `{"entity", "values", "source": {"file", 위�
 
 ## 7. 미확정
 
-- `bbox` 일치 판정 기준(IoU 임계값) — 팀 합의 필요 (protocol §10.3)
+- `bbox` 일치 판정 기준: **임시 기준 표 영역 IoU 0.5** (사용자 지시, 2026-10-20). 셀 단위 위치는 별도 평가. 실제 파서 결과를 본 뒤 조정 가능
 - HWP 위치 표현은 사용할 도구가 정해진 뒤 확정
-- 스키마 검증 방법(JSON Schema 또는 pydantic) — E03 착수 시 결정
+- 스키마 검증 방법(JSON Schema 또는 pydantic) — E03 파서 비교 착수 시 결정
+
+## 8. 스키마 0.2 변경 내역 (2026-10-20)
+
+E03 문서 샘플 생성 과정에서 확인한 한계(1단계 제안, D-019)를 반영했다. 모든 신규 필드는 **선택(optional)** 이며, 0.1 출력은 그대로 유효하다.
+
+| 필드 | 위치 | 의미 | 예 |
+|---|---|---|---|
+| `content_set` | `document` | 같은 내용으로 만든 문서 묶음 | `"CS2"` (D-02, P-02가 공유) |
+| `logical_id` | `blocks[]`, `tables[]` | 형식과 무관한 논리 요소 ID (정답 명세의 block_id·table_id) | `"CS2-T1"` |
+| `planned_location` | 정답 레코드 | 생성 전 계획 위치 (본문 순번·페이지 계획·슬라이드 계획) | `{"slide_index": 2}` |
+| `actual_location` | 정답 레코드 | 생성 후 파일에서 확인한 위치 (`data/canonical/e03_document_locations_v1.json`) | `{"page": 2, "bbox": [...]}` |
+| `logical_table_id` | `tables[]` | 페이지·슬라이드를 넘는 표 조각들의 공통 논리 표 ID | `"CS2-T1"` |
+| `fragment_index` | `tables[]` | 표 조각 순서 (0부터) | `1` |
+| `repeated_header_rows` | `tables[]` | 이 조각에서 반복된 헤더 행 (논리 행 번호) | `[1, 2]` |
+| `nested_path` | `location` | 그룹 도형·컨트롤 중첩 경로 (바깥 → 안) | `["grp_CS3-b02", "txt_CS3-b02"]` |
+| `cells[].canonical_ref` | `tables[].cells` | 셀 단위 canonical 연결 (`entity`·`record_uid`·`field` 또는 `expected_path`) | — |
+| `cells[].logical_row` | `tables[].cells` | 조각 안 행 번호와 별도의 논리 행 번호 | `15` |
+| `diagnostics[].trace` | `diagnostics` | 진단의 원본 추적 정보 (파일·위치·원문) | — |
+| `ocr` (선택, 예약) | `blocks[]` | 향후 OCR 확장용 (`engine`, `confidence`). **이번 단계에서 측정·사용하지 않음** | — |
+
+정답 쪽 기록 위치 원칙: `actual_location`은 생성기가 렌더링하며 기록한 값이다. 파서가 추출한 위치와 비교할 때만 위치 정확도로 쓰고, 생성 기록만으로 위치 정확도 통과를 판정하지 않는다.
+
+변경 이력: 0.1 (2026-10-20 초안) → 0.2 (2026-10-20, 위 필드 추가). E02 1차 출력(`results/E02_tabular_parsing/output/`)은 0.1 기준이며 변경하지 않았다.

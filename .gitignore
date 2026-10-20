@@ -53,6 +53,18 @@ docs/*.hwpx
 docs/*.xlsx
 docs/private/
 
+# ---- 공개 보류 문서: 임베드된 한글 폰트 서브셋(맑은 고딕)의 재배포 조건 미확인 (decisions.md D-020) ----
+# 로컬에서만 보관·검증한다. 재배포 가능 폰트로 다시 만들거나 조건이 확인되면 해제한다.
+data/documents/P-01_bom_spec.pdf
+data/documents/P-02_order_inventory.pdf
+
+# ---- 폰트 파일 (라이선스상 재배포 금지 가능 — 시스템 폰트를 로컬에서만 사용) ----
+*.ttf
+*.otf
+*.ttc
+*.woff
+*.woff2
+
 # ---- 도구 ----
 .vscode/
 *.log

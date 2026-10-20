@@ -40,11 +40,31 @@ def is_ignored(rel: str) -> str | None:
     return None if pattern.startswith("!") else rule  # `!` 예외 규칙에 걸린 것은 추적 허용
 
 
+def pdf_texts(data: bytes) -> list[str]:
+    """PDF 원문 + 압축 스트림(Flate, ASCII85+Flate) 해제본."""
+    import base64
+    import zlib
+    out = [data.decode("latin-1")]
+    for m in re.finditer(rb"<<(.*?)>>\s*stream\r?\n(.*?)endstream", data, re.S):
+        d = m.group(2).strip()
+        try:
+            if b"ASCII85Decode" in m.group(1):
+                d = base64.a85decode(d[:-2] if d.endswith(b"~>") else d)
+            if b"FlateDecode" in m.group(1):
+                d = zlib.decompress(d)
+            out.append(d.decode("latin-1"))
+        except Exception:  # noqa: BLE001 - 해제 실패 스트림은 원문 검사로만
+            continue
+    return out
+
+
 def texts_of(path: Path) -> list[str]:
     data = path.read_bytes()
-    if path.suffix.lower() == ".xlsx":
+    if path.suffix.lower() in (".xlsx", ".docx", ".pptx"):
         with zipfile.ZipFile(path) as z:
             return [z.read(n).decode("utf-8", "replace") for n in z.namelist()]
+    if path.suffix.lower() == ".pdf":
+        return pdf_texts(data)
     for enc in ("utf-8", "cp949"):
         try:
             return [data.decode(enc)]
@@ -70,6 +90,14 @@ def main() -> int:
         "개인키 블록": re.compile(r"BEGIN [A-Z ]*PRIVATE KEY"),
         "비공개 자료 용어": re.compile("위원회 평가|평가결과|참가신청서|업무분장\\.docx"),
     }
+    # 로컬 .env의 실제 값(비밀값)을 메모리에서만 읽어 커밋 후보에 들어 있는지 검사 (값은 보고서에 쓰지 않음)
+    env_values = []
+    if (ROOT / ".env").exists():
+        from dotenv import dotenv_values
+        env_values = [v for v in dotenv_values(ROOT / ".env").values() if v and len(v.strip()) >= 8]
+    if env_values:
+        patterns[".env 비밀값"] = re.compile("|".join(re.escape(v.strip()) for v in env_values))
+    env_checked = len(env_values)
     local = ROOT / "configs" / "sensitive_terms.local.txt"
     terms = [t.strip() for t in local.read_text(encoding="utf-8").splitlines() if t.strip()] if local.exists() else []
     if terms:
@@ -98,6 +126,7 @@ def main() -> int:
         "임시파일": "data/tmp.tmp",
         "Kaggle 인증": "kaggle.json",
         "인증서·키": "secrets/id.pem",
+        "폰트 파일": "data/documents/font.ttf",
     }
     ignore_rows = [(label, rel, is_ignored(rel)) for label, rel in must_ignore.items()]
     # -z 출력은 공백·괄호가 있는 파일명도 따옴표 없이 준다
@@ -141,12 +170,43 @@ def main() -> int:
             copies.append((rel, n))
     header_files = [rel for rel in candidates if header and any(header.split(";")[0] in t for t in texts_of(ROOT / rel))]
 
+    # 문서 메타데이터 (DOCX·PPTX core/app, PDF Info) 와 폰트 파일 포함 여부
+    doc_meta = []
+    for rel in candidates:
+        suf = Path(rel).suffix.lower()
+        if suf in (".docx", ".pptx", ".xlsx"):
+            with zipfile.ZipFile(ROOT / rel) as z:
+                core = z.read("docProps/core.xml").decode("utf-8") if "docProps/core.xml" in z.namelist() else ""
+                app = z.read("docProps/app.xml").decode("utf-8") if "docProps/app.xml" in z.namelist() else ""
+                rels = "".join(z.read(n).decode("utf-8", "replace") for n in z.namelist() if n.endswith(".rels"))
+            get = lambda tag, s: (re.search(rf"<{tag}[^>]*>([^<]*)</{tag}>", s) or [None, None])[1]
+            doc_meta.append({"file": rel, "creator": get("dc:creator", core), "lastModifiedBy": get("cp:lastModifiedBy", core),
+                             "company": get("Company", app), "external_links": rels.count('TargetMode="External"')})
+        elif suf == ".pdf":
+            raw = (ROOT / rel).read_bytes()
+            a = re.search(rb"/Author\s*\((.*?)\)\s*/", raw)
+            doc_meta.append({"file": rel, "creator": a.group(1).decode("latin-1") if a else None, "lastModifiedBy": None, "company": None,
+                             "external_links": sum(raw.count(k) for k in (b"/URI", b"/Launch", b"/EmbeddedFile"))})
+    font_files = [rel for rel in candidates if Path(rel).suffix.lower() in (".ttf", ".otf", ".ttc", ".woff", ".woff2")]
+    # 문서 안에 임베드된 폰트: PDF의 /FontFile*, OOXML의 fonts/ 파트 → 재배포 조건이 확인되지 않았으면 차단
+    embedded_fonts = []
+    for rel in candidates:
+        suf = Path(rel).suffix.lower()
+        if suf == ".pdf" and re.search(rb"/FontFile[23]?\b", (ROOT / rel).read_bytes()):
+            embedded_fonts.append(rel)
+        elif suf in (".docx", ".pptx", ".xlsx"):
+            with zipfile.ZipFile(ROOT / rel) as z:
+                if any(n.startswith(("word/fonts/", "ppt/fonts/", "xl/fonts/")) for n in z.namelist()):
+                    embedded_fonts.append(rel)
+    held = [l.strip() for l in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines() if l.strip().startswith("data/documents/")]
+    held_ok = all(is_ignored(h) for h in held)
+    meta_bad = [m for m in doc_meta if m["external_links"] or (m["company"] or "").strip()]
     sizes = sorted(((rel, (ROOT / rel).stat().st_size) for rel in candidates), key=lambda x: -x[1])
     total_bytes = sum(s for _, s in sizes)
     large = [(r, s) for r, s in sizes if s >= 1024 * 1024]
     too_large = [(r, s) for r, s in sizes if s >= 10 * 1024 * 1024]
     ok = (not staged and not tracked_but_ignored and all(r[2] for r in ignore_rows) and priv_ok and not candidate_ignored
-          and not blocking and not copies and not too_large)
+          and not blocking and not copies and not too_large and not font_files and not meta_bad and not embedded_fonts and held_ok)
     L = [f"# Git 업로드 전 안전 점검 — {OUT.parent.name}", "",
          "> scripts/git_safety_check.py 실행 결과. 사용자 이름·PC 이름·홈 경로·로컬 검사어·비공개 원본 파일명은 기록하지 않는다.", "",
          f"- 종합: **{'통과' if ok else '문제 있음'}**",
@@ -163,7 +223,9 @@ def main() -> int:
     L += [f"| {g} | {len(v)} |" for g, v in groups.items()]
     L += ["", f"- 커밋 후보 중 제외 규칙에 걸린 파일: {len(candidate_ignored)}건", "",
           "## 5. 내용 검사 (텍스트·JSON·CSV는 UTF-8/CP949 해독, XLSX는 내부 XML 전체)", "",
-          f"- 검사 패턴: {', '.join(patterns)}", f"- 차단 대상 검출: **{len(blocking)}건**"]
+          f"- 검사 패턴: {', '.join(patterns)}",
+          f"- 로컬 .env 비밀값 대조: {env_checked}개 값 (값 자체는 기록하지 않음)",
+          f"- 차단 대상 검출: **{len(blocking)}건**"]
     L += [f"  - `{rel}`: {name}" for rel, name, _ in blocking]
     allowed = [h for h in hits if h[2]]
     if allowed:
@@ -177,6 +239,14 @@ def main() -> int:
           "- 라이선스: UCI Daily Demand Forecasting Orders = CC BY 4.0 (재배포·가공 허용, 출처 표기 필요). 정답셋 `dataset.public_sources`와 "
           "`uci_source_verification.json`에 출처·인용·DOI 기재",
           "- Kaggle M5: 다운로드하지 않음 (라이선스 미확인)", "",
+          "## 6-0. 문서 메타데이터·폰트 (DOCX·PPTX·XLSX core/app XML, PDF Info)", "",
+          f"- 폰트 파일 커밋 후보: {len(font_files)}건",
+          f"- 폰트를 임베드한 문서 커밋 후보 (PDF /FontFile, OOXML fonts/): {len(embedded_fonts)}건 {embedded_fonts or ''}",
+          f"- 공개 보류 문서 (.gitignore 명시, 로컬 전용): {held} — 제외 적용 {held_ok}",
+          f"- 회사명·외부 링크·외부 파일 참조가 있는 문서: {len(meta_bad)}건",
+          "", "| 파일 | 작성자 | 최종 수정자 | 회사 | 외부 링크 |", "|---|---|---|---|---|",
+          *[f"| `{m['file']}` | {m['creator']} | {m['lastModifiedBy']} | {m['company'] or ''} | {m['external_links']} |" for m in doc_meta],
+          "",
           "## 6-1. 파일 크기", "",
           f"- 커밋 후보 전체 {total_bytes:,} bytes, 최대 파일 `{sizes[0][0]}` {sizes[0][1]:,} bytes",
           f"- 1 MB 이상: {len(large)}건 / 10 MB 이상(차단): {len(too_large)}건", "",

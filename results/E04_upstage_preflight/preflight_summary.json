@@ -1,0 +1,288 @@
+{
+  "experiment": "E04 예비 (preflight) — E04 본 실험 아님",
+  "scope_note": "P-02 1개 문서·1회 호출. 전체 문서 정확도로 일반화하지 않는다. 직접 파서 비교는 미측정",
+  "input": {
+    "doc_id": "P-02",
+    "sha256": "cf9de77765ddf04ac01b6023d7af1e51a73cf0edc355b9768f272fe3d4b66349",
+    "bytes": 45577,
+    "origin_class": "SYNTHETIC",
+    "pages": 3
+  },
+  "call": {
+    "count": 1,
+    "retries": 0,
+    "status": "SUCCESS",
+    "http_status": 200,
+    "elapsed_seconds": 7.904,
+    "requested_at": "2026-10-20T15:04:22+09:00",
+    "request_form": {
+      "model": "document-parse",
+      "mode": "standard",
+      "ocr": "auto",
+      "output_formats": "[\"html\", \"markdown\", \"text\"]",
+      "coordinates": "true"
+    },
+    "endpoint": "https://api.upstage.ai/v1/document-digitization"
+  },
+  "response": {
+    "api": "2.0",
+    "model": "document-parse-260930",
+    "ocr": false,
+    "usage": {
+      "pages": 3,
+      "standard": [
+        1,
+        2,
+        3
+      ]
+    },
+    "raw_sha256": "07d4d142cfa12d01de67e3f76681dd813fdbceb6ee8714cd91a6cf1deec9fea0",
+    "raw_stored_at": "data/raw/upstage_test/ (Git 제외)",
+    "element_count": 14,
+    "category_counts": {
+      "caption": 2,
+      "paragraph": 2,
+      "heading1": 1,
+      "table": 3,
+      "footer": 6
+    },
+    "table_elements": 3,
+    "content_formats": {
+      "html": true,
+      "markdown": true,
+      "text": true
+    },
+    "element_content_formats": {
+      "html": 14,
+      "markdown": 14,
+      "text": 14
+    },
+    "coordinates_provided": true,
+    "coordinates_format": "요소별 4점(x, y), 페이지 크기 대비 비율 (0~1), 좌상단 원점으로 보임 — 공식 문서에 단위 명시 없음"
+  },
+  "cost_estimate": {
+    "billed_pages": 3,
+    "mode": "standard",
+    "unit_price_usd": 0.01,
+    "estimated_usd_excl_vat": 0.03,
+    "estimated_usd_incl_vat_10pct": 0.033,
+    "basis": "upstage.ai/pricing 공개 단가 (2026-10-20 조회). 실제 청구 금액은 콘솔 확인 전 미확인"
+  },
+  "comparison_vs_e03_truth": {
+    "text_blocks": [
+      {
+        "block_id": "CS2-b01",
+        "truth_type": "heading",
+        "found_occurrences": 1,
+        "expected_occurrences": 1,
+        "api_categories": [
+          "caption"
+        ],
+        "bbox_iou_per_occurrence": [
+          0.796
+        ]
+      },
+      {
+        "block_id": "CS2-b02",
+        "truth_type": "paragraph",
+        "found_occurrences": 1,
+        "expected_occurrences": 1,
+        "api_categories": [
+          "paragraph"
+        ],
+        "bbox_iou_per_occurrence": [
+          0.711
+        ]
+      },
+      {
+        "block_id": "CS2-b03",
+        "truth_type": "paragraph",
+        "found_occurrences": 1,
+        "expected_occurrences": 1,
+        "api_categories": [
+          "paragraph"
+        ],
+        "bbox_iou_per_occurrence": [
+          0.71
+        ]
+      },
+      {
+        "block_id": "CS2-b04",
+        "truth_type": "footer",
+        "found_occurrences": 3,
+        "expected_occurrences": 3,
+        "api_categories": [
+          "footer"
+        ],
+        "bbox_iou_per_occurrence": [
+          0.674,
+          0.689,
+          0.669
+        ]
+      }
+    ],
+    "table_captions": [
+      {
+        "table_id": "CS2-T1",
+        "found": true,
+        "api_categories": [
+          "heading1"
+        ]
+      },
+      {
+        "table_id": "CS2-T2",
+        "found": true,
+        "api_categories": [
+          "caption"
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "table_id": "CS2-T1",
+        "fragment_index": 0,
+        "page": 1,
+        "matched_api_element": 3,
+        "api_rows": 14,
+        "expected_rows": 14,
+        "api_cols": 6,
+        "expected_cols": 6,
+        "cells": {
+          "numerator": 79,
+          "denominator": 79,
+          "rate": 1.0,
+          "status": "PASS"
+        },
+        "table_bbox_iou": 0.993
+      },
+      {
+        "table_id": "CS2-T1",
+        "fragment_index": 1,
+        "page": 2,
+        "matched_api_element": 6,
+        "api_rows": 10,
+        "expected_rows": 10,
+        "api_cols": 6,
+        "expected_cols": 6,
+        "cells": {
+          "numerator": 55,
+          "denominator": 55,
+          "rate": 1.0,
+          "status": "PASS"
+        },
+        "table_bbox_iou": 0.988
+      },
+      {
+        "table_id": "CS2-T2",
+        "fragment_index": 0,
+        "page": 3,
+        "matched_api_element": 11,
+        "api_rows": 17,
+        "expected_rows": 17,
+        "api_cols": 7,
+        "expected_cols": 7,
+        "cells": {
+          "numerator": 114,
+          "denominator": 114,
+          "rate": 1.0,
+          "status": "PASS"
+        },
+        "table_bbox_iou": 0.991
+      }
+    ],
+    "cells_all_fragments": {
+      "numerator": 248,
+      "denominator": 248,
+      "rate": 1.0,
+      "status": "PASS"
+    },
+    "header_cells": {
+      "numerator": 23,
+      "denominator": 23,
+      "rate": 1.0,
+      "status": "PASS"
+    },
+    "merged_cells_spans": {
+      "numerator": 15,
+      "denominator": 15,
+      "rate": 1.0,
+      "status": "PASS"
+    },
+    "product_material_codes": {
+      "numerator": 35,
+      "denominator": 35,
+      "rate": 1.0,
+      "status": "PASS"
+    },
+    "values_by_field": {
+      "due_date": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0,
+        "status": "PASS"
+      },
+      "inventory_value_krw": {
+        "numerator": 10,
+        "denominator": 10,
+        "rate": 1.0,
+        "status": "PASS"
+      },
+      "on_hand_qty": {
+        "numerator": 15,
+        "denominator": 15,
+        "rate": 1.0,
+        "status": "PASS"
+      },
+      "order_id": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0,
+        "status": "PASS"
+      },
+      "order_qty": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0,
+        "status": "PASS"
+      },
+      "unit_cost": {
+        "numerator": 10,
+        "denominator": 10,
+        "rate": 1.0,
+        "status": "PASS"
+      }
+    },
+    "multipage_table_link": {
+      "truth": "CS2-T1이 1쪽(데이터 12행)과 2쪽(데이터 8행)으로 나뉘고 2쪽에서 헤더 2행 반복",
+      "api_elements_for_fragments": [
+        3,
+        6
+      ],
+      "api_merged_into_one_table": false,
+      "explicit_continuation_field": false,
+      "repeated_header_recognized_in_fragment2": true,
+      "request_option": "merge_multipage_tables 기본값(false)으로 요청 — 병합 기능(베타)은 시험하지 않음"
+    },
+    "source_location": {
+      "coordinates": "제공됨 (요소 단위 bbox)",
+      "cell_level_coordinates": "제공 안 됨 (표 HTML에 셀 좌표 없음)",
+      "table_bbox_iou_threshold": 0.5,
+      "table_bbox_iou": {
+        "CS2-T1#0": 0.993,
+        "CS2-T1#1": 0.988,
+        "CS2-T2#0": 0.991
+      }
+    }
+  },
+  "not_compared": {
+    "direct_parser_comparison": "직접 파서(pypdf·pdfplumber 등) 실측 없음 → 미측정",
+    "accuracy_generalization": "1개 문서 결과로 일반화하지 않음",
+    "enhanced_mode": "호출하지 않음"
+  },
+  "security": {
+    "api_key_in_response": false,
+    "home_path_in_response": false,
+    "email_like_in_response": false,
+    "extra_top_level_fields": []
+  }
+}

@@ -1,0 +1,6580 @@
+{
+  "schema": "chungpamo.e03_document_truth",
+  "version": "v1",
+  "source": {
+    "file": "data/canonical/ground_truth_v2.json",
+    "sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+    "note": "canonical v2를 읽기만 함 (수정 없음)"
+  },
+  "generator": "scripts/e03_build_truth.py",
+  "representation": "docs/intermediate_representation.md 의 blocks / tables / extracted_values 구조. 위치는 계획(논리) 위치만, 실제 좌표는 생성 시 기록",
+  "new_values_rules": [
+    "CS2-T2 재고금액 = on_hand_qty(기준 단위 환산) × Material.unit_cost (문서용 파생값, canonical에 없음)",
+    "CS1 문서번호 'SPEC-FG001'은 표시용 식별자 (규칙: SPEC-{product_id}), 개정 표기는 BOM 버전(V2)",
+    "그 밖의 모든 수치·날짜는 canonical v2 엔터티 또는 expected 값을 그대로 표기"
+  ],
+  "content_sets": {
+    "CS1": {
+      "content_set": "CS1",
+      "title": "FG001 가정용 히터 A — BOM 사양서 (BOM Specification)",
+      "blocks": [
+        {
+          "block_id": "CS1-b01",
+          "type": "heading",
+          "order": 0,
+          "text": "FG001 가정용 히터 A — BOM 사양서 (BOM Specification)",
+          "links": []
+        },
+        {
+          "block_id": "CS1-b02",
+          "type": "paragraph",
+          "order": 1,
+          "text": "문서번호 Doc No.: SPEC-FG001 / 개정 Rev. V2 / 적용일 Effective: 2026-12-01",
+          "links": [
+            {
+              "canonical_ref": {
+                "entity": "BOM",
+                "record_uid": "rec_56af60086ee67acf",
+                "field": "bom_version"
+              }
+            },
+            {
+              "canonical_ref": {
+                "entity": "BOM",
+                "record_uid": "rec_56af60086ee67acf",
+                "field": "valid_from"
+              }
+            }
+          ]
+        },
+        {
+          "block_id": "CS1-b03",
+          "type": "paragraph",
+          "order": 2,
+          "text": "표 1은 V1 구성(2026-01-01~2026-11-30), 표 2는 V2 구성(2026-12-01~)이다. V2에서 강판(M001) 소요량이 1.2 kg에서 1,000 g으로 바뀌었다 (The steel sheet quantity changed from 1.2 kg to 1000 g).",
+          "links": [
+            {
+              "table_id": "CS1-T1",
+              "row": 4,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_0ef5142fde8edf32",
+                "field": "qty_per"
+              }
+            },
+            {
+              "table_id": "CS1-T2",
+              "row": 4,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_c868482e373218cc",
+                "field": "qty_per"
+              }
+            }
+          ]
+        },
+        {
+          "block_id": "CS1-b04",
+          "type": "footnote",
+          "order": 3,
+          "text": "※ 반제품 SF001(히터 코어 모듈)은 별도 BOM(BOM-SF001-V1)으로 관리한다. Semi-finished SF001 has its own BOM.",
+          "links": []
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "CS1-T1",
+          "caption": "표 1. FG001 BOM V1 (2026-01-01~2026-11-30)",
+          "n_rows": 6,
+          "n_cols": 6,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "순번 No.",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "구성품 Component",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "소요량 Qty per unit",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "손실률(%)",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "코드 Code",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "품목명 Name",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "수량 Qty",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "단위 Unit",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF001",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_54ec074be9038846",
+                "field": "component_product_id"
+              }
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "히터 코어 모듈",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_54ec074be9038846",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M001",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_0ef5142fde8edf32",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "강판",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1.2",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_0ef5142fde8edf32",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "kg",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "3",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M006",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_e364818cd2a09ae9",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "전원 케이블",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_e364818cd2a09ae9",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "4",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M010",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_c05120f9dfffe617",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 6,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "포장 박스",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_c05120f9dfffe617",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 6,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            }
+          ],
+          "continuation": null
+        },
+        {
+          "table_id": "CS1-T2",
+          "caption": "표 2. FG001 BOM V2 (2026-12-01~)",
+          "n_rows": 6,
+          "n_cols": 6,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "순번 No.",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "구성품 Component",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "소요량 Qty per unit",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "손실률(%)",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "코드 Code",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "품목명 Name",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "수량 Qty",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "단위 Unit",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF001",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_4dbef641a9f0efef",
+                "field": "component_product_id"
+              }
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "히터 코어 모듈",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_4dbef641a9f0efef",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M001",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_c868482e373218cc",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "강판",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_c868482e373218cc",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "g",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "3",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M006",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_f6d67e31377f577a",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "전원 케이블",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_f6d67e31377f577a",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "4",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M010",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_149e8e557cde9b7f",
+                "field": "component_material_id"
+              }
+            },
+            {
+              "row": 6,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "포장 박스",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "BOMLine",
+                "record_uid": "rec_149e8e557cde9b7f",
+                "field": "qty_per"
+              }
+            },
+            {
+              "row": 6,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            }
+          ],
+          "continuation": null
+        }
+      ],
+      "extracted_values": [
+        {
+          "field": "component_id",
+          "raw": "SF001",
+          "value": "SF001",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 3,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_54ec074be9038846",
+            "field": "component_product_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_54ec074be9038846",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M001",
+          "value": "M001",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 4,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_0ef5142fde8edf32",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1.2",
+          "value": "1.2",
+          "unit": "kg",
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_0ef5142fde8edf32",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M006",
+          "value": "M006",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 5,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_e364818cd2a09ae9",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_e364818cd2a09ae9",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M010",
+          "value": "M010",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 6,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_c05120f9dfffe617",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T1",
+            "row": 6,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_c05120f9dfffe617",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "SF001",
+          "value": "SF001",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 3,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_4dbef641a9f0efef",
+            "field": "component_product_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_4dbef641a9f0efef",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M001",
+          "value": "M001",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 4,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_c868482e373218cc",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1,000",
+          "value": "1000",
+          "unit": "g",
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_c868482e373218cc",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M006",
+          "value": "M006",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 5,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_f6d67e31377f577a",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_f6d67e31377f577a",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "component_id",
+          "raw": "M010",
+          "value": "M010",
+          "unit": null,
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 6,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_149e8e557cde9b7f",
+            "field": "component_material_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "qty_per",
+          "raw": "1",
+          "value": "1",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS1-T2",
+            "row": 6,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "BOMLine",
+            "record_uid": "rec_149e8e557cde9b7f",
+            "field": "qty_per"
+          },
+          "derived_rule": null
+        }
+      ]
+    },
+    "CS2": {
+      "content_set": "CS2",
+      "title": "주문·재고 현황 보고서 (Order & Inventory Report) — 기준일 2026-11-15",
+      "blocks": [
+        {
+          "block_id": "CS2-b01",
+          "type": "heading",
+          "order": 0,
+          "text": "주문·재고 현황 보고서 (Order & Inventory Report) — 기준일 2026-11-15",
+          "links": []
+        },
+        {
+          "block_id": "CS2-b02",
+          "type": "paragraph",
+          "order": 1,
+          "text": "전체 주문 20건 중 진행(OPEN) 18건, 완료 1건, 취소 1건이다. 표 1의 주문은 납기순이 아니라 주문번호순이다.",
+          "links": []
+        },
+        {
+          "block_id": "CS2-b03",
+          "type": "paragraph",
+          "order": 2,
+          "text": "표 2의 재고금액은 보유 수량(기준 단위 환산) × 자재 단가로 계산했다. 제품은 단가가 없어 '-'로 표기한다.",
+          "links": []
+        },
+        {
+          "block_id": "CS2-b04",
+          "type": "footer",
+          "order": 3,
+          "text": "충파모 과제 7 PoC 합성 데이터 — Synthetic data, not real company records.",
+          "links": []
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "CS2-T1",
+          "caption": "표 1. 주문 목록 (Order list)",
+          "n_rows": 22,
+          "n_cols": 6,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 5,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "주문번호 Order No.",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "제품 Product",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "수량 Qty",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 5,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "납기 Due date",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "상태 Status",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "코드 Code",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품명 Name",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O001",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_cf9012fc3d406cac",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "80 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_cf9012fc3d406cac",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-20",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_cf9012fc3d406cac",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 3,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O002",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f47deba67c2464fb",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "40 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f47deba67c2464fb",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-20",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f47deba67c2464fb",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 4,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O003",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3ea3ffb04c3370a6",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "120 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3ea3ffb04c3370a6",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-21",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3ea3ffb04c3370a6",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 5,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O004",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7d652d3b438e07a9",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 6,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "100 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7d652d3b438e07a9",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 6,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-27",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7d652d3b438e07a9",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 6,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O005",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_01be0d60c0db0469",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 7,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "60 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_01be0d60c0db0469",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-27",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_01be0d60c0db0469",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 7,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O006",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f30cfa33155e37fb",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 8,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "150 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f30cfa33155e37fb",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 8,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-27",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f30cfa33155e37fb",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 8,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O007",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_5ee648ee9a69daf6",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 9,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "90 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_5ee648ee9a69daf6",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 9,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-04",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_5ee648ee9a69daf6",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 9,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O008",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_acb02a9d1f81ac6f",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 10,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "50 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_acb02a9d1f81ac6f",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 10,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-04",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_acb02a9d1f81ac6f",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 10,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O009",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3bea45d8993ebc17",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 11,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "130 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3bea45d8993ebc17",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 11,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-04",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_3bea45d8993ebc17",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 11,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O010",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_d0f4c4b7bb7e7a35",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 12,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "110 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_d0f4c4b7bb7e7a35",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 12,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-11",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_d0f4c4b7bb7e7a35",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 12,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O011",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_341d5b819ed04880",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 13,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "70 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_341d5b819ed04880",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 13,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-11",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_341d5b819ed04880",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 13,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O012",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_84f763f6a2563616",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 14,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "160 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_84f763f6a2563616",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 14,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-11",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_84f763f6a2563616",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 14,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O013",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_dc024ee206f72b29",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 15,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "60 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_dc024ee206f72b29",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 15,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-25",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_dc024ee206f72b29",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 15,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O014",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f8699be15b52ae9d",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 16,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "80 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f8699be15b52ae9d",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 16,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-02",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f8699be15b52ae9d",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 16,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O015",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7a020872c9aedc5c",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 17,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "30 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7a020872c9aedc5c",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 17,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-09",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_7a020872c9aedc5c",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 17,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 18,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O016",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_36d630bbf8771a33",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 18,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 18,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 18,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "70 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_36d630bbf8771a33",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 18,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-09",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_36d630bbf8771a33",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 18,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 19,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O017",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4d810932a1fd9a04",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 19,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 19,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 19,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "100 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4d810932a1fd9a04",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 19,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-24",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4d810932a1fd9a04",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 19,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            },
+            {
+              "row": 20,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O018",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_52535a8beb76c531",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 20,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 20,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 20,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "45 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_52535a8beb76c531",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 20,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-01",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_52535a8beb76c531",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 20,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "취소",
+              "is_header": false
+            },
+            {
+              "row": 21,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O019",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4f3fa1fc2e690a66",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 21,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 21,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 21,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "50 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4f3fa1fc2e690a66",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 21,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-18",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_4f3fa1fc2e690a66",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 21,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "완료",
+              "is_header": false
+            },
+            {
+              "row": 22,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "O020",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f29966aad7a1720f",
+                "field": "order_id"
+              }
+            },
+            {
+              "row": 22,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 22,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 22,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "40 EA",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f29966aad7a1720f",
+                "field": "order_qty"
+              }
+            },
+            {
+              "row": 22,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-13",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Order",
+                "record_uid": "rec_f29966aad7a1720f",
+                "field": "due_date"
+              }
+            },
+            {
+              "row": 22,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "진행",
+              "is_header": false
+            }
+          ],
+          "continuation": {
+            "split_policy": "PDF·PPTX에서 12행(데이터)마다 다음 페이지·슬라이드로 넘기고 헤더 2행을 반복",
+            "repeated_header": true
+          }
+        },
+        {
+          "table_id": "CS2-T2",
+          "caption": "표 2. 재고 현황 (Inventory)",
+          "n_rows": 17,
+          "n_cols": 7,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 7,
+              "rowspan": 2,
+              "colspan": 1
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "구분 Type",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "품목 Item",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 2,
+              "text": "현재고 On hand",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "단가(원) Unit cost",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 7,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "재고금액(원) Value",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "코드 Code",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "품목명 Name",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "수량 Qty",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "단위 Unit",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 A",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "120",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_bafbab751c2a3216",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "가정용 히터 B",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "60",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_9ce3ac1bed1dae93",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "산업용 송풍기 C",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "90",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_59dbe89d3d148a81",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF001",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "히터 코어 모듈",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "150",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_0d8fead2291e5605",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 6,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "제품",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF002",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "모터 하우징 조립품",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "40",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_b8e4781a9f6b2d74",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "-",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M001",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "강판",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "800",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_3588725d04fec280",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 8,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "kg",
+              "is_header": false
+            },
+            {
+              "row": 8,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1,200",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_1c7523b3a050f0db",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 8,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "960,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_3588725d04fec280",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 9,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M002",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "알루미늄 판재",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_8e15c3bc877ffa45",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 9,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "kg",
+              "is_header": false
+            },
+            {
+              "row": 9,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "3,500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_819e5c083055bab5",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 9,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1,750,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_8e15c3bc877ffa45",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 10,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M003",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "구리선",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "200,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_367d8e714ac1b695",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 10,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "g",
+              "is_header": false
+            },
+            {
+              "row": 10,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "11,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_752906654b613dc0",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 10,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2,200,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_367d8e714ac1b695",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 11,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M004",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "ABS 수지",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "300",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_d6cb6e1b706a07ee",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 11,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "kg",
+              "is_header": false
+            },
+            {
+              "row": 11,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2,500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_ae7d3885fe9886f2",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 11,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "750,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_d6cb6e1b706a07ee",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 12,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M005",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "PCB 기판",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "600",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_b98b54674b237cca",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 12,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 12,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "4,500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_4ef19f05e1cc8439",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 12,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2,700,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_b98b54674b237cca",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 13,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M006",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "전원 케이블",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_86fc41700e5b9227",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 13,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 13,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1,500",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_d5d626c67152f46c",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 13,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "750,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_86fc41700e5b9227",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 14,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M007",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "소형 모터",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "400",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_0e58aa10a0b0b494",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 14,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 14,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "18,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_baf10e00bf33b4b1",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 14,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "7,200,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_0e58aa10a0b0b494",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 15,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M008",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "체결 볼트 세트",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "1,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_c2b4c918d638b848",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 15,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 15,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "300",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_c89f5f7e9a1b0272",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 15,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "300,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_c2b4c918d638b848",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 16,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M009",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "분체 도료",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "50",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_8e1d740335bee22c",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 16,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "kg",
+              "is_header": false
+            },
+            {
+              "row": 16,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "9,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_e4a3a477ae553e6a",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 16,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "450,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_8e1d740335bee22c",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 17,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "M010",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "포장 박스",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "700",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_9ec12f93b3c09d6d",
+                "field": "on_hand_qty"
+              }
+            },
+            {
+              "row": 17,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "EA",
+              "is_header": false
+            },
+            {
+              "row": 17,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "800",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Material",
+                "record_uid": "rec_2e899172bb9dced3",
+                "field": "unit_cost"
+              }
+            },
+            {
+              "row": 17,
+              "col": 7,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "560,000",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "Inventory",
+                "record_uid": "rec_9ec12f93b3c09d6d",
+                "field": "on_hand_qty"
+              }
+            }
+          ],
+          "continuation": null
+        }
+      ],
+      "extracted_values": [
+        {
+          "field": "order_id",
+          "raw": "O001",
+          "value": "O001",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 3,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_cf9012fc3d406cac",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "80 EA",
+          "value": "80",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_cf9012fc3d406cac",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-20",
+          "value": "2026-11-20",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 3,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_cf9012fc3d406cac",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O002",
+          "value": "O002",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 4,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f47deba67c2464fb",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "40 EA",
+          "value": "40",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f47deba67c2464fb",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-20",
+          "value": "2026-11-20",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 4,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f47deba67c2464fb",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O003",
+          "value": "O003",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 5,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3ea3ffb04c3370a6",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "120 EA",
+          "value": "120",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3ea3ffb04c3370a6",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-21",
+          "value": "2026-11-21",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 5,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3ea3ffb04c3370a6",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O004",
+          "value": "O004",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 6,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7d652d3b438e07a9",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "100 EA",
+          "value": "100",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 6,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7d652d3b438e07a9",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-27",
+          "value": "2026-11-27",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 6,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7d652d3b438e07a9",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O005",
+          "value": "O005",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 7,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_01be0d60c0db0469",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "60 EA",
+          "value": "60",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 7,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_01be0d60c0db0469",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-27",
+          "value": "2026-11-27",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 7,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_01be0d60c0db0469",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O006",
+          "value": "O006",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 8,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f30cfa33155e37fb",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "150 EA",
+          "value": "150",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 8,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f30cfa33155e37fb",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-27",
+          "value": "2026-11-27",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 8,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f30cfa33155e37fb",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O007",
+          "value": "O007",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 9,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_5ee648ee9a69daf6",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "90 EA",
+          "value": "90",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 9,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_5ee648ee9a69daf6",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-04",
+          "value": "2026-12-04",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 9,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_5ee648ee9a69daf6",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O008",
+          "value": "O008",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 10,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_acb02a9d1f81ac6f",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "50 EA",
+          "value": "50",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 10,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_acb02a9d1f81ac6f",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-04",
+          "value": "2026-12-04",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 10,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_acb02a9d1f81ac6f",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O009",
+          "value": "O009",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 11,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3bea45d8993ebc17",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "130 EA",
+          "value": "130",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 11,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3bea45d8993ebc17",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-04",
+          "value": "2026-12-04",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 11,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_3bea45d8993ebc17",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O010",
+          "value": "O010",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 12,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_d0f4c4b7bb7e7a35",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "110 EA",
+          "value": "110",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 12,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_d0f4c4b7bb7e7a35",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-11",
+          "value": "2026-12-11",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 12,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_d0f4c4b7bb7e7a35",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O011",
+          "value": "O011",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 13,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_341d5b819ed04880",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "70 EA",
+          "value": "70",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 13,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_341d5b819ed04880",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-11",
+          "value": "2026-12-11",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 13,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_341d5b819ed04880",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O012",
+          "value": "O012",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 14,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_84f763f6a2563616",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "160 EA",
+          "value": "160",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 14,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_84f763f6a2563616",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-11",
+          "value": "2026-12-11",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 14,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_84f763f6a2563616",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O013",
+          "value": "O013",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 15,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_dc024ee206f72b29",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "60 EA",
+          "value": "60",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 15,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_dc024ee206f72b29",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-25",
+          "value": "2026-11-25",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 15,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_dc024ee206f72b29",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O014",
+          "value": "O014",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 16,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f8699be15b52ae9d",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "80 EA",
+          "value": "80",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 16,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f8699be15b52ae9d",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-02",
+          "value": "2026-12-02",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 16,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f8699be15b52ae9d",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O015",
+          "value": "O015",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 17,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7a020872c9aedc5c",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "30 EA",
+          "value": "30",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 17,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7a020872c9aedc5c",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-09",
+          "value": "2026-12-09",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 17,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_7a020872c9aedc5c",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O016",
+          "value": "O016",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 18,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_36d630bbf8771a33",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "70 EA",
+          "value": "70",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 18,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_36d630bbf8771a33",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-09",
+          "value": "2026-12-09",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 18,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_36d630bbf8771a33",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O017",
+          "value": "O017",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 19,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4d810932a1fd9a04",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "100 EA",
+          "value": "100",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 19,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4d810932a1fd9a04",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-24",
+          "value": "2026-11-24",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 19,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4d810932a1fd9a04",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O018",
+          "value": "O018",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 20,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_52535a8beb76c531",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "45 EA",
+          "value": "45",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 20,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_52535a8beb76c531",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-01",
+          "value": "2026-12-01",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 20,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_52535a8beb76c531",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O019",
+          "value": "O019",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 21,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4f3fa1fc2e690a66",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "50 EA",
+          "value": "50",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 21,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4f3fa1fc2e690a66",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-11-18",
+          "value": "2026-11-18",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 21,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_4f3fa1fc2e690a66",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_id",
+          "raw": "O020",
+          "value": "O020",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 22,
+            "col": 1
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f29966aad7a1720f",
+            "field": "order_id"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "order_qty",
+          "raw": "40 EA",
+          "value": "40",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 22,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f29966aad7a1720f",
+            "field": "order_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "due_date",
+          "raw": "2026-12-13",
+          "value": "2026-12-13",
+          "unit": null,
+          "source": {
+            "table_id": "CS2-T1",
+            "row": 22,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "Order",
+            "record_uid": "rec_f29966aad7a1720f",
+            "field": "due_date"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "120",
+          "value": "120",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_bafbab751c2a3216",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "60",
+          "value": "60",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_9ce3ac1bed1dae93",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "90",
+          "value": "90",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_59dbe89d3d148a81",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "150",
+          "value": "150",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 6,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_0d8fead2291e5605",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "40",
+          "value": "40",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 7,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_b8e4781a9f6b2d74",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "800",
+          "value": "800",
+          "unit": "kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 8,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_3588725d04fec280",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "1,200",
+          "value": "1200",
+          "unit": "KRW/kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 8,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_1c7523b3a050f0db",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "960,000",
+          "value": "960000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 8,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_3588725d04fec280",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(kg→kg) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "500",
+          "value": "500",
+          "unit": "kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 9,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_8e15c3bc877ffa45",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "3,500",
+          "value": "3500",
+          "unit": "KRW/kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 9,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_819e5c083055bab5",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "1,750,000",
+          "value": "1750000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 9,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_8e15c3bc877ffa45",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(kg→kg) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "200,000",
+          "value": "200000",
+          "unit": "g",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 10,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_367d8e714ac1b695",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "11,000",
+          "value": "11000",
+          "unit": "KRW/kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 10,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_752906654b613dc0",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "2,200,000",
+          "value": "2200000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 10,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_367d8e714ac1b695",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(g→kg) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "300",
+          "value": "300",
+          "unit": "kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 11,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_d6cb6e1b706a07ee",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "2,500",
+          "value": "2500",
+          "unit": "KRW/kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 11,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_ae7d3885fe9886f2",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "750,000",
+          "value": "750000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 11,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_d6cb6e1b706a07ee",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(kg→kg) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "600",
+          "value": "600",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 12,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_b98b54674b237cca",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "4,500",
+          "value": "4500",
+          "unit": "KRW/EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 12,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_4ef19f05e1cc8439",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "2,700,000",
+          "value": "2700000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 12,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_b98b54674b237cca",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(EA→EA) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "500",
+          "value": "500",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 13,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_86fc41700e5b9227",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "1,500",
+          "value": "1500",
+          "unit": "KRW/EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 13,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_d5d626c67152f46c",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "750,000",
+          "value": "750000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 13,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_86fc41700e5b9227",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(EA→EA) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "400",
+          "value": "400",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 14,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_0e58aa10a0b0b494",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "18,000",
+          "value": "18000",
+          "unit": "KRW/EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 14,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_baf10e00bf33b4b1",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "7,200,000",
+          "value": "7200000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 14,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_0e58aa10a0b0b494",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(EA→EA) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "1,000",
+          "value": "1000",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 15,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_c2b4c918d638b848",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "300",
+          "value": "300",
+          "unit": "KRW/EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 15,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_c89f5f7e9a1b0272",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "300,000",
+          "value": "300000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 15,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_c2b4c918d638b848",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(EA→EA) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "50",
+          "value": "50",
+          "unit": "kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 16,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_8e1d740335bee22c",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "9,000",
+          "value": "9000",
+          "unit": "KRW/kg",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 16,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_e4a3a477ae553e6a",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "450,000",
+          "value": "450000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 16,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_8e1d740335bee22c",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(kg→kg) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        },
+        {
+          "field": "on_hand_qty",
+          "raw": "700",
+          "value": "700",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 17,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_9ec12f93b3c09d6d",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "unit_cost",
+          "raw": "800",
+          "value": "800",
+          "unit": "KRW/EA",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 17,
+            "col": 6
+          },
+          "canonical_ref": {
+            "entity": "Material",
+            "record_uid": "rec_2e899172bb9dced3",
+            "field": "unit_cost"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "inventory_value_krw",
+          "raw": "560,000",
+          "value": "560000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS2-T2",
+            "row": 17,
+            "col": 7
+          },
+          "canonical_ref": {
+            "entity": "Inventory",
+            "record_uid": "rec_9ec12f93b3c09d6d",
+            "field": "on_hand_qty"
+          },
+          "derived_rule": "on_hand_qty(EA→EA) × Material.unit_cost — E03 문서용 파생값 (canonical에 없는 값)"
+        }
+      ]
+    },
+    "CS3": {
+      "content_set": "CS3",
+      "title": "생산계획안 비교 (Production Plan Comparison) — 2026-11-16 ~ 2026-12-13",
+      "blocks": [
+        {
+          "block_id": "CS3-b01",
+          "type": "slide_title",
+          "order": 0,
+          "text": "생산계획안 비교 (Production Plan Comparison) — 2026-11-16 ~ 2026-12-13",
+          "links": []
+        },
+        {
+          "block_id": "CS3-b02",
+          "type": "slide_body",
+          "order": 1,
+          "text": "잔업안은 같은 수량을 정규 + 잔업 시간으로 생산한다. 외주안은 FG003 일부를 가상 외주처(합성 가정)에 맡긴다.",
+          "links": []
+        },
+        {
+          "block_id": "CS3-b03",
+          "type": "speaker_notes",
+          "order": 2,
+          "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.",
+          "links": []
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "CS3-T1",
+          "caption": "정규생산안(PLAN-REG) 주차별 계획",
+          "n_rows": 7,
+          "n_cols": 5,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 4
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "제품 Product",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 4,
+              "text": "주차별 계획 수량 Weekly planned qty (EA)",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-16",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-23",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-11-30",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2026-12-07",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG001",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "30",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_42835a48ce9fb52a",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "160",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_f5d557f8c11d5d1f",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "90",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_073720db77f3ebe3",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "180",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_a9a02f8538b8aac8",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG002",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "10",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_1607d4a2a6c2de41",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "60",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_879776be691e6d69",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "50",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_6d1729ee9e2cc07d",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "100",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_7bc777cf179e236c",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "FG003",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "80",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_7a133dbbadca2978",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "250",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_80d5649dd561e695",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "210",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_044cce110f0d80e2",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "200",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_ba55632b0235afc5",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 6,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF001",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false
+            },
+            {
+              "row": 6,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "200",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_7f2fff8b75674337",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 6,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "190",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_dbf5d8cab038a55e",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 6,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "380",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_3ac7d7a3c32738de",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "SF002",
+              "is_header": false
+            },
+            {
+              "row": 7,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "50",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_2471871f7ac77a0f",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "250",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_50ef03da16444078",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "210",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_b8df3c3b064c55e7",
+                "field": "planned_qty"
+              }
+            },
+            {
+              "row": 7,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "200",
+              "is_header": false,
+              "canonical_ref": {
+                "entity": "ProductionPlanLine",
+                "record_uid": "rec_497c684373d82f44",
+                "field": "planned_qty"
+              }
+            }
+          ],
+          "continuation": {
+            "split_policy": "PPTX에서 완제품 3행은 슬라이드 2, 반제품 2행은 슬라이드 3 (헤더 반복)",
+            "repeated_header": true
+          }
+        },
+        {
+          "table_id": "CS3-T2",
+          "caption": "계획안별 비용·능력 초과 (v2 정답셋 기대값)",
+          "n_rows": 5,
+          "n_cols": 6,
+          "header_rows": 2,
+          "merged_ranges": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 4
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1
+            }
+          ],
+          "cells": [
+            {
+              "row": 1,
+              "col": 1,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "계획안 Plan",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 4,
+              "text": "비용(원) Cost (KRW)",
+              "is_header": true
+            },
+            {
+              "row": 1,
+              "col": 6,
+              "rowspan": 2,
+              "colspan": 1,
+              "text": "능력 초과(h)",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "자재비",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "정규 생산비",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "잔업비",
+              "is_header": true
+            },
+            {
+              "row": 2,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "외주비",
+              "is_header": true
+            },
+            {
+              "row": 3,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "PLAN-OT",
+              "is_header": false
+            },
+            {
+              "row": 3,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "23,932,680",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.material"
+              }
+            },
+            {
+              "row": 3,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "30,918,500",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.regular_production"
+              }
+            },
+            {
+              "row": 3,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "2,025,000",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.overtime"
+              }
+            },
+            {
+              "row": 3,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.outsourcing"
+              }
+            },
+            {
+              "row": 3,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "10.5",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "PLAN-OUT",
+              "is_header": false
+            },
+            {
+              "row": 4,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "12,713,640",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.material"
+              }
+            },
+            {
+              "row": 4,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "21,999,500",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.regular_production"
+              }
+            },
+            {
+              "row": 4,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.overtime"
+              }
+            },
+            {
+              "row": 4,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "20,140,000",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.outsourcing"
+              }
+            },
+            {
+              "row": 4,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "18",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 1,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "PLAN-REG",
+              "is_header": false
+            },
+            {
+              "row": 5,
+              "col": 2,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "23,932,680",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.material"
+              }
+            },
+            {
+              "row": 5,
+              "col": 3,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "30,918,500",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.regular_production"
+              }
+            },
+            {
+              "row": 5,
+              "col": 4,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.overtime"
+              }
+            },
+            {
+              "row": 5,
+              "col": 5,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "0",
+              "is_header": false,
+              "canonical_ref": {
+                "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.outsourcing"
+              }
+            },
+            {
+              "row": 5,
+              "col": 6,
+              "rowspan": 1,
+              "colspan": 1,
+              "text": "36.5",
+              "is_header": false
+            }
+          ],
+          "continuation": null
+        }
+      ],
+      "extracted_values": [
+        {
+          "field": "planned_qty",
+          "raw": "30",
+          "value": "30",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 3,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_42835a48ce9fb52a",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "160",
+          "value": "160",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 3,
+            "col": 3
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_f5d557f8c11d5d1f",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "90",
+          "value": "90",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_073720db77f3ebe3",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "180",
+          "value": "180",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 3,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_a9a02f8538b8aac8",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "10",
+          "value": "10",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 4,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_1607d4a2a6c2de41",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "60",
+          "value": "60",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 4,
+            "col": 3
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_879776be691e6d69",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "50",
+          "value": "50",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_6d1729ee9e2cc07d",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "100",
+          "value": "100",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 4,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_7bc777cf179e236c",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "80",
+          "value": "80",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 5,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_7a133dbbadca2978",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "250",
+          "value": "250",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 5,
+            "col": 3
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_80d5649dd561e695",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "210",
+          "value": "210",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_044cce110f0d80e2",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "200",
+          "value": "200",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 5,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_ba55632b0235afc5",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "200",
+          "value": "200",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 6,
+            "col": 3
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_7f2fff8b75674337",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "190",
+          "value": "190",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 6,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_dbf5d8cab038a55e",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "380",
+          "value": "380",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 6,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_3ac7d7a3c32738de",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "50",
+          "value": "50",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 7,
+            "col": 2
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_2471871f7ac77a0f",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "250",
+          "value": "250",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 7,
+            "col": 3
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_50ef03da16444078",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "210",
+          "value": "210",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 7,
+            "col": 4
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_b8df3c3b064c55e7",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "planned_qty",
+          "raw": "200",
+          "value": "200",
+          "unit": "EA",
+          "source": {
+            "table_id": "CS3-T1",
+            "row": 7,
+            "col": 5
+          },
+          "canonical_ref": {
+            "entity": "ProductionPlanLine",
+            "record_uid": "rec_497c684373d82f44",
+            "field": "planned_qty"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_material",
+          "raw": "23,932,680",
+          "value": "23932680",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 3,
+            "col": 2
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.material"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_regular_production",
+          "raw": "30,918,500",
+          "value": "30918500",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 3,
+            "col": 3
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.regular_production"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_overtime",
+          "raw": "2,025,000",
+          "value": "2025000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 3,
+            "col": 4
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.overtime"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_outsourcing",
+          "raw": "0",
+          "value": "0",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 3,
+            "col": 5
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OT.costs_krw.outsourcing"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_material",
+          "raw": "12,713,640",
+          "value": "12713640",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 4,
+            "col": 2
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.material"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_regular_production",
+          "raw": "21,999,500",
+          "value": "21999500",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 4,
+            "col": 3
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.regular_production"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_overtime",
+          "raw": "0",
+          "value": "0",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 4,
+            "col": 4
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.overtime"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_outsourcing",
+          "raw": "20,140,000",
+          "value": "20140000",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 4,
+            "col": 5
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-OUT.costs_krw.outsourcing"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_material",
+          "raw": "23,932,680",
+          "value": "23932680",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 5,
+            "col": 2
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.material"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_regular_production",
+          "raw": "30,918,500",
+          "value": "30918500",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 5,
+            "col": 3
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.regular_production"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_overtime",
+          "raw": "0",
+          "value": "0",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 5,
+            "col": 4
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.overtime"
+          },
+          "derived_rule": null
+        },
+        {
+          "field": "cost_outsourcing",
+          "raw": "0",
+          "value": "0",
+          "unit": "KRW",
+          "source": {
+            "table_id": "CS3-T2",
+            "row": 5,
+            "col": 5
+          },
+          "canonical_ref": {
+            "expected_path": "expected.plan_evaluation.PLAN-REG.costs_krw.outsourcing"
+          },
+          "derived_rule": null
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "doc_id": "D-01",
+      "format": "docx",
+      "content_set": "CS1",
+      "file": "data/documents/D-01_bom_spec.docx",
+      "method": "생성 (python-docx)",
+      "layout": {
+        "header": "CS1-b02 (문서번호·개정)",
+        "footer": "페이지 번호",
+        "body_order": [
+          "CS1-b01",
+          "CS1-b03",
+          "CS1-T1",
+          "CS1-T2",
+          "CS1-b04"
+        ]
+      },
+      "location_scheme": "part(body/header/footer) + body_index + table_index/row/col",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "텍스트 블록·순서",
+        "머리말·꼬리말·각주",
+        "표 셀·병합(2행 헤더)",
+        "숫자·단위(천 단위 쉼표, g/kg)·날짜",
+        "원본 위치(part·body_index·표 행열)",
+        "본문-표 연결"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "D-02",
+      "format": "docx",
+      "content_set": "CS2",
+      "file": "data/documents/D-02_order_inventory.docx",
+      "method": "생성 (python-docx)",
+      "layout": {
+        "footer": "CS2-b04",
+        "body_order": [
+          "CS2-b01",
+          "CS2-b02",
+          "CS2-T1",
+          "CS2-b03",
+          "CS2-T2"
+        ]
+      },
+      "location_scheme": "part + body_index + table_index/row/col",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "텍스트 블록·순서",
+        "머리말·꼬리말·각주",
+        "표 셀·병합(2행 헤더)",
+        "숫자·단위(천 단위 쉼표, g/kg)·날짜",
+        "원본 위치(part·body_index·표 행열)",
+        "본문-표 연결"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "P-01",
+      "format": "pdf_text",
+      "content_set": "CS1",
+      "file": "data/documents/P-01_bom_spec.pdf",
+      "method": "생성 (reportlab)",
+      "layout": {
+        "pages": 1,
+        "header_on_each_page": "CS1-b02"
+      },
+      "location_scheme": "page + bbox(pt, origin top-left, 생성 시 기록)",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "텍스트 블록·순서",
+        "표 검출 재현율·정밀도",
+        "표 셀·병합",
+        "페이지 넘김 표 연결·반복 헤더",
+        "숫자·단위·날짜",
+        "원본 위치(page·bbox IoU)",
+        "머리말의 문서번호·개정"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "P-02",
+      "format": "pdf_text",
+      "content_set": "CS2",
+      "file": "data/documents/P-02_order_inventory.pdf",
+      "method": "생성 (reportlab)",
+      "layout": {
+        "pages": "3 (CS2-T1이 1→2쪽으로 넘어감, 헤더 반복)"
+      },
+      "location_scheme": "page + bbox",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "텍스트 블록·순서",
+        "표 검출 재현율·정밀도",
+        "표 셀·병합",
+        "페이지 넘김 표 연결·반복 헤더",
+        "숫자·단위·날짜",
+        "원본 위치(page·bbox IoU)",
+        "머리말의 문서번호·개정"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "S-01",
+      "format": "pdf_scan",
+      "content_set": "CS1",
+      "file": "data/documents/S-01_bom_spec_scan.pdf",
+      "method": "생성 (Pillow로 텍스트·표를 이미지에 그려 PDF로 저장, 텍스트 레이어 없음)",
+      "layout": {
+        "pages": 1,
+        "dpi": "팀 합의 필요 (제안 200)"
+      },
+      "location_scheme": "page + bbox(px→pt 환산, 그릴 때 기록)",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "스캔 판정(텍스트 레이어 없음)",
+        "직접 추출 시 빈 출력(EXT-EMPTY) 판정",
+        "OCR/API 비교는 E04"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "S-02",
+      "format": "pdf_scan",
+      "content_set": "CS2",
+      "file": "data/documents/S-02_order_inventory_scan.pdf",
+      "method": "생성 (Pillow)",
+      "layout": {
+        "pages": 3,
+        "noise": "기울기·잡음 없음(1차). 기울기 추가본은 후속"
+      },
+      "location_scheme": "page + bbox",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "스캔 판정(텍스트 레이어 없음)",
+        "직접 추출 시 빈 출력(EXT-EMPTY) 판정",
+        "OCR/API 비교는 E04"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "T-01",
+      "format": "pptx",
+      "content_set": "CS3",
+      "file": "data/documents/T-01_plan_comparison.pptx",
+      "method": "생성 (python-pptx)",
+      "layout": {
+        "slides": [
+          "1: CS3-b01 제목",
+          "2: CS3-T1 완제품 3행 + 헤더",
+          "3: CS3-T1 반제품 2행 + 헤더 반복",
+          "4: CS3-T2 + CS3-b02(텍스트 상자, 그룹 도형 안)",
+          "노트: CS3-b03 (슬라이드 4)"
+        ]
+      },
+      "location_scheme": "slide_index + shape_name(생성 시 고정 이름) + shape_id(생성 시 기록) + row/col + part(slide/notes)",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "슬라이드·도형 순서",
+        "표 도형 셀·병합",
+        "슬라이드를 넘는 표 연결",
+        "그룹 도형 안 텍스트",
+        "발표자 노트",
+        "원본 위치(slide·shape)"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "T-02",
+      "format": "pptx",
+      "content_set": "CS1",
+      "file": "data/documents/T-02_bom_spec.pptx",
+      "method": "생성 (python-pptx)",
+      "layout": {
+        "slides": [
+          "1: 제목·문서번호",
+          "2: CS1-T1",
+          "3: CS1-T2 + CS1-b03 (텍스트 상자)"
+        ]
+      },
+      "location_scheme": "slide_index + shape_name + shape_id + row/col",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "슬라이드·도형 순서",
+        "표 도형 셀·병합",
+        "슬라이드를 넘는 표 연결",
+        "그룹 도형 안 텍스트",
+        "발표자 노트",
+        "원본 위치(slide·shape)"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "H-01",
+      "format": "hwpx",
+      "content_set": "CS1",
+      "file": "data/documents/H-01_bom_spec.hwpx",
+      "method": "생성 시도 (python-hwpx 또는 zipfile+XML 직접 작성). **한글 프로그램에서 열리는지 확인 전에는 검증 완료로 처리하지 않음**",
+      "layout": {
+        "section": "section0",
+        "body_order": [
+          "CS1-b01",
+          "CS1-b02",
+          "CS1-b03",
+          "CS1-T1",
+          "CS1-T2",
+          "CS1-b04"
+        ]
+      },
+      "location_scheme": "section_file + paragraph index(생성 시 기록) + table_index/row/col",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "열림 여부(한글 프로그램 확인 필요)",
+        "문단 순서",
+        "표 셀·병합",
+        "숫자·단위·날짜",
+        "원본 위치(section·paragraph)"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    },
+    {
+      "doc_id": "W-01",
+      "format": "hwp",
+      "content_set": "CS1",
+      "file": "data/documents/W-01_bom_spec.hwp",
+      "method": "외부 확보 필요 — 한글 프로그램 보유자가 D-01 또는 H-01을 열어 HWP로 저장(변환) 후 독립 검수 (E01 HWP 정답 원천 예외)",
+      "layout": {
+        "note": "변환 과정에서 바뀐 부분은 검수 정답 JSON을 기준으로 함"
+      },
+      "location_scheme": "section + paragraph + control_index + row/col (사용 도구 기준)",
+      "status": "NOT_GENERATED",
+      "evaluation_items": [
+        "열림 여부",
+        "문단·표 추출",
+        "병합",
+        "원본 위치 — 외부 확보 후"
+      ],
+      "verification": "샘플 생성·확보 전 — 모든 지표 미측정"
+    }
+  ]
+}

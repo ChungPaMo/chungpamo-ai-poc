@@ -9,6 +9,12 @@
 
 from __future__ import annotations
 
+import os
+
+# openpyxl은 lxml이 설치되어 있으면 xlsx XML을 lxml로 기록해 바이트가 달라진다 (E03에서 lxml 설치 후 확인).
+# E01 커밋 산출물과 같은 바이트를 재현하려면 openpyxl import 전에 lxml 기록을 끈다 (셀 값은 어느 쪽이든 동일).
+os.environ.setdefault("OPENPYXL_LXML", "False")
+
 import argparse
 import csv
 import datetime as dt

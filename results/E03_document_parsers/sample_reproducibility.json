@@ -1,0 +1,45 @@
+{
+  "method": "같은 입력으로 임시 폴더 2곳에 다시 생성해 프로젝트 산출물과 비교",
+  "byte_level": {
+    "data/documents/D-01_bom_spec.docx": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/documents/D-02_order_inventory.docx": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/documents/P-01_bom_spec.pdf": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/documents/P-02_order_inventory.pdf": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/documents/T-01_plan_comparison.pptx": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/documents/T-02_bom_spec.pptx": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    },
+    "data/canonical/e03_document_locations_v1.json": {
+      "run1_eq_run2": true,
+      "project_eq_rerun": true
+    }
+  },
+  "structure_level": {
+    "run1_eq_run2": true,
+    "project_eq_rerun": true,
+    "basis": "독립 검증 결과(항목별 상태·분자·분모)"
+  },
+  "content_level": {
+    "run1_eq_run2": true,
+    "project_eq_rerun": true,
+    "basis": "생성 위치 메타데이터 전체(블록·표 조각·셀 위치·도형 ID) + 검증기의 텍스트·셀 대조"
+  },
+  "fixation": "OOXML: zip 항목 시각·core.xml 시각 고정(e01_common.normalize_xlsx), 문서 속성 고정 / PDF: reportlab invariant=1(생성 시각·문서 ID 고정)",
+  "byte_level_all_match": true
+}

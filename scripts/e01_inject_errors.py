@@ -9,6 +9,10 @@
 
 from __future__ import annotations
 
+import os
+
+os.environ.setdefault("OPENPYXL_LXML", "False")  # E01 xlsx 바이트 재현 (e01_generate.py 주석 참고)
+
 import argparse
 import csv
 import io

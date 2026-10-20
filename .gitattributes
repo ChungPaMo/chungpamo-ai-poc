@@ -3,3 +3,6 @@
 data/** -text
 results/** -text
 *.xlsx binary
+*.docx binary
+*.pptx binary
+*.pdf binary
