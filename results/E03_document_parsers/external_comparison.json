@@ -1,0 +1,1297 @@
+{
+ "blind8|v1": {
+  "folder": "external_baseline_v1",
+  "parser_failures": [
+   "X-D01×python-docx"
+  ],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 2,
+    "denominator": 9,
+    "rate": 0.2222,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 2,
+    "denominator": 16,
+    "rate": 0.125,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 0,
+    "denominator": 9,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 2,
+    "denominator": 672,
+    "rate": 0.003,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 1,
+    "denominator": 672,
+    "rate": 0.0015,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 5,
+    "denominator": 672,
+    "rate": 0.0074,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 2,
+    "denominator": 29,
+    "rate": 0.069,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 2,
+    "denominator": 61,
+    "rate": 0.0328,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 0,
+    "denominator": 10,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 53,
+    "denominator": 54,
+    "rate": 0.9815,
+    "truth_status": [
+     "MIXED"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 2,
+    "denominator": 2,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 18,
+    "denominator": 18,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 3,
+    "denominator": 3,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 1485,
+    "denominator": 1485,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 0,
+    "denominator": 2,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "변경 추적 삽입": {
+    "numerator": 0,
+    "denominator": 1,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 1
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 29,
+    "denominator": 29,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 50,
+    "denominator": 50,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 5,
+    "denominator": 5,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "SmartArt": {
+    "numerator": 0,
+    "denominator": 11,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "차트": {
+    "numerator": 1,
+    "denominator": 20,
+    "rate": 0.05,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 2
+  },
+  "perf": {
+   "python-docx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0199,
+    "parse_s_max": 0.0336,
+    "rss_mb_max": 40.2,
+    "heap_mb_max": 0.369
+   },
+   "python-pptx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0304,
+    "parse_s_max": 0.0469,
+    "rss_mb_max": 43.9,
+    "heap_mb_max": 0.64
+   },
+   "pypdf": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.3915,
+    "parse_s_max": 0.7434,
+    "rss_mb_max": 61.7,
+    "heap_mb_max": 11.598
+   },
+   "pdfplumber": {
+    "docs": 4,
+    "parse_s_median_of_docs": 1.8547,
+    "parse_s_max": 2.9406,
+    "rss_mb_max": 232.0,
+    "heap_mb_max": 168.044
+   }
+  }
+ },
+ "blind8|v2": {
+  "folder": "external_blind8_v2",
+  "parser_failures": [],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 7,
+    "denominator": 9,
+    "rate": 0.7778,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 7,
+    "denominator": 8,
+    "rate": 0.875,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 6,
+    "denominator": 9,
+    "rate": 0.6667,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 475,
+    "denominator": 672,
+    "rate": 0.7068,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 292,
+    "denominator": 672,
+    "rate": 0.4345,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 297,
+    "denominator": 672,
+    "rate": 0.442,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 5,
+    "denominator": 29,
+    "rate": 0.1724,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 33,
+    "denominator": 61,
+    "rate": 0.541,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 3,
+    "denominator": 10,
+    "rate": 0.3,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 86,
+    "denominator": 86,
+    "rate": 1.0,
+    "truth_status": [
+     "MIXED",
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 4,
+    "denominator": 4,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 30,
+    "denominator": 30,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 2101,
+    "denominator": 2101,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 2,
+    "denominator": 2,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "변경 추적 삽입": {
+    "numerator": 1,
+    "denominator": 1,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 2
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 29,
+    "denominator": 29,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 50,
+    "denominator": 50,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 5,
+    "denominator": 5,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "SmartArt": {
+    "numerator": 11,
+    "denominator": 11,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "차트": {
+    "numerator": 20,
+    "denominator": 20,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 2
+  },
+  "perf": {
+   "python-docx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0081,
+    "parse_s_max": 0.0089,
+    "rss_mb_max": 39.9,
+    "heap_mb_max": 0.376
+   },
+   "python-pptx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0319,
+    "parse_s_max": 0.0499,
+    "rss_mb_max": 43.9,
+    "heap_mb_max": 0.659
+   },
+   "pypdf": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.3934,
+    "parse_s_max": 0.7534,
+    "rss_mb_max": 61.9,
+    "heap_mb_max": 11.598
+   },
+   "pdfplumber": {
+    "docs": 4,
+    "parse_s_median_of_docs": 1.2304,
+    "parse_s_max": 2.9241,
+    "rss_mb_max": 232.8,
+    "heap_mb_max": 168.627
+   }
+  }
+ },
+ "dev|v1": {
+  "folder": "external_dev_v1",
+  "parser_failures": [],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 0,
+    "denominator": 8,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 0,
+    "denominator": 1,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 0,
+    "denominator": 8,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 0,
+    "denominator": 730,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 0,
+    "denominator": 730,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 0,
+    "denominator": 730,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 20,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 0,
+    "denominator": 57,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 0,
+    "denominator": 2,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 19,
+    "denominator": 35,
+    "rate": 0.5429,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 4,
+    "denominator": 7,
+    "rate": 0.5714,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 6,
+    "denominator": 17,
+    "rate": 0.3529,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 141,
+    "denominator": 141,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "변경 추적 삽입": {
+    "numerator": 0,
+    "denominator": 1,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 2
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 17,
+    "denominator": 17,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 1,
+    "denominator": 1,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "SmartArt": {
+    "numerator": 0,
+    "denominator": 2,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "차트": {
+    "numerator": 0,
+    "denominator": 5,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "perf": {
+   "python-docx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0102,
+    "parse_s_max": 0.0115,
+    "rss_mb_max": 39.0,
+    "heap_mb_max": 0.206
+   },
+   "python-pptx": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.0095,
+    "parse_s_max": 0.0222,
+    "rss_mb_max": 41.1,
+    "heap_mb_max": 0.377
+   },
+   "pypdf": {
+    "docs": 5,
+    "parse_s_median_of_docs": 0.1961,
+    "parse_s_max": 0.3517,
+    "rss_mb_max": 63.6,
+    "heap_mb_max": 13.013
+   },
+   "pdfplumber": {
+    "docs": 5,
+    "parse_s_median_of_docs": 0.9283,
+    "parse_s_max": 1.2885,
+    "rss_mb_max": 124.1,
+    "heap_mb_max": 69.747
+   }
+  }
+ },
+ "dev|v2": {
+  "folder": "external_dev_v2",
+  "parser_failures": [],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 8,
+    "denominator": 8,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 8,
+    "denominator": 8,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 7,
+    "denominator": 8,
+    "rate": 0.875,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 714,
+    "denominator": 730,
+    "rate": 0.9781,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 673,
+    "denominator": 730,
+    "rate": 0.9219,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 676,
+    "denominator": 730,
+    "rate": 0.926,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 7,
+    "denominator": 20,
+    "rate": 0.35,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 48,
+    "denominator": 57,
+    "rate": 0.8421,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 2,
+    "denominator": 2,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 35,
+    "denominator": 35,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 7,
+    "denominator": 7,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 17,
+    "denominator": 17,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 541,
+    "denominator": 541,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "변경 추적 삽입": {
+    "numerator": 1,
+    "denominator": 1,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 2
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 17,
+    "denominator": 17,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 1,
+    "denominator": 1,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "SmartArt": {
+    "numerator": 2,
+    "denominator": 2,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "차트": {
+    "numerator": 5,
+    "denominator": 5,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "perf": {
+   "python-docx": {
+    "docs": 2,
+    "parse_s_median_of_docs": 0.0064,
+    "parse_s_max": 0.0067,
+    "rss_mb_max": 39.1,
+    "heap_mb_max": 0.26
+   },
+   "python-pptx": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.01,
+    "parse_s_max": 0.0216,
+    "rss_mb_max": 41.4,
+    "heap_mb_max": 0.377
+   },
+   "pypdf": {
+    "docs": 5,
+    "parse_s_median_of_docs": 0.1955,
+    "parse_s_max": 0.3565,
+    "rss_mb_max": 63.4,
+    "heap_mb_max": 13.013
+   },
+   "pdfplumber": {
+    "docs": 5,
+    "parse_s_median_of_docs": 0.779,
+    "parse_s_max": 1.0515,
+    "rss_mb_max": 125.4,
+    "heap_mb_max": 70.355
+   }
+  }
+ },
+ "holdout|v1": {
+  "folder": "external_holdout_v1",
+  "parser_failures": [
+   "X-HO-D01×python-docx"
+  ],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 0,
+    "denominator": 6,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 0,
+    "denominator": 5,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 0,
+    "denominator": 6,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 0,
+    "denominator": 676,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 0,
+    "denominator": 676,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 0,
+    "denominator": 676,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 30,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 0,
+    "denominator": 56,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 0,
+    "denominator": 11,
+    "rate": 0.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 12,
+    "denominator": 13,
+    "rate": 0.9231,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 4,
+    "denominator": 4,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 35,
+    "denominator": 35,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 60,
+    "denominator": 60,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "변경 추적 삽입": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "_documents": 2
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 11,
+    "denominator": 11,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 11,
+    "denominator": 11,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 58,
+    "denominator": 58,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "SmartArt": {
+    "numerator": 0,
+    "denominator": 19,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "차트": {
+    "numerator": 0,
+    "denominator": 12,
+    "rate": 0.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "perf": {
+   "pypdf": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.4867,
+    "parse_s_max": 0.8736,
+    "rss_mb_max": 68.0,
+    "heap_mb_max": 18.31
+   },
+   "pdfplumber": {
+    "docs": 4,
+    "parse_s_median_of_docs": 1.4784,
+    "parse_s_max": 2.3551,
+    "rss_mb_max": 198.8,
+    "heap_mb_max": 135.986
+   },
+   "python-docx": {
+    "docs": 3,
+    "parse_s_median_of_docs": 0.0097,
+    "parse_s_max": 0.0104,
+    "rss_mb_max": 39.3,
+    "heap_mb_max": 0.293
+   },
+   "python-pptx": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.0144,
+    "parse_s_max": 0.027,
+    "rss_mb_max": 43.7,
+    "heap_mb_max": 1.045
+   }
+  }
+ },
+ "holdout|v2": {
+  "folder": "external_holdout_v2",
+  "parser_failures": [],
+  "pdf": {
+   "표 재현율": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "표 정밀도": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행·열 수 일치": {
+    "numerator": 5,
+    "denominator": 6,
+    "rate": 0.8333,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(격자)": {
+    "numerator": 625,
+    "denominator": 676,
+    "rate": 0.9246,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 텍스트(bbox 정렬)": {
+    "numerator": 638,
+    "denominator": 676,
+    "rate": 0.9438,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "셀 bbox IoU≥0.5": {
+    "numerator": 638,
+    "denominator": 676,
+    "rate": 0.9438,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "병합": {
+    "numerator": 23,
+    "denominator": 30,
+    "rate": 0.7667,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "헤더 셀": {
+    "numerator": 53,
+    "denominator": 56,
+    "rate": 0.9464,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "행 머리": {
+    "numerator": 10,
+    "denominator": 11,
+    "rate": 0.9091,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "docx": {
+   "본문 문단": {
+    "numerator": 69,
+    "denominator": 69,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 6,
+    "denominator": 6,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 54,
+    "denominator": 54,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 2,
+    "denominator": 2,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "읽기 순서(쌍)": {
+    "numerator": 1719,
+    "denominator": 1719,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "각주": {
+    "numerator": 1,
+    "denominator": 1,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "변경 추적 삽입": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "_documents": 3
+  },
+  "pptx": {
+   "도형 텍스트": {
+    "numerator": 11,
+    "denominator": 11,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "표 재현율": {
+    "numerator": 11,
+    "denominator": 11,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "셀 텍스트": {
+    "numerator": 58,
+    "denominator": 58,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "병합": {
+    "numerator": 0,
+    "denominator": 0,
+    "rate": null,
+    "truth_status": []
+   },
+   "SmartArt": {
+    "numerator": 19,
+    "denominator": 19,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "차트": {
+    "numerator": 12,
+    "denominator": 12,
+    "rate": 1.0,
+    "truth_status": [
+     "PROVISIONAL"
+    ]
+   },
+   "_documents": 4
+  },
+  "perf": {
+   "pypdf": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.4849,
+    "parse_s_max": 0.8629,
+    "rss_mb_max": 67.9,
+    "heap_mb_max": 18.31
+   },
+   "pdfplumber": {
+    "docs": 4,
+    "parse_s_median_of_docs": 1.5152,
+    "parse_s_max": 2.4968,
+    "rss_mb_max": 200.7,
+    "heap_mb_max": 137.131
+   },
+   "python-docx": {
+    "docs": 3,
+    "parse_s_median_of_docs": 0.0066,
+    "parse_s_max": 0.0085,
+    "rss_mb_max": 39.6,
+    "heap_mb_max": 0.382
+   },
+   "python-pptx": {
+    "docs": 4,
+    "parse_s_median_of_docs": 0.0153,
+    "parse_s_max": 0.0269,
+    "rss_mb_max": 43.8,
+    "heap_mb_max": 1.045
+   }
+  }
+ }
+}

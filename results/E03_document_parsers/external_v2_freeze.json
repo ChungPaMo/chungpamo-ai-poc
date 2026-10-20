@@ -1,0 +1,28 @@
+{
+ "frozen_at": "2026-10-20T19:00:25+09:00",
+ "note": "v2 코드 동결 — 이 시점 이후 holdout 첫 실행. 동결 뒤 v2를 고치면 holdout 결과는 더 이상 미참조 평가가 아니다",
+ "holdout_runs_before_freeze": 0,
+ "dev_used_for_tuning": [
+  "X-D03",
+  "X-D04",
+  "X-T03",
+  "X-T04",
+  "X-P05",
+  "X-DV-P01",
+  "X-DV-P02",
+  "X-DV-P03",
+  "X-DV-P04",
+  "X-DV-T01",
+  "X-DV-T02"
+ ],
+ "blind8_referenced": "최초 실패 분석(failure_analysis.md)에서 출력·정답을 열람 — v2 규칙은 dev로만 조정했으나 실패 유형은 blind8에서 알게 됨",
+ "files": {
+  "src/parsers/v2/__init__.py": "22863430dd5785c1b4c3f9d86d6df6de171f94830a60b17e044a30b6cb239fdc",
+  "src/parsers/v2/docx_v2.py": "8f7a1ccef3d7101d8769532a3f4babea8160f9f8638516107df3e932aad6c12f",
+  "src/parsers/v2/pdf_v2.py": "dba8397cf6bc4813b0b8aaec52cf5464d81772b5d73e73c5126d1c21d30d3cc7",
+  "src/parsers/v2/pptx_v2.py": "863e0182f961b5b1ec46627b4ae79de5c3cba98dc08eb770081a130018062204",
+  "src/parsers/v2/registry.py": "67b2eb295dd65f6a12c336b8fccc2abee7aeb4cf460cc0643f1665171e57301b",
+  "src/parsers/doc_common.py": "f4fecffd63a769b3ea4b4a3f1145d011a5a783de6bc31ffe982c7d6b11545568",
+  "src/parsers/doc_pdf.py": "257fe8caa819a8a7af0f06817e9edfe55fea7a81a61c42a98570964c7a111ae9"
+ }
+}

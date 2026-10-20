@@ -1,0 +1,4017 @@
+{
+ "generated": "2026-10-20T18:11:18+09:00",
+ "tools": {
+  "lxml": "6.1.3",
+  "pypdfium2": "5.14.0",
+  "python": "3.11.9"
+ },
+ "blind_note": "평가 대상 파서·E03 파서 코드 미사용 (zipfile + lxml, pypdfium2)",
+ "documents": [
+  {
+   "id": "X-D01",
+   "role": "final",
+   "format": "docx",
+   "file": "kitchen-sink.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/kitchen-sink.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "저장소 README: conformance lane — 워드프로세서로 저장하지 않고 XML 부품으로 직접 조립한 파일",
+   "present": true,
+   "sha256": "14e39475fb2f85adcf7ac82e46aac19789f3ea7f66511a72a90dcffa7cd93c4c",
+   "bytes": 9497,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 15,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [
+     {
+      "part": "word/_rels/document.xml.rels",
+      "type": "hyperlink",
+      "scheme": "https",
+      "host": "example.com"
+     }
+    ],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 1,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": false
+    }
+   },
+   "structure": {
+    "body_direct_paragraphs": 33,
+    "body_direct_tables": 2,
+    "tables_total": 2,
+    "tables": [
+     {
+      "rows": 3,
+      "grid_cols": 4,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 2,
+      "vMerge_restart": 1,
+      "vMerge_continue": 2,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 12,
+      "cell_lists": 3
+     },
+     {
+      "rows": 2,
+      "grid_cols": 0,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 4,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 2,
+    "sections": 1,
+    "header_parts": 1,
+    "footer_parts": 1,
+    "footnotes": 0,
+    "endnotes": 0,
+    "comments": 0,
+    "tracked_ins": 0,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 1,
+    "hyperlinks": 2,
+    "alternate_content": 0,
+    "text_chars": 2888
+   }
+  },
+  {
+   "id": "X-D02",
+   "role": "final",
+   "format": "docx",
+   "file": "google-docs-export.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/producers/google-docs-export.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "저장소 README: producer lane — Google Docs(웹)에서 .docx로 내려받은 뒤 작성자 정보만 정리(sanitize), 본문은 source.md로 치환",
+   "present": true,
+   "sha256": "e975d3f44427dcd851bce12dbf59e9748848479668d27d68461502cfeb3816c0",
+   "bytes": 17433,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 14,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [
+     {
+      "part": "word/_rels/document.xml.rels",
+      "type": "hyperlink",
+      "scheme": "https",
+      "host": "example.com"
+     }
+    ],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 1,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": "docProps/core.xml 없음"
+   },
+   "structure": {
+    "body_direct_paragraphs": 59,
+    "body_direct_tables": 2,
+    "tables_total": 2,
+    "tables": [
+     {
+      "rows": 6,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 1,
+      "vMerge_restart": 2,
+      "vMerge_continue": 2,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 18,
+      "cell_lists": 0
+     },
+     {
+      "rows": 1,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 3,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 0,
+    "sections": 1,
+    "header_parts": 1,
+    "footer_parts": 1,
+    "footnotes": 2,
+    "endnotes": 0,
+    "comments": 1,
+    "tracked_ins": 1,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 1,
+    "hyperlinks": 1,
+    "alternate_content": 0,
+    "text_chars": 7285
+   }
+  },
+  {
+   "id": "X-D03",
+   "role": "reserve",
+   "format": "docx",
+   "file": "content-controls.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/content-controls.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "conformance lane — 콘텐츠 컨트롤(w:sdt) 안의 표·행",
+   "present": true,
+   "sha256": "c7a36fe8b5e807a84976aa341354d13891c843c653f2e25e7c146476cf9530c1",
+   "bytes": 6735,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 11,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": false
+    }
+   },
+   "structure": {
+    "body_direct_paragraphs": 15,
+    "body_direct_tables": 4,
+    "tables_total": 5,
+    "tables": [
+     {
+      "rows": 1,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": true,
+      "direct_body_child": false,
+      "cell_paragraphs": 2,
+      "cell_lists": 0
+     },
+     {
+      "rows": 1,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 2,
+      "cell_lists": 0
+     },
+     {
+      "rows": 1,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 1,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 4,
+      "cell_lists": 0
+     },
+     {
+      "rows": 0,
+      "grid_cols": 1,
+      "rows_wrapped_in_sdt": 1,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 2,
+      "cell_lists": 0
+     },
+     {
+      "rows": 1,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 2,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 20,
+    "sections": 2,
+    "header_parts": 0,
+    "footer_parts": 0,
+    "footnotes": 0,
+    "endnotes": 0,
+    "comments": 0,
+    "tracked_ins": 0,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 0,
+    "hyperlinks": 0,
+    "alternate_content": 0,
+    "text_chars": 2618
+   }
+  },
+  {
+   "id": "X-D04",
+   "role": "reserve",
+   "format": "docx",
+   "file": "preserved-markup.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/preserved-markup.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "conformance lane — 필드·변경 추적·범위 표식",
+   "present": true,
+   "sha256": "8bfbf9f4a01c39365cfc029d263dfa7e4c27c3399d5cb30cbf31eb2fc95c8750",
+   "bytes": 6204,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 11,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": false
+    }
+   },
+   "structure": {
+    "body_direct_paragraphs": 8,
+    "body_direct_tables": 2,
+    "tables_total": 2,
+    "tables": [
+     {
+      "rows": 1,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 2,
+      "cell_lists": 0
+     },
+     {
+      "rows": 2,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 4,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 1,
+    "sections": 1,
+    "header_parts": 0,
+    "footer_parts": 0,
+    "footnotes": 0,
+    "endnotes": 0,
+    "comments": 0,
+    "tracked_ins": 1,
+    "tracked_del": 1,
+    "fields": 2,
+    "drawings": 0,
+    "hyperlinks": 0,
+    "alternate_content": 0,
+    "text_chars": 729
+   }
+  },
+  {
+   "id": "X-T01",
+   "role": "final",
+   "format": "pptx",
+   "file": "mixed.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/mixed.pptx",
+   "license": "MIT (저장소 LICENSE, fixtures README: license-clean 확인)",
+   "producer_note": "fixtures README: Microsoft Macintosh PowerPoint 16.0, 11장 실제 사용 덱에서 승격",
+   "present": true,
+   "sha256": "db80910224b01b46cb7e8c29e183b59d128a18fd8e0c651558907230874693b9",
+   "bytes": 105638,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 92,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [
+     "ppt/embeddings/Microsoft_Excel_Worksheet.xlsx"
+    ],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Macintosh PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 11,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 2,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 6,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 1,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 3,
+      "shapes_sp": 2,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 6,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 4,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 1,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 5,
+      "shapes_sp": 9,
+      "groups": 4,
+      "max_group_depth": 1,
+      "connectors": 3,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 1,
+      "text_runs": 29,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 6,
+      "shapes_sp": 5,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 3,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 1,
+      "text_runs": 30,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 7,
+      "shapes_sp": 5,
+      "groups": 1,
+      "max_group_depth": 1,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 9,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 61,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 8,
+      "shapes_sp": 2,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "chart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 12,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 9,
+      "shapes_sp": 6,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 38,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 10,
+      "shapes_sp": 2,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 71,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 11,
+      "shapes_sp": 2,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 1,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 37,
+     "groups": 5,
+     "connectors": 6,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 2,
+     "text_runs": 256,
+     "max_group_depth": 1,
+     "tables": 1,
+     "charts": 1,
+     "smartart": 1,
+     "notes_slides": 10
+    },
+    "diagram_parts": [
+     "ppt/diagrams/colors1.xml",
+     "ppt/diagrams/data1.xml",
+     "ppt/diagrams/drawing1.xml",
+     "ppt/diagrams/layout1.xml",
+     "ppt/diagrams/quickStyle1.xml"
+    ],
+    "chart_parts": 1
+   }
+  },
+  {
+   "id": "X-T02",
+   "role": "final",
+   "format": "pptx",
+   "file": "table-merge-encoding.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/table-merge-encoding.pptx",
+   "license": "MIT (저장소 LICENSE)",
+   "producer_note": "fixtures README: Windows 데스크톱 PowerPoint COM 작성(2026-09-14), 슬라이드별 병합 span 값이 README에 명시",
+   "present": true,
+   "sha256": "c2756f8f042c92c8a05236e4c426846f4d344c07d51f54665983b786e27a9132",
+   "bytes": 39880,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 45,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 5,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 3,
+        "gridSpan_gt1": 2,
+        "rowSpan_gt1": 2,
+        "hMerge": 2,
+        "vMerge": 2,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 9,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 4,
+        "cols": 4,
+        "gridSpan_gt1": 3,
+        "rowSpan_gt1": 3,
+        "hMerge": 6,
+        "vMerge": 6,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 9,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 3,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 3,
+        "gridSpan_gt1": 2,
+        "rowSpan_gt1": 2,
+        "hMerge": 2,
+        "vMerge": 2,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 14,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 4,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 3,
+        "gridSpan_gt1": 1,
+        "rowSpan_gt1": 0,
+        "hMerge": 1,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 9,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 5,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 1,
+        "hMerge": 0,
+        "vMerge": 1,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 9,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 0,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 50,
+     "max_group_depth": 0,
+     "tables": 5,
+     "charts": 0,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-T03",
+   "role": "reserve",
+   "format": "pptx",
+   "file": "group-transform.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/group-transform.pptx",
+   "license": "MIT (저장소 LICENSE)",
+   "producer_note": "fixtures README: Windows 데스크톱 PowerPoint(2026-06-18), 그룹 회전·반전·확대·중첩 7가지",
+   "present": true,
+   "sha256": "492fa2a2b69ee5f9b6dc171242c93c0ebd0c4055209f21e779eb9bc318f4481d",
+   "bytes": 45469,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 39,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 2,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 29,
+      "groups": 8,
+      "max_group_depth": 2,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 7,
+      "flipped": 5,
+      "text_runs": 8,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 29,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {},
+      "tables": [],
+      "rotated": 15,
+      "flipped": 12,
+      "text_runs": 8,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 58,
+     "groups": 8,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 22,
+     "flipped": 17,
+     "text_runs": 16,
+     "max_group_depth": 2,
+     "tables": 0,
+     "charts": 0,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-T04",
+   "role": "reserve",
+   "format": "pptx",
+   "file": "table-placeholder.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/table-placeholder.pptx",
+   "license": "MIT (저장소 LICENSE)",
+   "producer_note": "fixtures README: Windows 데스크톱 PowerPoint COM(2026-06-19), 콘텐츠 자리표시자 안의 2×3 표",
+   "present": true,
+   "sha256": "f18ae67b1df1cc1cf7dc616451c3e548a4ea0c80f807c06a87521b010597af75",
+   "bytes": 37405,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 37,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 1,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 2,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": true,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 7,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 1,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 7,
+     "max_group_depth": 0,
+     "tables": 1,
+     "charts": 0,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-P01",
+   "role": "final",
+   "format": "pdf",
+   "file": "PMC2008195.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2008195.1/PMC2008195.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "Virol J 2007 (BioMed Central)",
+   "present": true,
+   "sha256": "98c6255a845dce755d52895e0273c2fb1be0c6ee8a457959848f9b2d93268f2a",
+   "bytes": 348002,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/URI": 110
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": null,
+      "action_type": "목적지 배열(이동)"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 8,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3545
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5373
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3704
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4282
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3862
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3758
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 6414
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 1857
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 5.0.5 (Windows)",
+     "Creator": "FrameMaker 7.0"
+    },
+    "pdf_version": 13,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC2008195_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC2008195_table_0",
+       "split": "test",
+       "page_index": 2,
+       "rows": 30,
+       "cols": 3,
+       "cells": 88,
+       "spanning_cells": 1,
+       "column_header_cells": 3,
+       "projected_row_header_cells": 1,
+       "empty_cells": 26,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 62,
+        "denominator": 62,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC2008195_table_1",
+       "split": "test",
+       "page_index": 4,
+       "rows": 17,
+       "cols": 3,
+       "cells": 47,
+       "spanning_cells": 2,
+       "column_header_cells": 3,
+       "projected_row_header_cells": 2,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 47,
+        "denominator": 47,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-P02",
+   "role": "final",
+   "format": "pdf",
+   "file": "PMC2671505.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2671505.1/PMC2671505.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "BMC Plant Biol 2009",
+   "present": true,
+   "sha256": "b41e4a0f793fee1496cb935d9f4798384b7d3b819fbdd43c76b7615b6a03a0f6",
+   "bytes": 1344218,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/URI": 206
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": null,
+      "action_type": "목적지 배열(이동)"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 14,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3793
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5665
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5271
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 2966
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 1975
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5243
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 19547
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 6095
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 6159
+     },
+     {
+      "page_index": 9,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5800
+     },
+     {
+      "page_index": 10,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5934
+     },
+     {
+      "page_index": 11,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5648
+     },
+     {
+      "page_index": 12,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 8485
+     },
+     {
+      "page_index": 13,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5050
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 7.0 (Windows)",
+     "Creator": "FrameMaker 7.1"
+    },
+    "pdf_version": 13,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC2671505_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC2671505_table_0",
+       "split": "test",
+       "page_index": 2,
+       "rows": 8,
+       "cols": 17,
+       "cells": 120,
+       "spanning_cells": 13,
+       "column_header_cells": 18,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 118,
+        "denominator": 120,
+        "rate": 0.9833,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 2,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC2671505_table_1",
+       "split": "test",
+       "page_index": 3,
+       "rows": 4,
+       "cols": 7,
+       "cells": 28,
+       "spanning_cells": 0,
+       "column_header_cells": 7,
+       "projected_row_header_cells": 0,
+       "empty_cells": 1,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 27,
+        "denominator": 27,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC2671505_table_2",
+       "split": "test",
+       "page_index": 4,
+       "rows": 3,
+       "cols": 6,
+       "cells": 18,
+       "spanning_cells": 0,
+       "column_header_cells": 6,
+       "projected_row_header_cells": 0,
+       "empty_cells": 1,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 17,
+        "denominator": 17,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC2671505_table_3",
+       "split": "test",
+       "page_index": 6,
+       "rows": 12,
+       "cols": 8,
+       "cells": 96,
+       "spanning_cells": 0,
+       "column_header_cells": 8,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 96,
+        "denominator": 96,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 3,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-P03",
+   "role": "final",
+   "format": "pdf",
+   "file": "PMC3296738.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3296738.1/PMC3296738.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PLoS One 2012",
+   "present": true,
+   "sha256": "144ad3a42b3fe75940dbb8570d7643e9e792fda1b2233087f61030ff5dfea366",
+   "bytes": 358917,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {},
+    "object_streams_scanned": 0,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 8,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 5745
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 7300
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 3270
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 3241
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 2072
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 5917
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 3948
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       612.28,
+       790.87
+      ],
+      "chars": 3161
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 9.0.0 (Windows)",
+     "Creator": "3B2 Total Publishing System 7.51n/W"
+    },
+    "pdf_version": 15,
+    "author_field_present": false,
+    "annotation": {
+     "file": "PMC3296738_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC3296738_table_0",
+       "split": "test",
+       "page_index": 3,
+       "rows": 36,
+       "cols": 5,
+       "cells": 152,
+       "spanning_cells": 7,
+       "column_header_cells": 5,
+       "projected_row_header_cells": 7,
+       "empty_cells": 21,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 131,
+        "denominator": 131,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 6,
+        "vertical": 1,
+        "other_paths": 360,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3296738_table_1",
+       "split": "test",
+       "page_index": 5,
+       "rows": 18,
+       "cols": 7,
+       "cells": 121,
+       "spanning_cells": 3,
+       "column_header_cells": 9,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 121,
+        "denominator": 121,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 9,
+        "vertical": 1,
+        "other_paths": 244,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-P04",
+   "role": "final",
+   "format": "pdf",
+   "file": "PMC4729796.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4729796.1/PMC4729796.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "Environ Monit Assess 2016 (Springer)",
+   "present": true,
+   "sha256": "ec906d0d0d2e56188712fb9e91d3abc4ff7e753b12ee9d619aa1b201c65bd335",
+   "bytes": 884550,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/URI": 10
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": 250,
+      "action_type": "GoTo"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 9,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 3410
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 5282
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 4904
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 3927
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 2946
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 3591
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 5318
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 5513
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       547.09,
+       737.01
+      ],
+      "chars": 5485
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 9.0.0 (Windows)",
+     "Creator": "3B2 Total Publishing System 8.07e/W Unicode "
+    },
+    "pdf_version": 14,
+    "author_field_present": false,
+    "annotation": {
+     "file": "PMC4729796_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC4729796_table_0",
+       "split": "test",
+       "page_index": 3,
+       "rows": 14,
+       "cols": 4,
+       "cells": 53,
+       "spanning_cells": 3,
+       "column_header_cells": 5,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 53,
+        "denominator": 53,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 3,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-P05",
+   "role": "reserve",
+   "format": "pdf",
+   "file": "nics-background-checks-2015-11.pdf",
+   "source": "https://raw.githubusercontent.com/jsvine/pdfplumber/4c64b92d5caccd71c645e98e0fabb0c4dba7ff45/tests/pdfs/nics-background-checks-2015-11.pdf",
+   "license": "저장소 코드 MIT. 문서 자체는 미국 연방기관(FBI) 통계표로 보이나 원 출처·저작권 상태 미확인",
+   "producer_note": "선 있는 격자 표 후보. 공식 셀 주석 없음 — pdfplumber 자체 테스트 기대값은 평가 대상 파서의 출력이라 정답으로 쓰지 않음",
+   "present": true,
+   "sha256": "4f0ae6e017b0e97de211da8fd97316e55bd927af5740d6ce95e1b7b1539f9407",
+   "bytes": 90468,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {},
+    "object_streams_scanned": 0,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 1,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       1008.0,
+       612.0
+      ],
+      "chars": 5707
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Mac OS X 10.9.5 Quartz PDFContext",
+     "Creator": ""
+    },
+    "pdf_version": 13,
+    "author_field_present": false,
+    "annotation": null,
+    "line_objects_per_page": [
+     {
+      "horizontal": 15,
+      "vertical": 364,
+      "other_paths": 67,
+      "class": "격자(세로선 있음)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "X-DV-P01",
+   "role": "dev",
+   "format": "pdf",
+   "file": "PMC2275741.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2275741.1/PMC2275741.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — v2 개발용",
+   "present": true,
+   "sha256": "646d8c2baff6b2d604df59e65b59b7606746f6b3e236ff0575b947a099f8b295",
+   "bytes": 275073,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/URI": 94
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": null,
+      "action_type": "목적지 배열(이동)"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 7,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3538
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5594
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3775
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4005
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5105
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5006
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3950
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 5.0.5 (Windows)",
+     "Creator": "FrameMaker 7.0"
+    },
+    "pdf_version": 13,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC2275741_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC2275741_table_0",
+       "split": "train",
+       "page_index": 3,
+       "rows": 31,
+       "cols": 12,
+       "cells": 372,
+       "spanning_cells": 0,
+       "column_header_cells": 12,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 372,
+        "denominator": 372,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 2,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-DV-P02",
+   "role": "dev",
+   "format": "pdf",
+   "file": "PMC3170591.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3170591.1/PMC3170591.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — v2 개발용",
+   "present": true,
+   "sha256": "8f9688ffc9950fdc3f861127875bc2a7fb8fdcfd8de19d3a59f42e4e0c0c3dd2",
+   "bytes": 207410,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/EmbeddedFile": 1,
+     "/URI": 84
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": 147,
+      "action_type": "GoTo"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 5,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4241
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 6005
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4624
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5594
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4893
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 9.4.2 (Windows)",
+     "Creator": "Arbortext Advanced Print Publisher 10.0.1082/W Unicode"
+    },
+    "pdf_version": 14,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC3170591_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC3170591_table_0",
+       "split": "train",
+       "page_index": 2,
+       "rows": 12,
+       "cols": 6,
+       "cells": 72,
+       "spanning_cells": 0,
+       "column_header_cells": 6,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 72,
+        "denominator": 72,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 3,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3170591_table_1",
+       "split": "train",
+       "page_index": 3,
+       "rows": 12,
+       "cols": 4,
+       "cells": 48,
+       "spanning_cells": 0,
+       "column_header_cells": 4,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 48,
+        "denominator": 48,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 3,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-DV-P03",
+   "role": "dev",
+   "format": "pdf",
+   "file": "PMC3554437.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3554437.1/PMC3554437.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — v2 개발용",
+   "present": true,
+   "sha256": "f20af1b008557e47182ff2a17f2d246a8353e021db51ab6d222f0741deffbc1c",
+   "bytes": 1389358,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {},
+    "object_streams_scanned": 0,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 11,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4472
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 3622
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 3233
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 1623
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 2019
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 2946
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 2688
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4582
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5309
+     },
+     {
+      "page_index": 9,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 7221
+     },
+     {
+      "page_index": 10,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 2950
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 10.0.0 (Windows)",
+     "Creator": "Arbortext Advanced Print Publisher 9.1.440/W Unicode"
+    },
+    "pdf_version": 13,
+    "author_field_present": false,
+    "annotation": {
+     "file": "PMC3554437_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC3554437_table_0",
+       "split": "train",
+       "page_index": 2,
+       "rows": 8,
+       "cols": 10,
+       "cells": 72,
+       "spanning_cells": 4,
+       "column_header_cells": 12,
+       "projected_row_header_cells": 0,
+       "empty_cells": 12,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 14,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3554437_table_1",
+       "split": "train",
+       "page_index": 2,
+       "rows": 16,
+       "cols": 5,
+       "cells": 65,
+       "spanning_cells": 8,
+       "column_header_cells": 5,
+       "projected_row_header_cells": 2,
+       "empty_cells": 23,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 42,
+        "denominator": 42,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 9,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3554437_table_2",
+       "split": "train",
+       "page_index": 6,
+       "rows": 5,
+       "cols": 4,
+       "cells": 17,
+       "spanning_cells": 2,
+       "column_header_cells": 5,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 17,
+        "denominator": 17,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 6,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3554437_table_3",
+       "split": "train",
+       "page_index": 7,
+       "rows": 9,
+       "cols": 8,
+       "cells": 72,
+       "spanning_cells": 0,
+       "column_header_cells": 8,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 72,
+        "denominator": 72,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 9,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-DV-P04",
+   "role": "dev",
+   "format": "pdf",
+   "file": "PMC4695698.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4695698.1/PMC4695698.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — v2 개발용",
+   "present": true,
+   "sha256": "b8a0dc045ac2b731e63afe315d1aee540cb750eadb86d7c60a967775c5293976",
+   "bytes": 378075,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/EmbeddedFile": 1,
+     "/URI": 8
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": 38,
+      "action_type": "GoTo"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 2,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 3039
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 1282
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 9.0.0 (Windows)",
+     "Creator": "Arbortext Advanced Print Publisher 10.0.1221/W Unicode"
+    },
+    "pdf_version": 14,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC4695698_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC4695698_table_0",
+       "split": "train",
+       "page_index": 0,
+       "rows": 9,
+       "cols": 6,
+       "cells": 48,
+       "spanning_cells": 6,
+       "column_header_cells": 8,
+       "projected_row_header_cells": 0,
+       "empty_cells": 1,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 47,
+        "denominator": 47,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 10,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-HO-P01",
+   "role": "holdout",
+   "format": "pdf",
+   "file": "PMC2396182.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2396182.1/PMC2396182.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "09adcead4eb931b5ab857d8456f9631ccd9d1eecc90995d93ec5f6b80ebb0794",
+   "bytes": 2193037,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/OpenAction": 1,
+     "/URI": 172
+    },
+    "object_streams_scanned": 0,
+    "open_actions": [
+     {
+      "target_obj": null,
+      "action_type": "목적지 배열(이동)"
+     }
+    ],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 17,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3667
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 6129
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4426
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 1597
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3540
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 2712
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 606
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 3036
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 1102
+     },
+     {
+      "page_index": 9,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 2646
+     },
+     {
+      "page_index": 10,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5979
+     },
+     {
+      "page_index": 11,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5673
+     },
+     {
+      "page_index": 12,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4498
+     },
+     {
+      "page_index": 13,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 2549
+     },
+     {
+      "page_index": 14,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4726
+     },
+     {
+      "page_index": 15,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 5671
+     },
+     {
+      "page_index": 16,
+      "size_pt": [
+       610.0,
+       792.0
+      ],
+      "chars": 4127
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 5.0.5 (Windows)",
+     "Creator": "FrameMaker 7.0"
+    },
+    "pdf_version": 13,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC2396182_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC2396182_table_0",
+       "split": "train",
+       "page_index": 2,
+       "rows": 19,
+       "cols": 3,
+       "cells": 53,
+       "spanning_cells": 2,
+       "column_header_cells": 4,
+       "projected_row_header_cells": 1,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 53,
+        "denominator": 53,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 6,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-HO-P02",
+   "role": "holdout",
+   "format": "pdf",
+   "file": "PMC3465174.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3465174.1/PMC3465174.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "b8d56c51fa411dc3b31fa1052a56c7bda5d0f6881b69d0833ff80e8ba4738f93",
+   "bytes": 684499,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {
+     "/EmbeddedFile": 1,
+     "/URI": 4
+    },
+    "object_streams_scanned": 13,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 7,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4138
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4537
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4568
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 1304
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 3755
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 6729
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 1358
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 10.0.0 (Windows)",
+     "Creator": "Arbortext Advanced Print Publisher 9.1.440/W Unicode"
+    },
+    "pdf_version": 14,
+    "author_field_present": false,
+    "annotation": {
+     "file": "PMC3465174_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC3465174_table_0",
+       "split": "train",
+       "page_index": 2,
+       "rows": 11,
+       "cols": 3,
+       "cells": 31,
+       "spanning_cells": 2,
+       "column_header_cells": 4,
+       "projected_row_header_cells": 0,
+       "empty_cells": 4,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 27,
+        "denominator": 27,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 6,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-HO-P03",
+   "role": "holdout",
+   "format": "pdf",
+   "file": "PMC3700768.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3700768.1/PMC3700768.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "e447e1037ea332d7af4095b91c6ae7e0398328ec266e1ee6ddac83c9b8065efe",
+   "bytes": 858016,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {},
+    "object_streams_scanned": 0,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 9,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 4264
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5243
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5209
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5091
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 3310
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 1103
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5916
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 7312
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       595.28,
+       793.7
+      ],
+      "chars": 5394
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 10.1.5 (Windows)",
+     "Creator": "Arbortext Advanced Print Publisher 9.1.440/W Unicode"
+    },
+    "pdf_version": 13,
+    "author_field_present": false,
+    "annotation": {
+     "file": "PMC3700768_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC3700768_table_0",
+       "split": "train",
+       "page_index": 1,
+       "rows": 11,
+       "cols": 2,
+       "cells": 22,
+       "spanning_cells": 0,
+       "column_header_cells": 2,
+       "projected_row_header_cells": 0,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 22,
+        "denominator": 22,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 3,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC3700768_table_1",
+       "split": "train",
+       "page_index": 3,
+       "rows": 26,
+       "cols": 9,
+       "cells": 204,
+       "spanning_cells": 7,
+       "column_header_cells": 12,
+       "projected_row_header_cells": 3,
+       "empty_cells": 1,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 203,
+        "denominator": 203,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 13,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-HO-P04",
+   "role": "holdout",
+   "format": "pdf",
+   "file": "PMC4828818.1.pdf",
+   "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4828818.1/PMC4828818.1.pdf",
+   "license": "CC BY (PMC 메타데이터 license_code)",
+   "producer_note": "PubTables-1M 주석 — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "38c01f1f1d433c929d3ef6b95a5c3a84621768b6886a528dcbdce362bcd90c88",
+   "bytes": 1727593,
+   "pmc_license_code": "CC BY",
+   "pmc_pdf_md5_matches": true,
+   "magic_ok": true,
+   "safety": {
+    "risk_tokens": {},
+    "object_streams_scanned": 0,
+    "open_actions": [],
+    "note": "객체 사전·객체 스트림만 검색 (스트림 본문 제외, 실행·렌더링 없음). /URI는 일반 하이퍼링크일 수 있음"
+   },
+   "structure": {
+    "pages": 13,
+    "page_info": [
+     {
+      "page_index": 0,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 3481
+     },
+     {
+      "page_index": 1,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5386
+     },
+     {
+      "page_index": 2,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 1537
+     },
+     {
+      "page_index": 3,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 4193
+     },
+     {
+      "page_index": 4,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5441
+     },
+     {
+      "page_index": 5,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5640
+     },
+     {
+      "page_index": 6,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5056
+     },
+     {
+      "page_index": 7,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 3205
+     },
+     {
+      "page_index": 8,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 2244
+     },
+     {
+      "page_index": 9,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5112
+     },
+     {
+      "page_index": 10,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 5531
+     },
+     {
+      "page_index": 11,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 8026
+     },
+     {
+      "page_index": 12,
+      "size_pt": [
+       595.28,
+       790.87
+      ],
+      "chars": 7584
+     }
+    ],
+    "text_layer": true,
+    "producer_software": {
+     "Producer": "Acrobat Distiller 10.1.5 (Windows); modified using iText® 5.3.5 ©2000-2012 1T3XT BVBA (AGPL-version)",
+     "Creator": "Arbortext Advanced Print Publisher 9.1.440/W Unicode"
+    },
+    "pdf_version": 13,
+    "author_field_present": true,
+    "annotation": {
+     "file": "PMC4828818_tables.json",
+     "tables": [
+      {
+       "structure_id": "PMC4828818_table_0",
+       "split": "train",
+       "page_index": 3,
+       "rows": 21,
+       "cols": 11,
+       "cells": 173,
+       "spanning_cells": 10,
+       "column_header_cells": 14,
+       "projected_row_header_cells": 5,
+       "empty_cells": 5,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 168,
+        "denominator": 168,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 15,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      },
+      {
+       "structure_id": "PMC4828818_table_1",
+       "split": "train",
+       "page_index": 9,
+       "rows": 16,
+       "cols": 15,
+       "cells": 203,
+       "spanning_cells": 9,
+       "column_header_cells": 21,
+       "projected_row_header_cells": 2,
+       "empty_cells": 0,
+       "excluded": false,
+       "page_size_matches": true,
+       "cell_text_correspondence": {
+        "numerator": 203,
+        "denominator": 203,
+        "rate": 1.0,
+        "method": "주석 pdf_bbox(좌상단 원점 가정)를 PDFium 좌표로 바꿔 영역 텍스트를 읽고, 공백 제거 후 주석 pdf_text_content와 완전 일치"
+       },
+       "rules": {
+        "horizontal": 22,
+        "vertical": 0,
+        "other_paths": 0,
+        "class": "가로선만"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "X-DV-T01",
+   "role": "dev",
+   "format": "pptx",
+   "file": "smartart-hyperlink.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/smartart-hyperlink.pptx",
+   "license": "MIT (저장소 LICENSE)",
+   "producer_note": "Windows PowerPoint — v2 개발용",
+   "present": true,
+   "sha256": "ab30899b00edc9bfaffa9b40f762a5a9ee70c9ca8a5f08aa799007fe5030cb69",
+   "bytes": 45889,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 44,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [
+     {
+      "part": "ppt/diagrams/_rels/data1.xml.rels",
+      "type": "hyperlink",
+      "scheme": "https",
+      "host": "example.invalid"
+     },
+     {
+      "part": "ppt/diagrams/_rels/drawing1.xml.rels",
+      "type": "hyperlink",
+      "scheme": "https",
+      "host": "example.invalid"
+     }
+    ],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 1,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 0,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 0,
+     "max_group_depth": 0,
+     "tables": 0,
+     "charts": 0,
+     "smartart": 1,
+     "notes_slides": 0
+    },
+    "diagram_parts": [
+     "ppt/diagrams/_rels/data1.xml.rels",
+     "ppt/diagrams/_rels/drawing1.xml.rels",
+     "ppt/diagrams/colors1.xml",
+     "ppt/diagrams/data1.xml",
+     "ppt/diagrams/drawing1.xml",
+     "ppt/diagrams/layout1.xml",
+     "ppt/diagrams/quickStyle1.xml"
+    ],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-DV-T02",
+   "role": "dev",
+   "format": "pptx",
+   "file": "bar-chart-data-labels.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/bar-chart-data-labels.pptx",
+   "license": "MIT (저장소 LICENSE)",
+   "producer_note": "Windows PowerPoint — v2 개발용",
+   "present": true,
+   "sha256": "edeb1dafe790edf45152485753245928a06786d923364d7647354393d891a74f",
+   "bytes": 50381,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 42,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [
+     "ppt/embeddings/Microsoft_Excel_Worksheet.xlsx"
+    ],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 1,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "chart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 0,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 0,
+     "max_group_depth": 0,
+     "tables": 0,
+     "charts": 1,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 1
+   }
+  },
+  {
+   "id": "X-HO-T01",
+   "role": "holdout",
+   "format": "pptx",
+   "file": "table.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/table.pptx",
+   "license": "MIT (저장소 LICENSE, table.pptx는 pptx-automizer MIT에서 가져옴)",
+   "producer_note": "PowerPoint — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "c23ed32ac8e7aed1e3b3f985f5d50ff396547bd7e3fe43d04805a13438a0272e",
+   "bytes": 44521,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 41,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 3,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 3
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 4,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 4,
+        "cols": 4,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 3,
+        "cols": 4,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 41,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 2
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 1,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 1,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 7,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 3,
+      "shapes_sp": 1,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 3
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 2,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 3,
+        "cols": 2,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 2,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 9,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 3,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 57,
+     "max_group_depth": 0,
+     "tables": 8,
+     "charts": 0,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-HO-T02",
+   "role": "holdout",
+   "format": "pptx",
+   "file": "read-stress.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/read-stress.pptx",
+   "license": "MIT (저장소 LICENSE, table.pptx는 pptx-automizer MIT에서 가져옴)",
+   "producer_note": "PowerPoint — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "77fbb00343006a8c0fb6a9120959e489dadf411f62010ea053abb9de95d6c8aa",
+   "bytes": 646934,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 100,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [
+     "ppt/fonts/font1.fntdata",
+     "ppt/fonts/font10.fntdata",
+     "ppt/fonts/font11.fntdata",
+     "ppt/fonts/font12.fntdata",
+     "ppt/fonts/font13.fntdata",
+     "ppt/fonts/font2.fntdata",
+     "ppt/fonts/font3.fntdata",
+     "ppt/fonts/font4.fntdata",
+     "ppt/fonts/font5.fntdata",
+     "ppt/fonts/font6.fntdata",
+     "ppt/fonts/font7.fntdata",
+     "ppt/fonts/font8.fntdata",
+     "ppt/fonts/font9.fntdata"
+    ],
+    "media": 2,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 2,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 8,
+      "groups": 2,
+      "max_group_depth": 2,
+      "connectors": 0,
+      "pictures": 3,
+      "graphic_frames": {
+       "table": 2
+      },
+      "tables": [
+       {
+        "rows": 3,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       },
+       {
+        "rows": 2,
+        "cols": 2,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 1,
+      "flipped": 0,
+      "text_runs": 8,
+      "notes": true,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 3,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "table": 1
+      },
+      "tables": [
+       {
+        "rows": 2,
+        "cols": 3,
+        "gridSpan_gt1": 0,
+        "rowSpan_gt1": 0,
+        "hMerge": 0,
+        "vMerge": 0,
+        "in_placeholder": false,
+        "inside_group": false
+       }
+      ],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 4,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 11,
+     "groups": 2,
+     "connectors": 0,
+     "pictures": 3,
+     "rotated": 1,
+     "flipped": 0,
+     "text_runs": 12,
+     "max_group_depth": 2,
+     "tables": 3,
+     "charts": 0,
+     "smartart": 0,
+     "notes_slides": 1
+    },
+    "diagram_parts": [],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-HO-T03",
+   "role": "holdout",
+   "format": "pptx",
+   "file": "smartart-families.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/smartart-families.pptx",
+   "license": "MIT (저장소 LICENSE, table.pptx는 pptx-automizer MIT에서 가져옴)",
+   "producer_note": "PowerPoint — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "5da5cfe0594970bc5029f1bbb1778d1b2a11894b0e178bdd476626d3acc20c25",
+   "bytes": 75109,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 63,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 4,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 3,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 4,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "smartart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 0,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 0,
+     "max_group_depth": 0,
+     "tables": 0,
+     "charts": 0,
+     "smartart": 4,
+     "notes_slides": 0
+    },
+    "diagram_parts": [
+     "ppt/diagrams/colors1.xml",
+     "ppt/diagrams/colors2.xml",
+     "ppt/diagrams/colors3.xml",
+     "ppt/diagrams/colors4.xml",
+     "ppt/diagrams/data1.xml",
+     "ppt/diagrams/data2.xml",
+     "ppt/diagrams/data3.xml",
+     "ppt/diagrams/data4.xml",
+     "ppt/diagrams/drawing1.xml",
+     "ppt/diagrams/drawing2.xml",
+     "ppt/diagrams/drawing3.xml",
+     "ppt/diagrams/drawing4.xml",
+     "ppt/diagrams/layout1.xml",
+     "ppt/diagrams/layout2.xml",
+     "ppt/diagrams/layout3.xml",
+     "ppt/diagrams/layout4.xml",
+     "ppt/diagrams/quickStyle1.xml",
+     "ppt/diagrams/quickStyle2.xml",
+     "ppt/diagrams/quickStyle3.xml",
+     "ppt/diagrams/quickStyle4.xml"
+    ],
+    "chart_parts": 0
+   }
+  },
+  {
+   "id": "X-HO-T04",
+   "role": "holdout",
+   "format": "pptx",
+   "file": "chart-legend-entry.pptx",
+   "source": "https://raw.githubusercontent.com/shbernal/ts-pptx/11611deba488649c2c5612e06de4e3c82d1c9137/test/read/fixtures/chart-legend-entry.pptx",
+   "license": "MIT (저장소 LICENSE, table.pptx는 pptx-automizer MIT에서 가져옴)",
+   "producer_note": "PowerPoint — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "254c0ac281aaa111bb47ae0c4d2f6fa2158221ee4a55ea204029de5e91b5e799",
+   "bytes": 64273,
+   "matches_published_sha256": true,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+   "safety": {
+    "parts": 49,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [
+     "ppt/embeddings/Microsoft_Excel_Worksheet.xlsx",
+     "ppt/embeddings/Microsoft_Excel_Worksheet1.xlsx"
+    ],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": "Microsoft Office PowerPoint",
+     "AppVersion": "16.0000"
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": true
+    }
+   },
+   "structure": {
+    "slides": 2,
+    "per_slide": [
+     {
+      "slide": 1,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "chart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     },
+     {
+      "slide": 2,
+      "shapes_sp": 0,
+      "groups": 0,
+      "max_group_depth": 0,
+      "connectors": 0,
+      "pictures": 0,
+      "graphic_frames": {
+       "chart": 1
+      },
+      "tables": [],
+      "rotated": 0,
+      "flipped": 0,
+      "text_runs": 0,
+      "notes": false,
+      "hidden": false
+     }
+    ],
+    "totals": {
+     "shapes_sp": 0,
+     "groups": 0,
+     "connectors": 0,
+     "pictures": 0,
+     "rotated": 0,
+     "flipped": 0,
+     "text_runs": 0,
+     "max_group_depth": 0,
+     "tables": 0,
+     "charts": 2,
+     "smartart": 0,
+     "notes_slides": 0
+    },
+    "diagram_parts": [],
+    "chart_parts": 2
+   }
+  },
+  {
+   "id": "X-HO-D01",
+   "role": "holdout",
+   "format": "docx",
+   "file": "demo.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/demo.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "XML 직접 조립 (conformance lane) — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "58edc3da5e52f69233029d804b771495f28f3589ae8ff480c22df213666f1a88",
+   "bytes": 12827,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 16,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [
+     {
+      "part": "word/_rels/document.xml.rels",
+      "type": "hyperlink",
+      "scheme": "https",
+      "host": "example.com"
+     }
+    ],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 1,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": {
+     "dc:creator": true,
+     "cp:lastModifiedBy": false
+    }
+   },
+   "structure": {
+    "body_direct_paragraphs": 95,
+    "body_direct_tables": 2,
+    "tables_total": 2,
+    "tables": [
+     {
+      "rows": 6,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 1,
+      "vMerge_restart": 1,
+      "vMerge_continue": 1,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 17,
+      "cell_lists": 0
+     },
+     {
+      "rows": 1,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 3,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 1,
+    "sections": 1,
+    "header_parts": 1,
+    "footer_parts": 1,
+    "footnotes": 1,
+    "endnotes": 1,
+    "comments": 1,
+    "tracked_ins": 0,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 1,
+    "hyperlinks": 1,
+    "alternate_content": 0,
+    "text_chars": 7095
+   }
+  },
+  {
+   "id": "X-HO-D02",
+   "role": "holdout",
+   "format": "docx",
+   "file": "table-styles.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/table-styles.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "XML 직접 조립 (conformance lane) — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "fbb08dde125b42089f02d771e87a671bb60d527ec711ba6899c3a5dedb128236",
+   "bytes": 5758,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 10,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": "docProps/core.xml 없음"
+   },
+   "structure": {
+    "body_direct_paragraphs": 7,
+    "body_direct_tables": 3,
+    "tables_total": 3,
+    "tables": [
+     {
+      "rows": 4,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 12,
+      "cell_lists": 0
+     },
+     {
+      "rows": 3,
+      "grid_cols": 3,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 9,
+      "cell_lists": 0
+     },
+     {
+      "rows": 5,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 10,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 0,
+    "sections": 1,
+    "header_parts": 1,
+    "footer_parts": 1,
+    "footnotes": 0,
+    "endnotes": 0,
+    "comments": 0,
+    "tracked_ins": 0,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 0,
+    "hyperlinks": 0,
+    "alternate_content": 0,
+    "text_chars": 620
+   }
+  },
+  {
+   "id": "X-HO-D03",
+   "role": "holdout",
+   "format": "docx",
+   "file": "sections-and-revisions.docx",
+   "source": "https://raw.githubusercontent.com/portone-io/docx-editor/18628ae03680aaf72f5d1c065c386df98e6e0b82/__fixtures__/sections-and-revisions.docx",
+   "license": "Apache-2.0 (저장소 LICENSE)",
+   "producer_note": "XML 직접 조립 (conformance lane) — 미참조 홀드아웃",
+   "present": true,
+   "sha256": "61f95115b32432d1741827d68a5183b729f60b326d5b16afaf013bfb78fadcd2",
+   "bytes": 5648,
+   "magic_ok": true,
+   "zip_test": true,
+   "main_content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+   "safety": {
+    "parts": 10,
+    "macro_vba": false,
+    "activex": false,
+    "ole_embeddings": [],
+    "external_relationships": [],
+    "attached_template": 0,
+    "alt_chunk": 0,
+    "embedded_fonts": [],
+    "media": 0,
+    "app": {
+     "Application": null,
+     "AppVersion": null
+    },
+    "core_personal_fields_present": "docProps/core.xml 없음"
+   },
+   "structure": {
+    "body_direct_paragraphs": 6,
+    "body_direct_tables": 1,
+    "tables_total": 1,
+    "tables": [
+     {
+      "rows": 2,
+      "grid_cols": 2,
+      "rows_wrapped_in_sdt": 0,
+      "gridSpan_cells": 0,
+      "vMerge_restart": 0,
+      "vMerge_continue": 0,
+      "nested_in_table": 0,
+      "inside_sdt": false,
+      "direct_body_child": true,
+      "cell_paragraphs": 4,
+      "cell_lists": 0
+     }
+    ],
+    "content_controls_sdt": 1,
+    "sections": 2,
+    "header_parts": 1,
+    "footer_parts": 1,
+    "footnotes": 0,
+    "endnotes": 0,
+    "comments": 0,
+    "tracked_ins": 0,
+    "tracked_del": 0,
+    "fields": 0,
+    "drawings": 0,
+    "hyperlinks": 0,
+    "alternate_content": 0,
+    "text_chars": 564
+   }
+  }
+ ]
+}

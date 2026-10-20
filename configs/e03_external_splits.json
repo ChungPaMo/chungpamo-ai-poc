@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "created": "2026-10-20 (Phase 1 시작, 외부 문서에 파서를 한 번도 실행하기 전)",
+    "purpose": "평가 데이터 오염 방지: 최초 블라인드 평가셋 / v2 개발용 / 신규 홀드아웃을 파서 실행 전에 고정",
+    "rules": {
+      "blind8": "기존 최종 후보 8건 (2026-10-20 확보 단계에서 정함)",
+      "dev": "예비 5건 + PubTables 미사용 주석 중 규칙 선정 4건 + PowerPoint SmartArt·차트 개발용 2건",
+      "holdout": "PubTables 미사용 주석 중 규칙 선정 4건 + 같은 저장소의 미사용 DOCX 3건·PPTX 4건. v2 코드가 동결될 때까지 파서 출력을 보지 않는다",
+      "pubtables_selection": "받아 둔 주석 40개 중 최종 4건 제외, 제외(exclude) 표가 없는 16건을 PMC ID 오름차순 정렬 → 앞 8건을 번갈아 dev(홀수 번째)·holdout(짝수 번째). 8건 모두 CC BY 확인"
+    },
+    "contamination_policy": "blind8은 최초 평가 후 실패 분석에 쓰이므로 v2 이후에는 홀드아웃이 아니다(회귀 측정). 일반화 성능은 holdout으로만 보고한다."
+  },
+  "blind8": ["X-D01", "X-D02", "X-T01", "X-T02", "X-P01", "X-P02", "X-P03", "X-P04"],
+  "dev": ["X-D03", "X-D04", "X-T03", "X-T04", "X-P05", "X-DV-P01", "X-DV-P02", "X-DV-P03", "X-DV-P04", "X-DV-T01", "X-DV-T02"],
+  "holdout": ["X-HO-P01", "X-HO-P02", "X-HO-P03", "X-HO-P04", "X-HO-D01", "X-HO-D02", "X-HO-D03", "X-HO-T01", "X-HO-T02", "X-HO-T03", "X-HO-T04"]
+}

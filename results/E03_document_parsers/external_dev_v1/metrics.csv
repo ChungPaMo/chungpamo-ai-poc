@@ -1,0 +1,17 @@
+doc_id,parser,status,reason,body_paragraph_exact,body_char.recall,body_char.precision,table_detection.recall,table_detection.precision,table_detection.missed_tables_in_containers,structure.rows_cols_equal,cells.text_strict_grid,cells.text_loose_grid,cells.merge_spans,cells.false_merges,cells.empty_truth_cells,reading_order.matched_elements,reading_order.pairwise_order,footnotes,tracked_insertions_included,tracked_deletions_excluded,header_footer,source_location,parse_s_median,import_s_median,peak_rss_mb_median,py_heap_mb_median,ok_runs,output_identical,slides_count_equal,shape_text_exact,shape_char.recall,shape_char.precision,shape_location_slide_and_id,group_child_text_found,group_nested_path_equal,smartart_node_text_found,chart_text_found,notes_exact,reading_order,table_detection.table_bbox_iou_mean,cells.text_loose_bbox_aligned,cells.cell_bbox_iou_ge_0_5,cells.cell_bbox_iou_mean,cells.column_header_text,cells.column_header_flag,cells.projected_row_header,cells.text_found_ignoring_structure,cells.review_excluded_cells,body_text
+X-D03,python-docx,MEASURED,,14/27,1180/1873,1180/1180,2/5,2/4,1,2/5,2/11,2/11,미측정,0,1,16/32,120/120,미측정,미측정,미측정,미측정,미측정,0.0115,0.1950,39.0,0.206,6/6,True,,,,,,,,,,,,,,,,,,,,,
+X-D04,python-docx,MEASURED,,5/8,475/495,475/476,2/2,2/2,0,2/2,4/6,4/6,미측정,0,0,7/10,21/21,미측정,0/1,1/1,미측정,미측정,0.0089,0.1930,38.9,0.200,6/6,True,,,,,,,,,,,,,,,,,,,,,
+X-T03,python-pptx,MEASURED,,,,,미측정,미측정,,미측정,미측정,미측정,미측정,0,0,,,,,,,,0.0222,0.2012,41.1,0.353,6/6,True,True,16/16,282/282,282/282,16/16,미측정,미측정,미측정,미측정,미측정,미측정,,,,,,,,,,
+X-T04,python-pptx,MEASURED,,,,,1/1,1/1,,1/1,6/6,6/6,미측정,0,0,,,,,,,,0.0105,0.1934,40.4,0.303,6/6,True,True,1/1,26/26,26/26,1/1,미측정,미측정,미측정,미측정,미측정,미측정,,,,,,,,,,
+X-P05,pypdf,NOT_MEASURED,정답 없음,,,,,,,,,,,,,,,,,,,,0.1104,0.2911,51.7,3.102,6/6,True,,,,,,,,,,,,,,,,,,,,,
+X-P05,pdfplumber,NOT_MEASURED,정답 없음,,,,,,,,,,,,,,,,,,,,1.2885,0.2729,60.7,12.276,6/6,True,,,,,,,,,,,,,,,,,,,,,
+X-DV-P01,pypdf,MEASURED,,,,,0/1,미측정,,0/1,0/372,0/372,미측정,0,0,,,,,,,,0.1961,0.2936,51.8,3.171,6/6,True,,,,,,,,,,,미측정,,0/372,0/372,,0/12,0/12,미측정,372/372,0,미측정
+X-DV-P01,pdfplumber,MEASURED,,,,,0/1,0/1,,0/1,0/372,0/372,미측정,0,0,,,,,,,,0.7076,0.2651,108.6,55.834,6/6,True,,,,,,,,,,,미측정,,0/372,0/372,,0/12,0/12,미측정,363/372,0,미측정
+X-DV-P02,pypdf,MEASURED,,,,,0/2,미측정,,0/2,0/120,0/120,미측정,0,0,,,,,,,,0.1921,0.2892,51.2,2.243,6/6,True,,,,,,,,,,,미측정,,0/120,0/120,,0/10,0/10,미측정,120/120,0,미측정
+X-DV-P02,pdfplumber,MEASURED,,,,,0/2,미측정,,0/2,0/120,0/120,미측정,0,0,,,,,,,,0.5535,0.2659,92.6,41.071,6/6,True,,,,,,,,,,,미측정,,0/120,0/120,,0/10,0/10,미측정,120/120,0,미측정
+X-DV-P03,pypdf,MEASURED,,,,,0/4,미측정,,0/4,0/191,0/191,0/14,0,35,,,,,,,,0.3188,0.2877,54.8,6.148,6/6,True,,,,,,,,,,,미측정,,0/191,0/191,,0/28,0/28,0/2,188/191,0,미측정
+X-DV-P03,pdfplumber,MEASURED,,,,,0/4,미측정,,0/4,0/191,0/191,0/14,0,35,,,,,,,,0.9886,0.2689,124.1,69.747,6/6,True,,,,,,,,,,,미측정,,0/191,0/191,,0/28,0/28,0/2,163/191,0,미측정
+X-DV-P04,pypdf,MEASURED,,,,,0/1,미측정,,0/1,0/47,0/47,0/6,0,1,,,,,,,,0.3517,0.2910,63.6,13.013,6/6,True,,,,,,,,,,,미측정,,0/47,0/47,,0/7,0/7,미측정,47/47,0,미측정
+X-DV-P04,pdfplumber,MEASURED,,,,,0/1,미측정,,0/1,0/47,0/47,0/6,0,1,,,,,,,,0.9283,0.2704,83.5,32.315,6/6,True,,,,,,,,,,,미측정,,0/47,0/47,,0/7,0/7,미측정,47/47,0,미측정
+X-DV-T01,python-pptx,MEASURED,,,,,미측정,미측정,,미측정,미측정,미측정,미측정,0,0,,,,,,,,0.0086,0.1956,40.2,0.377,6/6,True,True,미측정,미측정,미측정,미측정,미측정,미측정,0/2,미측정,미측정,미측정,,,,,,,,,,
+X-DV-T02,python-pptx,MEASURED,,,,,미측정,미측정,,미측정,미측정,미측정,미측정,0,0,,,,,,,,0.0083,0.1922,40.4,0.325,6/6,True,True,미측정,미측정,미측정,미측정,미측정,미측정,미측정,0/5,미측정,미측정,,,,,,,,,,

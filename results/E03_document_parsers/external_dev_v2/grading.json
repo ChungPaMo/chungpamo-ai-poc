@@ -1,0 +1,2625 @@
+{
+ "definition": "E03 외부 문서 독립 채점기: 공통 중간 JSON(0.2) 출력 ↔ 외부 정답 v1 (data/canonical/external/e03_external_truth_v1.json).\n\n파서 코드(src/parsers)를 import하지 않는다. 분모 0 = NOT_MEASURED. 각 지표에 그 지표가 기대는 정답 상태(truth_status)를 붙인다.\nPROVISIONAL 정답에 대한 점수는 '잠정'이며 100%여도 검증된 정확도로 보고하지 않는다.\n\n규칙 (실행 전 확정, 2026-10-20)\n- 텍스트 비교: strict = 연속 공백을 한 칸으로 바꾼 뒤 완전 일치 / loose = 모든 공백 제거 후 일치 (PDF 셀은 줄바꿈·하이픈 뒤 공백 차이가 있어 loose를 주 지표로 쓴다)\n- 문자 수준: difflib.SequenceMatcher(autojunk=False)로 정답·출력 문자열(공백 제거)의 일치 문자 수 → 재현율 = 일치/정답 길이, 정밀도 = 일치/출력 길이\n- 표 매칭: PDF = 같은 page + 표 bbox IoU ≥ 0.5 / PPTX = slide_index + shape_id / DOCX = 셀 내용 일치가 가장 큰 표 (한 표는 한 번만, 일치 셀 1개 이상)\n- 셀 위치 정렬: (행, 열) 격자 정렬 + (PDF) 셀 bbox IoU ≥ 0.5 정렬을 따로 잰다\n- 빈 정답 셀과 NEEDS_MANUAL_REVIEW 셀은 텍스트 지표에서 빼고 개수만 기록\n",
+ "results": [
+  {
+   "doc_id": "X-D03",
+   "parser": "python-docx",
+   "grade": {
+    "doc_id": "X-D03",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "python-docx",
+    "metrics": {
+     "body_paragraph_exact": {
+      "numerator": 27,
+      "denominator": 27,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "body_char": {
+      "recall": {
+       "numerator": 1873,
+       "denominator": 1873,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 1873,
+       "denominator": 1873,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 5,
+       "denominator": 5,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 5,
+       "denominator": 5,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "missed_tables_in_containers": 0
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 5,
+       "denominator": 5,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 11,
+       "denominator": 11,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 11,
+       "denominator": 11,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 1
+     },
+     "reading_order": {
+      "matched_elements": {
+       "numerator": 32,
+       "denominator": 32,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "pairwise_order": {
+       "numerator": 496,
+       "denominator": 496,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "footnotes": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "정답에 각주 없음"
+     },
+     "tracked_insertions_included": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "삽입 변경 없음"
+     },
+     "tracked_deletions_excluded": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "삭제 변경 없음"
+     },
+     "header_footer": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "머리말·꼬리말 없음"
+     },
+     "source_location": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "외부 DOCX 정답에 body_index 체계 위치를 만들지 않음 (콘텐츠 컨트롤 등 컨테이너 때문에 정의가 갈림)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "94f04b6d79c62c0580a22167db302b763e6974a628d051c27220fd81572e7cf3",
+    "parse_seconds": [
+     0.006927600014023483,
+     0.0067310999147593975,
+     0.006675100070424378
+    ],
+    "import_seconds": [
+     0.19638039998244494,
+     0.19242520001716912,
+     0.19341810001060367
+    ],
+    "peak_rss_mb": [
+     39.4,
+     39.1,
+     38.7
+    ],
+    "py_heap_peak_mb": [
+     0.26,
+     0.26,
+     0.26
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-D04",
+   "parser": "python-docx",
+   "grade": {
+    "doc_id": "X-D04",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "python-docx",
+    "metrics": {
+     "body_paragraph_exact": {
+      "numerator": 8,
+      "denominator": 8,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "body_char": {
+      "recall": {
+       "numerator": 495,
+       "denominator": 495,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 495,
+       "denominator": 495,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "missed_tables_in_containers": 0
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 6,
+       "denominator": 6,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 6,
+       "denominator": 6,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 0
+     },
+     "reading_order": {
+      "matched_elements": {
+       "numerator": 10,
+       "denominator": 10,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "pairwise_order": {
+       "numerator": 45,
+       "denominator": 45,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "footnotes": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "정답에 각주 없음"
+     },
+     "tracked_insertions_included": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "tracked_deletions_excluded": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "header_footer": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "머리말·꼬리말 없음"
+     },
+     "source_location": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "외부 DOCX 정답에 body_index 체계 위치를 만들지 않음 (콘텐츠 컨트롤 등 컨테이너 때문에 정의가 갈림)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "91e7c42014f8b0f7384d84c4de8d0eafaf9049dd4d36137b753192b13f625fff",
+    "parse_seconds": [
+     0.005984100047498941,
+     0.006027199910022318,
+     0.005895699956454337
+    ],
+    "import_seconds": [
+     0.1922393999993801,
+     0.19015530007891357,
+     0.18995760008692741
+    ],
+    "peak_rss_mb": [
+     39.0,
+     38.5,
+     38.9
+    ],
+    "py_heap_peak_mb": [
+     0.2,
+     0.2,
+     0.2
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-T03",
+   "parser": "python-pptx",
+   "grade": {
+    "doc_id": "X-T03",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "metrics": {
+     "slides_count_equal": true,
+     "shape_text_exact": {
+      "numerator": 16,
+      "denominator": 16,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "shape_char": {
+      "recall": {
+       "numerator": 282,
+       "denominator": 282,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 282,
+       "denominator": 282,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "shape_location_slide_and_id": {
+      "numerator": 16,
+      "denominator": 16,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "group_child_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "group_nested_path_equal": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 0
+     },
+     "smartart_node_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "SmartArt 없음"
+     },
+     "chart_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "차트 없음"
+     },
+     "notes_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "노트 텍스트 없음"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PPTX 논리 읽기 순서 정답 없음 (수동 검수 필요)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "55494073b5a69085fac259b1b4561c38561cf16f56434240c28afc0a05487dfb",
+    "parse_seconds": [
+     0.022538900026120245,
+     0.02152950002346188,
+     0.02160169999115169
+    ],
+    "import_seconds": [
+     0.19644620001781732,
+     0.20064819999970496,
+     0.19487530004698783
+    ],
+    "peak_rss_mb": [
+     41.4,
+     41.2,
+     41.4
+    ],
+    "py_heap_peak_mb": [
+     0.351,
+     0.351,
+     0.351
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-T04",
+   "parser": "python-pptx",
+   "grade": {
+    "doc_id": "X-T04",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "metrics": {
+     "slides_count_equal": true,
+     "shape_text_exact": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "shape_char": {
+      "recall": {
+       "numerator": 26,
+       "denominator": 26,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 26,
+       "denominator": 26,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "shape_location_slide_and_id": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "group_child_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "group_nested_path_equal": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 6,
+       "denominator": 6,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 6,
+       "denominator": 6,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 0
+     },
+     "smartart_node_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "SmartArt 없음"
+     },
+     "chart_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "차트 없음"
+     },
+     "notes_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "노트 텍스트 없음"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PPTX 논리 읽기 순서 정답 없음 (수동 검수 필요)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "31aa777ee6ecb00da982f921e33594b2be042b18e1b0fc769c28d8ab6276a425",
+    "parse_seconds": [
+     0.010489200009033084,
+     0.010613100021146238,
+     0.0103150000795722
+    ],
+    "import_seconds": [
+     0.1951346000423655,
+     0.19189190003089607,
+     0.1994276000186801
+    ],
+    "peak_rss_mb": [
+     40.4,
+     40.4,
+     40.2
+    ],
+    "py_heap_peak_mb": [
+     0.295,
+     0.295,
+     0.295
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-P05",
+   "parser": "pypdf",
+   "grade": {
+    "doc_id": "X-P05",
+    "status": "NOT_MEASURED",
+    "reason": "정답 없음"
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "6ebc64e65b4bf4ee27846a4dca1d9a70885bea6b0317ccdacbccd5cd14f9aef2",
+    "parse_seconds": [
+     0.10946210008114576,
+     0.11742350005079061,
+     0.1093601998873055
+    ],
+    "import_seconds": [
+     0.29276340000797063,
+     0.2916189000243321,
+     0.29329250007867813
+    ],
+    "peak_rss_mb": [
+     51.8,
+     52.0,
+     51.7
+    ],
+    "py_heap_peak_mb": [
+     3.102,
+     3.102,
+     3.102
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-P05",
+   "parser": "pdfplumber",
+   "grade": {
+    "doc_id": "X-P05",
+    "status": "NOT_MEASURED",
+    "reason": "정답 없음"
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "741df601ae643eaa299112a6b2e92b673aae548abe631c0682a3688bdb4ba19c",
+    "parse_seconds": [
+     0.4725668999599293,
+     0.47097010002471507,
+     0.46029999991878867
+    ],
+    "import_seconds": [
+     0.26775640004780143,
+     0.27357159997336566,
+     0.2668135000858456
+    ],
+    "peak_rss_mb": [
+     61.3,
+     60.8,
+     61.2
+    ],
+    "py_heap_peak_mb": [
+     12.555,
+     12.555,
+     12.555
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-P01",
+   "parser": "pypdf",
+   "grade": {
+    "doc_id": "X-DV-P01",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pypdf",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 1,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력 표 0개"
+      },
+      "table_bbox_iou_mean": null
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 1,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 372,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 372,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 0,
+       "denominator": 372,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 0,
+       "denominator": 372,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_mean": null,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 0,
+       "denominator": 12,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "column_header_flag": {
+       "numerator": 0,
+       "denominator": 12,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 372,
+       "denominator": 372,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 0,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC2275741_table_0",
+       "page": 4,
+       "truth_shape": [
+        31,
+        12
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+     "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+     "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "ccfd5cca1812f971a398438ebeec8fd624eacd4691b3453d094634f268dbe344",
+    "parse_seconds": [
+     0.1954672000138089,
+     0.19453400000929832,
+     0.20320700004231185
+    ],
+    "import_seconds": [
+     0.2876877998933196,
+     0.29055969999171793,
+     0.2911284000147134
+    ],
+    "peak_rss_mb": [
+     52.6,
+     52.3,
+     51.6
+    ],
+    "py_heap_peak_mb": [
+     3.171,
+     3.171,
+     3.171
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 16
+   }
+  },
+  {
+   "doc_id": "X-DV-P01",
+   "parser": "pdfplumber",
+   "grade": {
+    "doc_id": "X-DV-P01",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pdfplumber",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "table_bbox_iou_mean": 0.974
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 370,
+       "denominator": 372,
+       "rate": 0.9946,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_strict_grid": {
+       "numerator": 370,
+       "denominator": 372,
+       "rate": 0.9946,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 340,
+       "denominator": 372,
+       "rate": 0.914,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 340,
+       "denominator": 372,
+       "rate": 0.914,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_mean": 0.81,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "false_merges": 1,
+      "column_header_text": {
+       "numerator": 10,
+       "denominator": 12,
+       "rate": 0.8333,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "column_header_flag": {
+       "numerator": 11,
+       "denominator": 12,
+       "rate": 0.9167,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 372,
+       "denominator": 372,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 0,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC2275741_table_0",
+       "page": 4,
+       "truth_shape": [
+        31,
+        12
+       ],
+       "matched_ir_table": "t001",
+       "table_bbox_iou": 0.974,
+       "ir_shape": [
+        31,
+        12
+       ],
+       "ir_tables_on_page": 1
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph",
+     "EXT-UNSUPPORTED: 괘선 없는 표 영역 추정 규칙은 줄바꿈된 셀을 여러 행으로 나눔"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "92d0ca85fced481f2c5bdec7911c771ff87794d55372a7505b148ad37245f90e",
+    "parse_seconds": [
+     0.7789798000594601,
+     0.788847399991937,
+     0.7777302000904456
+    ],
+    "import_seconds": [
+     0.26525579998269677,
+     0.26690309995319694,
+     0.2661138999974355
+    ],
+    "peak_rss_mb": [
+     110.2,
+     109.8,
+     109.6
+    ],
+    "py_heap_peak_mb": [
+     56.933,
+     56.932,
+     56.932
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-P02",
+   "parser": "pypdf",
+   "grade": {
+    "doc_id": "X-DV-P02",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pypdf",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 2,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력 표 0개"
+      },
+      "table_bbox_iou_mean": null
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 2,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 120,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 120,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 0,
+       "denominator": 120,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 0,
+       "denominator": 120,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_mean": null,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 0,
+       "denominator": 10,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "column_header_flag": {
+       "numerator": 0,
+       "denominator": 10,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 0,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC3170591_table_0",
+       "page": 3,
+       "truth_shape": [
+        12,
+        6
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      },
+      {
+       "table_id": "PMC3170591_table_1",
+       "page": 4,
+       "truth_shape": [
+        12,
+        4
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+     "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+     "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "9d050bca1607180519a221e1d0d1a84d865d8757ff6ffcb9124ff7f41e6bdf82",
+    "parse_seconds": [
+     0.18797939992509782,
+     0.187922399956733,
+     0.19175839994568378
+    ],
+    "import_seconds": [
+     0.29425420006737113,
+     0.29306569998152554,
+     0.28739240008872
+    ],
+    "peak_rss_mb": [
+     51.7,
+     51.1,
+     51.0
+    ],
+    "py_heap_peak_mb": [
+     2.243,
+     2.243,
+     2.243
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 38
+   }
+  },
+  {
+   "doc_id": "X-DV-P02",
+   "parser": "pdfplumber",
+   "grade": {
+    "doc_id": "X-DV-P02",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pdfplumber",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "table_bbox_iou_mean": 0.942
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_strict_grid": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_mean": 0.896,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 10,
+       "denominator": 10,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "column_header_flag": {
+       "numerator": 10,
+       "denominator": 10,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 120,
+       "denominator": 120,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 0,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC3170591_table_0",
+       "page": 3,
+       "truth_shape": [
+        12,
+        6
+       ],
+       "matched_ir_table": "t001",
+       "table_bbox_iou": 0.922,
+       "ir_shape": [
+        12,
+        6
+       ],
+       "ir_tables_on_page": 1
+      },
+      {
+       "table_id": "PMC3170591_table_1",
+       "page": 4,
+       "truth_shape": [
+        12,
+        4
+       ],
+       "matched_ir_table": "t002",
+       "table_bbox_iou": 0.962,
+       "ir_shape": [
+        12,
+        4
+       ],
+       "ir_tables_on_page": 1
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph",
+     "EXT-UNSUPPORTED: 괘선 없는 표 영역 추정 규칙은 줄바꿈된 셀을 여러 행으로 나눔"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "6daa39a6f9d795c75a96262963bff943fb687ec58c60d185cce97ae18aa3ed0f",
+    "parse_seconds": [
+     0.591341600054875,
+     0.5883199000963941,
+     0.5960037000477314
+    ],
+    "import_seconds": [
+     0.26605449989438057,
+     0.26456299994606525,
+     0.26828179997392
+    ],
+    "peak_rss_mb": [
+     93.8,
+     92.5,
+     92.6
+    ],
+    "py_heap_peak_mb": [
+     41.496,
+     41.496,
+     41.496
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 8
+   }
+  },
+  {
+   "doc_id": "X-DV-P03",
+   "parser": "pypdf",
+   "grade": {
+    "doc_id": "X-DV-P03",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pypdf",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 4,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력 표 0개"
+      },
+      "table_bbox_iou_mean": null
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 4,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 191,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 191,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 0,
+       "denominator": 191,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 0,
+       "denominator": 191,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_mean": null,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 14,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 0,
+       "denominator": 28,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "column_header_flag": {
+       "numerator": 0,
+       "denominator": 28,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 2,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 188,
+       "denominator": 191,
+       "rate": 0.9843,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 35,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC3554437_table_0",
+       "page": 3,
+       "truth_shape": [
+        8,
+        10
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      },
+      {
+       "table_id": "PMC3554437_table_1",
+       "page": 3,
+       "truth_shape": [
+        16,
+        5
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      },
+      {
+       "table_id": "PMC3554437_table_2",
+       "page": 7,
+       "truth_shape": [
+        5,
+        4
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      },
+      {
+       "table_id": "PMC3554437_table_3",
+       "page": 8,
+       "truth_shape": [
+        9,
+        8
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+     "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+     "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "cdcb13358f772750eeea47b02e739fadb4360435291fa6fecd7099e09a773cf2",
+    "parse_seconds": [
+     0.3178880999330431,
+     0.31969869998283684,
+     0.3170468000462279
+    ],
+    "import_seconds": [
+     0.29111650004051626,
+     0.28870569996070117,
+     0.28977609996218234
+    ],
+    "peak_rss_mb": [
+     55.4,
+     55.8,
+     55.1
+    ],
+    "py_heap_peak_mb": [
+     6.148,
+     6.148,
+     6.148
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 111
+   }
+  },
+  {
+   "doc_id": "X-DV-P03",
+   "parser": "pdfplumber",
+   "grade": {
+    "doc_id": "X-DV-P03",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pdfplumber",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 4,
+       "denominator": 4,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 4,
+       "denominator": 4,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "table_bbox_iou_mean": 0.986
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 3,
+       "denominator": 4,
+       "rate": 0.75,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 177,
+       "denominator": 191,
+       "rate": 0.9267,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_strict_grid": {
+       "numerator": 150,
+       "denominator": 191,
+       "rate": 0.7853,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 169,
+       "denominator": 191,
+       "rate": 0.8848,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 172,
+       "denominator": 191,
+       "rate": 0.9005,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_mean": 0.898,
+      "merge_spans": {
+       "numerator": 5,
+       "denominator": 14,
+       "rate": 0.3571,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "false_merges": 1,
+      "column_header_text": {
+       "numerator": 21,
+       "denominator": 28,
+       "rate": 0.75,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "column_header_flag": {
+       "numerator": 24,
+       "denominator": 28,
+       "rate": 0.8571,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 2,
+       "denominator": 2,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 188,
+       "denominator": 191,
+       "rate": 0.9843,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 35,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC3554437_table_0",
+       "page": 3,
+       "truth_shape": [
+        8,
+        10
+       ],
+       "matched_ir_table": "t001",
+       "table_bbox_iou": 0.991,
+       "ir_shape": [
+        8,
+        10
+       ],
+       "ir_tables_on_page": 2
+      },
+      {
+       "table_id": "PMC3554437_table_1",
+       "page": 3,
+       "truth_shape": [
+        16,
+        5
+       ],
+       "matched_ir_table": "t002",
+       "table_bbox_iou": 0.995,
+       "ir_shape": [
+        14,
+        5
+       ],
+       "ir_tables_on_page": 2
+      },
+      {
+       "table_id": "PMC3554437_table_2",
+       "page": 7,
+       "truth_shape": [
+        5,
+        4
+       ],
+       "matched_ir_table": "t003",
+       "table_bbox_iou": 0.968,
+       "ir_shape": [
+        5,
+        4
+       ],
+       "ir_tables_on_page": 1
+      },
+      {
+       "table_id": "PMC3554437_table_3",
+       "page": 8,
+       "truth_shape": [
+        9,
+        8
+       ],
+       "matched_ir_table": "t004",
+       "table_bbox_iou": 0.991,
+       "ir_shape": [
+        9,
+        8
+       ],
+       "ir_tables_on_page": 1
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph",
+     "EXT-UNSUPPORTED: 괘선 없는 표 영역 추정 규칙은 줄바꿈된 셀을 여러 행으로 나눔"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "49aef5b406672041dde9d41da0888250730baae75e7614d7517c790d8498af28",
+    "parse_seconds": [
+     1.049851099960506,
+     1.0515282000415027,
+     1.052731900010258
+    ],
+    "import_seconds": [
+     0.2646293999860063,
+     0.2691393999848515,
+     0.2647544000064954
+    ],
+    "peak_rss_mb": [
+     125.4,
+     125.0,
+     125.4
+    ],
+    "py_heap_peak_mb": [
+     70.355,
+     70.355,
+     70.355
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 2
+   }
+  },
+  {
+   "doc_id": "X-DV-P04",
+   "parser": "pypdf",
+   "grade": {
+    "doc_id": "X-DV-P04",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pypdf",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 1,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력 표 0개"
+      },
+      "table_bbox_iou_mean": null
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 1,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 47,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 47,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 0,
+       "denominator": 47,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 0,
+       "denominator": 47,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "cell_bbox_iou_mean": null,
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 6,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 0,
+       "denominator": 7,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "column_header_flag": {
+       "numerator": 0,
+       "denominator": 7,
+       "rate": 0.0,
+       "status": "FAIL",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "IR에 표 없음 (파서 미지원 또는 미검출)"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 47,
+       "denominator": 47,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 1,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC4695698_table_0",
+       "page": 1,
+       "truth_shape": [
+        9,
+        6
+       ],
+       "matched_ir_table": null,
+       "table_bbox_iou": null,
+       "ir_shape": null,
+       "ir_tables_on_page": 0
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+     "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+     "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "6573b77c163869fce8bdb5e586455045932d1c6a41912b36a30f14c251126ba4",
+    "parse_seconds": [
+     0.4057858999585733,
+     0.34990850009489805,
+     0.3564506000839174
+    ],
+    "import_seconds": [
+     0.29002980003133416,
+     0.2902380999876186,
+     0.28588909993413836
+    ],
+    "peak_rss_mb": [
+     63.4,
+     63.4,
+     61.9
+    ],
+    "py_heap_peak_mb": [
+     13.013,
+     13.013,
+     13.013
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 22
+   }
+  },
+  {
+   "doc_id": "X-DV-P04",
+   "parser": "pdfplumber",
+   "grade": {
+    "doc_id": "X-DV-P04",
+    "status": "MEASURED",
+    "format": "pdf",
+    "parser": "pdfplumber",
+    "metrics": {
+     "table_detection": {
+      "recall": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "precision": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "table_bbox_iou_mean": 0.932
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 1,
+       "denominator": 1,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      }
+     },
+     "cells": {
+      "text_loose_grid": {
+       "numerator": 47,
+       "denominator": 47,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_strict_grid": {
+       "numerator": 47,
+       "denominator": 47,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_loose_bbox_aligned": {
+       "numerator": 44,
+       "denominator": 47,
+       "rate": 0.9362,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_ge_0_5": {
+       "numerator": 44,
+       "denominator": 47,
+       "rate": 0.9362,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "cell_bbox_iou_mean": 0.879,
+      "merge_spans": {
+       "numerator": 2,
+       "denominator": 6,
+       "rate": 0.3333,
+       "status": "PARTIAL",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "false_merges": 0,
+      "column_header_text": {
+       "numerator": 7,
+       "denominator": 7,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "column_header_flag": {
+       "numerator": 7,
+       "denominator": 7,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "출력이 헤더 여부를 표시한 비율"
+      },
+      "projected_row_header": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "VERIFIED_OFFICIAL"
+      },
+      "text_found_ignoring_structure": {
+       "numerator": 47,
+       "denominator": 47,
+       "rate": 1.0,
+       "status": "PASS",
+       "truth_status": "VERIFIED_OFFICIAL",
+       "note": "같은 쪽 추출 텍스트 어딘가에 포함 (공백 무시, 짧은 값은 우연 일치 가능 — 상한값)"
+      },
+      "empty_truth_cells": 1,
+      "review_excluded_cells": 0
+     },
+     "tables": [
+      {
+       "table_id": "PMC4695698_table_0",
+       "page": 1,
+       "truth_shape": [
+        9,
+        6
+       ],
+       "matched_ir_table": "t001",
+       "table_bbox_iou": 0.932,
+       "ir_shape": [
+        9,
+        6
+       ],
+       "ir_tables_on_page": 1
+      }
+     ],
+     "body_text": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 본문 정답 없음 (PubTables는 표만 주석)"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PDF 읽기 순서 정답 없음"
+     }
+    },
+    "ir_diagnostics": [
+     "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph",
+     "EXT-UNSUPPORTED: 괘선 없는 표 영역 추정 규칙은 줄바꿈된 셀을 여러 행으로 나눔"
+    ]
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "8148fd7321eba2850d90b6927ca645c2fa30898d198bd1ecfd79b62b9625fe3c",
+    "parse_seconds": [
+     0.93773320002947,
+     0.9357048000674695,
+     0.9575006999075413
+    ],
+    "import_seconds": [
+     0.2604932999238372,
+     0.2684478999581188,
+     0.2639634000370279
+    ],
+    "peak_rss_mb": [
+     84.1,
+     84.0,
+     84.6
+    ],
+    "py_heap_peak_mb": [
+     32.537,
+     32.537,
+     32.537
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 8
+   }
+  },
+  {
+   "doc_id": "X-DV-T01",
+   "parser": "python-pptx",
+   "grade": {
+    "doc_id": "X-DV-T01",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "metrics": {
+     "slides_count_equal": true,
+     "shape_text_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL"
+     },
+     "shape_char": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "NOT_MEASURED",
+       "note": "정답 텍스트 없음"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "NOT_MEASURED",
+       "note": "정답 텍스트 없음"
+      }
+     },
+     "shape_location_slide_and_id": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL"
+     },
+     "group_child_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "group_nested_path_equal": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 0
+     },
+     "smartart_node_text_found": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "chart_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "차트 없음"
+     },
+     "notes_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "노트 텍스트 없음"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PPTX 논리 읽기 순서 정답 없음 (수동 검수 필요)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "e898360675c786369bd5729ffc97d2200d4c14840eb7c877a6a11ae4fd5d9394",
+    "parse_seconds": [
+     0.009229999966919422,
+     0.008986799977719784,
+     0.008939399966038764
+    ],
+    "import_seconds": [
+     0.19702339998912066,
+     0.19023339997511357,
+     0.19214030005969107
+    ],
+    "peak_rss_mb": [
+     40.3,
+     40.6,
+     40.3
+    ],
+    "py_heap_peak_mb": [
+     0.377,
+     0.377,
+     0.377
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-T02",
+   "parser": "python-pptx",
+   "grade": {
+    "doc_id": "X-DV-T02",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "metrics": {
+     "slides_count_equal": true,
+     "shape_text_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL"
+     },
+     "shape_char": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "NOT_MEASURED",
+       "note": "정답 텍스트 없음"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "NOT_MEASURED",
+       "note": "정답 텍스트 없음"
+      }
+     },
+     "shape_location_slide_and_id": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL"
+     },
+     "group_child_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "group_nested_path_equal": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "그룹 안 텍스트 도형 없음"
+     },
+     "table_detection": {
+      "recall": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "precision": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "structure": {
+      "rows_cols_equal": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      }
+     },
+     "cells": {
+      "text_strict_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "text_loose_grid": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "merge_spans": {
+       "numerator": 0,
+       "denominator": 0,
+       "rate": null,
+       "status": "NOT_MEASURED",
+       "truth_status": "PROVISIONAL"
+      },
+      "false_merges": 0,
+      "empty_truth_cells": 0
+     },
+     "smartart_node_text_found": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "SmartArt 없음"
+     },
+     "chart_text_found": {
+      "numerator": 5,
+      "denominator": 5,
+      "rate": 1.0,
+      "status": "PASS",
+      "truth_status": "PROVISIONAL"
+     },
+     "notes_exact": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "PROVISIONAL",
+      "note": "노트 텍스트 없음"
+     },
+     "reading_order": {
+      "numerator": 0,
+      "denominator": 0,
+      "rate": null,
+      "status": "NOT_MEASURED",
+      "truth_status": "NOT_MEASURED",
+      "note": "PPTX 논리 읽기 순서 정답 없음 (수동 검수 필요)"
+     }
+    },
+    "ir_diagnostics": []
+   },
+   "perf": {
+    "ok_runs": 6,
+    "total_runs": 6,
+    "output_identical_across_runs": true,
+    "first_run_ir_sha256": "809c45cb6e5cdb717038c1203ff163cd80053b1c937246f7b95f6cfb45219d72",
+    "parse_seconds": [
+     0.009471700061112642,
+     0.009486500057391822,
+     0.009473100071772933
+    ],
+    "import_seconds": [
+     0.19108360004611313,
+     0.1908690999262035,
+     0.18995349993929267
+    ],
+    "peak_rss_mb": [
+     40.4,
+     40.2,
+     40.5
+    ],
+    "py_heap_peak_mb": [
+     0.325,
+     0.325,
+     0.325
+    ],
+    "errors": [],
+    "stderr_lines_first_run": 0
+   }
+  }
+ ]
+}

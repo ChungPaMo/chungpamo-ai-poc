@@ -1,0 +1,14 @@
+[2026-10-20T19:12:56+09:00] start version=v2 set=blind8
+X-D01 python-docx: run1 ok=True 
+X-D02 python-docx: run1 ok=True 
+X-T01 python-pptx: run1 ok=True 
+X-T02 python-pptx: run1 ok=True 
+X-P01 pypdf: run1 ok=True 
+X-P01 pdfplumber: run1 ok=True 
+X-P02 pypdf: run1 ok=True 
+X-P02 pdfplumber: run1 ok=True 
+X-P03 pypdf: run1 ok=True 
+X-P03 pdfplumber: run1 ok=True 
+X-P04 pypdf: run1 ok=True 
+X-P04 pdfplumber: run1 ok=True 
+[2026-10-20T19:17:05+09:00] done

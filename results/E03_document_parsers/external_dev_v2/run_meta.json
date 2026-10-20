@@ -1,0 +1,109 @@
+{
+  "experiment": "E03 외부 문서 평가",
+  "status": "RUNNING",
+  "parser_version": "v2",
+  "set": "dev",
+  "run_timestamp": "2026-10-20T19:00:25+09:00",
+  "python": "3.11.9",
+  "packages": {
+    "python-docx": "1.2.0",
+    "python-pptx": "1.0.2",
+    "pypdf": "6.21.1",
+    "pdfplumber": "0.11.10",
+    "pdfminer.six": "20260107",
+    "lxml": "6.1.3",
+    "pypdfium2": "5.14.0"
+  },
+  "code": {
+    "commit": "34293ad79c796fc5903ff336c93d52f5d5399b28 (+ 커밋 안 된 v2 코드)",
+    "files": {
+      "src/parsers/v2/__init__.py": "22863430dd5785c1b4c3f9d86d6df6de171f94830a60b17e044a30b6cb239fdc",
+      "src/parsers/v2/docx_v2.py": "8f7a1ccef3d7101d8769532a3f4babea8160f9f8638516107df3e932aad6c12f",
+      "src/parsers/v2/pdf_v2.py": "dba8397cf6bc4813b0b8aaec52cf5464d81772b5d73e73c5126d1c21d30d3cc7",
+      "src/parsers/v2/pptx_v2.py": "863e0182f961b5b1ec46627b4ae79de5c3cba98dc08eb770081a130018062204",
+      "src/parsers/v2/registry.py": "67b2eb295dd65f6a12c336b8fccc2abee7aeb4cf460cc0643f1665171e57301b",
+      "src/parsers/doc_common.py": "f4fecffd63a769b3ea4b4a3f1145d011a5a783de6bc31ffe982c7d6b11545568",
+      "src/parsers/doc_docx.py": "e5a33bbafd0d3b551e8811d0979d652a0e9ca1a2e3e89ba757933d25f08d00fb",
+      "src/parsers/doc_pdf.py": "257fe8caa819a8a7af0f06817e9edfe55fea7a81a61c42a98570964c7a111ae9",
+      "src/parsers/doc_pptx.py": "6c9beb3dffc77cfd041534e29190d425c6f46a802ff56a4fb39c2ee67ac42db1"
+    }
+  },
+  "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+  "truth": {
+    "file": "data/canonical/external/e03_external_truth_v1.json",
+    "sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+    "manual_review_performed": false
+  },
+  "inputs": [
+    {
+      "doc_id": "X-D03",
+      "file": "content-controls.docx",
+      "sha256": "c7a36fe8b5e807a84976aa341354d13891c843c653f2e25e7c146476cf9530c1",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-D04",
+      "file": "preserved-markup.docx",
+      "sha256": "8bfbf9f4a01c39365cfc029d263dfa7e4c27c3399d5cb30cbf31eb2fc95c8750",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-T03",
+      "file": "group-transform.pptx",
+      "sha256": "492fa2a2b69ee5f9b6dc171242c93c0ebd0c4055209f21e779eb9bc318f4481d",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-T04",
+      "file": "table-placeholder.pptx",
+      "sha256": "f18ae67b1df1cc1cf7dc616451c3e548a4ea0c80f807c06a87521b010597af75",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-P05",
+      "file": "nics-background-checks-2015-11.pdf",
+      "sha256": "4f0ae6e017b0e97de211da8fd97316e55bd927af5740d6ce95e1b7b1539f9407",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-P01",
+      "file": "PMC2275741.1.pdf",
+      "sha256": "646d8c2baff6b2d604df59e65b59b7606746f6b3e236ff0575b947a099f8b295",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-P02",
+      "file": "PMC3170591.1.pdf",
+      "sha256": "8f9688ffc9950fdc3f861127875bc2a7fb8fdcfd8de19d3a59f42e4e0c0c3dd2",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-P03",
+      "file": "PMC3554437.1.pdf",
+      "sha256": "f20af1b008557e47182ff2a17f2d246a8353e021db51ab6d222f0741deffbc1c",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-P04",
+      "file": "PMC4695698.1.pdf",
+      "sha256": "b8a0dc045ac2b731e63afe315d1aee540cb750eadb86d7c60a967775c5293976",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-T01",
+      "file": "smartart-hyperlink.pptx",
+      "sha256": "ab30899b00edc9bfaffa9b40f762a5a9ee70c9ca8a5f08aa799007fe5030cb69",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-DV-T02",
+      "file": "bar-chart-data-labels.pptx",
+      "sha256": "edeb1dafe790edf45152485753245928a06786d923364d7647354393d891a74f",
+      "matches_truth_record": true
+    }
+  ],
+  "repeats": 3,
+  "git_head": "34293ad79c796fc5903ff336c93d52f5d5399b28",
+  "measurement": "자식 프로세스: parse_seconds(파일 열기~IR), import_seconds, 피크 RSS(런처+인터프리터, 5ms 폴링), tracemalloc Python 힙 피크(별도 3회). 첫 실행 IR만 채점",
+  "upstage_api_calls": 0
+}

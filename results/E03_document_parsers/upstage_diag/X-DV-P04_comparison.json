@@ -1,0 +1,167 @@
+{
+ "purpose": "E03 실패 사례 진단 예비 비교 (E04 본 실험 아님). 1개 문서·1회 호출 — 일반화하지 않는다",
+ "doc_id": "X-DV-P04",
+ "split": "dev",
+ "truth": "PubTables-1M 공식 주석 (VERIFIED_OFFICIAL)",
+ "call": {
+  "status": "SUCCESS",
+  "http_status": 200,
+  "elapsed_seconds": 9.845,
+  "pages_sent": 2,
+  "model": "document-parse-260930",
+  "usage": {
+   "pages": 2,
+   "standard": [
+    1,
+    2
+   ]
+  },
+  "requested_at": "2026-10-21T08:41:38+09:00",
+  "form": {
+   "model": "document-parse",
+   "mode": "standard",
+   "ocr": "auto",
+   "output_formats": "[\"html\", \"markdown\", \"text\"]",
+   "coordinates": "true"
+  }
+ },
+ "cost": {
+  "billed_pages": 2,
+  "unit_price_usd": 0.01,
+  "estimated_usd_excl_vat": 0.02,
+  "actual_charge": "콘솔 확인 전 미확인"
+ },
+ "response": {
+  "sha256": "37fc7021d1f882cf4c13d3fe6c35d862ac5fa5a8fa2f020a00d5576acc70e62c",
+  "stored_at": "data/raw/upstage_e03_diag/ (Git 제외)",
+  "elements": 31,
+  "tables": 1,
+  "cell_coordinates": "미제공 → 셀 bbox 지표는 측정 불가 (0점 아님)"
+ },
+ "security": {
+  "api_key_in_response": false,
+  "home_path_in_response": false,
+  "email_like_in_response": false
+ },
+ "metrics": {
+  "upstage_standard_html": {
+   "표 재현율": "1/1",
+   "표 정밀도": "1/1",
+   "행·열 수 일치": "1/1",
+   "셀 텍스트(격자, 공백무시)": "47/47",
+   "셀 텍스트(엄격)": "47/47",
+   "병합 셀": "4/6",
+   "잘못된 병합": "0",
+   "헤더 셀 텍스트": "7/7",
+   "행 머리": "미측정",
+   "표 bbox IoU 평균": "0.888",
+   "셀 bbox IoU≥0.5": "미제공 (측정 불가)"
+  },
+  "upstage_standard_markdown": {
+   "표 재현율": "1/1",
+   "표 정밀도": "1/1",
+   "행·열 수 일치": "1/1",
+   "셀 텍스트(격자, 공백무시)": "47/47",
+   "셀 텍스트(엄격)": "47/47",
+   "병합 셀": "0/6",
+   "잘못된 병합": "0",
+   "헤더 셀 텍스트": "7/7",
+   "행 머리": "미측정",
+   "표 bbox IoU 평균": "0.888",
+   "셀 bbox IoU≥0.5": "미제공 (측정 불가)"
+  },
+  "direct_v1_pdfplumber": {
+   "표 재현율": "0/1",
+   "표 정밀도": "미측정",
+   "행·열 수 일치": "0/1",
+   "셀 텍스트(격자, 공백무시)": "0/47",
+   "셀 텍스트(엄격)": "0/47",
+   "병합 셀": "0/6",
+   "잘못된 병합": "0",
+   "헤더 셀 텍스트": "0/7",
+   "행 머리": "미측정",
+   "표 bbox IoU 평균": "—",
+   "셀 bbox IoU≥0.5": "0/47"
+  },
+  "direct_v2_pdfplumber": {
+   "표 재현율": "1/1",
+   "표 정밀도": "1/1",
+   "행·열 수 일치": "1/1",
+   "셀 텍스트(격자, 공백무시)": "47/47",
+   "셀 텍스트(엄격)": "47/47",
+   "병합 셀": "2/6",
+   "잘못된 병합": "0",
+   "헤더 셀 텍스트": "7/7",
+   "행 머리": "미측정",
+   "표 bbox IoU 평균": "0.932",
+   "셀 bbox IoU≥0.5": "44/47"
+  }
+ },
+ "table_rows": {
+  "upstage_standard_html": [
+   {
+    "table_id": "PMC4695698_table_0",
+    "page": 1,
+    "truth_shape": [
+     9,
+     6
+    ],
+    "matched_ir_table": "t001",
+    "table_bbox_iou": 0.888,
+    "ir_shape": [
+     9,
+     6
+    ],
+    "ir_tables_on_page": 1
+   }
+  ],
+  "upstage_standard_markdown": [
+   {
+    "table_id": "PMC4695698_table_0",
+    "page": 1,
+    "truth_shape": [
+     9,
+     6
+    ],
+    "matched_ir_table": "t001",
+    "table_bbox_iou": 0.888,
+    "ir_shape": [
+     9,
+     6
+    ],
+    "ir_tables_on_page": 1
+   }
+  ],
+  "direct_v1_pdfplumber": [
+   {
+    "table_id": "PMC4695698_table_0",
+    "page": 1,
+    "truth_shape": [
+     9,
+     6
+    ],
+    "matched_ir_table": null,
+    "table_bbox_iou": null,
+    "ir_shape": null,
+    "ir_tables_on_page": 0
+   }
+  ],
+  "direct_v2_pdfplumber": [
+   {
+    "table_id": "PMC4695698_table_0",
+    "page": 1,
+    "truth_shape": [
+     9,
+     6
+    ],
+    "matched_ir_table": "t001",
+    "table_bbox_iou": 0.932,
+    "ir_shape": [
+     9,
+     6
+    ],
+    "ir_tables_on_page": 1
+   }
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+[2026-10-20T19:03:26+09:00] start version=v1 set=holdout
+X-HO-P01 pypdf: run1 ok=True 
+X-HO-P01 pdfplumber: run1 ok=True 
+X-HO-P02 pypdf: run1 ok=True 
+X-HO-P02 pdfplumber: run1 ok=True 
+X-HO-P03 pypdf: run1 ok=True 
+X-HO-P03 pdfplumber: run1 ok=True 
+X-HO-P04 pypdf: run1 ok=True 
+X-HO-P04 pdfplumber: run1 ok=True 
+X-HO-D01 python-docx: run1 ok=False AttributeError: 'NoneType' object has no attribute 'name' @ ['e03_ext_parse_doc.py:46:main', 'doc_docx.py:104:parse_docx']
+X-HO-D02 python-docx: run1 ok=True 
+X-HO-D03 python-docx: run1 ok=True 
+X-HO-T01 python-pptx: run1 ok=True 
+X-HO-T02 python-pptx: run1 ok=True 
+X-HO-T03 python-pptx: run1 ok=True 
+X-HO-T04 python-pptx: run1 ok=True 
+[2026-10-20T19:08:08+09:00] done

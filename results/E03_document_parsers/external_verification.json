@@ -1,0 +1,174 @@
+{
+ "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+ "truth_matches_manifest": true,
+ "runs": {
+  "external_baseline_v1": {
+   "parser_version": "v1",
+   "set": "blind8",
+   "start": "2026-10-20T18:42:26+09:00",
+   "manifest_files": 26,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": null
+  },
+  "external_dev_v1": {
+   "parser_version": "v1",
+   "set": "dev",
+   "start": "2026-10-20T18:38:22+09:00",
+   "manifest_files": 36,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": null
+  },
+  "external_dev_v2": {
+   "parser_version": "v2",
+   "set": "dev",
+   "start": "2026-10-20T19:00:25+09:00",
+   "manifest_files": 36,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": true
+  },
+  "external_holdout_v1": {
+   "parser_version": "v1",
+   "set": "holdout",
+   "start": "2026-10-20T19:03:26+09:00",
+   "manifest_files": 32,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": null
+  },
+  "external_holdout_v2": {
+   "parser_version": "v2",
+   "set": "holdout",
+   "start": "2026-10-20T19:08:08+09:00",
+   "manifest_files": 34,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": true
+  },
+  "external_blind8_v2": {
+   "parser_version": "v2",
+   "set": "blind8",
+   "start": "2026-10-20T19:12:56+09:00",
+   "manifest_files": 28,
+   "manifest_changed": [],
+   "regrade_mismatch": [],
+   "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+   "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+   "v2_code_equals_freeze": true
+  }
+ },
+ "holdout_integrity": {
+  "freeze_before_holdout_runs": true,
+  "v2_code_at_holdout_equals_freeze": true,
+  "current_v2_code_equals_freeze": true,
+  "holdout_results_unchanged": true,
+  "same_grader_and_truth_all_runs": true,
+  "holdout_not_in_dev_list": true,
+  "dev_tuning_evidence": "v2 개발 루프 스크립트는 dev 목록만 읽음(작업 기록). 파서 소스에 holdout 문서 식별 문자열 없음은 테스트로 확인. 개발 중 holdout 출력 열람 여부는 기록·코드로 완전 증명할 수 없음 → '로그상 미사용'으로만 확인"
+ },
+ "duplicates_between_splits": {
+  "blind8-dev": {
+   "sha": [],
+   "file": [],
+   "tables": []
+  },
+  "blind8-holdout": {
+   "sha": [],
+   "file": [],
+   "tables": []
+  },
+  "dev-holdout": {
+   "sha": [],
+   "file": [],
+   "tables": []
+  }
+ },
+ "recomputed": {
+  "holdout_pdf_tables": {
+   "v1": {
+    "numerator": 0,
+    "denominator": 6,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   },
+   "v2": {
+    "numerator": 6,
+    "denominator": 6,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   }
+  },
+  "holdout_pdf_cells_grid": {
+   "v1": {
+    "numerator": 0,
+    "denominator": 676,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   },
+   "v2": {
+    "numerator": 625,
+    "denominator": 676,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   }
+  },
+  "holdout_pdf_merges": {
+   "v1": {
+    "numerator": 0,
+    "denominator": 30,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   },
+   "v2": {
+    "numerator": 23,
+    "denominator": 30,
+    "truth_status": [
+     "VERIFIED_OFFICIAL"
+    ],
+    "mixed_official_and_provisional": false
+   }
+  },
+  "blind8_role": "회귀 측정 (최초 실패 분석에서 출력·정답 열람)"
+ },
+ "aggregates_mixing_official_and_provisional": [
+  {
+   "run": "external_baseline_v1",
+   "format": "docx",
+   "metric": "body_paragraph_exact",
+   "truth_status": [
+    "MIXED"
+   ]
+  },
+  {
+   "run": "external_blind8_v2",
+   "format": "docx",
+   "metric": "body_paragraph_exact",
+   "truth_status": [
+    "MIXED",
+    "PROVISIONAL"
+   ]
+  }
+ ]
+}

@@ -94,7 +94,12 @@
 | D-018 | PyMuPDF(AGPL-3.0/상용 이중 라이선스) 사용 여부 | E03 | 팀 | 대기 |
 | D-019 | 공통 중간 JSON 0.2 변경안(content_set·logical_id·planned/actual 위치 등) 채택 여부 | E03 | 팀 | **명세 반영** (DEC-20261020-10, intermediate_representation.md §8). E02 출력은 0.1 그대로 |
 | D-020 | 폰트 서브셋을 임베드한 PDF(P-01·P-02)의 공개 저장소 업로드 | E03 | 사용자 | **보류** (2026-10-20) — 맑은 고딕 서브셋의 재배포 조건(Microsoft EULA) 미확인. 로컬 전용(.gitignore 명시). 해제 방안: ① 재배포 가능 폰트(예: OFL 한글 폰트)로 재생성 — 재생성 시 E03 결과 재측정 필요 ② 라이선스 확인 |
-| D-021 | E04 본 실험 착수와 호출·비용 상한 ([e04_upstage_plan.md](e04_upstage_plan.md) §4) | E04 | 사용자 | 대기 |
+| D-021 | E04 본 실험 착수와 호출·비용 상한 ([e04_upstage_plan.md](e04_upstage_plan.md) §4) | E04 | 사용자 | 본 실험 대기. E03 실패 사례 진단용 제한 비교만 승인·수행 (2026-10-21, Standard 1회·2쪽, DEC-20261021-01) |
+| D-023 | 외부 문서 원본(Apache-2.0·MIT·CC BY)의 공개 저장소 업로드 여부 — 라이선스상 재배포는 허용(고지 의무)되나 현재 로컬 전용 | E03 | 사용자 | 대기 ([e03_external_testset_plan.md](e03_external_testset_plan.md) §8). X-P05는 문서 자체 저작권 미확인 |
+| D-025 | 외부 문서 텍스트가 담긴 정답·파서 출력·API 응답의 공개 여부 | E03 | 사용자 | **결정 (2026-10-21, DEC-20261021-01)** — 원본·텍스트 포함 정답·원문 복원 가능 출력·첨부·미확인 SmartArt/차트 원문·API 응답은 비공개, 코드·채점기·테스트·출처·해시·분할·집계·비식별 오류 통계·보고서는 검사 통과 시 공개 |
+| D-026 | 외부 DOCX·PPTX 잠정 정답(PROVISIONAL)의 사람 뷰어 검수 담당·범위 (VERIFIED_MANUAL 승격 조건) | E03 | 사용자·팀 | **방식 승인**, 담당 미배정 — 체크리스트·목록 준비([e03_external_manual_review_checklist.md](e03_external_manual_review_checklist.md)), 검수 미수행 |
+| D-027 | 직접 파서 v2 채택 여부 (v1 대체 또는 병행) | E03 | 사용자·ChatGPT | **조건부 병행 채택** (2026-10-21) — v1 유지, v2 별도 버전. 잠정 정답 의존 기능은 검수 후 확정 |
+| D-024 | 외부 문서 정답 작성 방식 승인: 공식 주석·저장소 기대값 우선, 나머지 수동 검수(검수 담당 지정), PubTables 주석 규칙(빈 셀·행 머리·헤더 정규화) 채점 반영 방식, 블라인드 프로토콜(§5) | E03 | 사용자·팀 | 대기 |
 | D-022 | E03 완료 판정 조건: 생성 도구와 다른 경로로 만든 문서(Word·PowerPoint·한글에서 저장한 파일, 선 없는 표 PDF 등) 추가 측정 필요 여부, HWP/HWPX 미측정 상태로의 완료 가능 여부 | E03 | 사용자·팀 | 대기 (직접 파서 Baseline은 같은 라이브러리 계열 왕복 결과 — `parser_baseline/summary.md` §5) |
 | D-015 | Upstage Document Parse의 지원 입력 형식(HWP/HWPX/PPTX 포함 여부) 공식 문서 확인 | E04 | 팀 | 대기 (확인 전 지원 가정 금지) |
 | D-016 | E02 pandas 비교 실행 여부 (pandas 설치 승인 포함) | E02 | 사용자·팀 | **보류** (2026-10-20, DEC-20261020-09) — 1차 Baseline 결과상 급하지 않음. 대용량·`.xls`·자동 형식 추론 위험 확인이 필요할 때 재검토 |
@@ -217,3 +222,24 @@
 - 이행: pypdf 6.21.1(BSD-3-Clause), pdfplumber 0.11.10(MIT) 설치 — 의존성 pdfminer.six 20260107(MIT), pypdfium2 5.14.0(BSD-3-Clause·Apache-2.0, PDFium 바이너리 포함), cryptography 50.0.2(Apache-2.0 OR BSD-3-Clause), cffi 2.1.1(MIT-0), pycparser 3.11(BSD-3-Clause). 모두 Python 3.11 지원, `pip check` 이상 없음.
 - 환경 수정: 새 클론 검증에서 `requirements.lock`의 한국어 주석 때문에 pip이 파일을 cp949로 읽어 설치가 실패함을 발견(최초 커밋부터 존재한 결함). 첫 줄에 `# -*- coding: utf-8 -*-` 선언을 추가해 해결하고, 새 가상환경에서 설치·pip check·pytest로 확인.
 - 결과: `results/E03_document_parsers/parser_baseline/` (상태 RUNNING). 이 판단은 기술 채택 판단이 아니다.
+
+### DEC-20261020-13: E03 외부 제작 문서 테스트셋 확보 착수 (확보·분석·평가 설계까지)
+- 날짜: 2026-10-20
+- 결정 주체: 사용자
+- 결정 내용: 공개 저장소·데이터셋에서 외부 제작 문서 후보를 확보하고 독립 정답셋과 블라인드 평가를 설계한다. 파서 수정·실행·채점, Upstage 호출, OCR은 하지 않는다. 외부 원본은 `data/raw/external_documents/`(Git 제외).
+- 이행: 최종 후보 8건(DOCX 2·PPTX 2·PDF 4) + 예비 5건 확보 ([e03_external_testset_plan.md](e03_external_testset_plan.md)). PubTables-1M은 주석 아카이브 앞부분만 스트리밍(JSON 40개), 원본 PDF는 PMC 공개 버킷에서 CC BY 논문만. 검사는 평가 대상 파서를 쓰지 않음(zipfile+lxml, pypdfium2).
+- 한계: Word·한글 저장 DOCX, 공식 정답이 있는 선 있는 격자 표 PDF는 확보하지 못함.
+
+### DEC-20261020-14: E03 외부 문서 일반화 검증·직접 파서 v2 (장기 작업, 로컬 전용)
+- 날짜: 2026-10-20
+- 결정 주체: 사용자 (승인 범위 안에서 중간 승인 없이 진행, 커밋·푸시·API 호출 금지)
+- 이행: 평가 묶음 고정(blind8·dev·holdout) → 독립 정답 v1(공식 + 잠정, 사람 검수 0) → v1 최초 블라인드 평가(덮어쓰기 금지) → 실패 분석 → v2(`src/parsers/v2/`, dev로만 조정) → v2 동결 → holdout v1·v2 1회 평가 → blind8 v2 회귀 측정.
+- 결과: [e03_external_generalization_report.md](e03_external_generalization_report.md). holdout PDF(공식 정답) 표 재현율 0/6 → 6/6, 셀 텍스트 0/676 → 625/676. DOCX·PPTX 개선은 대부분 잠정 정답 기준.
+- 이 판단은 기술 채택 판단이 아니며 E03은 RUNNING.
+
+### DEC-20261021-01: E03 v2 결과 확정 절차, 공개 정책(D-025), v2 조건부 병행(D-027), Upstage 제한 비교(D-021 일부)
+- 날짜: 2026-10-21
+- 결정 주체: 사용자
+- 결정 내용: ① 외부 문서 원본·텍스트 포함 정답/출력·첨부·API 응답 비공개, 공개는 코드·채점기·테스트·출처·해시·분할·집계·보고서(문자열 검사 통과 시) ② v2는 v1을 대체하지 않는 별도 버전으로 조건부 병행 ③ E03 실패 사례 진단용 Upstage Standard 비교: 전체 과금 4쪽 이하, Enhanced·OCR 모델·재시도 금지, 문서 자르기 금지 ④ 사람 검수는 방식만 승인(담당 미배정)
+- 이행: 재검증(`external_verification.json`) — holdout 무결성 확인, 공식·잠정 혼합 수치 1건 분리 보고. 정답 작성기의 외부 문자열 제거(정답 불변 확인). Upstage는 조건을 만족하는 문서가 X-DV-P04(2쪽) 1건뿐이라 1회·2쪽 호출(추정 $0.02). 검수 목록 523항목 준비.
+- E03 상태 RUNNING, E04 본 실험 미착수.

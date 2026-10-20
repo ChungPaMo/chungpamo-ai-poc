@@ -174,3 +174,14 @@ E03 문서 샘플 생성 과정에서 확인한 한계(1단계 제안, D-019)를
 | 미지원 정보 | `diagnostics` `EXT-UNSUPPORTED`로 명시 (예: pypdf 표 구조·bbox·문단, PDF 블록 유형) |
 | 추가 위치 키 | pypdf `location.line_index`(페이지 안 줄 순번), pdfplumber `location.lines`(문단 줄 수), PPTX 표 `first_row_flag`(첫 행 강조 설정값) |
 | extracted_values·records | 채우지 않음 — 업무 필드 해석은 E03 범위 밖 (셀 원문 보존만 채점) |
+
+### 9.1 직접 파서 v2 추가 키 (2026-10-20, `src/parsers/v2/`, 스키마 버전 변경 없음)
+
+| 항목 | 사용 방식 |
+|---|---|
+| `parser.impl_version` | `"v2"` (v1 출력에는 없음) |
+| DOCX `location.container_path` | 콘텐츠 컨트롤·customXml 안 요소의 컨테이너 경로 (예: `["sdt"]`). `body_index`는 본문 최상위 요소 순번(sectPr 제외) |
+| DOCX 각주·미주 블록 | `type = "footnote"`, `location.part = "footnotes" / "endnotes"`, `location.note_id` |
+| PPTX 차트·SmartArt 블록 | `type = "other"`, 블록 `format_specific.kind = "chart" / "smartart"`, 텍스트는 줄바꿈으로 연결 |
+| PDF 표 `format_specific.detector` | `"lines"` (그려진 선 기반) / `"rules_text"` (가로 괘선 영역 + 단어 정렬 추정) |
+| PDF 셀 `is_projected_row_header` | 첫 열에만 텍스트가 있는 본문 행을 행 전체 span 셀로 표시 (추정) |

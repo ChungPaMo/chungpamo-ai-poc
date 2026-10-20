@@ -1,0 +1,1086 @@
+{
+ "truth_file": "data/canonical/external/e03_external_truth_v1.json",
+ "truth_sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+ "created": "2026-10-20T18:14:02+09:00",
+ "manual_review_performed": false,
+ "builder_sha256": "738d221c8e2a1640fcad4b31edcf9fba572b852a479e8d6226332007d4596514",
+ "documents": [
+  {
+   "doc_id": "X-D01",
+   "split": "blind8",
+   "format": "docx",
+   "sha256": "14e39475fb2f85adcf7ac82e46aac19789f3ea7f66511a72a90dcffa7cd93c4c",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [
+    {
+     "claim": "표 2개, 문서 순서",
+     "source": "docx-editor __fixtures__/README.md (kitchen-sink 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "첫 표: 세로·가로 병합이 있는 격자",
+     "source": "docx-editor __fixtures__/README.md (kitchen-sink 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "둘째 표: w:tblGrid에 w:gridCol 없음",
+     "source": "docx-editor __fixtures__/README.md (kitchen-sink 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "머리말·꼬리말 부품 있음",
+     "source": "docx-editor __fixtures__/README.md (kitchen-sink 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "각주·미주 부품 있음 (실제 각주·미주는 구분자뿐 — 0건)",
+     "source": "docx-editor __fixtures__/README.md (kitchen-sink 계약) + XML",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    }
+   ],
+   "counts": {
+    "body_blocks": 32,
+    "tables": 2,
+    "cells": 12,
+    "tables_in_containers": 0,
+    "footnotes": 0,
+    "headers": 1,
+    "footers": 1,
+    "insertions": 0,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-D02",
+   "split": "blind8",
+   "format": "docx",
+   "sha256": "e975d3f44427dcd851bce12dbf59e9748848479668d27d68461502cfeb3816c0",
+   "items": {
+    "body_text": "VERIFIED_OFFICIAL (source.md와 일치하는 문단) / PROVISIONAL (그 밖)",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [
+    {
+     "claim": "3열 표: 세로 병합 2개, gridSpan 1개",
+     "source": "docx-editor __fixtures__/README.md (google-docs-export 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "둘째 표 (vAlign 3종)",
+     "source": "docx-editor __fixtures__/README.md (google-docs-export 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "각주 2개",
+     "source": "docx-editor __fixtures__/README.md (google-docs-export 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "메모 1개",
+     "source": "docx-editor __fixtures__/README.md (google-docs-export 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "단어 중간을 나누는 w:ins 1개",
+     "source": "docx-editor __fixtures__/README.md (google-docs-export 계약)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    }
+   ],
+   "counts": {
+    "body_blocks": 54,
+    "tables": 2,
+    "cells": 18,
+    "tables_in_containers": 0,
+    "footnotes": 2,
+    "headers": 1,
+    "footers": 1,
+    "insertions": 1,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-T01",
+   "split": "blind8",
+   "format": "pptx",
+   "sha256": "db80910224b01b46cb7e8c29e183b59d128a18fd8e0c651558907230874693b9",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "VERIFIED_OFFICIAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [
+    {
+     "claim": "슬라이드 11장",
+     "source": "ts-pptx test/read/fixtures/README.md, test/read/diagram.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 2 SmartArt 노드 11개 (diagram.test.ts NODE_TEXT)",
+     "source": "ts-pptx test/read/fixtures/README.md, test/read/diagram.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "표·차트 그래픽 프레임 있음",
+     "source": "ts-pptx test/read/fixtures/README.md, test/read/diagram.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    }
+   ],
+   "counts": {
+    "slides": 11,
+    "text_shapes": 29,
+    "groups": 5,
+    "max_nesting": 2,
+    "tables": 1,
+    "charts": 1,
+    "smartart": 1,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-T02",
+   "split": "blind8",
+   "format": "pptx",
+   "sha256": "c2756f8f042c92c8a05236e4c426846f4d344c07d51f54665983b786e27a9132",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (슬라이드 1의 2셀) / PROVISIONAL (그 밖)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [
+    {
+     "claim": "슬라이드 1: 3×3 표, (1,1) 앵커 rowspan 2 colspan 2",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 2: 4×4 표, (1,1) 앵커 rowspan 3 colspan 3",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 3: 3×3 표, (1,1) 앵커 rowspan 2 colspan 2",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 4: 3×3 표, (1,1) 앵커 rowspan 1 colspan 2",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 5: 3×3 표, (1,1) 앵커 rowspan 2 colspan 1",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 1 앵커 텍스트 '(로컬 정답 참조)'",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "슬라이드 1 (3,1) 텍스트 '(로컬 정답 참조)'",
+     "source": "ts-pptx fixtures README + test/read/table-merge-encoding.test.ts",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    }
+   ],
+   "counts": {
+    "slides": 5,
+    "text_shapes": 0,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 5,
+    "charts": 0,
+    "smartart": 0,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-P01",
+   "split": "blind8",
+   "format": "pdf",
+   "sha256": "98c6255a845dce755d52895e0273c2fb1be0c6ee8a457959848f9b2d93268f2a",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 2,
+    "cells": 135,
+    "spanning_cells": 3,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-P02",
+   "split": "blind8",
+   "format": "pdf",
+   "sha256": "b41e4a0f793fee1496cb935d9f4798384b7d3b819fbdd43c76b7615b6a03a0f6",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 4,
+    "cells": 262,
+    "spanning_cells": 13,
+    "cells_needing_review": 2
+   }
+  },
+  {
+   "doc_id": "X-P03",
+   "split": "blind8",
+   "format": "pdf",
+   "sha256": "144ad3a42b3fe75940dbb8570d7643e9e792fda1b2233087f61030ff5dfea366",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 2,
+    "cells": 273,
+    "spanning_cells": 10,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-P04",
+   "split": "blind8",
+   "format": "pdf",
+   "sha256": "ec906d0d0d2e56188712fb9e91d3abc4ff7e753b12ee9d619aa1b201c65bd335",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 1,
+    "cells": 53,
+    "spanning_cells": 3,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-D03",
+   "split": "dev",
+   "format": "docx",
+   "sha256": "c7a36fe8b5e807a84976aa341354d13891c843c653f2e25e7c146476cf9530c1",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "body_blocks": 27,
+    "tables": 5,
+    "cells": 12,
+    "tables_in_containers": 1,
+    "footnotes": 0,
+    "headers": 0,
+    "footers": 0,
+    "insertions": 0,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-D04",
+   "split": "dev",
+   "format": "docx",
+   "sha256": "8bfbf9f4a01c39365cfc029d263dfa7e4c27c3399d5cb30cbf31eb2fc95c8750",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "body_blocks": 8,
+    "tables": 2,
+    "cells": 6,
+    "tables_in_containers": 0,
+    "footnotes": 0,
+    "headers": 0,
+    "footers": 0,
+    "insertions": 1,
+    "deletions": 1
+   }
+  },
+  {
+   "doc_id": "X-T03",
+   "split": "dev",
+   "format": "pptx",
+   "sha256": "492fa2a2b69ee5f9b6dc171242c93c0ebd0c4055209f21e779eb9bc318f4481d",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 2,
+    "text_shapes": 16,
+    "groups": 8,
+    "max_nesting": 3,
+    "tables": 0,
+    "charts": 0,
+    "smartart": 0,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-T04",
+   "split": "dev",
+   "format": "pptx",
+   "sha256": "f18ae67b1df1cc1cf7dc616451c3e548a4ea0c80f807c06a87521b010597af75",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 1,
+    "text_shapes": 1,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 1,
+    "charts": 0,
+    "smartart": 0,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-P05",
+   "split": "dev",
+   "format": "pdf",
+   "sha256": "4f0ae6e017b0e97de211da8fd97316e55bd927af5740d6ce95e1b7b1539f9407",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "NOT_MEASURED",
+    "row_col_structure": "NOT_MEASURED",
+    "cell_text": "NOT_MEASURED",
+    "cell_merge": "NOT_MEASURED",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "NOT_MEASURED",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": []
+  },
+  {
+   "doc_id": "X-DV-P01",
+   "split": "dev",
+   "format": "pdf",
+   "sha256": "646d8c2baff6b2d604df59e65b59b7606746f6b3e236ff0575b947a099f8b295",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 1,
+    "cells": 372,
+    "spanning_cells": 0,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-P02",
+   "split": "dev",
+   "format": "pdf",
+   "sha256": "8f9688ffc9950fdc3f861127875bc2a7fb8fdcfd8de19d3a59f42e4e0c0c3dd2",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 2,
+    "cells": 120,
+    "spanning_cells": 0,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-P03",
+   "split": "dev",
+   "format": "pdf",
+   "sha256": "f20af1b008557e47182ff2a17f2d246a8353e021db51ab6d222f0741deffbc1c",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 4,
+    "cells": 226,
+    "spanning_cells": 14,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-P04",
+   "split": "dev",
+   "format": "pdf",
+   "sha256": "b8a0dc045ac2b731e63afe315d1aee540cb750eadb86d7c60a967775c5293976",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 1,
+    "cells": 48,
+    "spanning_cells": 6,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-T01",
+   "split": "dev",
+   "format": "pptx",
+   "sha256": "ab30899b00edc9bfaffa9b40f762a5a9ee70c9ca8a5f08aa799007fe5030cb69",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 1,
+    "text_shapes": 0,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 0,
+    "charts": 0,
+    "smartart": 1,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-DV-T02",
+   "split": "dev",
+   "format": "pptx",
+   "sha256": "edeb1dafe790edf45152485753245928a06786d923364d7647354393d891a74f",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 1,
+    "text_shapes": 0,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 0,
+    "charts": 1,
+    "smartart": 0,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-P01",
+   "split": "holdout",
+   "format": "pdf",
+   "sha256": "09adcead4eb931b5ab857d8456f9631ccd9d1eecc90995d93ec5f6b80ebb0794",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 1,
+    "cells": 53,
+    "spanning_cells": 2,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-P02",
+   "split": "holdout",
+   "format": "pdf",
+   "sha256": "b8d56c51fa411dc3b31fa1052a56c7bda5d0f6881b69d0833ff80e8ba4738f93",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 1,
+    "cells": 31,
+    "spanning_cells": 2,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-P03",
+   "split": "holdout",
+   "format": "pdf",
+   "sha256": "e447e1037ea332d7af4095b91c6ae7e0398328ec266e1ee6ddac83c9b8065efe",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 2,
+    "cells": 226,
+    "spanning_cells": 7,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-P04",
+   "split": "holdout",
+   "format": "pdf",
+   "sha256": "38c01f1f1d433c929d3ef6b95a5c3a84621768b6886a528dcbdce362bcd90c88",
+   "items": {
+    "body_text": "NOT_MEASURED",
+    "table_region": "VERIFIED_OFFICIAL",
+    "row_col_structure": "VERIFIED_OFFICIAL",
+    "cell_text": "VERIFIED_OFFICIAL (일부 셀 NEEDS_MANUAL_REVIEW)",
+    "cell_merge": "VERIFIED_OFFICIAL",
+    "header_cells": "VERIFIED_OFFICIAL",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "VERIFIED_OFFICIAL",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "VERIFIED_OFFICIAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "tables": 2,
+    "cells": 376,
+    "spanning_cells": 19,
+    "cells_needing_review": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-D01",
+   "split": "holdout",
+   "format": "docx",
+   "sha256": "58edc3da5e52f69233029d804b771495f28f3589ae8ff480c22df213666f1a88",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "body_blocks": 56,
+    "tables": 2,
+    "cells": 19,
+    "tables_in_containers": 0,
+    "footnotes": 1,
+    "headers": 1,
+    "footers": 1,
+    "insertions": 0,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-D02",
+   "split": "holdout",
+   "format": "docx",
+   "sha256": "fbb08dde125b42089f02d771e87a671bb60d527ec711ba6899c3a5dedb128236",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "body_blocks": 7,
+    "tables": 3,
+    "cells": 31,
+    "tables_in_containers": 0,
+    "footnotes": 0,
+    "headers": 0,
+    "footers": 0,
+    "insertions": 0,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-D03",
+   "split": "holdout",
+   "format": "docx",
+   "sha256": "61f95115b32432d1741827d68a5183b729f60b326d5b16afaf013bfb78fadcd2",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "PROVISIONAL",
+    "page_slide": "NOT_MEASURED",
+    "shape_hierarchy": "NOT_MEASURED",
+    "source_location": "PROVISIONAL (본문 순번)",
+    "footnotes": "PROVISIONAL",
+    "tracked_changes": "PROVISIONAL",
+    "smartart": "NOT_MEASURED",
+    "chart": "NOT_MEASURED"
+   },
+   "official_claims": [],
+   "counts": {
+    "body_blocks": 6,
+    "tables": 1,
+    "cells": 4,
+    "tables_in_containers": 0,
+    "footnotes": 0,
+    "headers": 0,
+    "footers": 0,
+    "insertions": 0,
+    "deletions": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-T01",
+   "split": "holdout",
+   "format": "pptx",
+   "sha256": "c23ed32ac8e7aed1e3b3f985f5d50ff396547bd7e3fe43d04805a13438a0272e",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 3,
+    "text_shapes": 3,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 8,
+    "charts": 0,
+    "smartart": 0,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-T02",
+   "split": "holdout",
+   "format": "pptx",
+   "sha256": "77fbb00343006a8c0fb6a9120959e489dadf411f62010ea053abb9de95d6c8aa",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 2,
+    "text_shapes": 8,
+    "groups": 2,
+    "max_nesting": 3,
+    "tables": 3,
+    "charts": 0,
+    "smartart": 0,
+    "notes": 1
+   }
+  },
+  {
+   "doc_id": "X-HO-T03",
+   "split": "holdout",
+   "format": "pptx",
+   "sha256": "5da5cfe0594970bc5029f1bbb1778d1b2a11894b0e178bdd476626d3acc20c25",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [
+    {
+     "claim": "SmartArt 4개 (슬라이드당 1)",
+     "source": "ts-pptx fixtures README (smartart-families)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    },
+    {
+     "claim": "노드 텍스트 접두어 (로컬 정답 참조)",
+     "source": "ts-pptx fixtures README (smartart-families)",
+     "status": "VERIFIED_OFFICIAL",
+     "xml_reading_agrees": true
+    }
+   ],
+   "counts": {
+    "slides": 4,
+    "text_shapes": 0,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 0,
+    "charts": 0,
+    "smartart": 4,
+    "notes": 0
+   }
+  },
+  {
+   "doc_id": "X-HO-T04",
+   "split": "holdout",
+   "format": "pptx",
+   "sha256": "254c0ac281aaa111bb47ae0c4d2f6fa2158221ee4a55ea204029de5e91b5e799",
+   "items": {
+    "body_text": "PROVISIONAL",
+    "table_region": "PROVISIONAL",
+    "row_col_structure": "PROVISIONAL",
+    "cell_text": "PROVISIONAL",
+    "cell_merge": "PROVISIONAL",
+    "header_cells": "NOT_MEASURED",
+    "reading_order": "NOT_MEASURED",
+    "page_slide": "PROVISIONAL",
+    "shape_hierarchy": "PROVISIONAL",
+    "source_location": "PROVISIONAL",
+    "footnotes": "NOT_MEASURED",
+    "tracked_changes": "NOT_MEASURED",
+    "smartart": "PROVISIONAL",
+    "chart": "PROVISIONAL"
+   },
+   "official_claims": [],
+   "counts": {
+    "slides": 2,
+    "text_shapes": 0,
+    "groups": 0,
+    "max_nesting": 1,
+    "tables": 0,
+    "charts": 2,
+    "smartart": 0,
+    "notes": 0
+   }
+  }
+ ],
+ "public_redaction": "2026-10-21: 단언 설명 안의 정답 문자열을 가림 (D-025). 정답 파일·해시 불변"
+}

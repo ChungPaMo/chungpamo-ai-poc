@@ -1,0 +1,91 @@
+{
+  "experiment": "E03 외부 문서 평가",
+  "status": "RUNNING",
+  "parser_version": "v2",
+  "set": "blind8",
+  "run_timestamp": "2026-10-20T19:12:56+09:00",
+  "python": "3.11.9",
+  "packages": {
+    "python-docx": "1.2.0",
+    "python-pptx": "1.0.2",
+    "pypdf": "6.21.1",
+    "pdfplumber": "0.11.10",
+    "pdfminer.six": "20260107",
+    "lxml": "6.1.3",
+    "pypdfium2": "5.14.0"
+  },
+  "code": {
+    "commit": "34293ad79c796fc5903ff336c93d52f5d5399b28 (+ 커밋 안 된 v2 코드)",
+    "files": {
+      "src/parsers/v2/__init__.py": "22863430dd5785c1b4c3f9d86d6df6de171f94830a60b17e044a30b6cb239fdc",
+      "src/parsers/v2/docx_v2.py": "8f7a1ccef3d7101d8769532a3f4babea8160f9f8638516107df3e932aad6c12f",
+      "src/parsers/v2/pdf_v2.py": "dba8397cf6bc4813b0b8aaec52cf5464d81772b5d73e73c5126d1c21d30d3cc7",
+      "src/parsers/v2/pptx_v2.py": "863e0182f961b5b1ec46627b4ae79de5c3cba98dc08eb770081a130018062204",
+      "src/parsers/v2/registry.py": "67b2eb295dd65f6a12c336b8fccc2abee7aeb4cf460cc0643f1665171e57301b",
+      "src/parsers/doc_common.py": "f4fecffd63a769b3ea4b4a3f1145d011a5a783de6bc31ffe982c7d6b11545568",
+      "src/parsers/doc_docx.py": "e5a33bbafd0d3b551e8811d0979d652a0e9ca1a2e3e89ba757933d25f08d00fb",
+      "src/parsers/doc_pdf.py": "257fe8caa819a8a7af0f06817e9edfe55fea7a81a61c42a98570964c7a111ae9",
+      "src/parsers/doc_pptx.py": "6c9beb3dffc77cfd041534e29190d425c6f46a802ff56a4fb39c2ee67ac42db1"
+    }
+  },
+  "grader_sha256": "601a9f94e96cf2b38b4cbbb507bf2b59bd25b8077d8c8aa3d042a21ccd257477",
+  "truth": {
+    "file": "data/canonical/external/e03_external_truth_v1.json",
+    "sha256": "f253775a698e3582b250849b1d95ba2f2222a4794ce797dc73a46994ccac29c8",
+    "manual_review_performed": false
+  },
+  "inputs": [
+    {
+      "doc_id": "X-D01",
+      "file": "kitchen-sink.docx",
+      "sha256": "14e39475fb2f85adcf7ac82e46aac19789f3ea7f66511a72a90dcffa7cd93c4c",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-D02",
+      "file": "google-docs-export.docx",
+      "sha256": "e975d3f44427dcd851bce12dbf59e9748848479668d27d68461502cfeb3816c0",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-T01",
+      "file": "mixed.pptx",
+      "sha256": "db80910224b01b46cb7e8c29e183b59d128a18fd8e0c651558907230874693b9",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-T02",
+      "file": "table-merge-encoding.pptx",
+      "sha256": "c2756f8f042c92c8a05236e4c426846f4d344c07d51f54665983b786e27a9132",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-P01",
+      "file": "PMC2008195.1.pdf",
+      "sha256": "98c6255a845dce755d52895e0273c2fb1be0c6ee8a457959848f9b2d93268f2a",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-P02",
+      "file": "PMC2671505.1.pdf",
+      "sha256": "b41e4a0f793fee1496cb935d9f4798384b7d3b819fbdd43c76b7615b6a03a0f6",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-P03",
+      "file": "PMC3296738.1.pdf",
+      "sha256": "144ad3a42b3fe75940dbb8570d7643e9e792fda1b2233087f61030ff5dfea366",
+      "matches_truth_record": true
+    },
+    {
+      "doc_id": "X-P04",
+      "file": "PMC4729796.1.pdf",
+      "sha256": "ec906d0d0d2e56188712fb9e91d3abc4ff7e753b12ee9d619aa1b201c65bd335",
+      "matches_truth_record": true
+    }
+  ],
+  "repeats": 3,
+  "git_head": "34293ad79c796fc5903ff336c93d52f5d5399b28",
+  "measurement": "자식 프로세스: parse_seconds(파일 열기~IR), import_seconds, 피크 RSS(런처+인터프리터, 5ms 폴링), tracemalloc Python 힙 피크(별도 3회). 첫 실행 IR만 채점",
+  "upstage_api_calls": 0
+}

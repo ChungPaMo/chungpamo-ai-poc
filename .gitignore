@@ -58,6 +58,11 @@ docs/private/
 data/documents/P-01_bom_spec.pdf
 data/documents/P-02_order_inventory.pdf
 
+# ---- 외부 문서 텍스트가 담긴 정답·파서 출력: 공개 여부 결정 전 로컬 전용 (decisions.md D-025) ----
+# 원본 라이선스(Apache-2.0·MIT·CC BY)상 재배포는 가능하나 고지 방식·범위 결정 전까지 올리지 않는다
+data/canonical/external/
+results/E03_document_parsers/external_*/outputs/
+
 # ---- 폰트 파일 (라이선스상 재배포 금지 가능 — 시스템 폰트를 로컬에서만 사용) ----
 *.ttf
 *.otf

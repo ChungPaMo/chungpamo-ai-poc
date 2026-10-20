@@ -1,0 +1,42 @@
+# 실패·미측정 — external_baseline_v1
+
+> 자동 생성. 텍스트 내용은 쓰지 않는다 (위치·개수만). 원인 분석은 docs/e03_external_generalization_report.md
+
+- **X-D01 × python-docx**: PARSER_FAILED — 파서 출력 없음 (실행 실패) / 오류 ["AttributeError: 'NoneType' object has no attribute 'name' @ ['e03_ext_parse_doc.py:46:main', 'doc_docx.py:104:parse_docx']"]
+- **X-D02 × python-docx**: body_paragraph_exact 53/54†; body_char.recall 5603/5629†; reading_order.matched_elements 55/56†; footnotes 0/2†; tracked_insertions_included 0/1†
+  - 파서 진단: EXT-UNSUPPORTED: python-docx는 각주(footnotes part) 읽기 API가 없음 — 각주 텍스트 미추출
+- **X-T01 × python-pptx**: smartart_node_text_found 0/11; chart_text_found 1/20†
+- **X-P01 × pypdf**: table_detection.recall 0/2; structure.rows_cols_equal 0/2; cells.text_loose_grid 0/109; cells.text_strict_grid 0/109; cells.text_loose_bbox_aligned 0/109; cells.cell_bbox_iou_ge_0_5 0/109; cells.merge_spans 0/3; cells.column_header_text 0/6; cells.column_header_flag 0/6; cells.projected_row_header 0/3
+  - 파서 진단: EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴 / EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만 / EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)
+  - 표 PMC2008195_table_0 (쪽 3): 정답 [30, 3] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2008195_table_1 (쪽 5): 정답 [17, 3] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P01 × pdfplumber**: table_detection.recall 0/2; table_detection.precision 0/1; structure.rows_cols_equal 0/2; cells.text_loose_grid 0/109; cells.text_strict_grid 0/109; cells.text_loose_bbox_aligned 0/109; cells.cell_bbox_iou_ge_0_5 0/109; cells.merge_spans 0/3; cells.column_header_text 0/6; cells.column_header_flag 0/6; cells.projected_row_header 0/3; cells.text_found_ignoring_structure 108/109
+  - 파서 진단: EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph
+  - 표 PMC2008195_table_0 (쪽 3): 정답 [30, 3] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2008195_table_1 (쪽 5): 정답 [17, 3] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P02 × pypdf**: table_detection.recall 0/4; structure.rows_cols_equal 0/4; cells.text_loose_grid 0/258; cells.text_strict_grid 0/258; cells.text_loose_bbox_aligned 0/258; cells.cell_bbox_iou_ge_0_5 0/258; cells.merge_spans 0/13; cells.column_header_text 0/36; cells.column_header_flag 0/36
+  - 파서 진단: EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴 / EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만 / EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)
+  - 표 PMC2671505_table_0 (쪽 3): 정답 [8, 17] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_1 (쪽 4): 정답 [4, 7] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_2 (쪽 5): 정답 [3, 6] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_3 (쪽 7): 정답 [12, 8] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P02 × pdfplumber**: table_detection.recall 0/4; table_detection.precision 0/2; structure.rows_cols_equal 0/4; cells.text_loose_grid 0/258; cells.text_strict_grid 0/258; cells.text_loose_bbox_aligned 0/258; cells.cell_bbox_iou_ge_0_5 0/258; cells.merge_spans 0/13; cells.column_header_text 0/36; cells.column_header_flag 0/36; cells.text_found_ignoring_structure 245/258
+  - 파서 진단: EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph
+  - 표 PMC2671505_table_0 (쪽 3): 정답 [8, 17] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_1 (쪽 4): 정답 [4, 7] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_2 (쪽 5): 정답 [3, 6] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC2671505_table_3 (쪽 7): 정답 [12, 8] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P03 × pypdf**: table_detection.recall 0/2; structure.rows_cols_equal 0/2; cells.text_loose_grid 0/252; cells.text_strict_grid 0/252; cells.text_loose_bbox_aligned 0/252; cells.cell_bbox_iou_ge_0_5 0/252; cells.merge_spans 0/10; cells.column_header_text 0/14; cells.column_header_flag 0/14; cells.projected_row_header 0/7
+  - 파서 진단: EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴 / EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만 / EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)
+  - 표 PMC3296738_table_0 (쪽 4): 정답 [36, 5] / 출력 None / IoU None / 그 쪽 출력 표 0개
+  - 표 PMC3296738_table_1 (쪽 6): 정답 [18, 7] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P03 × pdfplumber**: table_detection.precision 2/5; structure.rows_cols_equal 0/2; cells.text_loose_grid 2/252; cells.text_strict_grid 1/252; cells.text_loose_bbox_aligned 1/252; cells.cell_bbox_iou_ge_0_5 5/252; cells.merge_spans 2/10; cells.column_header_text 2/14; cells.column_header_flag 0/14; cells.projected_row_header 0/7; cells.text_found_ignoring_structure 11/252
+  - 파서 진단: EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph
+  - 표 PMC3296738_table_0 (쪽 4): 정답 [36, 5] / 출력 [72, 5] / IoU 0.933 / 그 쪽 출력 표 2개
+  - 표 PMC3296738_table_1 (쪽 6): 정답 [18, 7] / 출력 [35, 7] / IoU 0.925 / 그 쪽 출력 표 2개
+- **X-P04 × pypdf**: table_detection.recall 0/1; structure.rows_cols_equal 0/1; cells.text_loose_grid 0/53; cells.text_strict_grid 0/53; cells.text_loose_bbox_aligned 0/53; cells.cell_bbox_iou_ge_0_5 0/53; cells.merge_spans 0/3; cells.column_header_text 0/5; cells.column_header_flag 0/5
+  - 파서 진단: EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴 / EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만 / EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)
+  - 표 PMC4729796_table_0 (쪽 4): 정답 [14, 4] / 출력 None / IoU None / 그 쪽 출력 표 0개
+- **X-P04 × pdfplumber**: table_detection.recall 0/1; table_detection.precision 0/8; structure.rows_cols_equal 0/1; cells.text_loose_grid 0/53; cells.text_strict_grid 0/53; cells.text_loose_bbox_aligned 0/53; cells.cell_bbox_iou_ge_0_5 0/53; cells.merge_spans 0/3; cells.column_header_text 0/5; cells.column_header_flag 0/5; cells.text_found_ignoring_structure 39/53
+  - 파서 진단: EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph
+  - 표 PMC4729796_table_0 (쪽 4): 정답 [14, 4] / 출력 None / IoU None / 그 쪽 출력 표 0개

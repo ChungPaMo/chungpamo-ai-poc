@@ -1,0 +1,101 @@
+{
+ "run": "external_holdout_v2",
+ "note": "분석 전용. 이후 holdout은 개발 참고 데이터로 간주 — 새 일반화 평가에는 미사용 자료 필요",
+ "cell_mismatch_total": 51,
+ "cell_mismatch_types": {
+  "행·열 수 불일치 표의 격자 어긋남 / 본문": 48,
+  "행·열 수 불일치 표의 격자 어긋남 / 머리 셀": 3
+ },
+ "merge_error_total": 7,
+ "merge_error_types": {
+  "병합 안 됨(span 1) / 머리 / 세로 병합": 5,
+  "행·열 수 불일치 표 / 머리 / 가로 병합": 1,
+  "행·열 수 불일치 표 / 행 머리 / 가로 병합": 1
+ },
+ "per_table": [
+  {
+   "doc_id": "X-HO-P01",
+   "table_id": "PMC2396182_table_0",
+   "truth_shape": [
+    19,
+    3
+   ],
+   "ir_shape": [
+    19,
+    2
+   ],
+   "cell_mismatches": 51,
+   "merge_errors": 2
+  },
+  {
+   "doc_id": "X-HO-P02",
+   "table_id": "PMC3465174_table_0",
+   "truth_shape": [
+    11,
+    3
+   ],
+   "ir_shape": [
+    11,
+    3
+   ],
+   "cell_mismatches": 0,
+   "merge_errors": 1
+  },
+  {
+   "doc_id": "X-HO-P03",
+   "table_id": "PMC3700768_table_0",
+   "truth_shape": [
+    11,
+    2
+   ],
+   "ir_shape": [
+    11,
+    2
+   ],
+   "cell_mismatches": 0,
+   "merge_errors": 0
+  },
+  {
+   "doc_id": "X-HO-P03",
+   "table_id": "PMC3700768_table_1",
+   "truth_shape": [
+    26,
+    9
+   ],
+   "ir_shape": [
+    26,
+    9
+   ],
+   "cell_mismatches": 0,
+   "merge_errors": 1
+  },
+  {
+   "doc_id": "X-HO-P04",
+   "table_id": "PMC4828818_table_0",
+   "truth_shape": [
+    21,
+    11
+   ],
+   "ir_shape": [
+    21,
+    11
+   ],
+   "cell_mismatches": 0,
+   "merge_errors": 2
+  },
+  {
+   "doc_id": "X-HO-P04",
+   "table_id": "PMC4828818_table_1",
+   "truth_shape": [
+    16,
+    15
+   ],
+   "ir_shape": [
+    16,
+    15
+   ],
+   "cell_mismatches": 0,
+   "merge_errors": 1
+  }
+ ]
+}

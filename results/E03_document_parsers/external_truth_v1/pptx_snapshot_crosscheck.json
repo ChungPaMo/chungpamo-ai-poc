@@ -1,0 +1,189 @@
+{
+ "note": "제3자 판독과의 일치는 교차 확인일 뿐 사람 검수가 아니다 — 정답 상태는 PROVISIONAL 유지. 스냅숏은 자리표시자(제목 등) 도형을 요소 목록에 넣지 않으므로 '스냅숏에 없음'은 자리표시자 도형이다 (2026-10-20 확인)",
+ "snapshot": "ts-pptx test/read/fixtures/inspect-surface.snapshot.json @11611de",
+ "documents": [
+  {
+   "doc_id": "X-T01",
+   "split": "blind8",
+   "slides_truth": 11,
+   "slides_snapshot": 11,
+   "text_shapes_both": 20,
+   "text_equal": 20,
+   "only_in_truth": 9,
+   "only_in_snapshot": 0,
+   "differences": [
+    {
+     "slide": 1,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 4,
+     "shape_id": 4,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 5,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 6,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 7,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 8,
+     "shape_id": 5,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 9,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 10,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 11,
+     "shape_id": 3,
+     "kind": "스냅숏에 없음"
+    }
+   ]
+  },
+  {
+   "doc_id": "X-T02",
+   "split": "blind8",
+   "slides_truth": 5,
+   "slides_snapshot": 5,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-T03",
+   "split": "dev",
+   "slides_truth": 2,
+   "slides_snapshot": 2,
+   "text_shapes_both": 16,
+   "text_equal": 16,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-T04",
+   "split": "dev",
+   "slides_truth": 1,
+   "slides_snapshot": 1,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 1,
+   "only_in_snapshot": 0,
+   "differences": [
+    {
+     "slide": 1,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    }
+   ]
+  },
+  {
+   "doc_id": "X-DV-T01",
+   "split": "dev",
+   "slides_truth": 1,
+   "slides_snapshot": 1,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-DV-T02",
+   "split": "dev",
+   "slides_truth": 1,
+   "slides_snapshot": 1,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-HO-T01",
+   "split": "holdout",
+   "slides_truth": 3,
+   "slides_snapshot": 3,
+   "text_shapes_both": 3,
+   "text_equal": 3,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-HO-T02",
+   "split": "holdout",
+   "slides_truth": 2,
+   "slides_snapshot": 2,
+   "text_shapes_both": 4,
+   "text_equal": 4,
+   "only_in_truth": 4,
+   "only_in_snapshot": 0,
+   "differences": [
+    {
+     "slide": 1,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 1,
+     "shape_id": 3,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 2,
+     "shape_id": 2,
+     "kind": "스냅숏에 없음"
+    },
+    {
+     "slide": 2,
+     "shape_id": 3,
+     "kind": "스냅숏에 없음"
+    }
+   ]
+  },
+  {
+   "doc_id": "X-HO-T03",
+   "split": "holdout",
+   "slides_truth": 4,
+   "slides_snapshot": 4,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  },
+  {
+   "doc_id": "X-HO-T04",
+   "split": "holdout",
+   "slides_truth": 2,
+   "slides_snapshot": 2,
+   "text_shapes_both": 0,
+   "text_equal": 0,
+   "only_in_truth": 0,
+   "only_in_snapshot": 0,
+   "differences": []
+  }
+ ]
+}
