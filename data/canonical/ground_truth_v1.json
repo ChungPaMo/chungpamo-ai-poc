@@ -1,0 +1,6331 @@
+{
+  "dataset": {
+    "id": "e01_manufacturing",
+    "version": "v1",
+    "seed": 20261020,
+    "generator": "scripts/e01_generate.py",
+    "currency": "KRW",
+    "site_count": 1,
+    "assumptions": [
+      "모든 마스터·주문·재고 값은 PoC용 가정값이며 실제 기업 값이 아니다.",
+      "계획 기간은 2026-11-16(월)~2026-12-13(일) 4주, 재고 기준일은 2026-11-15, 근무는 월~금(공휴일 없음).",
+      "R1·R2는 2교대 가정으로 정규 16h/일, R3는 8h/일. 잔업 최대 2h/일.",
+      "주문 1건 = 제품 1종. CLOSED·CANCELLED 주문은 수요에서 제외한다.",
+      "공급사명은 가상 명칭이다. 구매 리드타임은 우선 공급사(is_preferred) 값을 쓴다.",
+      "SalesHistory는 UCI 일별 총주문(Target)을 완제품 3종에 시드 고정 난수 비율로 배분한 합성값이다. 원본 날짜가 없으므로 UCI 요일 코드(2=월…6=금)를 지키며 2026-08-05부터 합성 날짜를 붙였다.",
+      "생산계획안 수량은 주별 lot-for-lot 순소요(안전재고 유지)로 만든 입력 데이터다. 계획안 간 차이는 지정 제품의 생산 방식(잔업·외주)뿐이며, 외주 제품의 반제품 수요는 생기지 않는다.",
+      "계획 라인의 resource_id는 해당 제품 첫 공정(sequence 10)의 자원이다. 시간 계산은 제품의 모든 공정에 대해 한다."
+    ],
+    "public_sources": [
+      {
+        "dataset": "Daily Demand Forecasting Orders",
+        "license": "CC BY 4.0",
+        "citation": "Ferreira, R., Martiniano, A., Ferreira, A., Ferreira, A., & Sassi, R. (2016). Daily Demand Forecasting Orders [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BC8T",
+        "note": "원본 파일은 저장소에 포함하지 않는다. SalesHistory는 원본 총주문을 가상 제품에 배분한 합성값(SYNTHETIC/ALLOCATED)이다."
+      }
+    ],
+    "record_counts": {
+      "Unit": 4,
+      "Product": 5,
+      "Material": 10,
+      "Supplier": 4,
+      "SupplierMaterial": 12,
+      "BOM": 7,
+      "BOMLine": 23,
+      "Order": 20,
+      "SalesHistory": 180,
+      "Inventory": 15,
+      "Resource": 3,
+      "Operation": 8,
+      "ProductionPlan": 3,
+      "ProductionPlanLine": 53
+    }
+  },
+  "parameters": {
+    "reference_date": "2026-11-15",
+    "horizon_start": "2026-11-16",
+    "horizon_end": "2026-12-13",
+    "period_grain": "WEEK",
+    "working_days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI"
+    ],
+    "currency": "KRW",
+    "demand_source": "ORDERS",
+    "include_safety_stock": true,
+    "include_material_safety_stock": true,
+    "net_semi_finished": true,
+    "outsourcer_supplies_material": true,
+    "overtime_in_order_check": false,
+    "horizon_bom_selection_date": "horizon_start",
+    "plan_bom_selection_date": "period_start",
+    "site_id": null,
+    "cq": {
+      "CQ-03": {
+        "resource_id": "R3"
+      },
+      "CQ-04": {
+        "cases": [
+          {
+            "product_id": "FG001",
+            "date": "2026-11-30",
+            "qty": "460"
+          },
+          {
+            "product_id": "FG001",
+            "date": "2026-12-01",
+            "qty": "460"
+          },
+          {
+            "product_id": "FG003",
+            "date": "2026-11-16",
+            "qty": "499"
+          },
+          {
+            "product_id": "FG003",
+            "date": "2026-11-16",
+            "qty": "500"
+          },
+          {
+            "product_id": "FG002",
+            "date": "2025-12-31",
+            "qty": "10"
+          }
+        ]
+      },
+      "CQ-05": {
+        "material_ids": [
+          "M001",
+          "M003"
+        ]
+      },
+      "CQ-09": {
+        "material_ids": [
+          "M001",
+          "M007"
+        ]
+      },
+      "CQ-10": {
+        "min_lead_time_days": 14
+      },
+      "CQ-11": {
+        "material_id": "M003",
+        "delay_days": 7
+      }
+    }
+  },
+  "entities": {
+    "Unit": [
+      {
+        "record_uid": "rec_4e05f86075ae3355",
+        "origin_class": "SYNTHETIC",
+        "unit_code": "EA",
+        "dimension": "COUNT",
+        "base_unit_code": "EA",
+        "to_base_factor": "1"
+      },
+      {
+        "record_uid": "rec_b1ad237b12ae4675",
+        "origin_class": "SYNTHETIC",
+        "unit_code": "kg",
+        "dimension": "MASS",
+        "base_unit_code": "kg",
+        "to_base_factor": "1"
+      },
+      {
+        "record_uid": "rec_ccd5bbf30aace375",
+        "origin_class": "SYNTHETIC",
+        "unit_code": "g",
+        "dimension": "MASS",
+        "base_unit_code": "kg",
+        "to_base_factor": "0.001"
+      },
+      {
+        "record_uid": "rec_307d72d5f8d542fa",
+        "origin_class": "SYNTHETIC",
+        "unit_code": "h",
+        "dimension": "TIME",
+        "base_unit_code": "h",
+        "to_base_factor": "1"
+      }
+    ],
+    "Product": [
+      {
+        "record_uid": "rec_cd69242a9dcf2445",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "product_name": "가정용 히터 A",
+        "product_type": "FINISHED",
+        "base_unit": "EA",
+        "safety_stock_qty": "50",
+        "manuf_lead_time_days": 3,
+        "outsourcing_allowed": false,
+        "outsourcing_unit_cost": null
+      },
+      {
+        "record_uid": "rec_81411215ccf45217",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "product_name": "가정용 히터 B",
+        "product_type": "FINISHED",
+        "base_unit": "EA",
+        "safety_stock_qty": "30",
+        "manuf_lead_time_days": 3,
+        "outsourcing_allowed": false,
+        "outsourcing_unit_cost": null
+      },
+      {
+        "record_uid": "rec_5fa3f1e715c192eb",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "product_name": "산업용 송풍기 C",
+        "product_type": "FINISHED",
+        "base_unit": "EA",
+        "safety_stock_qty": "40",
+        "manuf_lead_time_days": 2,
+        "outsourcing_allowed": true,
+        "outsourcing_unit_cost": "38000"
+      },
+      {
+        "record_uid": "rec_14722737da7a12e0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "SF001",
+        "product_name": "히터 코어 모듈",
+        "product_type": "SEMI_FINISHED",
+        "base_unit": "EA",
+        "safety_stock_qty": "20",
+        "manuf_lead_time_days": 2,
+        "outsourcing_allowed": false,
+        "outsourcing_unit_cost": null
+      },
+      {
+        "record_uid": "rec_24713386dafcb145",
+        "origin_class": "SYNTHETIC",
+        "product_id": "SF002",
+        "product_name": "모터 하우징 조립품",
+        "product_type": "SEMI_FINISHED",
+        "base_unit": "EA",
+        "safety_stock_qty": "10",
+        "manuf_lead_time_days": 2,
+        "outsourcing_allowed": false,
+        "outsourcing_unit_cost": null
+      }
+    ],
+    "Material": [
+      {
+        "record_uid": "rec_1c7523b3a050f0db",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M001",
+        "material_name": "강판",
+        "base_unit": "kg",
+        "unit_cost": "1200",
+        "safety_stock_qty": "50"
+      },
+      {
+        "record_uid": "rec_819e5c083055bab5",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M002",
+        "material_name": "알루미늄 판재",
+        "base_unit": "kg",
+        "unit_cost": "3500",
+        "safety_stock_qty": "30"
+      },
+      {
+        "record_uid": "rec_752906654b613dc0",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M003",
+        "material_name": "구리선",
+        "base_unit": "kg",
+        "unit_cost": "11000",
+        "safety_stock_qty": "20"
+      },
+      {
+        "record_uid": "rec_ae7d3885fe9886f2",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M004",
+        "material_name": "ABS 수지",
+        "base_unit": "kg",
+        "unit_cost": "2500",
+        "safety_stock_qty": "20"
+      },
+      {
+        "record_uid": "rec_4ef19f05e1cc8439",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M005",
+        "material_name": "PCB 기판",
+        "base_unit": "EA",
+        "unit_cost": "4500",
+        "safety_stock_qty": "50"
+      },
+      {
+        "record_uid": "rec_d5d626c67152f46c",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M006",
+        "material_name": "전원 케이블",
+        "base_unit": "EA",
+        "unit_cost": "1500",
+        "safety_stock_qty": "50"
+      },
+      {
+        "record_uid": "rec_baf10e00bf33b4b1",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M007",
+        "material_name": "소형 모터",
+        "base_unit": "EA",
+        "unit_cost": "18000",
+        "safety_stock_qty": "20"
+      },
+      {
+        "record_uid": "rec_c89f5f7e9a1b0272",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M008",
+        "material_name": "체결 볼트 세트",
+        "base_unit": "EA",
+        "unit_cost": "300",
+        "safety_stock_qty": "0"
+      },
+      {
+        "record_uid": "rec_e4a3a477ae553e6a",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M009",
+        "material_name": "분체 도료",
+        "base_unit": "kg",
+        "unit_cost": "9000",
+        "safety_stock_qty": "10"
+      },
+      {
+        "record_uid": "rec_2e899172bb9dced3",
+        "origin_class": "SYNTHETIC",
+        "material_id": "M010",
+        "material_name": "포장 박스",
+        "base_unit": "EA",
+        "unit_cost": "800",
+        "safety_stock_qty": "50"
+      }
+    ],
+    "Supplier": [
+      {
+        "record_uid": "rec_10c9d90e7ffc3457",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S001",
+        "supplier_name": "가나소재(가상)"
+      },
+      {
+        "record_uid": "rec_eee4acb6269e7118",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S002",
+        "supplier_name": "다라금속(가상)"
+      },
+      {
+        "record_uid": "rec_d5dc9184777735ac",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S003",
+        "supplier_name": "마바전자(가상)"
+      },
+      {
+        "record_uid": "rec_23c77f4044ad3670",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S004",
+        "supplier_name": "사아산업(가상)"
+      }
+    ],
+    "SupplierMaterial": [
+      {
+        "record_uid": "rec_ba4e6bf368c7a96d",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S001",
+        "material_id": "M001",
+        "lead_time_days": 7,
+        "min_order_qty": "100",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_0f8418a171df4bdb",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S002",
+        "material_id": "M001",
+        "lead_time_days": 4,
+        "min_order_qty": "200",
+        "is_preferred": false
+      },
+      {
+        "record_uid": "rec_23f83b4b6232c5bc",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S002",
+        "material_id": "M002",
+        "lead_time_days": 10,
+        "min_order_qty": "50",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_fb694a77ac062b4c",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S003",
+        "material_id": "M003",
+        "lead_time_days": 12,
+        "min_order_qty": "20",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_5d7481a3c8d69592",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S002",
+        "material_id": "M004",
+        "lead_time_days": 6,
+        "min_order_qty": "25",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_f2fda788473ed833",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S003",
+        "material_id": "M005",
+        "lead_time_days": 10,
+        "min_order_qty": "100",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_485150ea10873c7f",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S004",
+        "material_id": "M006",
+        "lead_time_days": 5,
+        "min_order_qty": "100",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_9674d1988b25c5b2",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S003",
+        "material_id": "M007",
+        "lead_time_days": 21,
+        "min_order_qty": "50",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_be8ff9405fc00ef0",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S004",
+        "material_id": "M007",
+        "lead_time_days": 14,
+        "min_order_qty": "50",
+        "is_preferred": false
+      },
+      {
+        "record_uid": "rec_77999e04447f956f",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S004",
+        "material_id": "M008",
+        "lead_time_days": 3,
+        "min_order_qty": "500",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_0cf7340fbe2859ec",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S001",
+        "material_id": "M009",
+        "lead_time_days": 8,
+        "min_order_qty": "10",
+        "is_preferred": true
+      },
+      {
+        "record_uid": "rec_1331651cb64c597d",
+        "origin_class": "SYNTHETIC",
+        "supplier_id": "S004",
+        "material_id": "M010",
+        "lead_time_days": 4,
+        "min_order_qty": "200",
+        "is_preferred": true
+      }
+    ],
+    "BOM": [
+      {
+        "record_uid": "rec_426ffe9aea1abdd3",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V1",
+        "product_id": "FG001",
+        "bom_version": "V1",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": "2026-11-30",
+        "min_qty": "0",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_56af60086ee67acf",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V2",
+        "product_id": "FG001",
+        "bom_version": "V2",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-12-01",
+        "valid_to": null,
+        "min_qty": "0",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_8c75fd594fab5063",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG002-V1",
+        "product_id": "FG002",
+        "bom_version": "V1",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": null,
+        "min_qty": "0",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_f8df671e73b78d87",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V1",
+        "product_id": "FG003",
+        "bom_version": "V1",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": null,
+        "min_qty": "0",
+        "max_qty": "500",
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_48584daa30dd10b7",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V2",
+        "product_id": "FG003",
+        "bom_version": "V2",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": null,
+        "min_qty": "500",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_79a7bd82c4d55576",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF001-V1",
+        "product_id": "SF001",
+        "bom_version": "V1",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": null,
+        "min_qty": "0",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      },
+      {
+        "record_uid": "rec_133c1310b14b6c9d",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF002-V1",
+        "product_id": "SF002",
+        "bom_version": "V1",
+        "status": "APPROVED",
+        "is_active": true,
+        "valid_from": "2026-01-01",
+        "valid_to": null,
+        "min_qty": "0",
+        "max_qty": null,
+        "site_id": null,
+        "base_qty": "1"
+      }
+    ],
+    "BOMLine": [
+      {
+        "record_uid": "rec_54ec074be9038846",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_material_id": null,
+        "component_product_id": "SF001",
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_0ef5142fde8edf32",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M001",
+        "component_product_id": null,
+        "qty_per": "1.2",
+        "unit": "kg",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_e364818cd2a09ae9",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M006",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_c05120f9dfffe617",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 4,
+        "component_type": "MATERIAL",
+        "component_material_id": "M010",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_4dbef641a9f0efef",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V2",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_material_id": null,
+        "component_product_id": "SF001",
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_c868482e373218cc",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V2",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M001",
+        "component_product_id": null,
+        "qty_per": "1000",
+        "unit": "g",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_f6d67e31377f577a",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V2",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M006",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_149e8e557cde9b7f",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG001-V2",
+        "line_no": 4,
+        "component_type": "MATERIAL",
+        "component_material_id": "M010",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_b2c274440d2ee023",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_material_id": null,
+        "component_product_id": "SF001",
+        "qty_per": "2",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_faed18647e516350",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M002",
+        "component_product_id": null,
+        "qty_per": "0.8",
+        "unit": "kg",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_63312641cc902ec9",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M010",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_533c95c175e5a1ff",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V1",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_material_id": null,
+        "component_product_id": "SF002",
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_a2629afac787d844",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M001",
+        "component_product_id": null,
+        "qty_per": "0.6",
+        "unit": "kg",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_f634c4429bc8e7e4",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M009",
+        "component_product_id": null,
+        "qty_per": "80",
+        "unit": "g",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_3970a71bf16483a1",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_material_id": null,
+        "component_product_id": "SF002",
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_261269c26a61d118",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M001",
+        "component_product_id": null,
+        "qty_per": "0.6",
+        "unit": "kg",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_d2cca52a274869d1",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M009",
+        "component_product_id": null,
+        "qty_per": "60",
+        "unit": "g",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_352cbb3264509242",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 1,
+        "component_type": "MATERIAL",
+        "component_material_id": "M003",
+        "component_product_id": null,
+        "qty_per": "300",
+        "unit": "g",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_539041cfa6fa5e74",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M005",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_4e29fcc3c9b08c42",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M004",
+        "component_product_id": null,
+        "qty_per": "0.2",
+        "unit": "kg",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_87ac4c1b12a1badc",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 1,
+        "component_type": "MATERIAL",
+        "component_material_id": "M007",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_22968f53f1bcc7fd",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_material_id": "M002",
+        "component_product_id": null,
+        "qty_per": "0.4",
+        "unit": "kg",
+        "scrap_rate": "0.02",
+        "line_type": "ITEM"
+      },
+      {
+        "record_uid": "rec_8dc089a9ed596c48",
+        "origin_class": "SYNTHETIC",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_material_id": "M008",
+        "component_product_id": null,
+        "qty_per": "1",
+        "unit": "EA",
+        "scrap_rate": "0",
+        "line_type": "ITEM"
+      }
+    ],
+    "Order": [
+      {
+        "record_uid": "rec_cf9012fc3d406cac",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O001",
+        "product_id": "FG001",
+        "order_qty": "80",
+        "unit": "EA",
+        "order_date": "2026-11-02",
+        "due_date": "2026-11-20",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_f47deba67c2464fb",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O002",
+        "product_id": "FG002",
+        "order_qty": "40",
+        "unit": "EA",
+        "order_date": "2026-11-02",
+        "due_date": "2026-11-20",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_3ea3ffb04c3370a6",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O003",
+        "product_id": "FG003",
+        "order_qty": "120",
+        "unit": "EA",
+        "order_date": "2026-11-03",
+        "due_date": "2026-11-21",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_7d652d3b438e07a9",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O004",
+        "product_id": "FG001",
+        "order_qty": "100",
+        "unit": "EA",
+        "order_date": "2026-11-04",
+        "due_date": "2026-11-27",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_01be0d60c0db0469",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O005",
+        "product_id": "FG002",
+        "order_qty": "60",
+        "unit": "EA",
+        "order_date": "2026-11-05",
+        "due_date": "2026-11-27",
+        "priority": "URGENT",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_f30cfa33155e37fb",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O006",
+        "product_id": "FG003",
+        "order_qty": "150",
+        "unit": "EA",
+        "order_date": "2026-11-05",
+        "due_date": "2026-11-27",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_5ee648ee9a69daf6",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O007",
+        "product_id": "FG001",
+        "order_qty": "90",
+        "unit": "EA",
+        "order_date": "2026-11-06",
+        "due_date": "2026-12-04",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_acb02a9d1f81ac6f",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O008",
+        "product_id": "FG002",
+        "order_qty": "50",
+        "unit": "EA",
+        "order_date": "2026-11-09",
+        "due_date": "2026-12-04",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_3bea45d8993ebc17",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O009",
+        "product_id": "FG003",
+        "order_qty": "130",
+        "unit": "EA",
+        "order_date": "2026-11-09",
+        "due_date": "2026-12-04",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_d0f4c4b7bb7e7a35",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O010",
+        "product_id": "FG001",
+        "order_qty": "110",
+        "unit": "EA",
+        "order_date": "2026-11-10",
+        "due_date": "2026-12-11",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_341d5b819ed04880",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O011",
+        "product_id": "FG002",
+        "order_qty": "70",
+        "unit": "EA",
+        "order_date": "2026-11-10",
+        "due_date": "2026-12-11",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_84f763f6a2563616",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O012",
+        "product_id": "FG003",
+        "order_qty": "160",
+        "unit": "EA",
+        "order_date": "2026-11-11",
+        "due_date": "2026-12-11",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_dc024ee206f72b29",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O013",
+        "product_id": "FG001",
+        "order_qty": "60",
+        "unit": "EA",
+        "order_date": "2026-11-11",
+        "due_date": "2026-11-25",
+        "priority": "URGENT",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_f8699be15b52ae9d",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O014",
+        "product_id": "FG003",
+        "order_qty": "80",
+        "unit": "EA",
+        "order_date": "2026-11-12",
+        "due_date": "2026-12-02",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_7a020872c9aedc5c",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O015",
+        "product_id": "FG002",
+        "order_qty": "30",
+        "unit": "EA",
+        "order_date": "2026-11-12",
+        "due_date": "2026-12-09",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_36d630bbf8771a33",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O016",
+        "product_id": "FG001",
+        "order_qty": "70",
+        "unit": "EA",
+        "order_date": "2026-11-12",
+        "due_date": "2026-12-09",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_4d810932a1fd9a04",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O017",
+        "product_id": "FG003",
+        "order_qty": "100",
+        "unit": "EA",
+        "order_date": "2026-11-13",
+        "due_date": "2026-11-24",
+        "priority": "URGENT",
+        "status": "OPEN"
+      },
+      {
+        "record_uid": "rec_52535a8beb76c531",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O018",
+        "product_id": "FG002",
+        "order_qty": "45",
+        "unit": "EA",
+        "order_date": "2026-11-03",
+        "due_date": "2026-12-01",
+        "priority": "NORMAL",
+        "status": "CANCELLED"
+      },
+      {
+        "record_uid": "rec_4f3fa1fc2e690a66",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O019",
+        "product_id": "FG001",
+        "order_qty": "50",
+        "unit": "EA",
+        "order_date": "2026-10-28",
+        "due_date": "2026-11-18",
+        "priority": "NORMAL",
+        "status": "CLOSED"
+      },
+      {
+        "record_uid": "rec_f29966aad7a1720f",
+        "origin_class": "SYNTHETIC",
+        "order_id": "O020",
+        "product_id": "FG003",
+        "order_qty": "40",
+        "unit": "EA",
+        "order_date": "2026-11-13",
+        "due_date": "2026-12-13",
+        "priority": "NORMAL",
+        "status": "OPEN"
+      }
+    ],
+    "SalesHistory": [
+      {
+        "record_uid": "rec_1066dd5e9936780d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-05",
+        "period_grain": "DAY",
+        "sales_qty": "227.486",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9a4fee74e02819ff",
+        "allocation_share": "0.4216"
+      },
+      {
+        "record_uid": "rec_c182faba659b8610",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-05",
+        "period_grain": "DAY",
+        "sales_qty": "174.985",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9a4fee74e02819ff",
+        "allocation_share": "0.3243"
+      },
+      {
+        "record_uid": "rec_50baa06bc1c6c7d3",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-05",
+        "period_grain": "DAY",
+        "sales_qty": "137.106",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9a4fee74e02819ff",
+        "allocation_share": "0.2541"
+      },
+      {
+        "record_uid": "rec_e8b5f1fa95ab9470",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-06",
+        "period_grain": "DAY",
+        "sales_qty": "95.285",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cd5e97ad8be596b",
+        "allocation_share": "0.4241"
+      },
+      {
+        "record_uid": "rec_482758c8f289feec",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-06",
+        "period_grain": "DAY",
+        "sales_qty": "31.769",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cd5e97ad8be596b",
+        "allocation_share": "0.1414"
+      },
+      {
+        "record_uid": "rec_2478b01fe6028207",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-06",
+        "period_grain": "DAY",
+        "sales_qty": "97.621",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cd5e97ad8be596b",
+        "allocation_share": "0.4345"
+      },
+      {
+        "record_uid": "rec_46eaa3886db1ef5f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-07",
+        "period_grain": "DAY",
+        "sales_qty": "42.201",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b857bd17deac5433",
+        "allocation_share": "0.3261"
+      },
+      {
+        "record_uid": "rec_a45e74ec2375bcd0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-07",
+        "period_grain": "DAY",
+        "sales_qty": "53.447",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b857bd17deac5433",
+        "allocation_share": "0.413"
+      },
+      {
+        "record_uid": "rec_ed261a2b444d75f9",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-07",
+        "period_grain": "DAY",
+        "sales_qty": "33.764",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b857bd17deac5433",
+        "allocation_share": "0.2609"
+      },
+      {
+        "record_uid": "rec_d3a5f898ca805d67",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-10",
+        "period_grain": "DAY",
+        "sales_qty": "100.749",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9f10c5a32fc8fd66",
+        "allocation_share": "0.3177"
+      },
+      {
+        "record_uid": "rec_9d6220c4e0878495",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-10",
+        "period_grain": "DAY",
+        "sales_qty": "140.389",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9f10c5a32fc8fd66",
+        "allocation_share": "0.4427"
+      },
+      {
+        "record_uid": "rec_d19ecc7a56c0c4d8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-10",
+        "period_grain": "DAY",
+        "sales_qty": "75.982",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9f10c5a32fc8fd66",
+        "allocation_share": "0.2396"
+      },
+      {
+        "record_uid": "rec_f0de26bb50ad14d7",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-11",
+        "period_grain": "DAY",
+        "sales_qty": "38.525",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a122542867c3d459",
+        "allocation_share": "0.183"
+      },
+      {
+        "record_uid": "rec_8a6341b36dccc640",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-11",
+        "period_grain": "DAY",
+        "sales_qty": "70.165",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a122542867c3d459",
+        "allocation_share": "0.3333"
+      },
+      {
+        "record_uid": "rec_0586afe18f82af1f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-11",
+        "period_grain": "DAY",
+        "sales_qty": "101.827",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a122542867c3d459",
+        "allocation_share": "0.4837"
+      },
+      {
+        "record_uid": "rec_7bca640f87609ee8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-12",
+        "period_grain": "DAY",
+        "sales_qty": "37.823",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_5af22ce892c9c03b",
+        "allocation_share": "0.1824"
+      },
+      {
+        "record_uid": "rec_d3a2774712afd4a6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-12",
+        "period_grain": "DAY",
+        "sales_qty": "111.002",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_5af22ce892c9c03b",
+        "allocation_share": "0.5353"
+      },
+      {
+        "record_uid": "rec_4e5ea11412bab4a6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-12",
+        "period_grain": "DAY",
+        "sales_qty": "58.539",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_5af22ce892c9c03b",
+        "allocation_share": "0.2823"
+      },
+      {
+        "record_uid": "rec_f18db29afdeba01b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-13",
+        "period_grain": "DAY",
+        "sales_qty": "112.425",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_530993fdb7c0c8d6",
+        "allocation_share": "0.4274"
+      },
+      {
+        "record_uid": "rec_0cf70af21f9bfff1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-13",
+        "period_grain": "DAY",
+        "sales_qty": "97.799",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_530993fdb7c0c8d6",
+        "allocation_share": "0.3718"
+      },
+      {
+        "record_uid": "rec_d0a6752c0d910cdd",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-13",
+        "period_grain": "DAY",
+        "sales_qty": "52.819",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_530993fdb7c0c8d6",
+        "allocation_share": "0.2008"
+      },
+      {
+        "record_uid": "rec_47260589cc5e432d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-14",
+        "period_grain": "DAY",
+        "sales_qty": "109.093",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b648b7797cd1f49f",
+        "allocation_share": "0.4382"
+      },
+      {
+        "record_uid": "rec_c523fa460edbb196",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-14",
+        "period_grain": "DAY",
+        "sales_qty": "72.721",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b648b7797cd1f49f",
+        "allocation_share": "0.2921"
+      },
+      {
+        "record_uid": "rec_7890cbd965c66b55",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-14",
+        "period_grain": "DAY",
+        "sales_qty": "67.144",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b648b7797cd1f49f",
+        "allocation_share": "0.2697"
+      },
+      {
+        "record_uid": "rec_32a1a61c74777743",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-17",
+        "period_grain": "DAY",
+        "sales_qty": "107.591",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2ee3028a5288e417",
+        "allocation_share": "0.3125"
+      },
+      {
+        "record_uid": "rec_50a2c634e4a4dceb",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-17",
+        "period_grain": "DAY",
+        "sales_qty": "91.444",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2ee3028a5288e417",
+        "allocation_share": "0.2656"
+      },
+      {
+        "record_uid": "rec_7d6a4585c11a9ef6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-17",
+        "period_grain": "DAY",
+        "sales_qty": "145.256",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2ee3028a5288e417",
+        "allocation_share": "0.4219"
+      },
+      {
+        "record_uid": "rec_14171ce9f7bfcd2c",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-18",
+        "period_grain": "DAY",
+        "sales_qty": "95.272",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cfaff602849c1d1",
+        "allocation_share": "0.3835"
+      },
+      {
+        "record_uid": "rec_dd68382501854827",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-18",
+        "period_grain": "DAY",
+        "sales_qty": "86.826",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cfaff602849c1d1",
+        "allocation_share": "0.3495"
+      },
+      {
+        "record_uid": "rec_dc401c22973bc01f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-18",
+        "period_grain": "DAY",
+        "sales_qty": "66.33",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6cfaff602849c1d1",
+        "allocation_share": "0.267"
+      },
+      {
+        "record_uid": "rec_3c4d75e85a857bc0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-19",
+        "period_grain": "DAY",
+        "sales_qty": "84.623",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c44ea3f3f3e023cd",
+        "allocation_share": "0.3007"
+      },
+      {
+        "record_uid": "rec_f6f197385d7a4479",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-19",
+        "period_grain": "DAY",
+        "sales_qty": "139.781",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c44ea3f3f3e023cd",
+        "allocation_share": "0.4967"
+      },
+      {
+        "record_uid": "rec_937d848375ea7ade",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-19",
+        "period_grain": "DAY",
+        "sales_qty": "57.016",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c44ea3f3f3e023cd",
+        "allocation_share": "0.2026"
+      },
+      {
+        "record_uid": "rec_faf75025d952dedf",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-20",
+        "period_grain": "DAY",
+        "sales_qty": "106.683",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c51a1e1f8ca31ded",
+        "allocation_share": "0.438"
+      },
+      {
+        "record_uid": "rec_8fd1516fa38005e9",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-20",
+        "period_grain": "DAY",
+        "sales_qty": "81.79",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c51a1e1f8ca31ded",
+        "allocation_share": "0.3358"
+      },
+      {
+        "record_uid": "rec_482430f6f2d92ad5",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-20",
+        "period_grain": "DAY",
+        "sales_qty": "55.095",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c51a1e1f8ca31ded",
+        "allocation_share": "0.2262"
+      },
+      {
+        "record_uid": "rec_56e31c1a46483c6d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-21",
+        "period_grain": "DAY",
+        "sales_qty": "135.383",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_bdb097cbc34030fb",
+        "allocation_share": "0.4393"
+      },
+      {
+        "record_uid": "rec_22cd943e52935a0d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-21",
+        "period_grain": "DAY",
+        "sales_qty": "135.383",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_bdb097cbc34030fb",
+        "allocation_share": "0.4393"
+      },
+      {
+        "record_uid": "rec_59d34f2c535226c1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-21",
+        "period_grain": "DAY",
+        "sales_qty": "37.412",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_bdb097cbc34030fb",
+        "allocation_share": "0.1214"
+      },
+      {
+        "record_uid": "rec_b1d9e4f6a4777218",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-24",
+        "period_grain": "DAY",
+        "sales_qty": "146.742",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b963c94a29e086d2",
+        "allocation_share": "0.4038"
+      },
+      {
+        "record_uid": "rec_177e578c1448693f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-24",
+        "period_grain": "DAY",
+        "sales_qty": "80.385",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b963c94a29e086d2",
+        "allocation_share": "0.2212"
+      },
+      {
+        "record_uid": "rec_b3638789c524cd78",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-24",
+        "period_grain": "DAY",
+        "sales_qty": "136.275",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b963c94a29e086d2",
+        "allocation_share": "0.375"
+      },
+      {
+        "record_uid": "rec_b7512d30e2e99010",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-25",
+        "period_grain": "DAY",
+        "sales_qty": "84.656",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0d31cc93b316da20",
+        "allocation_share": "0.2513"
+      },
+      {
+        "record_uid": "rec_0c9b3c6ffe866512",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-25",
+        "period_grain": "DAY",
+        "sales_qty": "142.328",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0d31cc93b316da20",
+        "allocation_share": "0.4225"
+      },
+      {
+        "record_uid": "rec_adca2d2d79ebb218",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-25",
+        "period_grain": "DAY",
+        "sales_qty": "109.888",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0d31cc93b316da20",
+        "allocation_share": "0.3262"
+      },
+      {
+        "record_uid": "rec_f9f0bdcc66b030b0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-26",
+        "period_grain": "DAY",
+        "sales_qty": "52.733",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f76956f380f032ff",
+        "allocation_share": "0.2135"
+      },
+      {
+        "record_uid": "rec_b369799630f4f294",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-26",
+        "period_grain": "DAY",
+        "sales_qty": "75.901",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f76956f380f032ff",
+        "allocation_share": "0.3073"
+      },
+      {
+        "record_uid": "rec_1aa39ac02d6e93dd",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-26",
+        "period_grain": "DAY",
+        "sales_qty": "118.358",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f76956f380f032ff",
+        "allocation_share": "0.4792"
+      },
+      {
+        "record_uid": "rec_15d4a36f6c0f3b00",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-27",
+        "period_grain": "DAY",
+        "sales_qty": "181.591",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12ce7a2d1500b77b",
+        "allocation_share": "0.5879"
+      },
+      {
+        "record_uid": "rec_e94d9836f12791eb",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-27",
+        "period_grain": "DAY",
+        "sales_qty": "69.251",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12ce7a2d1500b77b",
+        "allocation_share": "0.2242"
+      },
+      {
+        "record_uid": "rec_03c4fbbf45803530",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-27",
+        "period_grain": "DAY",
+        "sales_qty": "58.038",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12ce7a2d1500b77b",
+        "allocation_share": "0.1879"
+      },
+      {
+        "record_uid": "rec_64c4efcbc6f40729",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-28",
+        "period_grain": "DAY",
+        "sales_qty": "47.395",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_03a0f608f177fe33",
+        "allocation_share": "0.2033"
+      },
+      {
+        "record_uid": "rec_e8eede7c82ddfbee",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-28",
+        "period_grain": "DAY",
+        "sales_qty": "125.095",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_03a0f608f177fe33",
+        "allocation_share": "0.5366"
+      },
+      {
+        "record_uid": "rec_31b86724109846e3",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-28",
+        "period_grain": "DAY",
+        "sales_qty": "60.636",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_03a0f608f177fe33",
+        "allocation_share": "0.2601"
+      },
+      {
+        "record_uid": "rec_77c8d89fe22b6976",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-08-31",
+        "period_grain": "DAY",
+        "sales_qty": "122.689",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2a61d6f9bb6305b4",
+        "allocation_share": "0.3034"
+      },
+      {
+        "record_uid": "rec_a3933e33984ba99d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-08-31",
+        "period_grain": "DAY",
+        "sales_qty": "86.456",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2a61d6f9bb6305b4",
+        "allocation_share": "0.2138"
+      },
+      {
+        "record_uid": "rec_c7ec1f8a0c109441",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-08-31",
+        "period_grain": "DAY",
+        "sales_qty": "195.235",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2a61d6f9bb6305b4",
+        "allocation_share": "0.4828"
+      },
+      {
+        "record_uid": "rec_3bbc4cbe5fb2d829",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-01",
+        "period_grain": "DAY",
+        "sales_qty": "85.299",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_db6fc31d60ef0727",
+        "allocation_share": "0.2857"
+      },
+      {
+        "record_uid": "rec_1352c74ea1e3ba3c",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-01",
+        "period_grain": "DAY",
+        "sales_qty": "38.783",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_db6fc31d60ef0727",
+        "allocation_share": "0.1299"
+      },
+      {
+        "record_uid": "rec_6c23a6ca6a4eb35f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-01",
+        "period_grain": "DAY",
+        "sales_qty": "174.478",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_db6fc31d60ef0727",
+        "allocation_share": "0.5844"
+      },
+      {
+        "record_uid": "rec_f81ce022c73abf62",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-02",
+        "period_grain": "DAY",
+        "sales_qty": "66.711",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a53097d613214003",
+        "allocation_share": "0.291"
+      },
+      {
+        "record_uid": "rec_905f8a96d91a016a",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-02",
+        "period_grain": "DAY",
+        "sales_qty": "83.63",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a53097d613214003",
+        "allocation_share": "0.3648"
+      },
+      {
+        "record_uid": "rec_3e59100ee2548ab6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-02",
+        "period_grain": "DAY",
+        "sales_qty": "78.908",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a53097d613214003",
+        "allocation_share": "0.3442"
+      },
+      {
+        "record_uid": "rec_1b67219f55142f8c",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-03",
+        "period_grain": "DAY",
+        "sales_qty": "81.832",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_85a26545615863f9",
+        "allocation_share": "0.3463"
+      },
+      {
+        "record_uid": "rec_ed9ce51af0ee5481",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-03",
+        "period_grain": "DAY",
+        "sales_qty": "112.953",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_85a26545615863f9",
+        "allocation_share": "0.478"
+      },
+      {
+        "record_uid": "rec_afc537e1e998d41f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-03",
+        "period_grain": "DAY",
+        "sales_qty": "41.519",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_85a26545615863f9",
+        "allocation_share": "0.1757"
+      },
+      {
+        "record_uid": "rec_659aba2f43320502",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-04",
+        "period_grain": "DAY",
+        "sales_qty": "65.675",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_300bc4c8f5d98e0d",
+        "allocation_share": "0.221"
+      },
+      {
+        "record_uid": "rec_40e23e3207b42ca8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-04",
+        "period_grain": "DAY",
+        "sales_qty": "116.581",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_300bc4c8f5d98e0d",
+        "allocation_share": "0.3923"
+      },
+      {
+        "record_uid": "rec_8310e6546d1f1c41",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-04",
+        "period_grain": "DAY",
+        "sales_qty": "114.918",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_300bc4c8f5d98e0d",
+        "allocation_share": "0.3867"
+      },
+      {
+        "record_uid": "rec_6edfc46b4ad49eb1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-07",
+        "period_grain": "DAY",
+        "sales_qty": "129.862",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_092377acd770b61d",
+        "allocation_share": "0.3172"
+      },
+      {
+        "record_uid": "rec_af9861da3ec47f10",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-07",
+        "period_grain": "DAY",
+        "sales_qty": "121.428",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_092377acd770b61d",
+        "allocation_share": "0.2966"
+      },
+      {
+        "record_uid": "rec_0fd2ea4f54e4d977",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-07",
+        "period_grain": "DAY",
+        "sales_qty": "158.111",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_092377acd770b61d",
+        "allocation_share": "0.3862"
+      },
+      {
+        "record_uid": "rec_f46e033ee0247991",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-08",
+        "period_grain": "DAY",
+        "sales_qty": "83.542",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7df930528f924d79",
+        "allocation_share": "0.3616"
+      },
+      {
+        "record_uid": "rec_f055c44cf71c72d7",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-08",
+        "period_grain": "DAY",
+        "sales_qty": "67.046",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7df930528f924d79",
+        "allocation_share": "0.2902"
+      },
+      {
+        "record_uid": "rec_b1a461a05bec3883",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-08",
+        "period_grain": "DAY",
+        "sales_qty": "80.447",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7df930528f924d79",
+        "allocation_share": "0.3482"
+      },
+      {
+        "record_uid": "rec_0d6bb5388b22921d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-09",
+        "period_grain": "DAY",
+        "sales_qty": "76.806",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7ac3c74c97a94d05",
+        "allocation_share": "0.3216"
+      },
+      {
+        "record_uid": "rec_28fc547ae78eac18",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-09",
+        "period_grain": "DAY",
+        "sales_qty": "82.061",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7ac3c74c97a94d05",
+        "allocation_share": "0.3436"
+      },
+      {
+        "record_uid": "rec_a65bca69b2dd9921",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-09",
+        "period_grain": "DAY",
+        "sales_qty": "79.959",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7ac3c74c97a94d05",
+        "allocation_share": "0.3348"
+      },
+      {
+        "record_uid": "rec_4a3aa9f2ee67f74e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-10",
+        "period_grain": "DAY",
+        "sales_qty": "98.998",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6f639282d9a03fa3",
+        "allocation_share": "0.4202"
+      },
+      {
+        "record_uid": "rec_e6e18ef86eceb382",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-10",
+        "period_grain": "DAY",
+        "sales_qty": "93.061",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6f639282d9a03fa3",
+        "allocation_share": "0.395"
+      },
+      {
+        "record_uid": "rec_51a21a25d103a77e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-10",
+        "period_grain": "DAY",
+        "sales_qty": "43.539",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_6f639282d9a03fa3",
+        "allocation_share": "0.1848"
+      },
+      {
+        "record_uid": "rec_5528bc119e22d569",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-11",
+        "period_grain": "DAY",
+        "sales_qty": "34.816",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8fdc79509b506087",
+        "allocation_share": "0.1438"
+      },
+      {
+        "record_uid": "rec_2f2d8158fa68745b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-11",
+        "period_grain": "DAY",
+        "sales_qty": "136.091",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8fdc79509b506087",
+        "allocation_share": "0.5621"
+      },
+      {
+        "record_uid": "rec_a59fa31f2080f641",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-11",
+        "period_grain": "DAY",
+        "sales_qty": "71.205",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8fdc79509b506087",
+        "allocation_share": "0.2941"
+      },
+      {
+        "record_uid": "rec_88fdf9fad8b7bd55",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-14",
+        "period_grain": "DAY",
+        "sales_qty": "66.404",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_852a8323cfe84a7d",
+        "allocation_share": "0.1353"
+      },
+      {
+        "record_uid": "rec_b8c8a90ac613d3c7",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-14",
+        "period_grain": "DAY",
+        "sales_qty": "211.04",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_852a8323cfe84a7d",
+        "allocation_share": "0.43"
+      },
+      {
+        "record_uid": "rec_1b4d8909e0d0103d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-14",
+        "period_grain": "DAY",
+        "sales_qty": "213.346",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_852a8323cfe84a7d",
+        "allocation_share": "0.4347"
+      },
+      {
+        "record_uid": "rec_969ad135f6167e4e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-15",
+        "period_grain": "DAY",
+        "sales_qty": "76.44",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2b3a9bfbdc732b82",
+        "allocation_share": "0.2639"
+      },
+      {
+        "record_uid": "rec_fdc398786f53a5fb",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-15",
+        "period_grain": "DAY",
+        "sales_qty": "128.724",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2b3a9bfbdc732b82",
+        "allocation_share": "0.4444"
+      },
+      {
+        "record_uid": "rec_f1d5e5748be0184b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-15",
+        "period_grain": "DAY",
+        "sales_qty": "84.493",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_2b3a9bfbdc732b82",
+        "allocation_share": "0.2917"
+      },
+      {
+        "record_uid": "rec_7f4621a1123cba3e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-16",
+        "period_grain": "DAY",
+        "sales_qty": "76.077",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8515a7f6559ea3ba",
+        "allocation_share": "0.2549"
+      },
+      {
+        "record_uid": "rec_73d6ae72cc6eae06",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-16",
+        "period_grain": "DAY",
+        "sales_qty": "99.476",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8515a7f6559ea3ba",
+        "allocation_share": "0.3333"
+      },
+      {
+        "record_uid": "rec_72803e182a916691",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-16",
+        "period_grain": "DAY",
+        "sales_qty": "122.906",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_8515a7f6559ea3ba",
+        "allocation_share": "0.4118"
+      },
+      {
+        "record_uid": "rec_fcd3ef3326652259",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-17",
+        "period_grain": "DAY",
+        "sales_qty": "103.068",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12378eadd103f921",
+        "allocation_share": "0.3185"
+      },
+      {
+        "record_uid": "rec_bcf7a95278272fc1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-17",
+        "period_grain": "DAY",
+        "sales_qty": "112.226",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12378eadd103f921",
+        "allocation_share": "0.3468"
+      },
+      {
+        "record_uid": "rec_72ef76960df8c773",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-17",
+        "period_grain": "DAY",
+        "sales_qty": "108.309",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_12378eadd103f921",
+        "allocation_share": "0.3347"
+      },
+      {
+        "record_uid": "rec_42ae7b869a92da12",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-22",
+        "period_grain": "DAY",
+        "sales_qty": "303.357",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1d999362b16f460e",
+        "allocation_share": "0.4921"
+      },
+      {
+        "record_uid": "rec_ae18f55fe64231f0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-22",
+        "period_grain": "DAY",
+        "sales_qty": "130.441",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1d999362b16f460e",
+        "allocation_share": "0.2116"
+      },
+      {
+        "record_uid": "rec_be9678a8f7d3f08b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-22",
+        "period_grain": "DAY",
+        "sales_qty": "182.655",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1d999362b16f460e",
+        "allocation_share": "0.2963"
+      },
+      {
+        "record_uid": "rec_105ace3bad3a0f0f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-23",
+        "period_grain": "DAY",
+        "sales_qty": "51.179",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_4a0683dc39702544",
+        "allocation_share": "0.1479"
+      },
+      {
+        "record_uid": "rec_1121aae3770ee9cd",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-23",
+        "period_grain": "DAY",
+        "sales_qty": "160.837",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_4a0683dc39702544",
+        "allocation_share": "0.4648"
+      },
+      {
+        "record_uid": "rec_ebfe32c53c920e48",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-23",
+        "period_grain": "DAY",
+        "sales_qty": "134.019",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_4a0683dc39702544",
+        "allocation_share": "0.3873"
+      },
+      {
+        "record_uid": "rec_918901db1b71fc7a",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-24",
+        "period_grain": "DAY",
+        "sales_qty": "78.05",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a9f0dc53c4d81bec",
+        "allocation_share": "0.2537"
+      },
+      {
+        "record_uid": "rec_591f44482052393b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-24",
+        "period_grain": "DAY",
+        "sales_qty": "114.044",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a9f0dc53c4d81bec",
+        "allocation_share": "0.3707"
+      },
+      {
+        "record_uid": "rec_662256efa739462a",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-24",
+        "period_grain": "DAY",
+        "sales_qty": "115.551",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_a9f0dc53c4d81bec",
+        "allocation_share": "0.3756"
+      },
+      {
+        "record_uid": "rec_40f4bc7fb158fe23",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-25",
+        "period_grain": "DAY",
+        "sales_qty": "110.195",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e385625b1958b572",
+        "allocation_share": "0.4341"
+      },
+      {
+        "record_uid": "rec_5647f35360808a5f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-25",
+        "period_grain": "DAY",
+        "sales_qty": "59.426",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e385625b1958b572",
+        "allocation_share": "0.2341"
+      },
+      {
+        "record_uid": "rec_37a5a29caaac2821",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-25",
+        "period_grain": "DAY",
+        "sales_qty": "84.226",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e385625b1958b572",
+        "allocation_share": "0.3318"
+      },
+      {
+        "record_uid": "rec_743e3e15df3091cc",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-28",
+        "period_grain": "DAY",
+        "sales_qty": "225.173",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b3e38dc7c7de829e",
+        "allocation_share": "0.4241"
+      },
+      {
+        "record_uid": "rec_aad327a61a849c7e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-28",
+        "period_grain": "DAY",
+        "sales_qty": "172.344",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b3e38dc7c7de829e",
+        "allocation_share": "0.3246"
+      },
+      {
+        "record_uid": "rec_a7e11b88e52415a5",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-28",
+        "period_grain": "DAY",
+        "sales_qty": "133.427",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_b3e38dc7c7de829e",
+        "allocation_share": "0.2513"
+      },
+      {
+        "record_uid": "rec_6dce00cf1a4cde12",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-29",
+        "period_grain": "DAY",
+        "sales_qty": "122.376",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_58209be789172192",
+        "allocation_share": "0.3671"
+      },
+      {
+        "record_uid": "rec_afeafeb8edd62343",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-29",
+        "period_grain": "DAY",
+        "sales_qty": "161.046",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_58209be789172192",
+        "allocation_share": "0.4831"
+      },
+      {
+        "record_uid": "rec_73720681f2210447",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-29",
+        "period_grain": "DAY",
+        "sales_qty": "49.937",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_58209be789172192",
+        "allocation_share": "0.1498"
+      },
+      {
+        "record_uid": "rec_6e8bfa0b0c3545ee",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-09-30",
+        "period_grain": "DAY",
+        "sales_qty": "76.589",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7926afacc44956bd",
+        "allocation_share": "0.25"
+      },
+      {
+        "record_uid": "rec_e89167a305176bf7",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-09-30",
+        "period_grain": "DAY",
+        "sales_qty": "113.474",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7926afacc44956bd",
+        "allocation_share": "0.3704"
+      },
+      {
+        "record_uid": "rec_fe15424edcca16ad",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-09-30",
+        "period_grain": "DAY",
+        "sales_qty": "116.293",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7926afacc44956bd",
+        "allocation_share": "0.3796"
+      },
+      {
+        "record_uid": "rec_10a83d86809fa04f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-02",
+        "period_grain": "DAY",
+        "sales_qty": "107.375",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1597bd2fb4fa3bfa",
+        "allocation_share": "0.2576"
+      },
+      {
+        "record_uid": "rec_266c1c349a99de83",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-02",
+        "period_grain": "DAY",
+        "sales_qty": "94.745",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1597bd2fb4fa3bfa",
+        "allocation_share": "0.2273"
+      },
+      {
+        "record_uid": "rec_99dac38cdeb8604a",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-02",
+        "period_grain": "DAY",
+        "sales_qty": "214.71",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1597bd2fb4fa3bfa",
+        "allocation_share": "0.5151"
+      },
+      {
+        "record_uid": "rec_3ffe1257900e2ca6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-05",
+        "period_grain": "DAY",
+        "sales_qty": "149.343",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_ff4cf62088c30128",
+        "allocation_share": "0.3597"
+      },
+      {
+        "record_uid": "rec_60986a1a40e7e3f1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-05",
+        "period_grain": "DAY",
+        "sales_qty": "111.602",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_ff4cf62088c30128",
+        "allocation_share": "0.2688"
+      },
+      {
+        "record_uid": "rec_0e7ebaa9ce7c6679",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-05",
+        "period_grain": "DAY",
+        "sales_qty": "154.242",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_ff4cf62088c30128",
+        "allocation_share": "0.3715"
+      },
+      {
+        "record_uid": "rec_4ce6a83f88ef9f6e",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-06",
+        "period_grain": "DAY",
+        "sales_qty": "132.098",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f792188f416399f8",
+        "allocation_share": "0.4929"
+      },
+      {
+        "record_uid": "rec_98506721ea180ea2",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-06",
+        "period_grain": "DAY",
+        "sales_qty": "44.033",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f792188f416399f8",
+        "allocation_share": "0.1643"
+      },
+      {
+        "record_uid": "rec_59f122d936d57e44",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-06",
+        "period_grain": "DAY",
+        "sales_qty": "91.871",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f792188f416399f8",
+        "allocation_share": "0.3428"
+      },
+      {
+        "record_uid": "rec_94339e063197863f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-07",
+        "period_grain": "DAY",
+        "sales_qty": "84.773",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7f5cbf86a1d1262c",
+        "allocation_share": "0.3615"
+      },
+      {
+        "record_uid": "rec_03fefeb7a97ae671",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-07",
+        "period_grain": "DAY",
+        "sales_qty": "40.733",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7f5cbf86a1d1262c",
+        "allocation_share": "0.1737"
+      },
+      {
+        "record_uid": "rec_3eda5e0bc3d327f5",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-07",
+        "period_grain": "DAY",
+        "sales_qty": "108.997",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_7f5cbf86a1d1262c",
+        "allocation_share": "0.4648"
+      },
+      {
+        "record_uid": "rec_73a2d1af2546ca55",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-08",
+        "period_grain": "DAY",
+        "sales_qty": "30.678",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9be59cdec68666fa",
+        "allocation_share": "0.1307"
+      },
+      {
+        "record_uid": "rec_ea8e3cd2cc48e843",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-08",
+        "period_grain": "DAY",
+        "sales_qty": "115.062",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9be59cdec68666fa",
+        "allocation_share": "0.4902"
+      },
+      {
+        "record_uid": "rec_d021ded0aeef36d9",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-08",
+        "period_grain": "DAY",
+        "sales_qty": "88.984",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9be59cdec68666fa",
+        "allocation_share": "0.3791"
+      },
+      {
+        "record_uid": "rec_b640a1927fc53fb1",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-09",
+        "period_grain": "DAY",
+        "sales_qty": "81.604",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_44d23f44e39ec744",
+        "allocation_share": "0.3547"
+      },
+      {
+        "record_uid": "rec_2ffe219940451365",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-09",
+        "period_grain": "DAY",
+        "sales_qty": "80.614",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_44d23f44e39ec744",
+        "allocation_share": "0.3504"
+      },
+      {
+        "record_uid": "rec_f0ae6928eee98c3f",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-09",
+        "period_grain": "DAY",
+        "sales_qty": "67.846",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_44d23f44e39ec744",
+        "allocation_share": "0.2949"
+      },
+      {
+        "record_uid": "rec_297d852a1fe8fb3d",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-12",
+        "period_grain": "DAY",
+        "sales_qty": "56.182",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0fa6a7729efbfbe9",
+        "allocation_share": "0.1572"
+      },
+      {
+        "record_uid": "rec_b194219a777d6724",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-12",
+        "period_grain": "DAY",
+        "sales_qty": "161.828",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0fa6a7729efbfbe9",
+        "allocation_share": "0.4528"
+      },
+      {
+        "record_uid": "rec_bf364d0fcf7c4620",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-12",
+        "period_grain": "DAY",
+        "sales_qty": "139.384",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0fa6a7729efbfbe9",
+        "allocation_share": "0.39"
+      },
+      {
+        "record_uid": "rec_d87f24941880eb09",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-13",
+        "period_grain": "DAY",
+        "sales_qty": "40.131",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_eb0a587b03ea37aa",
+        "allocation_share": "0.1548"
+      },
+      {
+        "record_uid": "rec_384f1ee7d36e83ae",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-13",
+        "period_grain": "DAY",
+        "sales_qty": "132.708",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_eb0a587b03ea37aa",
+        "allocation_share": "0.5119"
+      },
+      {
+        "record_uid": "rec_b8a3f502db247986",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-13",
+        "period_grain": "DAY",
+        "sales_qty": "86.407",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_eb0a587b03ea37aa",
+        "allocation_share": "0.3333"
+      },
+      {
+        "record_uid": "rec_07cbdb52832a6f6b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-14",
+        "period_grain": "DAY",
+        "sales_qty": "70.755",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_80b7017429a66bc6",
+        "allocation_share": "0.2897"
+      },
+      {
+        "record_uid": "rec_0d465e9f5e7b3877",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-14",
+        "period_grain": "DAY",
+        "sales_qty": "81.404",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_80b7017429a66bc6",
+        "allocation_share": "0.3333"
+      },
+      {
+        "record_uid": "rec_94d4fd96732de7ae",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-14",
+        "period_grain": "DAY",
+        "sales_qty": "92.076",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_80b7017429a66bc6",
+        "allocation_share": "0.377"
+      },
+      {
+        "record_uid": "rec_02090382de0b4040",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-15",
+        "period_grain": "DAY",
+        "sales_qty": "151.219",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e39ff3bf5986508c",
+        "allocation_share": "0.3756"
+      },
+      {
+        "record_uid": "rec_3a1f7f969b9c3697",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-15",
+        "period_grain": "DAY",
+        "sales_qty": "183.347",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e39ff3bf5986508c",
+        "allocation_share": "0.4554"
+      },
+      {
+        "record_uid": "rec_a6879880ff9395a9",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-15",
+        "period_grain": "DAY",
+        "sales_qty": "68.041",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_e39ff3bf5986508c",
+        "allocation_share": "0.169"
+      },
+      {
+        "record_uid": "rec_f4bba3227f2204fd",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-16",
+        "period_grain": "DAY",
+        "sales_qty": "41.524",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_3ac185a0ac77a818",
+        "allocation_share": "0.1628"
+      },
+      {
+        "record_uid": "rec_0819bdabc0b104eb",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-16",
+        "period_grain": "DAY",
+        "sales_qty": "65.245",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_3ac185a0ac77a818",
+        "allocation_share": "0.2558"
+      },
+      {
+        "record_uid": "rec_11711aa6cbc147ad",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-16",
+        "period_grain": "DAY",
+        "sales_qty": "148.292",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_3ac185a0ac77a818",
+        "allocation_share": "0.5814"
+      },
+      {
+        "record_uid": "rec_4e0f3412a056ce4c",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-19",
+        "period_grain": "DAY",
+        "sales_qty": "78.388",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9019a65bf4b4039c",
+        "allocation_share": "0.2288"
+      },
+      {
+        "record_uid": "rec_d29e5457c243edb8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-19",
+        "period_grain": "DAY",
+        "sales_qty": "127.758",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9019a65bf4b4039c",
+        "allocation_share": "0.3729"
+      },
+      {
+        "record_uid": "rec_e01fa563db9f5b43",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-19",
+        "period_grain": "DAY",
+        "sales_qty": "136.46",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_9019a65bf4b4039c",
+        "allocation_share": "0.3983"
+      },
+      {
+        "record_uid": "rec_c8d9976ebb29a576",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-20",
+        "period_grain": "DAY",
+        "sales_qty": "75.327",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c4f65deaff80128a",
+        "allocation_share": "0.2804"
+      },
+      {
+        "record_uid": "rec_ade7f970cff33ae3",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-20",
+        "period_grain": "DAY",
+        "sales_qty": "81.586",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c4f65deaff80128a",
+        "allocation_share": "0.3037"
+      },
+      {
+        "record_uid": "rec_90a8fa5b96ed3cb9",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-20",
+        "period_grain": "DAY",
+        "sales_qty": "111.727",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_c4f65deaff80128a",
+        "allocation_share": "0.4159"
+      },
+      {
+        "record_uid": "rec_609c9c8a3b111ea3",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-21",
+        "period_grain": "DAY",
+        "sales_qty": "55.618",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_70a9ce53e78bc56f",
+        "allocation_share": "0.2949"
+      },
+      {
+        "record_uid": "rec_c3009a3328b317d0",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-21",
+        "period_grain": "DAY",
+        "sales_qty": "31.44",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_70a9ce53e78bc56f",
+        "allocation_share": "0.1667"
+      },
+      {
+        "record_uid": "rec_ddcc9227c69a7683",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-21",
+        "period_grain": "DAY",
+        "sales_qty": "101.543",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_70a9ce53e78bc56f",
+        "allocation_share": "0.5384"
+      },
+      {
+        "record_uid": "rec_36610d6288dc5192",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-22",
+        "period_grain": "DAY",
+        "sales_qty": "75.172",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1cef8048606ad437",
+        "allocation_share": "0.3721"
+      },
+      {
+        "record_uid": "rec_de227aa3d8e09310",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-22",
+        "period_grain": "DAY",
+        "sales_qty": "88.082",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1cef8048606ad437",
+        "allocation_share": "0.436"
+      },
+      {
+        "record_uid": "rec_37e66eb07fba41d8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-22",
+        "period_grain": "DAY",
+        "sales_qty": "38.768",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_1cef8048606ad437",
+        "allocation_share": "0.1919"
+      },
+      {
+        "record_uid": "rec_4e8b85dbd9b585ba",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-23",
+        "period_grain": "DAY",
+        "sales_qty": "45.435",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f0333efdb2a72dc5",
+        "allocation_share": "0.2128"
+      },
+      {
+        "record_uid": "rec_13a3a6a7bfb18db7",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-23",
+        "period_grain": "DAY",
+        "sales_qty": "101.075",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f0333efdb2a72dc5",
+        "allocation_share": "0.4734"
+      },
+      {
+        "record_uid": "rec_fc37ee7e75e21349",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-23",
+        "period_grain": "DAY",
+        "sales_qty": "66.999",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_f0333efdb2a72dc5",
+        "allocation_share": "0.3138"
+      },
+      {
+        "record_uid": "rec_f537e47fa5195e64",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-26",
+        "period_grain": "DAY",
+        "sales_qty": "79.212",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0524991f0bca8def",
+        "allocation_share": "0.25"
+      },
+      {
+        "record_uid": "rec_2787d26ed39e7ffa",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-26",
+        "period_grain": "DAY",
+        "sales_qty": "96.544",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0524991f0bca8def",
+        "allocation_share": "0.3047"
+      },
+      {
+        "record_uid": "rec_138deedc380093ee",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-26",
+        "period_grain": "DAY",
+        "sales_qty": "141.093",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0524991f0bca8def",
+        "allocation_share": "0.4453"
+      },
+      {
+        "record_uid": "rec_bf27ab62513b0e51",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-27",
+        "period_grain": "DAY",
+        "sales_qty": "121.611",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_10e77793454dc971",
+        "allocation_share": "0.4246"
+      },
+      {
+        "record_uid": "rec_5b89510dedd0e8b8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-27",
+        "period_grain": "DAY",
+        "sales_qty": "64.013",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_10e77793454dc971",
+        "allocation_share": "0.2235"
+      },
+      {
+        "record_uid": "rec_930998116f610270",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-27",
+        "period_grain": "DAY",
+        "sales_qty": "100.788",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_10e77793454dc971",
+        "allocation_share": "0.3519"
+      },
+      {
+        "record_uid": "rec_964e5b002f68f95b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-28",
+        "period_grain": "DAY",
+        "sales_qty": "143.561",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_668670df8bf5e23e",
+        "allocation_share": "0.4731"
+      },
+      {
+        "record_uid": "rec_24b107e6afce7861",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-28",
+        "period_grain": "DAY",
+        "sales_qty": "116.281",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_668670df8bf5e23e",
+        "allocation_share": "0.3832"
+      },
+      {
+        "record_uid": "rec_7a35359711e32509",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-28",
+        "period_grain": "DAY",
+        "sales_qty": "43.605",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_668670df8bf5e23e",
+        "allocation_share": "0.1437"
+      },
+      {
+        "record_uid": "rec_9b887af3a632b78a",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-29",
+        "period_grain": "DAY",
+        "sales_qty": "71.663",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_fd952d53bbb796fa",
+        "allocation_share": "0.235"
+      },
+      {
+        "record_uid": "rec_f06b842c48ef90e8",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-29",
+        "period_grain": "DAY",
+        "sales_qty": "121.98",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_fd952d53bbb796fa",
+        "allocation_share": "0.4"
+      },
+      {
+        "record_uid": "rec_f1fd9f5527b9a6f3",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-29",
+        "period_grain": "DAY",
+        "sales_qty": "111.307",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_fd952d53bbb796fa",
+        "allocation_share": "0.365"
+      },
+      {
+        "record_uid": "rec_ea51383e5b454db6",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG001",
+        "period_start": "2026-10-30",
+        "period_grain": "DAY",
+        "sales_qty": "97.877",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0211267e56940777",
+        "allocation_share": "0.2949"
+      },
+      {
+        "record_uid": "rec_50b9ac37a94a0d74",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG002",
+        "period_start": "2026-10-30",
+        "period_grain": "DAY",
+        "sales_qty": "65.949",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0211267e56940777",
+        "allocation_share": "0.1987"
+      },
+      {
+        "record_uid": "rec_963a50ae9a0d0c1b",
+        "origin_class": "SYNTHETIC",
+        "product_id": "FG003",
+        "period_start": "2026-10-30",
+        "period_grain": "DAY",
+        "sales_qty": "168.074",
+        "source_series_id": null,
+        "generation_method": "ALLOCATED",
+        "derived_from_record_uid": "rec_0211267e56940777",
+        "allocation_share": "0.5064"
+      }
+    ],
+    "Inventory": [
+      {
+        "record_uid": "rec_bafbab751c2a3216",
+        "origin_class": "SYNTHETIC",
+        "item_type": "PRODUCT",
+        "item_id": "FG001",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "120",
+        "allocated_qty": "20",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_9ce3ac1bed1dae93",
+        "origin_class": "SYNTHETIC",
+        "item_type": "PRODUCT",
+        "item_id": "FG002",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "60",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_59dbe89d3d148a81",
+        "origin_class": "SYNTHETIC",
+        "item_type": "PRODUCT",
+        "item_id": "FG003",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "90",
+        "allocated_qty": "10",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_0d8fead2291e5605",
+        "origin_class": "SYNTHETIC",
+        "item_type": "PRODUCT",
+        "item_id": "SF001",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "150",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_b8e4781a9f6b2d74",
+        "origin_class": "SYNTHETIC",
+        "item_type": "PRODUCT",
+        "item_id": "SF002",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "40",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_3588725d04fec280",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M001",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "800",
+        "allocated_qty": "0",
+        "on_order_qty": "150",
+        "expected_receipt_date": "2026-11-20",
+        "unit": "kg"
+      },
+      {
+        "record_uid": "rec_8e15c3bc877ffa45",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M002",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "500",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "kg"
+      },
+      {
+        "record_uid": "rec_367d8e714ac1b695",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M003",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "200000",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "g"
+      },
+      {
+        "record_uid": "rec_d6cb6e1b706a07ee",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M004",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "300",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "kg"
+      },
+      {
+        "record_uid": "rec_b98b54674b237cca",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M005",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "600",
+        "allocated_qty": "0",
+        "on_order_qty": "300",
+        "expected_receipt_date": "2026-11-25",
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_86fc41700e5b9227",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M006",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "500",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_0e58aa10a0b0b494",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M007",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "400",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_c2b4c918d638b848",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M008",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "1000",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      },
+      {
+        "record_uid": "rec_8e1d740335bee22c",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M009",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "50",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "kg"
+      },
+      {
+        "record_uid": "rec_9ec12f93b3c09d6d",
+        "origin_class": "SYNTHETIC",
+        "item_type": "MATERIAL",
+        "item_id": "M010",
+        "as_of_date": "2026-11-15",
+        "on_hand_qty": "700",
+        "allocated_qty": "0",
+        "on_order_qty": "0",
+        "expected_receipt_date": null,
+        "unit": "EA"
+      }
+    ],
+    "Resource": [
+      {
+        "record_uid": "rec_3bc659c5e4924cd9",
+        "origin_class": "SYNTHETIC",
+        "resource_id": "R1",
+        "resource_name": "판금 라인",
+        "resource_type": "LINE",
+        "regular_hours_per_day": "16",
+        "overtime_hours_per_day_max": "2",
+        "cost_per_hour": "60000",
+        "overtime_cost_per_hour": "90000"
+      },
+      {
+        "record_uid": "rec_85ab850dd9c53045",
+        "origin_class": "SYNTHETIC",
+        "resource_id": "R2",
+        "resource_name": "조립 라인",
+        "resource_type": "LINE",
+        "regular_hours_per_day": "16",
+        "overtime_hours_per_day_max": "2",
+        "cost_per_hour": "50000",
+        "overtime_cost_per_hour": "75000"
+      },
+      {
+        "record_uid": "rec_f3990a26c0cde779",
+        "origin_class": "SYNTHETIC",
+        "resource_id": "R3",
+        "resource_name": "모듈 셀",
+        "resource_type": "WORKCENTER",
+        "regular_hours_per_day": "8",
+        "overtime_hours_per_day_max": "2",
+        "cost_per_hour": "55000",
+        "overtime_cost_per_hour": "82500"
+      }
+    ],
+    "Operation": [
+      {
+        "record_uid": "rec_9edb5fedc5177539",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG001-10",
+        "product_id": "FG001",
+        "sequence_no": 10,
+        "resource_id": "R1",
+        "run_time_per_unit_h": "0.10",
+        "setup_time_h": "1.0"
+      },
+      {
+        "record_uid": "rec_cffb056c35aa99ad",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG001-20",
+        "product_id": "FG001",
+        "sequence_no": 20,
+        "resource_id": "R2",
+        "run_time_per_unit_h": "0.20",
+        "setup_time_h": "0.5"
+      },
+      {
+        "record_uid": "rec_9aa50bd17729a0a8",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG002-10",
+        "product_id": "FG002",
+        "sequence_no": 10,
+        "resource_id": "R1",
+        "run_time_per_unit_h": "0.12",
+        "setup_time_h": "1.0"
+      },
+      {
+        "record_uid": "rec_1010133c49a93880",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG002-20",
+        "product_id": "FG002",
+        "sequence_no": 20,
+        "resource_id": "R2",
+        "run_time_per_unit_h": "0.25",
+        "setup_time_h": "0.5"
+      },
+      {
+        "record_uid": "rec_414474b54d6753a2",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG003-10",
+        "product_id": "FG003",
+        "sequence_no": 10,
+        "resource_id": "R1",
+        "run_time_per_unit_h": "0.08",
+        "setup_time_h": "1.0"
+      },
+      {
+        "record_uid": "rec_399d5a02c199abe7",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-FG003-20",
+        "product_id": "FG003",
+        "sequence_no": 20,
+        "resource_id": "R2",
+        "run_time_per_unit_h": "0.15",
+        "setup_time_h": "0.5"
+      },
+      {
+        "record_uid": "rec_e9605cf38509a34f",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-SF001-10",
+        "product_id": "SF001",
+        "sequence_no": 10,
+        "resource_id": "R3",
+        "run_time_per_unit_h": "0.15",
+        "setup_time_h": "1.0"
+      },
+      {
+        "record_uid": "rec_e2d2f1fe1e3ee970",
+        "origin_class": "SYNTHETIC",
+        "operation_id": "OP-SF002-10",
+        "product_id": "SF002",
+        "sequence_no": 10,
+        "resource_id": "R1",
+        "run_time_per_unit_h": "0.10",
+        "setup_time_h": "1.0"
+      }
+    ],
+    "ProductionPlan": [
+      {
+        "record_uid": "rec_ac06ff0eac984192",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "plan_name": "정규생산안",
+        "horizon_start": "2026-11-16",
+        "horizon_end": "2026-12-13",
+        "generated_by": "RULE"
+      },
+      {
+        "record_uid": "rec_f3e68840ae5b7aee",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "plan_name": "잔업안",
+        "horizon_start": "2026-11-16",
+        "horizon_end": "2026-12-13",
+        "generated_by": "RULE"
+      },
+      {
+        "record_uid": "rec_847f2f879b8eac50",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "plan_name": "외주안",
+        "horizon_start": "2026-11-16",
+        "horizon_end": "2026-12-13",
+        "generated_by": "RULE"
+      }
+    ],
+    "ProductionPlanLine": [
+      {
+        "record_uid": "rec_42835a48ce9fb52a",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 1,
+        "product_id": "FG001",
+        "period_start": "2026-11-16",
+        "planned_qty": "30",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_f5d557f8c11d5d1f",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 2,
+        "product_id": "FG001",
+        "period_start": "2026-11-23",
+        "planned_qty": "160",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_073720db77f3ebe3",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 3,
+        "product_id": "FG001",
+        "period_start": "2026-11-30",
+        "planned_qty": "90",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_a9a02f8538b8aac8",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 4,
+        "product_id": "FG001",
+        "period_start": "2026-12-07",
+        "planned_qty": "180",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_1607d4a2a6c2de41",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 5,
+        "product_id": "FG002",
+        "period_start": "2026-11-16",
+        "planned_qty": "10",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_879776be691e6d69",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 6,
+        "product_id": "FG002",
+        "period_start": "2026-11-23",
+        "planned_qty": "60",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_6d1729ee9e2cc07d",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 7,
+        "product_id": "FG002",
+        "period_start": "2026-11-30",
+        "planned_qty": "50",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_7bc777cf179e236c",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 8,
+        "product_id": "FG002",
+        "period_start": "2026-12-07",
+        "planned_qty": "100",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_7a133dbbadca2978",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 9,
+        "product_id": "FG003",
+        "period_start": "2026-11-16",
+        "planned_qty": "80",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_80d5649dd561e695",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 10,
+        "product_id": "FG003",
+        "period_start": "2026-11-23",
+        "planned_qty": "250",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_044cce110f0d80e2",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 11,
+        "product_id": "FG003",
+        "period_start": "2026-11-30",
+        "planned_qty": "210",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_ba55632b0235afc5",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 12,
+        "product_id": "FG003",
+        "period_start": "2026-12-07",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_7f2fff8b75674337",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 13,
+        "product_id": "SF001",
+        "period_start": "2026-11-23",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_dbf5d8cab038a55e",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 14,
+        "product_id": "SF001",
+        "period_start": "2026-11-30",
+        "planned_qty": "190",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_3ac7d7a3c32738de",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 15,
+        "product_id": "SF001",
+        "period_start": "2026-12-07",
+        "planned_qty": "380",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_2471871f7ac77a0f",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 16,
+        "product_id": "SF002",
+        "period_start": "2026-11-16",
+        "planned_qty": "50",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_50ef03da16444078",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 17,
+        "product_id": "SF002",
+        "period_start": "2026-11-23",
+        "planned_qty": "250",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_b8df3c3b064c55e7",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 18,
+        "product_id": "SF002",
+        "period_start": "2026-11-30",
+        "planned_qty": "210",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_497c684373d82f44",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-REG",
+        "line_no": 19,
+        "product_id": "SF002",
+        "period_start": "2026-12-07",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_9c91f6ffa61529b3",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 1,
+        "product_id": "FG001",
+        "period_start": "2026-11-16",
+        "planned_qty": "30",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_70146086594acf8c",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 2,
+        "product_id": "FG001",
+        "period_start": "2026-11-23",
+        "planned_qty": "160",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_47539f6525643972",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 3,
+        "product_id": "FG001",
+        "period_start": "2026-11-30",
+        "planned_qty": "90",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_d7631b343df88387",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 4,
+        "product_id": "FG001",
+        "period_start": "2026-12-07",
+        "planned_qty": "180",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_233a6ff89a36c0a1",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 5,
+        "product_id": "FG002",
+        "period_start": "2026-11-16",
+        "planned_qty": "10",
+        "unit": "EA",
+        "production_mode": "OVERTIME",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_1108df78610f37c0",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 6,
+        "product_id": "FG002",
+        "period_start": "2026-11-23",
+        "planned_qty": "60",
+        "unit": "EA",
+        "production_mode": "OVERTIME",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_6296bf848588fbb2",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 7,
+        "product_id": "FG002",
+        "period_start": "2026-11-30",
+        "planned_qty": "50",
+        "unit": "EA",
+        "production_mode": "OVERTIME",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_e9a93b809ab8820f",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 8,
+        "product_id": "FG002",
+        "period_start": "2026-12-07",
+        "planned_qty": "100",
+        "unit": "EA",
+        "production_mode": "OVERTIME",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_336591acff84e30e",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 9,
+        "product_id": "FG003",
+        "period_start": "2026-11-16",
+        "planned_qty": "80",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_727c45db17d29bbd",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 10,
+        "product_id": "FG003",
+        "period_start": "2026-11-23",
+        "planned_qty": "250",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_4bddf2a4b474ba9a",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 11,
+        "product_id": "FG003",
+        "period_start": "2026-11-30",
+        "planned_qty": "210",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_d3fea681a42eb959",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 12,
+        "product_id": "FG003",
+        "period_start": "2026-12-07",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_e5c70caaa5564118",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 13,
+        "product_id": "SF001",
+        "period_start": "2026-11-23",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_9e6e45d8a7117403",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 14,
+        "product_id": "SF001",
+        "period_start": "2026-11-30",
+        "planned_qty": "190",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_02fdb342f49bca45",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 15,
+        "product_id": "SF001",
+        "period_start": "2026-12-07",
+        "planned_qty": "380",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_30c59250f8cfa6a2",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 16,
+        "product_id": "SF002",
+        "period_start": "2026-11-16",
+        "planned_qty": "50",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_d4fba4f83f483c46",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 17,
+        "product_id": "SF002",
+        "period_start": "2026-11-23",
+        "planned_qty": "250",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_6a3bf3b7f560fefe",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 18,
+        "product_id": "SF002",
+        "period_start": "2026-11-30",
+        "planned_qty": "210",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_9be9dd50a09f79e7",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OT",
+        "line_no": 19,
+        "product_id": "SF002",
+        "period_start": "2026-12-07",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_b839900ae4ffd007",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 1,
+        "product_id": "FG001",
+        "period_start": "2026-11-16",
+        "planned_qty": "30",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_2c2eef1b140161b7",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 2,
+        "product_id": "FG001",
+        "period_start": "2026-11-23",
+        "planned_qty": "160",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_d411620b4551422b",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 3,
+        "product_id": "FG001",
+        "period_start": "2026-11-30",
+        "planned_qty": "90",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_23fd251c0b91917c",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 4,
+        "product_id": "FG001",
+        "period_start": "2026-12-07",
+        "planned_qty": "180",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_972fda2be6d7eae4",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 5,
+        "product_id": "FG002",
+        "period_start": "2026-11-16",
+        "planned_qty": "10",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_613143b4dbd01957",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 6,
+        "product_id": "FG002",
+        "period_start": "2026-11-23",
+        "planned_qty": "60",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_573143a632ce6cca",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 7,
+        "product_id": "FG002",
+        "period_start": "2026-11-30",
+        "planned_qty": "50",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_aa3127bb3163604b",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 8,
+        "product_id": "FG002",
+        "period_start": "2026-12-07",
+        "planned_qty": "100",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R1"
+      },
+      {
+        "record_uid": "rec_d87223dc2473ea9e",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 9,
+        "product_id": "FG003",
+        "period_start": "2026-11-16",
+        "planned_qty": "80",
+        "unit": "EA",
+        "production_mode": "OUTSOURCE",
+        "resource_id": null
+      },
+      {
+        "record_uid": "rec_396038c1640c4168",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 10,
+        "product_id": "FG003",
+        "period_start": "2026-11-23",
+        "planned_qty": "250",
+        "unit": "EA",
+        "production_mode": "OUTSOURCE",
+        "resource_id": null
+      },
+      {
+        "record_uid": "rec_5fd72104eb0a4005",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 11,
+        "product_id": "FG003",
+        "period_start": "2026-11-30",
+        "planned_qty": "210",
+        "unit": "EA",
+        "production_mode": "OUTSOURCE",
+        "resource_id": null
+      },
+      {
+        "record_uid": "rec_a7d3998aa4c3fc7e",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 12,
+        "product_id": "FG003",
+        "period_start": "2026-12-07",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "OUTSOURCE",
+        "resource_id": null
+      },
+      {
+        "record_uid": "rec_11acfb50254d256c",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 13,
+        "product_id": "SF001",
+        "period_start": "2026-11-23",
+        "planned_qty": "200",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_eef7a34ff7994e24",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 14,
+        "product_id": "SF001",
+        "period_start": "2026-11-30",
+        "planned_qty": "190",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      },
+      {
+        "record_uid": "rec_1f55dd504b4bad75",
+        "origin_class": "SYNTHETIC",
+        "plan_id": "PLAN-OUT",
+        "line_no": 15,
+        "product_id": "SF001",
+        "period_start": "2026-12-07",
+        "planned_qty": "380",
+        "unit": "EA",
+        "production_mode": "REGULAR",
+        "resource_id": "R3"
+      }
+    ]
+  },
+  "expected": {
+    "implementation": "scripts/e01_expected.py (구현 A)",
+    "production_requirements": {
+      "FG001": {
+        "llc": 0,
+        "independent_demand": "510",
+        "dependent_demand": "0",
+        "gross": "510",
+        "available": "100",
+        "safety_stock": "50",
+        "net_requirement": "460",
+        "bom_id": "BOM-FG001-V1"
+      },
+      "FG002": {
+        "llc": 0,
+        "independent_demand": "250",
+        "dependent_demand": "0",
+        "gross": "250",
+        "available": "60",
+        "safety_stock": "30",
+        "net_requirement": "220",
+        "bom_id": "BOM-FG002-V1"
+      },
+      "FG003": {
+        "llc": 0,
+        "independent_demand": "780",
+        "dependent_demand": "0",
+        "gross": "780",
+        "available": "80",
+        "safety_stock": "40",
+        "net_requirement": "740",
+        "bom_id": "BOM-FG003-V2"
+      },
+      "SF001": {
+        "llc": 1,
+        "independent_demand": "0",
+        "dependent_demand": "900",
+        "gross": "900",
+        "available": "150",
+        "safety_stock": "20",
+        "net_requirement": "770",
+        "bom_id": "BOM-SF001-V1"
+      },
+      "SF002": {
+        "llc": 1,
+        "independent_demand": "0",
+        "dependent_demand": "740",
+        "gross": "740",
+        "available": "40",
+        "safety_stock": "10",
+        "net_requirement": "710",
+        "bom_id": "BOM-SF002-V1"
+      }
+    },
+    "bom_explosion": [
+      {
+        "parent": "FG001",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_id": "SF001",
+        "parent_net": "460",
+        "per_parent_base": "1",
+        "component_qty_base": "460"
+      },
+      {
+        "parent": "FG001",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_id": "M001",
+        "parent_net": "460",
+        "per_parent_base": "1.2",
+        "component_qty_base": "552"
+      },
+      {
+        "parent": "FG001",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_id": "M006",
+        "parent_net": "460",
+        "per_parent_base": "1",
+        "component_qty_base": "460"
+      },
+      {
+        "parent": "FG001",
+        "bom_id": "BOM-FG001-V1",
+        "line_no": 4,
+        "component_type": "MATERIAL",
+        "component_id": "M010",
+        "parent_net": "460",
+        "per_parent_base": "1",
+        "component_qty_base": "460"
+      },
+      {
+        "parent": "FG002",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_id": "SF001",
+        "parent_net": "220",
+        "per_parent_base": "2",
+        "component_qty_base": "440"
+      },
+      {
+        "parent": "FG002",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_id": "M002",
+        "parent_net": "220",
+        "per_parent_base": "0.8",
+        "component_qty_base": "176"
+      },
+      {
+        "parent": "FG002",
+        "bom_id": "BOM-FG002-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_id": "M010",
+        "parent_net": "220",
+        "per_parent_base": "1",
+        "component_qty_base": "220"
+      },
+      {
+        "parent": "FG003",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 1,
+        "component_type": "PRODUCT",
+        "component_id": "SF002",
+        "parent_net": "740",
+        "per_parent_base": "1",
+        "component_qty_base": "740"
+      },
+      {
+        "parent": "FG003",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_id": "M001",
+        "parent_net": "740",
+        "per_parent_base": "0.6",
+        "component_qty_base": "444"
+      },
+      {
+        "parent": "FG003",
+        "bom_id": "BOM-FG003-V2",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_id": "M009",
+        "parent_net": "740",
+        "per_parent_base": "0.06",
+        "component_qty_base": "44.4"
+      },
+      {
+        "parent": "SF001",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 1,
+        "component_type": "MATERIAL",
+        "component_id": "M003",
+        "parent_net": "770",
+        "per_parent_base": "0.3",
+        "component_qty_base": "231"
+      },
+      {
+        "parent": "SF001",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_id": "M005",
+        "parent_net": "770",
+        "per_parent_base": "1",
+        "component_qty_base": "770"
+      },
+      {
+        "parent": "SF001",
+        "bom_id": "BOM-SF001-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_id": "M004",
+        "parent_net": "770",
+        "per_parent_base": "0.2",
+        "component_qty_base": "154"
+      },
+      {
+        "parent": "SF002",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 1,
+        "component_type": "MATERIAL",
+        "component_id": "M007",
+        "parent_net": "710",
+        "per_parent_base": "1",
+        "component_qty_base": "710"
+      },
+      {
+        "parent": "SF002",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 2,
+        "component_type": "MATERIAL",
+        "component_id": "M002",
+        "parent_net": "710",
+        "per_parent_base": "0.408",
+        "component_qty_base": "289.68"
+      },
+      {
+        "parent": "SF002",
+        "bom_id": "BOM-SF002-V1",
+        "line_no": 3,
+        "component_type": "MATERIAL",
+        "component_id": "M008",
+        "parent_net": "710",
+        "per_parent_base": "1",
+        "component_qty_base": "710"
+      }
+    ],
+    "material_gross_requirements": {
+      "M001": "996",
+      "M006": "460",
+      "M010": "680",
+      "M002": "465.68",
+      "M009": "44.4",
+      "M003": "231",
+      "M005": "770",
+      "M004": "154",
+      "M007": "710",
+      "M008": "710"
+    },
+    "material_shortage": {
+      "M001": {
+        "gross": "996",
+        "available": "950",
+        "safety_stock": "50",
+        "shortage": "96",
+        "unit": "kg"
+      },
+      "M002": {
+        "gross": "465.68",
+        "available": "500",
+        "safety_stock": "30",
+        "shortage": "0",
+        "unit": "kg"
+      },
+      "M003": {
+        "gross": "231",
+        "available": "200",
+        "safety_stock": "20",
+        "shortage": "51",
+        "unit": "kg"
+      },
+      "M004": {
+        "gross": "154",
+        "available": "300",
+        "safety_stock": "20",
+        "shortage": "0",
+        "unit": "kg"
+      },
+      "M005": {
+        "gross": "770",
+        "available": "900",
+        "safety_stock": "50",
+        "shortage": "0",
+        "unit": "EA"
+      },
+      "M006": {
+        "gross": "460",
+        "available": "500",
+        "safety_stock": "50",
+        "shortage": "10",
+        "unit": "EA"
+      },
+      "M007": {
+        "gross": "710",
+        "available": "400",
+        "safety_stock": "20",
+        "shortage": "330",
+        "unit": "EA"
+      },
+      "M008": {
+        "gross": "710",
+        "available": "1000",
+        "safety_stock": "0",
+        "shortage": "0",
+        "unit": "EA"
+      },
+      "M009": {
+        "gross": "44.4",
+        "available": "50",
+        "safety_stock": "10",
+        "shortage": "4.4",
+        "unit": "kg"
+      },
+      "M010": {
+        "gross": "680",
+        "available": "700",
+        "safety_stock": "50",
+        "shortage": "30",
+        "unit": "EA"
+      }
+    },
+    "horizon_resource_load": {
+      "R1": {
+        "required_h": "206.6",
+        "regular_capacity_h": "320",
+        "excess_h": "0",
+        "workdays": 20
+      },
+      "R2": {
+        "required_h": "259.5",
+        "regular_capacity_h": "320",
+        "excess_h": "0",
+        "workdays": 20
+      },
+      "R3": {
+        "required_h": "116.5",
+        "regular_capacity_h": "160",
+        "excess_h": "0",
+        "workdays": 20
+      }
+    },
+    "order_feasibility": [
+      {
+        "order_id": "O001",
+        "product_id": "FG001",
+        "due_date": "2026-11-20",
+        "order_qty": "80",
+        "from_stock": "80",
+        "production_qty": "0",
+        "semi_finished_production": {},
+        "material_ready_date": "2026-11-15",
+        "production_days": 0,
+        "expected_completion_date": "2026-11-15",
+        "slack_days": 5,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O002",
+        "product_id": "FG002",
+        "due_date": "2026-11-20",
+        "order_qty": "40",
+        "from_stock": "40",
+        "production_qty": "0",
+        "semi_finished_production": {},
+        "material_ready_date": "2026-11-15",
+        "production_days": 0,
+        "expected_completion_date": "2026-11-15",
+        "slack_days": 5,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O003",
+        "product_id": "FG003",
+        "due_date": "2026-11-21",
+        "order_qty": "120",
+        "from_stock": "80",
+        "production_qty": "40",
+        "semi_finished_production": {
+          "SF002": "0"
+        },
+        "material_ready_date": "2026-11-23",
+        "production_days": 2,
+        "expected_completion_date": "2026-11-25",
+        "slack_days": -4,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O017",
+        "product_id": "FG003",
+        "due_date": "2026-11-24",
+        "order_qty": "100",
+        "from_stock": "0",
+        "production_qty": "100",
+        "semi_finished_production": {
+          "SF002": "100"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": -16,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O013",
+        "product_id": "FG001",
+        "due_date": "2026-11-25",
+        "order_qty": "60",
+        "from_stock": "20",
+        "production_qty": "40",
+        "semi_finished_production": {
+          "SF001": "0"
+        },
+        "material_ready_date": "2026-11-22",
+        "production_days": 3,
+        "expected_completion_date": "2026-11-25",
+        "slack_days": 0,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O004",
+        "product_id": "FG001",
+        "due_date": "2026-11-27",
+        "order_qty": "100",
+        "from_stock": "0",
+        "production_qty": "100",
+        "semi_finished_production": {
+          "SF001": "0"
+        },
+        "material_ready_date": "2026-11-22",
+        "production_days": 3,
+        "expected_completion_date": "2026-11-25",
+        "slack_days": 2,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O005",
+        "product_id": "FG002",
+        "due_date": "2026-11-27",
+        "order_qty": "60",
+        "from_stock": "20",
+        "production_qty": "40",
+        "semi_finished_production": {
+          "SF001": "70"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": -7,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O006",
+        "product_id": "FG003",
+        "due_date": "2026-11-27",
+        "order_qty": "150",
+        "from_stock": "0",
+        "production_qty": "150",
+        "semi_finished_production": {
+          "SF002": "150"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": -13,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O014",
+        "product_id": "FG003",
+        "due_date": "2026-12-02",
+        "order_qty": "80",
+        "from_stock": "0",
+        "production_qty": "80",
+        "semi_finished_production": {
+          "SF002": "80"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": -8,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O007",
+        "product_id": "FG001",
+        "due_date": "2026-12-04",
+        "order_qty": "90",
+        "from_stock": "0",
+        "production_qty": "90",
+        "semi_finished_production": {
+          "SF001": "90"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 0,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O008",
+        "product_id": "FG002",
+        "due_date": "2026-12-04",
+        "order_qty": "50",
+        "from_stock": "0",
+        "production_qty": "50",
+        "semi_finished_production": {
+          "SF001": "100"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 0,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O009",
+        "product_id": "FG003",
+        "due_date": "2026-12-04",
+        "order_qty": "130",
+        "from_stock": "0",
+        "production_qty": "130",
+        "semi_finished_production": {
+          "SF002": "130"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": -6,
+        "capacity_exceeded_resources": [],
+        "reasons": [
+          "MATERIAL_LEADTIME",
+          "DUE_DATE_MISSED"
+        ],
+        "feasible": false
+      },
+      {
+        "order_id": "O015",
+        "product_id": "FG002",
+        "due_date": "2026-12-09",
+        "order_qty": "30",
+        "from_stock": "0",
+        "production_qty": "30",
+        "semi_finished_production": {
+          "SF001": "60"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 5,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O016",
+        "product_id": "FG001",
+        "due_date": "2026-12-09",
+        "order_qty": "70",
+        "from_stock": "0",
+        "production_qty": "70",
+        "semi_finished_production": {
+          "SF001": "70"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 5,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O010",
+        "product_id": "FG001",
+        "due_date": "2026-12-11",
+        "order_qty": "110",
+        "from_stock": "0",
+        "production_qty": "110",
+        "semi_finished_production": {
+          "SF001": "110"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 7,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O011",
+        "product_id": "FG002",
+        "due_date": "2026-12-11",
+        "order_qty": "70",
+        "from_stock": "0",
+        "production_qty": "70",
+        "semi_finished_production": {
+          "SF001": "140"
+        },
+        "material_ready_date": "2026-11-27",
+        "production_days": 5,
+        "expected_completion_date": "2026-12-04",
+        "slack_days": 7,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O012",
+        "product_id": "FG003",
+        "due_date": "2026-12-11",
+        "order_qty": "160",
+        "from_stock": "0",
+        "production_qty": "160",
+        "semi_finished_production": {
+          "SF002": "160"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": 1,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      },
+      {
+        "order_id": "O020",
+        "product_id": "FG003",
+        "due_date": "2026-12-13",
+        "order_qty": "40",
+        "from_stock": "0",
+        "production_qty": "40",
+        "semi_finished_production": {
+          "SF002": "40"
+        },
+        "material_ready_date": "2026-12-06",
+        "production_days": 4,
+        "expected_completion_date": "2026-12-10",
+        "slack_days": 3,
+        "capacity_exceeded_resources": [],
+        "reasons": [],
+        "feasible": true
+      }
+    ],
+    "plan_evaluation": {
+      "PLAN-REG": {
+        "costs_krw": {
+          "material": "23932680",
+          "regular_production": "32833500",
+          "overtime": "0",
+          "outsourcing": "0",
+          "inventory_holding": "미산정",
+          "late_penalty": "미산정",
+          "sum_of_computed_items_reference": "56766180"
+        },
+        "capacity_excess_total_h": "36.5",
+        "capacity": [
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-16",
+            "regular_required_h": "19.6",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-23",
+            "regular_required_h": "72.2",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-30",
+            "regular_required_h": "56.8",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-12-07",
+            "regular_required_h": "70",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-16",
+            "regular_required_h": "22",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-23",
+            "regular_required_h": "86",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "6"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-30",
+            "regular_required_h": "63.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-12-07",
+            "regular_required_h": "92.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "12.5"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-16",
+            "regular_required_h": "0",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-23",
+            "regular_required_h": "31",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-30",
+            "regular_required_h": "29.5",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ],
+        "material_consumption": {
+          "M001": "960",
+          "M002": "465.68",
+          "M003": "231",
+          "M004": "154",
+          "M005": "770",
+          "M006": "460",
+          "M007": "710",
+          "M008": "710",
+          "M009": "59.2",
+          "M010": "680"
+        },
+        "material_shortage": {
+          "M001": "60",
+          "M003": "51",
+          "M006": "10",
+          "M007": "330",
+          "M009": "19.2",
+          "M010": "30"
+        },
+        "material_shortage_total_by_unit": {
+          "EA": "370",
+          "kg": "130.2"
+        },
+        "orders_at_risk": [
+          "O004",
+          "O005",
+          "O006",
+          "O007",
+          "O008",
+          "O009",
+          "O010",
+          "O011",
+          "O012",
+          "O013",
+          "O014",
+          "O015",
+          "O016",
+          "O017",
+          "O020"
+        ],
+        "orders_data_invalid": []
+      },
+      "PLAN-OT": {
+        "costs_krw": {
+          "material": "23932680",
+          "regular_production": "28159500",
+          "overtime": "7011000",
+          "outsourcing": "0",
+          "inventory_holding": "미산정",
+          "late_penalty": "미산정",
+          "sum_of_computed_items_reference": "59103180"
+        },
+        "capacity_excess_total_h": "45",
+        "capacity": [
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-16",
+            "regular_required_h": "17.4",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "2.2",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-23",
+            "regular_required_h": "64",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "8.2",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-30",
+            "regular_required_h": "49.8",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "7",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-12-07",
+            "regular_required_h": "57",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "13",
+            "overtime_capacity_h": "10",
+            "excess_h": "3"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-16",
+            "regular_required_h": "19",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "3",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-23",
+            "regular_required_h": "70.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "15.5",
+            "overtime_capacity_h": "10",
+            "excess_h": "5.5"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-30",
+            "regular_required_h": "50.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "13",
+            "overtime_capacity_h": "10",
+            "excess_h": "3"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-12-07",
+            "regular_required_h": "67",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "25.5",
+            "overtime_capacity_h": "10",
+            "excess_h": "15.5"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-16",
+            "regular_required_h": "0",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-23",
+            "regular_required_h": "31",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-30",
+            "regular_required_h": "29.5",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ],
+        "material_consumption": {
+          "M001": "960",
+          "M002": "465.68",
+          "M003": "231",
+          "M004": "154",
+          "M005": "770",
+          "M006": "460",
+          "M007": "710",
+          "M008": "710",
+          "M009": "59.2",
+          "M010": "680"
+        },
+        "material_shortage": {
+          "M001": "60",
+          "M003": "51",
+          "M006": "10",
+          "M007": "330",
+          "M009": "19.2",
+          "M010": "30"
+        },
+        "material_shortage_total_by_unit": {
+          "EA": "370",
+          "kg": "130.2"
+        },
+        "orders_at_risk": [
+          "O004",
+          "O005",
+          "O006",
+          "O007",
+          "O008",
+          "O009",
+          "O010",
+          "O011",
+          "O012",
+          "O013",
+          "O014",
+          "O015",
+          "O016",
+          "O017",
+          "O020"
+        ],
+        "orders_data_invalid": []
+      },
+      "PLAN-OUT": {
+        "costs_krw": {
+          "material": "8860200",
+          "regular_production": "18891500",
+          "overtime": "0",
+          "outsourcing": "28120000",
+          "inventory_holding": "미산정",
+          "late_penalty": "미산정",
+          "sum_of_computed_items_reference": "55871700"
+        },
+        "capacity_excess_total_h": "18",
+        "capacity": [
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-16",
+            "regular_required_h": "6.2",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-23",
+            "regular_required_h": "25.2",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-11-30",
+            "regular_required_h": "17",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R1",
+            "week_start": "2026-12-07",
+            "regular_required_h": "32",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-16",
+            "regular_required_h": "9.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-23",
+            "regular_required_h": "48",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-30",
+            "regular_required_h": "31.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-12-07",
+            "regular_required_h": "62",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-16",
+            "regular_required_h": "0",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-23",
+            "regular_required_h": "31",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-11-30",
+            "regular_required_h": "29.5",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "0"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ],
+        "material_consumption": {
+          "M001": "516",
+          "M002": "176",
+          "M003": "231",
+          "M004": "154",
+          "M005": "770",
+          "M006": "460",
+          "M010": "680"
+        },
+        "material_shortage": {
+          "M003": "51",
+          "M006": "10",
+          "M010": "30"
+        },
+        "material_shortage_total_by_unit": {
+          "EA": "40",
+          "kg": "51"
+        },
+        "orders_at_risk": [],
+        "orders_data_invalid": []
+      }
+    },
+    "cq": {
+      "CQ-01": {
+        "PLAN-REG": [
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-23",
+            "regular_required_h": "86",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "6"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-12-07",
+            "regular_required_h": "92.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "12.5"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ],
+        "PLAN-OT": [
+          {
+            "resource_id": "R1",
+            "week_start": "2026-12-07",
+            "regular_required_h": "57",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "13",
+            "overtime_capacity_h": "10",
+            "excess_h": "3"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-23",
+            "regular_required_h": "70.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "15.5",
+            "overtime_capacity_h": "10",
+            "excess_h": "5.5"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-11-30",
+            "regular_required_h": "50.5",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "13",
+            "overtime_capacity_h": "10",
+            "excess_h": "3"
+          },
+          {
+            "resource_id": "R2",
+            "week_start": "2026-12-07",
+            "regular_required_h": "67",
+            "regular_capacity_h": "80",
+            "overtime_required_h": "25.5",
+            "overtime_capacity_h": "10",
+            "excess_h": "15.5"
+          },
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ],
+        "PLAN-OUT": [
+          {
+            "resource_id": "R3",
+            "week_start": "2026-12-07",
+            "regular_required_h": "58",
+            "regular_capacity_h": "40",
+            "overtime_required_h": "0",
+            "overtime_capacity_h": "10",
+            "excess_h": "18"
+          }
+        ]
+      },
+      "CQ-02": {
+        "FG001": [
+          {
+            "sequence_no": 10,
+            "operation_id": "OP-FG001-10",
+            "resource_id": "R1"
+          },
+          {
+            "sequence_no": 20,
+            "operation_id": "OP-FG001-20",
+            "resource_id": "R2"
+          }
+        ],
+        "FG002": [
+          {
+            "sequence_no": 10,
+            "operation_id": "OP-FG002-10",
+            "resource_id": "R1"
+          },
+          {
+            "sequence_no": 20,
+            "operation_id": "OP-FG002-20",
+            "resource_id": "R2"
+          }
+        ],
+        "FG003": [
+          {
+            "sequence_no": 10,
+            "operation_id": "OP-FG003-10",
+            "resource_id": "R1"
+          },
+          {
+            "sequence_no": 20,
+            "operation_id": "OP-FG003-20",
+            "resource_id": "R2"
+          }
+        ],
+        "SF001": [
+          {
+            "sequence_no": 10,
+            "operation_id": "OP-SF001-10",
+            "resource_id": "R3"
+          }
+        ],
+        "SF002": [
+          {
+            "sequence_no": 10,
+            "operation_id": "OP-SF002-10",
+            "resource_id": "R1"
+          }
+        ]
+      },
+      "CQ-03": {
+        "resource_id": "R3",
+        "products_direct": [
+          "SF001"
+        ],
+        "products_affected": [
+          "FG001",
+          "FG002",
+          "SF001"
+        ],
+        "open_orders": [
+          "O001",
+          "O002",
+          "O004",
+          "O005",
+          "O007",
+          "O008",
+          "O010",
+          "O011",
+          "O013",
+          "O015",
+          "O016"
+        ]
+      },
+      "CQ-04": [
+        {
+          "product_id": "FG001",
+          "date": "2026-11-30",
+          "qty": "460",
+          "candidates": [
+            "BOM-FG001-V1"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF001",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "1.2",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M006",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 4,
+              "component_id": "M010",
+              "qty_per": "1",
+              "unit": "EA"
+            }
+          ]
+        },
+        {
+          "product_id": "FG001",
+          "date": "2026-12-01",
+          "qty": "460",
+          "candidates": [
+            "BOM-FG001-V2"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF001",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "1000",
+              "unit": "g"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M006",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 4,
+              "component_id": "M010",
+              "qty_per": "1",
+              "unit": "EA"
+            }
+          ]
+        },
+        {
+          "product_id": "FG003",
+          "date": "2026-11-16",
+          "qty": "499",
+          "candidates": [
+            "BOM-FG003-V1"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF002",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "0.6",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M009",
+              "qty_per": "80",
+              "unit": "g"
+            }
+          ]
+        },
+        {
+          "product_id": "FG003",
+          "date": "2026-11-16",
+          "qty": "500",
+          "candidates": [
+            "BOM-FG003-V2"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF002",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "0.6",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M009",
+              "qty_per": "60",
+              "unit": "g"
+            }
+          ]
+        },
+        {
+          "product_id": "FG002",
+          "date": "2025-12-31",
+          "qty": "10",
+          "candidates": [],
+          "status": "NONE",
+          "lines": []
+        }
+      ],
+      "CQ-05": {
+        "M001": [
+          "FG001",
+          "FG003"
+        ],
+        "M003": [
+          "FG001",
+          "FG002"
+        ]
+      },
+      "CQ-06": {
+        "M001": "996",
+        "M002": "465.68",
+        "M003": "231",
+        "M004": "154",
+        "M005": "770",
+        "M006": "460",
+        "M007": "710",
+        "M008": "710",
+        "M009": "44.4",
+        "M010": "680"
+      },
+      "CQ-07": {
+        "FG001": "460",
+        "FG002": "220",
+        "FG003": "740",
+        "SF001": "770",
+        "SF002": "710"
+      },
+      "CQ-08": {
+        "M001": "96",
+        "M003": "51",
+        "M006": "10",
+        "M007": "330",
+        "M009": "4.4",
+        "M010": "30"
+      },
+      "CQ-09": {
+        "M001": [
+          {
+            "supplier_id": "S001",
+            "lead_time_days": 7,
+            "min_order_qty": "100",
+            "is_preferred": true
+          },
+          {
+            "supplier_id": "S002",
+            "lead_time_days": 4,
+            "min_order_qty": "200",
+            "is_preferred": false
+          }
+        ],
+        "M007": [
+          {
+            "supplier_id": "S003",
+            "lead_time_days": 21,
+            "min_order_qty": "50",
+            "is_preferred": true
+          },
+          {
+            "supplier_id": "S004",
+            "lead_time_days": 14,
+            "min_order_qty": "50",
+            "is_preferred": false
+          }
+        ]
+      },
+      "CQ-10": {
+        "min_lead_time_days": 14,
+        "materials": [
+          "M007"
+        ],
+        "products": {
+          "FG003": [
+            "M007"
+          ]
+        }
+      },
+      "CQ-11": {
+        "material_id": "M003",
+        "delay_days": 7,
+        "newly_infeasible_orders": [
+          {
+            "order_id": "O007",
+            "reasons": [
+              "MATERIAL_LEADTIME",
+              "DUE_DATE_MISSED"
+            ],
+            "expected_completion_date": "2026-12-11"
+          },
+          {
+            "order_id": "O008",
+            "reasons": [
+              "MATERIAL_LEADTIME",
+              "DUE_DATE_MISSED"
+            ],
+            "expected_completion_date": "2026-12-11"
+          },
+          {
+            "order_id": "O015",
+            "reasons": [
+              "MATERIAL_LEADTIME",
+              "DUE_DATE_MISSED"
+            ],
+            "expected_completion_date": "2026-12-11"
+          },
+          {
+            "order_id": "O016",
+            "reasons": [
+              "MATERIAL_LEADTIME",
+              "DUE_DATE_MISSED"
+            ],
+            "expected_completion_date": "2026-12-11"
+          }
+        ]
+      },
+      "CQ-12": {
+        "FG001": "510",
+        "FG002": "250",
+        "FG003": "780"
+      },
+      "CQ-13": [
+        {
+          "order_id": "O001",
+          "product_id": "FG001",
+          "due_date": "2026-11-20",
+          "order_qty": "80",
+          "from_stock": "80",
+          "production_qty": "0",
+          "semi_finished_production": {},
+          "material_ready_date": "2026-11-15",
+          "production_days": 0,
+          "expected_completion_date": "2026-11-15",
+          "slack_days": 5,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O002",
+          "product_id": "FG002",
+          "due_date": "2026-11-20",
+          "order_qty": "40",
+          "from_stock": "40",
+          "production_qty": "0",
+          "semi_finished_production": {},
+          "material_ready_date": "2026-11-15",
+          "production_days": 0,
+          "expected_completion_date": "2026-11-15",
+          "slack_days": 5,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O003",
+          "product_id": "FG003",
+          "due_date": "2026-11-21",
+          "order_qty": "120",
+          "from_stock": "80",
+          "production_qty": "40",
+          "semi_finished_production": {
+            "SF002": "0"
+          },
+          "material_ready_date": "2026-11-23",
+          "production_days": 2,
+          "expected_completion_date": "2026-11-25",
+          "slack_days": -4,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O017",
+          "product_id": "FG003",
+          "due_date": "2026-11-24",
+          "order_qty": "100",
+          "from_stock": "0",
+          "production_qty": "100",
+          "semi_finished_production": {
+            "SF002": "100"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": -16,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O013",
+          "product_id": "FG001",
+          "due_date": "2026-11-25",
+          "order_qty": "60",
+          "from_stock": "20",
+          "production_qty": "40",
+          "semi_finished_production": {
+            "SF001": "0"
+          },
+          "material_ready_date": "2026-11-22",
+          "production_days": 3,
+          "expected_completion_date": "2026-11-25",
+          "slack_days": 0,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O004",
+          "product_id": "FG001",
+          "due_date": "2026-11-27",
+          "order_qty": "100",
+          "from_stock": "0",
+          "production_qty": "100",
+          "semi_finished_production": {
+            "SF001": "0"
+          },
+          "material_ready_date": "2026-11-22",
+          "production_days": 3,
+          "expected_completion_date": "2026-11-25",
+          "slack_days": 2,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O005",
+          "product_id": "FG002",
+          "due_date": "2026-11-27",
+          "order_qty": "60",
+          "from_stock": "20",
+          "production_qty": "40",
+          "semi_finished_production": {
+            "SF001": "70"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": -7,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O006",
+          "product_id": "FG003",
+          "due_date": "2026-11-27",
+          "order_qty": "150",
+          "from_stock": "0",
+          "production_qty": "150",
+          "semi_finished_production": {
+            "SF002": "150"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": -13,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O014",
+          "product_id": "FG003",
+          "due_date": "2026-12-02",
+          "order_qty": "80",
+          "from_stock": "0",
+          "production_qty": "80",
+          "semi_finished_production": {
+            "SF002": "80"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": -8,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O007",
+          "product_id": "FG001",
+          "due_date": "2026-12-04",
+          "order_qty": "90",
+          "from_stock": "0",
+          "production_qty": "90",
+          "semi_finished_production": {
+            "SF001": "90"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 0,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O008",
+          "product_id": "FG002",
+          "due_date": "2026-12-04",
+          "order_qty": "50",
+          "from_stock": "0",
+          "production_qty": "50",
+          "semi_finished_production": {
+            "SF001": "100"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 0,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O009",
+          "product_id": "FG003",
+          "due_date": "2026-12-04",
+          "order_qty": "130",
+          "from_stock": "0",
+          "production_qty": "130",
+          "semi_finished_production": {
+            "SF002": "130"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": -6,
+          "capacity_exceeded_resources": [],
+          "reasons": [
+            "MATERIAL_LEADTIME",
+            "DUE_DATE_MISSED"
+          ],
+          "feasible": false
+        },
+        {
+          "order_id": "O015",
+          "product_id": "FG002",
+          "due_date": "2026-12-09",
+          "order_qty": "30",
+          "from_stock": "0",
+          "production_qty": "30",
+          "semi_finished_production": {
+            "SF001": "60"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 5,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O016",
+          "product_id": "FG001",
+          "due_date": "2026-12-09",
+          "order_qty": "70",
+          "from_stock": "0",
+          "production_qty": "70",
+          "semi_finished_production": {
+            "SF001": "70"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 5,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O010",
+          "product_id": "FG001",
+          "due_date": "2026-12-11",
+          "order_qty": "110",
+          "from_stock": "0",
+          "production_qty": "110",
+          "semi_finished_production": {
+            "SF001": "110"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 7,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O011",
+          "product_id": "FG002",
+          "due_date": "2026-12-11",
+          "order_qty": "70",
+          "from_stock": "0",
+          "production_qty": "70",
+          "semi_finished_production": {
+            "SF001": "140"
+          },
+          "material_ready_date": "2026-11-27",
+          "production_days": 5,
+          "expected_completion_date": "2026-12-04",
+          "slack_days": 7,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O012",
+          "product_id": "FG003",
+          "due_date": "2026-12-11",
+          "order_qty": "160",
+          "from_stock": "0",
+          "production_qty": "160",
+          "semi_finished_production": {
+            "SF002": "160"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": 1,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        },
+        {
+          "order_id": "O020",
+          "product_id": "FG003",
+          "due_date": "2026-12-13",
+          "order_qty": "40",
+          "from_stock": "0",
+          "production_qty": "40",
+          "semi_finished_production": {
+            "SF002": "40"
+          },
+          "material_ready_date": "2026-12-06",
+          "production_days": 4,
+          "expected_completion_date": "2026-12-10",
+          "slack_days": 3,
+          "capacity_exceeded_resources": [],
+          "reasons": [],
+          "feasible": true
+        }
+      ],
+      "CQ-14": {
+        "PLAN-REG": {
+          "costs_krw": {
+            "material": "23932680",
+            "regular_production": "32833500",
+            "overtime": "0",
+            "outsourcing": "0",
+            "inventory_holding": "미산정",
+            "late_penalty": "미산정",
+            "sum_of_computed_items_reference": "56766180"
+          },
+          "capacity_excess_total_h": "36.5",
+          "material_shortage_total_by_unit": {
+            "EA": "370",
+            "kg": "130.2"
+          },
+          "orders_at_risk": [
+            "O004",
+            "O005",
+            "O006",
+            "O007",
+            "O008",
+            "O009",
+            "O010",
+            "O011",
+            "O012",
+            "O013",
+            "O014",
+            "O015",
+            "O016",
+            "O017",
+            "O020"
+          ],
+          "orders_data_invalid": []
+        },
+        "PLAN-OT": {
+          "costs_krw": {
+            "material": "23932680",
+            "regular_production": "28159500",
+            "overtime": "7011000",
+            "outsourcing": "0",
+            "inventory_holding": "미산정",
+            "late_penalty": "미산정",
+            "sum_of_computed_items_reference": "59103180"
+          },
+          "capacity_excess_total_h": "45",
+          "material_shortage_total_by_unit": {
+            "EA": "370",
+            "kg": "130.2"
+          },
+          "orders_at_risk": [
+            "O004",
+            "O005",
+            "O006",
+            "O007",
+            "O008",
+            "O009",
+            "O010",
+            "O011",
+            "O012",
+            "O013",
+            "O014",
+            "O015",
+            "O016",
+            "O017",
+            "O020"
+          ],
+          "orders_data_invalid": []
+        },
+        "PLAN-OUT": {
+          "costs_krw": {
+            "material": "8860200",
+            "regular_production": "18891500",
+            "overtime": "0",
+            "outsourcing": "28120000",
+            "inventory_holding": "미산정",
+            "late_penalty": "미산정",
+            "sum_of_computed_items_reference": "55871700"
+          },
+          "capacity_excess_total_h": "18",
+          "material_shortage_total_by_unit": {
+            "EA": "40",
+            "kg": "51"
+          },
+          "orders_at_risk": [],
+          "orders_data_invalid": []
+        }
+      },
+      "CQ-15": {
+        "dataset": "clean",
+        "duplicate_business_ids": []
+      },
+      "CQ-16": {
+        "dataset": "clean",
+        "dangling_references": []
+      },
+      "CQ-17": {
+        "dataset": "clean",
+        "horizon_selection": {
+          "FG001": {
+            "date": "2026-11-16",
+            "qty": "460",
+            "candidates": [
+              "BOM-FG001-V1"
+            ]
+          },
+          "FG002": {
+            "date": "2026-11-16",
+            "qty": "220",
+            "candidates": [
+              "BOM-FG002-V1"
+            ]
+          },
+          "FG003": {
+            "date": "2026-11-16",
+            "qty": "740",
+            "candidates": [
+              "BOM-FG003-V2"
+            ]
+          },
+          "SF001": {
+            "date": "2026-11-16",
+            "qty": "770",
+            "candidates": [
+              "BOM-SF001-V1"
+            ]
+          },
+          "SF002": {
+            "date": "2026-11-16",
+            "qty": "710",
+            "candidates": [
+              "BOM-SF002-V1"
+            ]
+          }
+        },
+        "overlapping_active_pairs": []
+      },
+      "CQ-18": {
+        "dataset": "clean",
+        "cycles": []
+      },
+      "CQ-19": {
+        "canonical": {
+          "entity": "BOMLine",
+          "bom_id": "BOM-FG001-V2",
+          "line_no": 2,
+          "record_uid": "rec_c868482e373218cc",
+          "qty_per": "1000",
+          "unit": "g"
+        },
+        "locations": [
+          {
+            "vendor": "A",
+            "file": "vendor_a/bom.csv",
+            "sheet": "",
+            "row_number": 7,
+            "column": "qty_per",
+            "displayed_value": "1",
+            "displayed_unit": "kg"
+          },
+          {
+            "vendor": "A",
+            "file": "vendor_a/vendor_a_master.xlsx",
+            "sheet": "BOM",
+            "row_number": 7,
+            "column": "qty_per",
+            "displayed_value": "1",
+            "displayed_unit": "kg"
+          },
+          {
+            "vendor": "B",
+            "file": "vendor_b/vendor_b_master.xlsx",
+            "sheet": "BOM",
+            "row_number": 8,
+            "column": "소요량",
+            "displayed_value": "1,000",
+            "displayed_unit": "g"
+          }
+        ]
+      },
+      "CQ-20": {
+        "FG001": {
+          "vendor_a_code": "0001001",
+          "vendor_b_code": "HT-A",
+          "rule": "vendor_id_map_v1.csv"
+        },
+        "FG002": {
+          "vendor_a_code": "0001002",
+          "vendor_b_code": "HT-B",
+          "rule": "vendor_id_map_v1.csv"
+        },
+        "FG003": {
+          "vendor_a_code": "0001003",
+          "vendor_b_code": "BL-C",
+          "rule": "vendor_id_map_v1.csv"
+        },
+        "SF001": {
+          "vendor_a_code": "0002001",
+          "vendor_b_code": "MD-CORE",
+          "rule": "vendor_id_map_v1.csv"
+        },
+        "SF002": {
+          "vendor_a_code": "0002002",
+          "vendor_b_code": "MD-HOUS",
+          "rule": "vendor_id_map_v1.csv"
+        }
+      }
+    },
+    "unverifiable_cq": {}
+  }
+}

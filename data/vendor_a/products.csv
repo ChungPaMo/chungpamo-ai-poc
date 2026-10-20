@@ -1,0 +1,6 @@
+product_code,product_name,product_type,uom,safety_stock,mfg_lead_time_days,outsourcing_allowed,outsourcing_unit_cost_krw
+0001001,가정용 히터 A,FG,EA,50,3,N,
+0001002,가정용 히터 B,FG,EA,30,3,N,
+0001003,산업용 송풍기 C,FG,EA,40,2,Y,38000
+0002001,히터 코어 모듈,SF,EA,20,2,N,
+0002002,모터 하우징 조립품,SF,EA,10,2,N,

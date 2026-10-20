@@ -113,6 +113,19 @@ S1~S3은 **데이터셋이 아니라 업무 구조(개념 모델)의 근거**다
 | 라이선스 | Creative Commons Attribution 4.0 International (CC BY 4.0) | [확인] |
 | 인용 | Ferreira et al. (2016), DOI 10.24432/C5BC8T | [확인] |
 
+**원본 다운로드 후 확인 (2026-10-20, `results/E01_dataset/uci_source_verification.json`)** — 위 표의 [미확인] 항목을 실제 파일로 확인했다.
+
+| 항목 | 확인 결과 |
+|---|---|
+| 다운로드 | 공식 URL `https://archive.ics.uci.edu/static/public/409/daily+demand+forecasting+orders.zip`, HTTP 200, zip 5,306바이트 (SHA-256 `f08fccb0…1cd3`), CSV 1개 5,138바이트 (SHA-256 `adf8dda0…e924`) |
+| 형식 | 구분자 `;` (헤더 안에 쉼표가 있어 `csv.Sniffer`는 `,`로 오판함), ASCII(BOM 없음), CRLF, 헤더 1행 + 데이터 60행, 열 13개, 결측 0 |
+| 실제 헤더 | 페이지 표기와 거의 같으나 1열은 `Week of the month (first week, second, third, fourth or fifth week`로 **괄호가 닫히지 않음** (원본 그대로 보존) |
+| 자료형 | 1·2열 정수(주차 1~5, 요일 코드 2~6), 3~8열 소수 3자리, 9~12열 정수, 목표열 소수 3자리 |
+| 총주문 관계 | `Target = Order type A + B + C`가 **60/60행 정확 일치**. `Target = 비긴급 + 긴급`은 13/60, `+ 재정부문`을 더해도 49/60 → 긴급/비긴급 구분 합계와는 일관된 관계가 없음 |
+| 요일 코드 | 값 2~6의 정수. **코드의 의미(예: 2=월요일)는 원본·페이지에 코드표가 없어 확인되지 않음** [미확인]. 생성 데이터에서는 숫자 그대로(`source_day_of_week_code`) 보존하고, 날짜는 원본 행 순서의 연속 영업일 합성값(`date_is_synthetic=true`)으로 붙여 원본 요일과 관계를 두지 않는다 |
+| 코드 숫자 패턴 | 행이 바뀔 때 코드가 1씩 증가하거나 최대값→최소값으로 돌아가는 패턴이 끊기는 곳 2곳(파일 34행, 41행). 의미는 해석하지 않음 |
+| 기본키 | 날짜·ID 열 없음 → 원본 행 번호 기반 `record_uid` 부여 |
+
 **PoC 활용 가능 범위(제안)**: 제조가 아닌 물류 주문 데이터이며 제품 ID가 없다. **일별 집계 주문 자료로만 취급**하며 개별 제품별 주문으로 해석하지 않는다(`Order type A/B/C`도 제품이 아님). 가상 제품에 배분해 쓰는 경우 원본값과 배분 합성값을 분리한다([data_provenance_policy.md](data_provenance_policy.md) §4). CC BY 4.0이므로 출처 표기를 지키면 가공·재배포 가능.
 
 ---

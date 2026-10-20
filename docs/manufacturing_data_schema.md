@@ -187,8 +187,10 @@
 | generation_method | `GENERATED`(직접 합성) / `ALLOCATED`(공개 총량을 제품별로 배분) / `MAPPED`(공개 시계열 1개를 가상 제품 1개에 대응) / `TRANSFORMED`(공개 값을 의미 유지 변환, origin_class=PUBLIC_DERIVED) | enum | — | Y | | 정책 §4.2 | 해당없음 | 해당없음 |
 | derived_from_record_uid | 배분·대응·변환의 원본 공개 레코드 | string | — | 조건부 | GENERATED 외에는 필수, →공개 원본 스테이징 레코드 | 정책 §4.2 | 해당없음 | 해당없음 |
 | allocation_share | 배분 비율 (합성 가정값) | decimal | 비율 | 조건부 | ALLOCATED면 필수. 같은 원본 레코드에서 나온 행들의 합 = 1 | 정책 §4 | 아니오 | 필요 |
+| date_is_synthetic | `period_start`가 합성 날짜인지 (UCI 배분분은 TRUE) | boolean | — | Y | | 정책 §4.1 | 해당없음 | 해당없음 |
+| source_day_of_week_code | 공개 원본의 요일 코드 숫자 그대로 (의미 미확인, 날짜 계산에 쓰지 않음) | integer | — | N | | S5 | 예(값) / 아니오(의미) | 해당없음 |
 
-**공개 원본은 SalesHistory에 넣지 않는다.** UCI 등 공개 원본은 원래 컬럼 그대로 스테이징 테이블(`stg_public_uci_daily_orders` 등, 원본 1행 = 1레코드, `record_uid` 부여)에 보존하고, SalesHistory에는 그로부터 만든 행만 넣는다. 원본값(스테이징)과 배분된 합성값(SalesHistory, `ALLOCATED`)은 항상 다른 레코드다.
+**공개 원본은 SalesHistory에 넣지 않는다.** UCI 등 공개 원본은 원래 컬럼 그대로 스테이징 테이블(`stg_public_uci_daily_orders` 등, 원본 1행 = 1레코드, `record_uid` 부여. E01 구현: `data/raw/public/uci_daily_demand/staging_uci_daily_orders_v1.json`, Git 미추적)에 보존하고, SalesHistory에는 그로부터 만든 행만 넣는다. 원본값(스테이징)과 배분된 합성값(SalesHistory, `ALLOCATED`)은 항상 다른 레코드다.
 
 UCI Daily Demand는 **일별 집계 주문 자료**다. 개별 제품별 주문으로 해석하지 않으며, `Order type A/B/C` 등의 열을 제품으로 대응시키지 않는다. 원본에 날짜가 없으므로 달력 날짜를 붙이는 것도 합성 가정이다([data_provenance_policy.md](data_provenance_policy.md) §4). 공개 데이터 연결 여부 자체는 미결정이다.
 
@@ -240,11 +242,12 @@ UCI Daily Demand는 **일별 집계 주문 자료**다. 개별 제품별 주문�
 | plan_name | 계획안 이름 (예: 정규생산안, 잔업안, 외주안 — 이름은 예시) | string | — | Y | | P | 아니오 | 필요 |
 | horizon_start / horizon_end | 계획 기간 | date | — | Y | start ≤ end | P | 아니오 | 필요 |
 | generated_by | 생성 방식 (`RULE` / `OPTIMIZER` / `MANUAL`) | enum | — | Y | | P | 아니오 | 필요 |
+| overtime_allowed | 자체 생산에 잔업 가용시간을 더하는지 (잔업안만 TRUE). v2에서 추가 | boolean | — | Y | | P | 아니오 | 필요 |
 | (Line) plan_id, line_no | 계획 라인 | string, integer | — | Y | PK, FK→Plan | P | 아니오 | 필요 |
 | (Line) product_id | 생산 제품 | string | — | Y | FK→Product | S2 | 예(개념) | 필요 |
 | (Line) period_start | 생산 기간 시작일 | date | — | Y | | P | 아니오 | 필요 |
 | (Line) planned_qty | 계획 수량 | decimal | Product.base_unit | Y | ≥ 0 | S2 | 예(개념) | 필요 |
-| (Line) production_mode | `REGULAR` / `OVERTIME` / `OUTSOURCE` | enum | — | Y | | P | 아니오 | 필요 |
+| (Line) production_mode | `INHOUSE` / `OUTSOURCE` (v2. v1의 `REGULAR`/`OVERTIME` 라인 구분은 폐기 — 잔업은 계획의 `overtime_allowed`로 결정) | enum | — | Y | | P | 아니오 | 필요 |
 | (Line) resource_id | 사용 자원 (외주면 null) | string | — | 조건부 | FK→Resource, 해당 제품의 Operation에 있는 자원이어야 함 | S1, S3 | 예(개념) | 필요 |
 
 ## 4. 관계 요약과 SQL·RDF 대응

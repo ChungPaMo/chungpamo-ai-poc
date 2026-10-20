@@ -1,0 +1,4 @@
+resource_code,resource_name,resource_type,regular_hours_per_day,max_overtime_hours_per_day,cost_per_hour_krw,overtime_cost_per_hour_krw
+R01,판금 라인,LINE,16,2,60000,90000
+R02,조립 라인,LINE,16,2,50000,75000
+R03,모듈 셀,WORKCENTER,8,2,55000,82500

@@ -1,11 +1,20 @@
-# pip freeze 결과 (생성일 2026-10-20, Python 3.11.9, Windows 10 x64)
+# pip freeze 결과 (Python 3.11.9, Windows 10 x64)
 # 설치: .\.venv\Scripts\python.exe -m pip install -r requirements.lock
-# 직접 설치: pytest, psutil / 나머지는 pytest 하위 의존성
+# 2026-10-20 E00: pytest, psutil 직접 설치 (colorama, iniconfig, packaging, pluggy, Pygments는 pytest 의존성)
+# 2026-10-20 E01: pydantic, openpyxl 직접 설치 (annotated-types, pydantic_core, typing-inspection,
+#                 typing_extensions는 pydantic 의존성 / et_xmlfile은 openpyxl 의존성), pip check 이상 없음
 # 가상환경 기본 포함 패키지(pip 24.0, setuptools 65.5.0)는 pip freeze 기본 출력에서 제외됨
+annotated-types==0.8.0
 colorama==0.4.6
+et_xmlfile==2.0.0
 iniconfig==2.3.1
+openpyxl==3.1.5
 packaging==26.3
 pluggy==1.7.0
 psutil==7.2.2
+pydantic==2.14.1
+pydantic_core==2.50.1
 Pygments==2.21.0
 pytest==9.1.1
+typing-inspection==0.4.4
+typing_extensions==4.16.0

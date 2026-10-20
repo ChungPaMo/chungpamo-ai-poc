@@ -1,0 +1,329 @@
+{
+  "source": {
+    "dataset": "Daily Demand Forecasting Orders",
+    "dataset_page": "https://archive.ics.uci.edu/dataset/409/daily+demand+forecasting+orders",
+    "license": "CC BY 4.0 (Creative Commons Attribution 4.0 International)",
+    "citation": "Ferreira, R., Martiniano, A., Ferreira, A., Ferreira, A., & Sassi, R. (2016). Daily Demand Forecasting Orders [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BC8T",
+    "origin_class": "PUBLIC_REAL",
+    "page_description": "real database of a brazilian logistics company, collected during 60 days"
+  },
+  "download_record": {
+    "dataset_page": "https://archive.ics.uci.edu/dataset/409/daily+demand+forecasting+orders",
+    "url": "https://archive.ics.uci.edu/static/public/409/daily+demand+forecasting+orders.zip",
+    "downloaded_at": "2026-10-20T11:10:27+09:00",
+    "http_status": 200,
+    "content_type": null,
+    "zip": {
+      "file": "daily+demand+forecasting+orders.zip",
+      "bytes": 5306,
+      "sha256": "f08fccb09e3e5817984fd34628700dfac25b50562644d1cba460d86a51ff1cd3"
+    },
+    "members": [
+      {
+        "member": "Daily_Demand_Forecasting_Orders.csv",
+        "file": "extracted/Daily_Demand_Forecasting_Orders.csv",
+        "bytes": 5138,
+        "sha256": "adf8dda021beae76b13b1cbb5b3c075d064f03b3353a711c1ddc357c6f89e924"
+      }
+    ]
+  },
+  "file": {
+    "path": "data/raw/public/uci_daily_demand/extracted/Daily_Demand_Forecasting_Orders.csv",
+    "bytes": 5138,
+    "sha256": "adf8dda021beae76b13b1cbb5b3c075d064f03b3353a711c1ddc357c6f89e924"
+  },
+  "encoding": "ascii (UTF-8 호환, BOM 없음)",
+  "bom": false,
+  "line_ending": "CRLF",
+  "delimiter_candidates_consistent": [
+    ";"
+  ],
+  "delimiter": ";",
+  "header_raw": [
+    "Week of the month (first week, second, third, fourth or fifth week",
+    "Day of the week (Monday to Friday)",
+    "Non-urgent order",
+    "Urgent order",
+    "Order type A",
+    "Order type B",
+    "Order type C",
+    "Fiscal sector orders",
+    "Orders from the traffic controller sector",
+    "Banking orders (1)",
+    "Banking orders (2)",
+    "Banking orders (3)",
+    "Target (Total orders)"
+  ],
+  "column_count": 13,
+  "row_count": 60,
+  "ragged_rows": [],
+  "header_notes": [
+    "열 0: 괄호가 닫히지 않음 (원본 그대로)"
+  ],
+  "columns": {
+    "week_of_month": {
+      "header": "Week of the month (first week, second, third, fourth or fifth week",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "1",
+      "max": "5",
+      "max_decimal_places": 0
+    },
+    "day_of_week": {
+      "header": "Day of the week (Monday to Friday)",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "2",
+      "max": "6",
+      "max_decimal_places": 0
+    },
+    "non_urgent": {
+      "header": "Non-urgent order",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "43.651",
+      "max": "435.304",
+      "max_decimal_places": 3
+    },
+    "urgent": {
+      "header": "Urgent order",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "77.371",
+      "max": "223.270",
+      "max_decimal_places": 3
+    },
+    "type_a": {
+      "header": "Order type A",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "21.826",
+      "max": "118.178",
+      "max_decimal_places": 3
+    },
+    "type_b": {
+      "header": "Order type B",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "25.125",
+      "max": "267.342",
+      "max_decimal_places": 3
+    },
+    "type_c": {
+      "header": "Order type C",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "74.372",
+      "max": "302.448",
+      "max_decimal_places": 3
+    },
+    "fiscal": {
+      "header": "Fiscal sector orders",
+      "inferred_type": "decimal/integer",
+      "missing": 0,
+      "min": "0",
+      "max": "865",
+      "max_decimal_places": 3
+    },
+    "traffic_controller": {
+      "header": "Orders from the traffic controller sector",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "11992",
+      "max": "71772",
+      "max_decimal_places": 0
+    },
+    "banking_1": {
+      "header": "Banking orders (1)",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "3452",
+      "max": "210508",
+      "max_decimal_places": 0
+    },
+    "banking_2": {
+      "header": "Banking orders (2)",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "16411",
+      "max": "188411",
+      "max_decimal_places": 0
+    },
+    "banking_3": {
+      "header": "Banking orders (3)",
+      "inferred_type": "integer",
+      "missing": 0,
+      "min": "7679",
+      "max": "73839",
+      "max_decimal_places": 0
+    },
+    "target_total": {
+      "header": "Target (Total orders)",
+      "inferred_type": "decimal",
+      "missing": 0,
+      "min": "129.412",
+      "max": "616.453",
+      "max_decimal_places": 3
+    }
+  },
+  "relationship_checks": [
+    {
+      "relation": "target_total == non_urgent + urgent",
+      "exact_match_rows": 13,
+      "rows": 60,
+      "mismatches": [
+        {
+          "data_row": 3,
+          "sum": "128.026",
+          "target": "129.412",
+          "diff": "1.386"
+        },
+        {
+          "data_row": 4,
+          "sum": "298.964",
+          "target": "317.120",
+          "diff": "18.156"
+        },
+        {
+          "data_row": 5,
+          "sum": "204.058",
+          "target": "210.517",
+          "diff": "6.459"
+        },
+        {
+          "data_row": 6,
+          "sum": "207.285",
+          "target": "207.364",
+          "diff": "0.079"
+        },
+        {
+          "data_row": 8,
+          "sum": "233.249",
+          "target": "248.958",
+          "diff": "15.709"
+        },
+        {
+          "data_row": 9,
+          "sum": "343.237",
+          "target": "344.291",
+          "diff": "1.054"
+        },
+        {
+          "data_row": 10,
+          "sum": "247.563",
+          "target": "248.428",
+          "diff": "0.865"
+        },
+        {
+          "data_row": 11,
+          "sum": "281.226",
+          "target": "281.420",
+          "diff": "0.194"
+        },
+        {
+          "data_row": 12,
+          "sum": "237.045",
+          "target": "243.568",
+          "diff": "6.523"
+        },
+        {
+          "data_row": 13,
+          "sum": "284.978",
+          "target": "308.178",
+          "diff": "23.200"
+        }
+      ],
+      "mismatch_count": 47
+    },
+    {
+      "relation": "target_total == non_urgent + urgent + fiscal",
+      "exact_match_rows": 49,
+      "rows": 60,
+      "mismatches": [
+        {
+          "data_row": 6,
+          "sum": "286.285",
+          "target": "207.364",
+          "diff": "-78.921"
+        },
+        {
+          "data_row": 10,
+          "sum": "1112.563",
+          "target": "248.428",
+          "diff": "-864.135"
+        },
+        {
+          "data_row": 11,
+          "sum": "475.226",
+          "target": "281.420",
+          "diff": "-193.806"
+        },
+        {
+          "data_row": 20,
+          "sum": "1141.716",
+          "target": "298.560",
+          "diff": "-843.156"
+        },
+        {
+          "data_row": 21,
+          "sum": "422.056",
+          "target": "229.249",
+          "diff": "-192.807"
+        },
+        {
+          "data_row": 31,
+          "sum": "391.366",
+          "target": "298.459",
+          "diff": "-92.907"
+        },
+        {
+          "data_row": 34,
+          "sum": "400.980",
+          "target": "346.035",
+          "diff": "-54.945"
+        },
+        {
+          "data_row": 38,
+          "sum": "861.830",
+          "target": "333.359",
+          "diff": "-528.471"
+        },
+        {
+          "data_row": 39,
+          "sum": "845.816",
+          "target": "306.356",
+          "diff": "-539.460"
+        },
+        {
+          "data_row": 43,
+          "sum": "652.085",
+          "target": "234.503",
+          "diff": "-417.582"
+        }
+      ],
+      "mismatch_count": 11
+    },
+    {
+      "relation": "target_total == type_a + type_b + type_c",
+      "exact_match_rows": 60,
+      "rows": 60,
+      "mismatches": [],
+      "mismatch_count": 0
+    }
+  ],
+  "day_sequence": {
+    "day_of_week_values": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "assumed_coding": "2=월 … 6=금 (값 범위가 2~6이고 페이지 설명이 'Monday to Friday'인 데서 추정, 원본에 코드표 없음)",
+    "consecutive_weekday_breaks_at_data_rows": [
+      34,
+      41
+    ]
+  },
+  "interpretation": "일별 집계 주문 자료로만 취급한다. 제품별 주문이 아니며 Order type A/B/C를 제품으로 대응시키지 않는다. 원본에 날짜 열이 없으므로 달력 날짜 부여는 합성 가정이다."
+}

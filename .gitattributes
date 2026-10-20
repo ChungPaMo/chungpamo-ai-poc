@@ -1,0 +1,5 @@
+# 생성 데이터·검증 결과는 바이트 그대로 저장한다 (SHA-256 매니페스트, 인코딩·CRLF 검증 대상).
+# Windows의 core.autocrlf 설정이 Vendor B CSV(CP949·CRLF) 줄바꿈을 바꾸지 않도록 줄바꿈 변환을 끈다.
+data/** -text
+results/** -text
+*.xlsx binary

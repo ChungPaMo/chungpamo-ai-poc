@@ -107,6 +107,36 @@ def mask_sensitive(value: Any) -> Any:
     return value
 
 
+MASKED_HOST = "MASKED-HOST"
+
+
+def sanitize_junit_xml(xml_text: str) -> str:
+    """pytest junit XML을 파싱한 뒤 속성값·텍스트를 마스킹하고 다시 직렬화한다.
+
+    문자열 치환으로 `<HOST>` 같은 값을 넣으면 XML이 깨지므로(E00 v1 결함), 요소 트리에서 값을 바꾸고
+    ElementTree가 `<`, `>`, `&`를 이스케이프하게 한다. hostname 속성은 MASKED_HOST로 바꾼다.
+    """
+    import xml.etree.ElementTree as ET
+
+    root = ET.fromstring(xml_text)
+    for el in root.iter():
+        for k, v in list(el.attrib.items()):
+            el.set(k, MASKED_HOST if k == "hostname" else mask_sensitive(v))
+        if el.text:
+            el.text = mask_sensitive(el.text)
+        if el.tail:
+            el.tail = mask_sensitive(el.tail)
+    return '<?xml version="1.0" encoding="utf-8"?>' + ET.tostring(root, encoding="unicode")
+
+
+def repair_masked_junit_xml(broken_text: str) -> str:
+    """E00 v1처럼 이미 `<HOST>`·`<HOME>`·`<USER>`가 날것으로 들어가 깨진 XML을 복구한 뒤 다시 마스킹한다."""
+    fixed = re.sub(r'hostname="[^"]*"', f'hostname="{MASKED_HOST}"', broken_text)
+    for token in ("<HOME>", "<USER>", "<HOST>"):
+        fixed = fixed.replace(token, token.replace("<", "&lt;").replace(">", "&gt;"))
+    return sanitize_junit_xml(fixed)
+
+
 class Collector:
     """항목별 수집 함수를 실행하고 실패를 errors에 남긴다."""
 

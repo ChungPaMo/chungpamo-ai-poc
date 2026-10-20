@@ -1,0 +1,261 @@
+{
+  "experiment_id": "E01",
+  "experiment_name": "제조업 공통 합성 데이터·정답셋 구성",
+  "ground_truth": {
+    "version": "v2",
+    "file": "data/canonical/ground_truth_v2.json",
+    "sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+    "previous": {
+      "version": "v1",
+      "file": "data/canonical/ground_truth_v1.json",
+      "sha256": "89f1b075b281d4eaa53fb2b788f0b18b9296e534e195e272114bd36f7c2053a7",
+      "status": "보존 (재생성하지 않음)",
+      "changes_in_v2": [
+        "생산계획안 의미 재정의: 잔업은 계획 단위 정책(정규+잔업 가용), 외주는 명시 수량",
+        "계획안 납기 평가(공급 시점 기반) 추가, 외주처 조건 합성 가정 명시",
+        "UCI 요일 코드 해석 제거: 원본 코드 숫자 보존 + 연속 영업일 합성 날짜 표시"
+      ]
+    },
+    "previous_sha256_actual": "89f1b075b281d4eaa53fb2b788f0b18b9296e534e195e272114bd36f7c2053a7"
+  },
+  "e00_xml_repair": {
+    "experiment_id": "E00",
+    "repaired_at": "2026-10-20T13:08:19+09:00",
+    "source": {
+      "file": "pytest_report.xml",
+      "sha256": "e92fa8938bffedc56a26141c8e060c6bb1ff73ffeb5d8e27954d361fdf4560b3",
+      "xml_parse_error": "not well-formed (invalid token): line 1, column 210",
+      "status": "보존 (수정하지 않음)"
+    },
+    "repaired": {
+      "file": "pytest_report.repaired.xml",
+      "sha256": "002a95054567872a30c6ec1848ed47a0f9b28217af0b46b7bbb40c7f6f8dc82a",
+      "xml_parse_error": null
+    },
+    "method": "hostname 속성을 MASKED-HOST로, 날것의 <HOME>/<USER>/<HOST>를 이스케이프한 뒤 ElementTree로 파싱·재마스킹·직렬화 (check_environment.repair_masked_junit_xml)",
+    "test_counts_in_repaired": {
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    "testcase_count": 16,
+    "cause": "run_e00.py(v1)가 hostname 값을 문자열 치환으로 '<HOST>'로 바꿔 XML 속성값에 '<'가 들어감",
+    "fix_in_code": "run_e00.py, run_e01.py가 check_environment.sanitize_junit_xml 사용 (이후 실행분부터 적용)"
+  },
+  "status": "COMPLETED",
+  "status_note": "2026-10-20 사용자 승인 (decisions.md DEC-20261020-07). 승인 기준: 독립 검증 143/143, pytest 48/48, 재현성 31/31, Git 보안 점검 통과. 계획안 비교는 v2 규칙이 PoC 기준(v1 보존)",
+  "limitations": [
+    "반제품 생산능력 부족은 완제품 공급(납기) 계산에 반영하지 않는다 (합성 시나리오 단순화)",
+    "가상 외주처 조건(FG003만, 150 EA/주, 리드타임 7일, 자재 외주처 부담)은 합성 가정이다",
+    "모든 마스터·주문·재고·비용 값은 합성값이며 현장 성능을 나타내지 않는다"
+  ],
+  "run_timestamp": "2026-10-20T13:18:31+09:00",
+  "seed": 20261020,
+  "python": "3.11.9",
+  "dependency_lock": {
+    "file": "requirements.lock",
+    "sha256": "31ada606d0eaadcdc7b43c46701a26cd9aca9a11748849249a4cd5ea3089dff9"
+  },
+  "git": {
+    "base_commit": "3920191305f9f2c37fd8beab7e97899fbf2f376b",
+    "uncommitted_changes": [
+      " M .gitignore",
+      " M CLAUDE.md",
+      " D data/ground_truth/.gitkeep",
+      " M docs/data_provenance_policy.md",
+      " M docs/data_source_research.md",
+      " M docs/decision_logic.md",
+      " M docs/decisions.md",
+      " M docs/environment_inventory.md",
+      " M docs/experiment_plan.md",
+      " M docs/manufacturing_data_schema.md",
+      " M requirements.lock",
+      " M scripts/check_environment.py",
+      " M scripts/run_e00.py",
+      "?? data/canonical/ground_truth_v1.json",
+      "?? data/canonical/ground_truth_v2.json",
+      "?? data/canonical/injected_errors_v1.json",
+      "?? data/canonical/vendor_column_map_v1.json",
+      "?? data/canonical/vendor_id_map_v1.csv",
+      "?? data/canonical/vendor_row_map_v1.csv",
+      "?? data/invalid/vendor_a/",
+      "?? data/invalid/vendor_b/",
+      "?? data/vendor_a/bom.csv",
+      "?? data/vendor_a/inventory.csv",
+      "?? data/vendor_a/materials.csv",
+      "?? data/vendor_a/orders.csv",
+      "?? data/vendor_a/products.csv",
+      "?? data/vendor_a/resources.csv",
+      "?? data/vendor_a/routing.csv",
+      "?? data/vendor_a/supplier_materials.csv",
+      "?? data/vendor_a/suppliers.csv",
+      "?? data/vendor_a/vendor_a_master.xlsx",
+      "?? data/vendor_b/vendor_b_inventory.csv",
+      "?? data/vendor_b/vendor_b_master.xlsx",
+      "?? data/vendor_b/vendor_b_orders.csv",
+      "?? results/E00_environment/pytest_report.repaired.xml",
+      "?? results/E00_environment/xml_repair_record.json",
+      "?? results/E01_dataset/",
+      "?? scripts/e01_common.py",
+      "?? scripts/e01_download_uci.py",
+      "?? scripts/e01_expected.py",
+      "?? scripts/e01_generate.py",
+      "?? scripts/e01_inject_errors.py",
+      "?? scripts/e01_inspect_uci.py",
+      "?? scripts/e01_models.py",
+      "?? scripts/e01_verify.py",
+      "?? scripts/fix_e00_xml.py",
+      "?? scripts/git_safety_check.py",
+      "?? scripts/run_e01.py",
+      "?? tests/test_e01_dataset.py"
+    ]
+  },
+  "record_counts": {
+    "Unit": 4,
+    "Product": 5,
+    "Material": 10,
+    "Supplier": 4,
+    "SupplierMaterial": 12,
+    "BOM": 7,
+    "BOMLine": 23,
+    "Order": 20,
+    "SalesHistory": 180,
+    "Inventory": 15,
+    "Resource": 3,
+    "Operation": 8,
+    "ProductionPlan": 3,
+    "ProductionPlanLine": 59
+  },
+  "uci_source": {
+    "rows": 60,
+    "columns": 13,
+    "delimiter": ";",
+    "encoding": "ascii (UTF-8 호환, BOM 없음)",
+    "zip_sha256": "f08fccb09e3e5817984fd34628700dfac25b50562644d1cba460d86a51ff1cd3",
+    "csv_sha256": "adf8dda021beae76b13b1cbb5b3c075d064f03b3353a711c1ddc357c6f89e924",
+    "relationship_checks": [
+      {
+        "relation": "target_total == non_urgent + urgent",
+        "exact_match_rows": 13,
+        "rows": 60
+      },
+      {
+        "relation": "target_total == non_urgent + urgent + fiscal",
+        "exact_match_rows": 49,
+        "rows": 60
+      },
+      {
+        "relation": "target_total == type_a + type_b + type_c",
+        "exact_match_rows": 60,
+        "rows": 60
+      }
+    ]
+  },
+  "validation": {
+    "total": 143,
+    "passed": 143,
+    "failed": 0,
+    "by_section": {
+      "canonical": {
+        "passed": 29,
+        "failed": 0
+      },
+      "public_data": {
+        "passed": 9,
+        "failed": 0
+      },
+      "vendor_files": {
+        "passed": 42,
+        "failed": 0
+      },
+      "error_injection": {
+        "passed": 26,
+        "failed": 0
+      },
+      "decision_calc": {
+        "passed": 9,
+        "failed": 0
+      },
+      "plan_semantics": {
+        "passed": 8,
+        "failed": 0
+      },
+      "cq": {
+        "passed": 20,
+        "failed": 0
+      }
+    }
+  },
+  "injection": {
+    "injected": 13,
+    "confirmed": 13,
+    "confirmed_ids": [
+      "E01-ERR-001",
+      "E01-ERR-002",
+      "E01-ERR-003",
+      "E01-ERR-004",
+      "E01-ERR-005",
+      "E01-ERR-006",
+      "E01-ERR-007",
+      "E01-ERR-008",
+      "E01-ERR-009",
+      "E01-ERR-010",
+      "E01-ERR-011",
+      "E01-ERR-012",
+      "E01-ERR-013"
+    ]
+  },
+  "cq_status": {
+    "CQ-01": "검증 통과",
+    "CQ-02": "검증 통과",
+    "CQ-03": "검증 통과",
+    "CQ-04": "검증 통과",
+    "CQ-05": "검증 통과",
+    "CQ-06": "검증 통과",
+    "CQ-07": "검증 통과",
+    "CQ-08": "검증 통과",
+    "CQ-09": "검증 통과",
+    "CQ-10": "검증 통과",
+    "CQ-11": "검증 통과",
+    "CQ-12": "검증 통과",
+    "CQ-13": "검증 통과",
+    "CQ-14": "검증 통과",
+    "CQ-15": "검증 통과",
+    "CQ-16": "검증 통과",
+    "CQ-17": "검증 통과",
+    "CQ-18": "검증 통과",
+    "CQ-19": "검증 통과",
+    "CQ-20": "검증 통과"
+  },
+  "reproducibility": {
+    "method": "같은 시드로 임시 폴더 2곳에 전체 파이프라인을 다시 실행해 산출물 SHA-256을 프로젝트 산출물과 비교",
+    "files_compared": 31,
+    "mismatch_run1_vs_run2": [],
+    "mismatch_project_vs_rerun": [],
+    "match": true
+  },
+  "sensitive_scan": {
+    "scanned_files": 35,
+    "hits": [],
+    "patterns": [
+      "api_key_like",
+      "home_path",
+      "home_path_json",
+      "hostname",
+      "local_sensitive_terms",
+      "personal_email",
+      "private_doc_terms",
+      "user_dir"
+    ],
+    "local_terms_loaded": 4
+  },
+  "tests": {
+    "total": 48,
+    "passed": 48,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "failed_commands": []
+}

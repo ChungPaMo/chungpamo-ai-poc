@@ -103,8 +103,15 @@
 | pluggy | 1.7.0 | pytest 의존성 |
 | Pygments | 2.21.0 | pytest 의존성 |
 | pip / setuptools | 24.0 / 65.5.0 | 가상환경 기본 포함 (lock 제외) |
+| pydantic | 2.14.1 | 직접 설치 (2026-10-20 E01) |
+| pydantic_core | 2.50.1 | pydantic 의존성 |
+| annotated-types | 0.8.0 | pydantic 의존성 |
+| typing-inspection | 0.4.4 | pydantic 의존성 |
+| typing_extensions | 4.16.0 | pydantic 의존성 |
+| openpyxl | 3.1.5 | 직접 설치 (2026-10-20 E01) |
+| et_xmlfile | 2.0.0 | openpyxl 의존성 |
 
-- `pip check`: "No broken requirements found."
+- `pip check`: "No broken requirements found." (E00 설치 후, E01 추가 설치 후 각각 확인)
 - 전역 Python 환경은 변경하지 않았다(전역에 Pygments 2.20.0이 있으나 가상환경은 2.21.0을 별도 사용).
 
 ### 8.3 Git

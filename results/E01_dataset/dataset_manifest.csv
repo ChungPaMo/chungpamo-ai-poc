@@ -1,0 +1,39 @@
+path,bytes,sha256,origin_class,generation_method,seed,git_tracked
+data/canonical/ground_truth_v2.json,222974,262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e,SYNTHETIC (+UCI 배분 SYNTHETIC/ALLOCATED),e01_generate.py + e01_expected.py,20261020,예
+data/canonical/injected_errors_v1.json,11698,9ff9286557712f2c771d2cfd83b7ff5413980defd72b5c776db8daca6cf441c6,SYNTHETIC_INJECTED 목록,e01_inject_errors.py,20261020,예
+data/canonical/vendor_column_map_v1.json,9194,2f4aaaa660f4857a2f208079269a08f7b5208c8a78ad4ac5c714f0e2ce1214be,매핑 규칙,e01_generate.py,20261020,예
+data/canonical/vendor_id_map_v1.csv,2300,90352b32d499f5fb9cabdb805ede88a28b83041bf3908cfe13adcafc792bba9c,매핑 규칙,e01_generate.py,20261020,예
+data/canonical/vendor_row_map_v1.csv,22894,d45babe91fd8900076d537d0e36a9bdadc845dce739aba4dcef817ee2a355343,매핑 규칙,e01_generate.py,20261020,예
+data/vendor_a/products.csv,344,568ce2e5bba7a752f163b1e35f987d471026832c03161278c553367b1eecbec8,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/materials.csv,380,c3f5445c0033f23b2a5c3759d43d438a38882e4d8c331552ef8b38d840d2d95d,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/suppliers.csv,140,7ce9897b6309b15c505c35991120c83216eda755d5b5d9a274b0038668cd13d6,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/supplier_materials.csv,320,dfdeb8715530beacd8b0805dde0a78289ff5f44856984a4a7128c327a4910d25,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/bom.csv,1921,d313539c31d03e5e6c7743f75b27597d6d922a881824f74fd525bc1454cfad9d,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/inventory.csv,612,48d6225f0efa5807e78b53d5001c03335b0767909914046090377e79380a4b99,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/orders.csv,1220,b4046b4c19fc9d48fbd657e0677a80ae9724d215d1fc22c58ca1cac4c863c6f3,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/resources.csv,258,2b00153128ffa87990540e3522abcd5ad82de8a850fc985100bc40311b05e3cc,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/routing.csv,367,1b2409b21bf41e443346ab63780b6e2a3941f07c8cb59bea64310b6e6002ec1c,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_a/vendor_a_master.xlsx,8501,24b741dd5075e203ddaf6d27ea6cd0096607e69605ecbbbab24970a3be660365,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_b/vendor_b_master.xlsx,10163,99ee2b053f4e48ee36da462068e53cffa3a4520c6f81a48da860a092892ba060,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_b/vendor_b_orders.csv,1128,8decf84d941efd60cd0ae4671e312c502dc4a0ba33d4b1223dd1e8c5f3a160b3,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/vendor_b/vendor_b_inventory.csv,652,e1864eb380def96ec15281fe2e569e2636f0e986565c70d0150b8c58c8f6721b,SYNTHETIC (Vendor 표현),e01_generate.py,20261020,예
+data/invalid/vendor_a/products.csv,344,568ce2e5bba7a752f163b1e35f987d471026832c03161278c553367b1eecbec8,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/materials.csv,424,b400cfc599e975b044682deb3908ee58acc855825e4fc211b00c3d96b9154de5,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/suppliers.csv,140,7ce9897b6309b15c505c35991120c83216eda755d5b5d9a274b0038668cd13d6,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/supplier_materials.csv,320,dfdeb8715530beacd8b0805dde0a78289ff5f44856984a4a7128c327a4910d25,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/bom.csv,1995,519bb6a55a575a631a9c6ad58ff2de0d2da9fe0c3e3d4de63b893304a29d3004,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/inventory.csv,613,737f3047685326b0fd2448638639021f1cadeebcae785031cc361a1016395900,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/orders.csv,1217,8a20890ec774be4a085aa96bdb4ec9019690fd363795ad46c841df2413202226,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/resources.csv,258,2b00153128ffa87990540e3522abcd5ad82de8a850fc985100bc40311b05e3cc,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/routing.csv,367,722be47ee32521a7b1b45d5cf60ef3e2ccda1e3e8280f92e7227047342de3246,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_a/vendor_a_master.xlsx,8501,24b741dd5075e203ddaf6d27ea6cd0096607e69605ecbbbab24970a3be660365,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_b/vendor_b_master.xlsx,10235,fdcb7d2685b72a14ec4d4651b11f2b1d73934f509e7f89ad9d5c0cfb5db53a7f,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_b/vendor_b_orders.csv,1128,4973f4be881977d0fd491d4b480c749406d7207111c7c643edb0289fa479b57e,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/invalid/vendor_b/vendor_b_inventory.csv,652,f30b9d5fc7d2cf524c07e5689997adeded24295ab6c98100b794b00168811e09,SYNTHETIC_INJECTED,e01_inject_errors.py,20261020,예
+data/canonical/ground_truth_v1.json,189553,89f1b075b281d4eaa53fb2b788f0b18b9296e534e195e272114bd36f7c2053a7,이전 정답셋 v1 (보존),"v1 코드로 생성, 재생성 대상 아님",20261020,예
+data/raw/public/uci_daily_demand/daily+demand+forecasting+orders.zip,5306,f08fccb09e3e5817984fd34628700dfac25b50562644d1cba460d86a51ff1cd3,PUBLIC_REAL (원본),e01_download_uci.py (UCI 공식 출처),,아니오 (Git 미추적)
+data/raw/public/uci_daily_demand/extracted/Daily_Demand_Forecasting_Orders.csv,5138,adf8dda021beae76b13b1cbb5b3c075d064f03b3353a711c1ddc357c6f89e924,PUBLIC_REAL (원본),e01_download_uci.py (UCI 공식 출처),,아니오 (Git 미추적)
+data/raw/public/uci_daily_demand/download_record.json,725,96aa2154de86750b8481ef0832942e1154c3692ac5cda56dbfa7e6cc620eb75d,다운로드 기록,e01_download_uci.py (UCI 공식 출처),,아니오 (Git 미추적)
+data/raw/public/uci_daily_demand/staging_uci_daily_orders_v1.json,72170,95e316e15f46c5c8b1d9ae08e43b887a5c33c61296987cd0b050db7e50a524d6,PUBLIC_REAL 스테이징,e01_generate.py (원본 값 그대로),,아니오 (Git 미추적)
+results/E01_dataset/uci_source_verification.json,9040,cd991359cbcaec9611a4058345289732b178435c97513d7e9eefb47e1b232e5e,검증 기록,e01_inspect_uci.py,,예
+results/E01_dataset/validation_report.json,36464,e72e23f341e4d3e456c69a3ce2433859008795a17b7724d517bd2b660ab00832,검증 기록,e01_verify.py,,예

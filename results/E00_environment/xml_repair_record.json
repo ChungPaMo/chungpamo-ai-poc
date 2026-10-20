@@ -1,0 +1,25 @@
+{
+  "experiment_id": "E00",
+  "repaired_at": "2026-10-20T13:08:19+09:00",
+  "source": {
+    "file": "pytest_report.xml",
+    "sha256": "e92fa8938bffedc56a26141c8e060c6bb1ff73ffeb5d8e27954d361fdf4560b3",
+    "xml_parse_error": "not well-formed (invalid token): line 1, column 210",
+    "status": "보존 (수정하지 않음)"
+  },
+  "repaired": {
+    "file": "pytest_report.repaired.xml",
+    "sha256": "002a95054567872a30c6ec1848ed47a0f9b28217af0b46b7bbb40c7f6f8dc82a",
+    "xml_parse_error": null
+  },
+  "method": "hostname 속성을 MASKED-HOST로, 날것의 <HOME>/<USER>/<HOST>를 이스케이프한 뒤 ElementTree로 파싱·재마스킹·직렬화 (check_environment.repair_masked_junit_xml)",
+  "test_counts_in_repaired": {
+    "tests": "16",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  "testcase_count": 16,
+  "cause": "run_e00.py(v1)가 hostname 값을 문자열 치환으로 '<HOST>'로 바꿔 XML 속성값에 '<'가 들어감",
+  "fix_in_code": "run_e00.py, run_e01.py가 check_environment.sanitize_junit_xml 사용 (이후 실행분부터 적용)"
+}

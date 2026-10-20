@@ -13,7 +13,6 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
-import re
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
@@ -116,9 +115,8 @@ def main() -> int:
     )
     counts = _pytest_counts(xml_path)
     if xml_path.exists():
-        # junit xml의 hostname 속성(PC 이름)과 홈 경로를 마스킹
-        xml_text = re.sub(r'hostname="[^"]*"', 'hostname="<HOST>"', xml_path.read_text(encoding="utf-8"))
-        xml_path.write_text(ce.mask_sensitive(xml_text), encoding="utf-8", newline="\n")
+        # junit xml의 hostname 속성(PC 이름)과 홈 경로를 XML 구조를 유지한 채 마스킹 (2026-10-20 보정)
+        xml_path.write_text(ce.sanitize_junit_xml(xml_path.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     if py["returncode"] != 0:
         failed.append({"command": "python -m pytest -v", "returncode": py["returncode"],
                        "error": "테스트 실패 또는 실행 오류 — pytest_output.txt 참고"})

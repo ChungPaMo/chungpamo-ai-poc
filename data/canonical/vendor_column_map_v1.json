@@ -1,0 +1,421 @@
+{
+  "_note": "업체 파일 열 → canonical 필드 대응. 변환 규칙은 transform에 기재.",
+  "files": [
+    {
+      "vendor": "A",
+      "file": "vendor_a/products.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Product",
+      "columns": [
+        "product_code",
+        "product_name",
+        "product_type",
+        "uom",
+        "safety_stock",
+        "mfg_lead_time_days",
+        "outsourcing_allowed",
+        "outsourcing_unit_cost_krw"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/materials.csv",
+      "format": "csv",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Material",
+      "columns": [
+        "material_code",
+        "material_name",
+        "uom",
+        "unit_cost_krw",
+        "safety_stock"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/suppliers.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Supplier",
+      "columns": [
+        "supplier_code",
+        "supplier_name"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/supplier_materials.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "SupplierMaterial",
+      "columns": [
+        "supplier_code",
+        "material_code",
+        "lead_time_days",
+        "moq",
+        "preferred"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/bom.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "BOMLine",
+      "columns": [
+        "bom_code",
+        "product_code",
+        "bom_version",
+        "status",
+        "active",
+        "valid_from",
+        "valid_to",
+        "min_qty",
+        "max_qty",
+        "site",
+        "base_qty",
+        "line_no",
+        "component_type",
+        "component_code",
+        "qty_per",
+        "uom",
+        "scrap_rate"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/inventory.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Inventory",
+      "columns": [
+        "item_type",
+        "item_code",
+        "as_of",
+        "on_hand",
+        "allocated",
+        "on_order",
+        "expected_receipt",
+        "uom"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/orders.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Order",
+      "columns": [
+        "order_no",
+        "product_code",
+        "qty",
+        "uom",
+        "order_date",
+        "due_date",
+        "priority",
+        "status"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/resources.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Resource",
+      "columns": [
+        "resource_code",
+        "resource_name",
+        "resource_type",
+        "regular_hours_per_day",
+        "max_overtime_hours_per_day",
+        "cost_per_hour_krw",
+        "overtime_cost_per_hour_krw"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/routing.csv",
+      "format": "csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Operation",
+      "columns": [
+        "operation_code",
+        "product_code",
+        "seq",
+        "resource_code",
+        "run_time_h_per_unit",
+        "setup_time_h"
+      ]
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/vendor_a_master.xlsx",
+      "sheet": "Products",
+      "format": "xlsx",
+      "header_rows": 1,
+      "entity": "Product",
+      "columns": [
+        "product_code",
+        "product_name",
+        "product_type",
+        "uom",
+        "safety_stock",
+        "mfg_lead_time_days",
+        "outsourcing_allowed",
+        "outsourcing_unit_cost_krw"
+      ],
+      "cell_type": "text"
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/vendor_a_master.xlsx",
+      "sheet": "Materials",
+      "format": "xlsx",
+      "header_rows": 1,
+      "entity": "Material",
+      "columns": [
+        "material_code",
+        "material_name",
+        "uom",
+        "unit_cost_krw",
+        "safety_stock"
+      ],
+      "cell_type": "text"
+    },
+    {
+      "vendor": "A",
+      "file": "vendor_a/vendor_a_master.xlsx",
+      "sheet": "BOM",
+      "format": "xlsx",
+      "header_rows": 1,
+      "entity": "BOMLine",
+      "columns": [
+        "bom_code",
+        "product_code",
+        "bom_version",
+        "status",
+        "active",
+        "valid_from",
+        "valid_to",
+        "min_qty",
+        "max_qty",
+        "site",
+        "base_qty",
+        "line_no",
+        "component_type",
+        "component_code",
+        "qty_per",
+        "uom",
+        "scrap_rate"
+      ],
+      "cell_type": "text"
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "제품",
+      "format": "xlsx",
+      "header_rows": 2,
+      "merged_group_header": [
+        "기본정보",
+        "관리기준"
+      ],
+      "entity": "Product",
+      "columns": [
+        "품목코드",
+        "품목명",
+        "구분",
+        "단위",
+        "안전재고",
+        "생산리드타임(일)",
+        "외주가능",
+        "외주단가(원)"
+      ]
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "자재",
+      "format": "xlsx",
+      "header_rows": 2,
+      "merged_group_header": [
+        "기본정보",
+        "관리기준"
+      ],
+      "entity": "Material",
+      "columns": [
+        "자재코드",
+        "자재명",
+        "단위",
+        "단가(원/단위)",
+        "안전재고"
+      ]
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "공급조건",
+      "format": "xlsx",
+      "header_rows": 2,
+      "merged_group_header": [
+        "공급사",
+        "공급조건"
+      ],
+      "entity": "SupplierMaterial",
+      "columns": [
+        "공급사코드",
+        "공급사명",
+        "자재코드",
+        "리드타임(일)",
+        "최소주문량",
+        "우선공급"
+      ]
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "BOM",
+      "format": "xlsx",
+      "header_rows": 2,
+      "merged_group_header": [
+        "BOM 정보",
+        "유효조건",
+        "구성"
+      ],
+      "entity": "BOMLine",
+      "columns": [
+        "BOM번호",
+        "모품목코드",
+        "버전",
+        "상태",
+        "활성",
+        "시작일",
+        "종료일",
+        "최소수량",
+        "최대수량",
+        "사이트",
+        "기준수량",
+        "순번",
+        "자품목구분",
+        "자품목코드",
+        "소요량",
+        "단위",
+        "손실률(%)"
+      ]
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_orders.csv",
+      "format": "csv",
+      "encoding": "cp949",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Order",
+      "columns": [
+        "주문번호",
+        "품목코드",
+        "수량",
+        "단위",
+        "주문일자",
+        "납기일자",
+        "긴급여부",
+        "상태"
+      ]
+    },
+    {
+      "vendor": "B",
+      "file": "vendor_b/vendor_b_inventory.csv",
+      "format": "csv",
+      "encoding": "cp949",
+      "delimiter": ",",
+      "header_rows": 1,
+      "entity": "Inventory",
+      "columns": [
+        "구분",
+        "품목코드",
+        "기준일",
+        "현재고",
+        "할당",
+        "입고예정",
+        "입고예정일",
+        "단위"
+      ]
+    }
+  ],
+  "conventions": {
+    "A": {
+      "mass_unit": "material base unit (kg)",
+      "date": "YYYY-MM-DD",
+      "number": "plain decimal",
+      "bool": "Y/N",
+      "product_type": {
+        "FG": "FINISHED",
+        "SF": "SEMI_FINISHED"
+      },
+      "component_type": {
+        "MAT": "MATERIAL",
+        "PRD": "PRODUCT"
+      },
+      "item_type": {
+        "PRO": "PRODUCT",
+        "MAT": "MATERIAL"
+      },
+      "scrap_rate": "ratio"
+    },
+    "B": {
+      "mass_unit": "g",
+      "date": "YYYY.MM.DD",
+      "number": "thousands separator ','",
+      "bool": "예/아니오",
+      "unit_label": {
+        "개": "EA"
+      },
+      "product_type": {
+        "완제품": "FINISHED",
+        "반제품": "SEMI_FINISHED"
+      },
+      "component_type": {
+        "자재": "MATERIAL",
+        "제품": "PRODUCT"
+      },
+      "item_type": {
+        "제품": "PRODUCT",
+        "자재": "MATERIAL"
+      },
+      "status": {
+        "승인": "APPROVED",
+        "초안": "DRAFT"
+      },
+      "order_status": {
+        "진행": "OPEN",
+        "완료": "CLOSED",
+        "취소": "CANCELLED"
+      },
+      "priority": {
+        "긴급": "URGENT",
+        "일반": "NORMAL"
+      },
+      "scrap_rate": "percent",
+      "material_unit_cost": "KRW per material unit shown"
+    }
+  }
+}

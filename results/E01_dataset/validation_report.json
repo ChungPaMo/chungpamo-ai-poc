@@ -1,0 +1,1540 @@
+{
+  "implementation": "scripts/e01_verify.py (구현 B, 생성·정답 모듈 비의존)",
+  "summary": {
+    "total": 143,
+    "passed": 143,
+    "failed": 0,
+    "by_section": {
+      "canonical": {
+        "passed": 29,
+        "failed": 0
+      },
+      "public_data": {
+        "passed": 9,
+        "failed": 0
+      },
+      "vendor_files": {
+        "passed": 42,
+        "failed": 0
+      },
+      "error_injection": {
+        "passed": 26,
+        "failed": 0
+      },
+      "decision_calc": {
+        "passed": 9,
+        "failed": 0
+      },
+      "plan_semantics": {
+        "passed": 8,
+        "failed": 0
+      },
+      "cq": {
+        "passed": 20,
+        "failed": 0
+      }
+    }
+  },
+  "injection": {
+    "injected": 13,
+    "confirmed": 13,
+    "confirmed_ids": [
+      "E01-ERR-001",
+      "E01-ERR-002",
+      "E01-ERR-003",
+      "E01-ERR-004",
+      "E01-ERR-005",
+      "E01-ERR-006",
+      "E01-ERR-007",
+      "E01-ERR-008",
+      "E01-ERR-009",
+      "E01-ERR-010",
+      "E01-ERR-011",
+      "E01-ERR-012",
+      "E01-ERR-013"
+    ]
+  },
+  "cq_status": {
+    "CQ-01": "검증 통과",
+    "CQ-02": "검증 통과",
+    "CQ-03": "검증 통과",
+    "CQ-04": "검증 통과",
+    "CQ-05": "검증 통과",
+    "CQ-06": "검증 통과",
+    "CQ-07": "검증 통과",
+    "CQ-08": "검증 통과",
+    "CQ-09": "검증 통과",
+    "CQ-10": "검증 통과",
+    "CQ-11": "검증 통과",
+    "CQ-12": "검증 통과",
+    "CQ-13": "검증 통과",
+    "CQ-14": "검증 통과",
+    "CQ-15": "검증 통과",
+    "CQ-16": "검증 통과",
+    "CQ-17": "검증 통과",
+    "CQ-18": "검증 통과",
+    "CQ-19": "검증 통과",
+    "CQ-20": "검증 통과"
+  },
+  "checks": [
+    {
+      "section": "canonical",
+      "check": "엔터티 14종 존재",
+      "passed": true,
+      "detail": [
+        "BOM",
+        "BOMLine",
+        "Inventory",
+        "Material",
+        "Operation",
+        "Order",
+        "Product",
+        "ProductionPlan",
+        "ProductionPlanLine",
+        "Resource",
+        "SalesHistory",
+        "Supplier",
+        "SupplierMaterial",
+        "Unit"
+      ]
+    },
+    {
+      "section": "canonical",
+      "check": "Unit 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Product 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Material 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Supplier 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "SupplierMaterial 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "BOM 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "BOMLine 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Order 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "SalesHistory 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Inventory 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Resource 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "Operation 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "ProductionPlan 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "ProductionPlanLine 기본키 유일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "record_uid 전체 유일",
+      "passed": true,
+      "detail": 353
+    },
+    {
+      "section": "canonical",
+      "check": "Unit 기준 단위 차원 일치",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "참조 무결성 (FK)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "수량 단위 차원 = 품목 기준 단위 차원",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "날짜 관계 (납기≥주문일, 유효기간, 기준일)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "재고 수량 규칙",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "활성 BOM 버전 유효 조건 비중복 (QR-06 ①)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "BOM 순환 없음 (QR-05)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "BOM 최대 깊이 2 (ASM-04)",
+      "passed": true,
+      "detail": 2
+    },
+    {
+      "section": "canonical",
+      "check": "제품–설비 관계 (계획 자원 ∈ 공정 자원, 모든 제품 공정 보유)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "canonical",
+      "check": "초기 규모 (제품5·자재10·주문20·자원3·공급사4·계획안3)",
+      "passed": true,
+      "detail": {
+        "Unit": 4,
+        "Product": 5,
+        "Material": 10,
+        "Supplier": 4,
+        "SupplierMaterial": 12,
+        "BOM": 7,
+        "BOMLine": 23,
+        "Order": 20,
+        "SalesHistory": 180,
+        "Inventory": 15,
+        "Resource": 3,
+        "Operation": 8,
+        "ProductionPlan": 3,
+        "ProductionPlanLine": 59
+      }
+    },
+    {
+      "section": "canonical",
+      "check": "BOM 라인 약 20행 (20~25)",
+      "passed": true,
+      "detail": 23
+    },
+    {
+      "section": "canonical",
+      "check": "완제품 3·반제품 2",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "section": "canonical",
+      "check": "계획 4주 (주 시작일 4개, 월요일)",
+      "passed": true,
+      "detail": [
+        "2026-11-16",
+        "2026-11-23",
+        "2026-11-30",
+        "2026-12-07"
+      ]
+    },
+    {
+      "section": "public_data",
+      "check": "SalesHistory 전부 SYNTHETIC/ALLOCATED",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "public_data",
+      "check": "스테이징 레코드 60 = 원본 행 수",
+      "passed": true,
+      "detail": 60
+    },
+    {
+      "section": "public_data",
+      "check": "스테이징 값 = 원본 값 (Target 열)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "public_data",
+      "check": "원본 행마다 배분 3건",
+      "passed": true,
+      "detail": 60
+    },
+    {
+      "section": "public_data",
+      "check": "배분 합계 = 원본 Target (정확 일치)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "public_data",
+      "check": "배분 비율 합 = 1",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "public_data",
+      "check": "원본 요일 코드를 숫자 그대로 보존",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "public_data",
+      "check": "모든 판매 날짜가 합성값으로 표시됨 (date_is_synthetic)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "public_data",
+      "check": "합성 날짜 = 원본 행 순서의 연속 영업일 60일 (요일 코드 해석 미사용)",
+      "passed": true,
+      "detail": [
+        "2026-08-05",
+        "2026-10-27"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A products.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "product_code",
+        "product_name",
+        "product_type",
+        "uom",
+        "safety_stock",
+        "mfg_lead_time_days",
+        "outsourcing_allowed",
+        "outsourcing_unit_cost_krw"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A materials.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "material_code",
+        "material_name",
+        "uom",
+        "unit_cost_krw",
+        "safety_stock"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A suppliers.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "supplier_code",
+        "supplier_name"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A supplier_materials.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "supplier_code",
+        "material_code",
+        "lead_time_days",
+        "moq",
+        "preferred"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A bom.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "bom_code",
+        "product_code",
+        "bom_version",
+        "status",
+        "active",
+        "valid_from",
+        "valid_to",
+        "min_qty",
+        "max_qty",
+        "site",
+        "base_qty",
+        "line_no",
+        "component_type",
+        "component_code",
+        "qty_per",
+        "uom",
+        "scrap_rate"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A inventory.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "item_type",
+        "item_code",
+        "as_of",
+        "on_hand",
+        "allocated",
+        "on_order",
+        "expected_receipt",
+        "uom"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A orders.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "order_no",
+        "product_code",
+        "qty",
+        "uom",
+        "order_date",
+        "due_date",
+        "priority",
+        "status"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A resources.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "resource_code",
+        "resource_name",
+        "resource_type",
+        "regular_hours_per_day",
+        "max_overtime_hours_per_day",
+        "cost_per_hour_krw",
+        "overtime_cost_per_hour_krw"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A routing.csv 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "operation_code",
+        "product_code",
+        "seq",
+        "resource_code",
+        "run_time_h_per_unit",
+        "setup_time_h"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx Products 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "product_code",
+        "product_name",
+        "product_type",
+        "uom",
+        "safety_stock",
+        "mfg_lead_time_days",
+        "outsourcing_allowed",
+        "outsourcing_unit_cost_krw"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx Products 코드 열이 텍스트 (선행 0 보존)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx Materials 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "material_code",
+        "material_name",
+        "uom",
+        "unit_cost_krw",
+        "safety_stock"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx Materials 코드 열이 텍스트 (선행 0 보존)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx BOM 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "bom_code",
+        "product_code",
+        "bom_version",
+        "status",
+        "active",
+        "valid_from",
+        "valid_to",
+        "min_qty",
+        "max_qty",
+        "site",
+        "base_qty",
+        "line_no",
+        "component_type",
+        "component_code",
+        "qty_per",
+        "uom",
+        "scrap_rate"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "A xlsx BOM 코드 열이 텍스트 (선행 0 보존)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 제품 2행 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "품목코드",
+        "품목명",
+        "구분",
+        "단위",
+        "안전재고",
+        "생산리드타임(일)",
+        "외주가능",
+        "외주단가(원)"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 제품 1행 병합 헤더 존재",
+      "passed": true,
+      "detail": [
+        "A1:D1",
+        "E1:H1"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 자재 2행 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "자재코드",
+        "자재명",
+        "단위",
+        "단가(원/단위)",
+        "안전재고"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 자재 1행 병합 헤더 존재",
+      "passed": true,
+      "detail": [
+        "A1:C1",
+        "D1:E1"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M001 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "g"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M002 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "g"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M003 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "g"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M004 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "g"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M005 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "EA"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M006 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "EA"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M007 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "EA"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M008 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "EA"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M009 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "g"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B 자재 M010 표시 단위가 g(질량)/EA",
+      "passed": true,
+      "detail": "EA"
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 공급조건 2행 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "공급사코드",
+        "공급사명",
+        "자재코드",
+        "리드타임(일)",
+        "최소주문량",
+        "우선공급"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx 공급조건 1행 병합 헤더 존재",
+      "passed": true,
+      "detail": [
+        "C1:F1",
+        "A1:B1"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx BOM 2행 헤더 = 열 대응표",
+      "passed": true,
+      "detail": [
+        "BOM번호",
+        "모품목코드",
+        "버전",
+        "상태",
+        "활성",
+        "시작일",
+        "종료일",
+        "최소수량",
+        "최대수량",
+        "사이트",
+        "기준수량",
+        "순번",
+        "자품목구분",
+        "자품목코드",
+        "소요량",
+        "단위",
+        "손실률(%)"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B xlsx BOM 1행 병합 헤더 존재",
+      "passed": true,
+      "detail": [
+        "F1:J1",
+        "A1:E1",
+        "K1:Q1"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "B vendor_b_orders.csv CP949 (UTF-8로는 해독 불가)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "B vendor_b_orders.csv 줄바꿈 CRLF",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "B vendor_b_inventory.csv CP949 (UTF-8로는 해독 불가)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "B vendor_b_inventory.csv 줄바꿈 CRLF",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "vendor_files",
+      "check": "Vendor 값 = canonical 업무 의미 (불일치 0)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "vendor_files",
+      "check": "Vendor 파일이 canonical 레코드를 빠짐없이 표현",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "vendor_files",
+      "check": "CSV 인코딩 3종 포함 (utf-8, utf-8-sig, cp949)",
+      "passed": true,
+      "detail": [
+        "cp949",
+        "utf-8",
+        "utf-8-sig"
+      ]
+    },
+    {
+      "section": "vendor_files",
+      "check": "대응표의 canonical_record_uid가 모두 존재",
+      "passed": true,
+      "detail": 304
+    },
+    {
+      "section": "vendor_files",
+      "check": "대응표 행 번호 → 실제 행의 코드가 canonical 키와 일치 (Order/Product/Material/Operation)",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "error_injection",
+      "check": "주입 목록 13건·12유형",
+      "passed": true,
+      "detail": {
+        "count": 13,
+        "codes": [
+          "ERR-BADREF",
+          "ERR-BOMCYCLE",
+          "ERR-BOMVER",
+          "ERR-DATE",
+          "ERR-DUPID",
+          "ERR-IDVER",
+          "ERR-INVQTY",
+          "ERR-MISSING",
+          "ERR-NUMFMT",
+          "ERR-RESREL",
+          "ERR-TABLE",
+          "ERR-UNIT"
+        ]
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "오류 ID 유일",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "error_injection",
+      "check": "오류 미선언 파일·시트는 정상본과 동일",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_a/bom.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_a/inventory.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_a/materials.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_a/orders.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_a/routing.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_b/vendor_b_inventory.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_b/vendor_b_master.xlsx BOM: 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_b/vendor_b_master.xlsx 자재: 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "vendor_b/vendor_b_orders.csv : 실제 차이 = 선언된 주입 위치",
+      "passed": true,
+      "detail": {
+        "undeclared": [],
+        "not_found": []
+      }
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-001 ERR-MISSING 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-002 ERR-DUPID 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-003 ERR-BADREF 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-004 ERR-UNIT 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-005 ERR-NUMFMT 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-006 ERR-TABLE 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-007 ERR-IDVER 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-008 ERR-DATE 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-009 ERR-DATE 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-010 ERR-BOMCYCLE 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-011 ERR-BOMVER 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-012 ERR-INVQTY 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "E01-ERR-013 ERR-RESREL 판정 조건 (주입본 참·정상본 거짓)",
+      "passed": true,
+      "detail": "invalid=True, clean=False"
+    },
+    {
+      "section": "error_injection",
+      "check": "주입 개수 = 독립 확인 개수",
+      "passed": true,
+      "detail": {
+        "injected": 13,
+        "confirmed": 13
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "생산 필요량 (5품목) A=B",
+      "passed": true,
+      "detail": {
+        "FG001": [
+          "460",
+          "460"
+        ],
+        "FG002": [
+          "220",
+          "220"
+        ],
+        "FG003": [
+          "740",
+          "740"
+        ],
+        "SF001": [
+          "770",
+          "770"
+        ],
+        "SF002": [
+          "710",
+          "710"
+        ]
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "반제품 종속수요 집계 A=B",
+      "passed": true,
+      "detail": {
+        "FG001": [
+          "0",
+          "0"
+        ],
+        "FG002": [
+          "0",
+          "0"
+        ],
+        "FG003": [
+          "0",
+          "0"
+        ],
+        "SF001": [
+          "900",
+          "900"
+        ],
+        "SF002": [
+          "740",
+          "740"
+        ]
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "적용 BOM 버전 A=B",
+      "passed": true,
+      "detail": {
+        "FG001": [
+          "BOM-FG001-V1",
+          "BOM-FG001-V1"
+        ],
+        "FG002": [
+          "BOM-FG002-V1",
+          "BOM-FG002-V1"
+        ],
+        "FG003": [
+          "BOM-FG003-V2",
+          "BOM-FG003-V2"
+        ],
+        "SF001": [
+          "BOM-SF001-V1",
+          "BOM-SF001-V1"
+        ],
+        "SF002": [
+          "BOM-SF002-V1",
+          "BOM-SF002-V1"
+        ]
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "다단계 BOM 전개 결과 A=B",
+      "passed": true,
+      "detail": {
+        "A_only": [],
+        "B_only": []
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "자재별 총소요량 A=B",
+      "passed": true,
+      "detail": {
+        "M001": "996",
+        "M006": "460",
+        "M010": "680",
+        "M002": "465.68",
+        "M009": "44.4",
+        "M003": "231",
+        "M005": "770",
+        "M004": "154",
+        "M007": "710",
+        "M008": "710"
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "재고 부족량 A=B",
+      "passed": true,
+      "detail": {
+        "M001": "96",
+        "M002": "0",
+        "M003": "51",
+        "M004": "0",
+        "M005": "0",
+        "M006": "10",
+        "M007": "330",
+        "M008": "0",
+        "M009": "4.4",
+        "M010": "30"
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "자원별 필요시간·능력 초과 (계획 기간) A=B",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "decision_calc",
+      "check": "주문별 납기 판정 (OPEN 18건) A=B",
+      "passed": true,
+      "detail": {
+        "diff": [],
+        "n": 18
+      }
+    },
+    {
+      "section": "decision_calc",
+      "check": "계획안 3종 비용·근무시간·능력초과·미생산·외주량·자재부족·납기지연 A=B",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "section": "plan_semantics",
+      "check": "세 안의 완제품 주별 총수량(자체+외주) 동일 (같은 주문·납기 조건)",
+      "passed": true,
+      "detail": {
+        "PLAN-REG": {
+          "FG001|2026-11-16": "30",
+          "FG001|2026-11-23": "160",
+          "FG001|2026-11-30": "90",
+          "FG001|2026-12-07": "180",
+          "FG002|2026-11-16": "10",
+          "FG002|2026-11-23": "60",
+          "FG002|2026-11-30": "50",
+          "FG002|2026-12-07": "100",
+          "FG003|2026-11-16": "80",
+          "FG003|2026-11-23": "250",
+          "FG003|2026-11-30": "210",
+          "FG003|2026-12-07": "200"
+        },
+        "PLAN-OT": {
+          "FG001|2026-11-16": "30",
+          "FG001|2026-11-23": "160",
+          "FG001|2026-11-30": "90",
+          "FG001|2026-12-07": "180",
+          "FG002|2026-11-16": "10",
+          "FG002|2026-11-23": "60",
+          "FG002|2026-11-30": "50",
+          "FG002|2026-12-07": "100",
+          "FG003|2026-11-16": "80",
+          "FG003|2026-11-23": "250",
+          "FG003|2026-11-30": "210",
+          "FG003|2026-12-07": "200"
+        },
+        "PLAN-OUT": {
+          "FG001|2026-11-16": "30",
+          "FG001|2026-11-23": "160",
+          "FG001|2026-11-30": "90",
+          "FG001|2026-12-07": "180",
+          "FG002|2026-11-16": "10",
+          "FG002|2026-11-23": "60",
+          "FG002|2026-11-30": "50",
+          "FG002|2026-12-07": "100",
+          "FG003|2026-11-16": "80",
+          "FG003|2026-11-23": "250",
+          "FG003|2026-11-30": "210",
+          "FG003|2026-12-07": "200"
+        }
+      }
+    },
+    {
+      "section": "plan_semantics",
+      "check": "잔업 허용은 잔업안만",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "plan_semantics",
+      "check": "외주 라인은 외주안의 외주 가능 제품만, 주별 외주처 능력 이내",
+      "passed": true,
+      "detail": 4
+    },
+    {
+      "section": "plan_semantics",
+      "check": "외주처 조건이 합성 가정으로 표시됨",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "plan_semantics",
+      "check": "PLAN-OT 자원·주별 능력 초과 ≤ 정규생산안",
+      "passed": true,
+      "detail": {
+        "increased": [],
+        "cause": null
+      }
+    },
+    {
+      "section": "plan_semantics",
+      "check": "PLAN-OUT 자원·주별 능력 초과 ≤ 정규생산안",
+      "passed": true,
+      "detail": {
+        "increased": [],
+        "cause": null
+      }
+    },
+    {
+      "section": "plan_semantics",
+      "check": "잔업안 실제 잔업시간 > 0 이고 잔업 가용 이내",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "plan_semantics",
+      "check": "정규·외주안 잔업시간 = 0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-01 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-02 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-03 기대 결과 독립 재현",
+      "passed": true,
+      "detail": {
+        "resource_id": "R3",
+        "products_direct": [
+          "SF001"
+        ],
+        "products_affected": [
+          "FG001",
+          "FG002",
+          "SF001"
+        ],
+        "open_orders": [
+          "O001",
+          "O002",
+          "O004",
+          "O005",
+          "O007",
+          "O008",
+          "O010",
+          "O011",
+          "O013",
+          "O015",
+          "O016"
+        ]
+      }
+    },
+    {
+      "section": "cq",
+      "check": "CQ-04 기대 결과 독립 재현",
+      "passed": true,
+      "detail": [
+        {
+          "product_id": "FG001",
+          "date": "2026-11-30",
+          "qty": "460",
+          "candidates": [
+            "BOM-FG001-V1"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF001",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "1.2",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M006",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 4,
+              "component_id": "M010",
+              "qty_per": "1",
+              "unit": "EA"
+            }
+          ]
+        },
+        {
+          "product_id": "FG001",
+          "date": "2026-12-01",
+          "qty": "460",
+          "candidates": [
+            "BOM-FG001-V2"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF001",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "1000",
+              "unit": "g"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M006",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 4,
+              "component_id": "M010",
+              "qty_per": "1",
+              "unit": "EA"
+            }
+          ]
+        },
+        {
+          "product_id": "FG003",
+          "date": "2026-11-16",
+          "qty": "499",
+          "candidates": [
+            "BOM-FG003-V1"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF002",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "0.6",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M009",
+              "qty_per": "80",
+              "unit": "g"
+            }
+          ]
+        },
+        {
+          "product_id": "FG003",
+          "date": "2026-11-16",
+          "qty": "500",
+          "candidates": [
+            "BOM-FG003-V2"
+          ],
+          "status": "SELECTED",
+          "lines": [
+            {
+              "line_no": 1,
+              "component_id": "SF002",
+              "qty_per": "1",
+              "unit": "EA"
+            },
+            {
+              "line_no": 2,
+              "component_id": "M001",
+              "qty_per": "0.6",
+              "unit": "kg"
+            },
+            {
+              "line_no": 3,
+              "component_id": "M009",
+              "qty_per": "60",
+              "unit": "g"
+            }
+          ]
+        },
+        {
+          "product_id": "FG002",
+          "date": "2025-12-31",
+          "qty": "10",
+          "candidates": [],
+          "status": "NONE",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "section": "cq",
+      "check": "CQ-05 기대 결과 독립 재현",
+      "passed": true,
+      "detail": {
+        "M001": [
+          "FG001",
+          "FG003"
+        ],
+        "M003": [
+          "FG001",
+          "FG002"
+        ]
+      }
+    },
+    {
+      "section": "cq",
+      "check": "CQ-06 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-07 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-08 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-09 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-10 기대 결과 독립 재현",
+      "passed": true,
+      "detail": {
+        "min_lead_time_days": 14,
+        "materials": [
+          "M007"
+        ],
+        "products": {
+          "FG003": [
+            "M007"
+          ]
+        }
+      }
+    },
+    {
+      "section": "cq",
+      "check": "CQ-11 기대 결과 독립 재현",
+      "passed": true,
+      "detail": [
+        "O007",
+        "O008",
+        "O015",
+        "O016"
+      ]
+    },
+    {
+      "section": "cq",
+      "check": "CQ-12 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-13 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-14 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-15 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-16 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-17 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-18 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "section": "cq",
+      "check": "CQ-19 기대 결과 독립 재현",
+      "passed": true,
+      "detail": [
+        {
+          "vendor": "A",
+          "file": "vendor_a/bom.csv",
+          "sheet": "",
+          "row_number": 7,
+          "column": "qty_per",
+          "displayed_value": "1",
+          "displayed_unit": "kg"
+        },
+        {
+          "vendor": "A",
+          "file": "vendor_a/vendor_a_master.xlsx",
+          "sheet": "BOM",
+          "row_number": 7,
+          "column": "qty_per",
+          "displayed_value": "1",
+          "displayed_unit": "kg"
+        },
+        {
+          "vendor": "B",
+          "file": "vendor_b/vendor_b_master.xlsx",
+          "sheet": "BOM",
+          "row_number": 8,
+          "column": "소요량",
+          "displayed_value": "1,000",
+          "displayed_unit": "g"
+        }
+      ]
+    },
+    {
+      "section": "cq",
+      "check": "CQ-20 기대 결과 독립 재현",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

@@ -1,0 +1,400 @@
+{
+  "dataset": "e01_manufacturing_v1 invalid copy",
+  "clean_dirs": [
+    "data/vendor_a",
+    "data/vendor_b"
+  ],
+  "invalid_dirs": [
+    "data/invalid/vendor_a",
+    "data/invalid/vendor_b"
+  ],
+  "row_number_rule": "파일·시트의 물리적 행 번호(1부터, 헤더 포함)",
+  "error_count": 13,
+  "error_codes": [
+    "ERR-BADREF",
+    "ERR-BOMCYCLE",
+    "ERR-BOMVER",
+    "ERR-DATE",
+    "ERR-DUPID",
+    "ERR-IDVER",
+    "ERR-INVQTY",
+    "ERR-MISSING",
+    "ERR-NUMFMT",
+    "ERR-RESREL",
+    "ERR-TABLE",
+    "ERR-UNIT"
+  ],
+  "errors": [
+    {
+      "error_id": "E01-ERR-001",
+      "error_code": "ERR-MISSING",
+      "vendor": "A",
+      "file": "invalid/vendor_a/orders.csv",
+      "clean_file": "vendor_a/orders.csv",
+      "sheet": "",
+      "row_number": 5,
+      "field": "qty",
+      "canonical_field": "order_qty",
+      "canonical_entity": "Order",
+      "business_key": "O004",
+      "description": "주문 수량 필수값 누락",
+      "changes": [
+        {
+          "row": 5,
+          "column": "qty",
+          "old": "100",
+          "new": ""
+        }
+      ],
+      "expected_detection": {
+        "rule": "ERR-MISSING (필수 필드)",
+        "result": "Order O004 레코드의 order_qty 필드 누락으로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-002",
+      "error_code": "ERR-DUPID",
+      "vendor": "A",
+      "file": "invalid/vendor_a/materials.csv",
+      "clean_file": "vendor_a/materials.csv",
+      "sheet": "",
+      "row_number": 12,
+      "field": "material_code",
+      "canonical_field": "material_id",
+      "canonical_entity": "Material",
+      "business_key": "M005",
+      "description": "같은 자재 코드를 다른 이름·단가로 중복 등록",
+      "changes": [
+        {
+          "row": 12,
+          "append": true
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-01",
+        "result": "material_code 000105 레코드 2건(행 6, 12) 모두 중복 ID로 보고 (필드 *)"
+      },
+      "derived_effects": [
+        "Vendor A BOM의 000105 참조(BOM-SF001-V1 line 2)가 어느 자재인지 모호해짐 → 파생 보고"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-003",
+      "error_code": "ERR-BADREF",
+      "vendor": "B",
+      "file": "invalid/vendor_b/vendor_b_master.xlsx",
+      "clean_file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "BOM",
+      "row_number": 21,
+      "field": "자품목코드",
+      "canonical_field": "component_material_id",
+      "canonical_entity": "BOMLine",
+      "business_key": "BOM-SF001-V1|2",
+      "description": "존재하지 않는 자재 코드 참조",
+      "changes": [
+        {
+          "row": 21,
+          "column": "자품목코드",
+          "old": "MAT-05",
+          "new": "MAT-99"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-02",
+        "result": "BOMLine BOM-SF001-V1 line 2의 component_material_id가 Material에 없음으로 보고"
+      },
+      "derived_effects": [
+        "Vendor B 기준 SF001의 PCB 기판(M005) 소요가 빠짐"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-004",
+      "error_code": "ERR-UNIT",
+      "vendor": "A",
+      "file": "invalid/vendor_a/bom.csv",
+      "clean_file": "vendor_a/bom.csv",
+      "sheet": "",
+      "row_number": 21,
+      "field": "uom",
+      "canonical_field": "unit",
+      "canonical_entity": "BOMLine",
+      "business_key": "BOM-SF001-V1|3",
+      "description": "kg 자재(ABS 수지)에 EA 단위",
+      "changes": [
+        {
+          "row": 21,
+          "column": "uom",
+          "old": "kg",
+          "new": "EA"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-03 ②",
+        "result": "BOMLine BOM-SF001-V1 line 3의 unit 차원 불일치(MASS 자재에 COUNT)로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-005",
+      "error_code": "ERR-NUMFMT",
+      "vendor": "B",
+      "file": "invalid/vendor_b/vendor_b_inventory.csv",
+      "clean_file": "vendor_b/vendor_b_inventory.csv",
+      "sheet": "",
+      "row_number": 7,
+      "field": "현재고",
+      "canonical_field": "on_hand_qty",
+      "canonical_entity": "Inventory",
+      "business_key": "MATERIAL|M001|2026-11-15",
+      "description": "숫자 0 대신 영문자 O",
+      "changes": [
+        {
+          "row": 7,
+          "column": "현재고",
+          "old": "800,000",
+          "new": "8OO,000"
+        }
+      ],
+      "expected_detection": {
+        "rule": "ERR-NUMFMT",
+        "result": "Inventory M001 on_hand_qty 숫자 형식 오류로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-006",
+      "error_code": "ERR-TABLE",
+      "vendor": "B",
+      "file": "invalid/vendor_b/vendor_b_master.xlsx",
+      "clean_file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "자재",
+      "row_number": 2,
+      "field": "*",
+      "canonical_field": "*",
+      "canonical_entity": "Material",
+      "business_key": "*",
+      "description": "2행 헤더에서 '단위' 칸이 빠지고 뒤 열 이름이 한 칸씩 당겨짐 (헤더-데이터 열 어긋남)",
+      "changes": [
+        {
+          "row": 2,
+          "column_index": 3,
+          "old": "단위",
+          "new": "단가(원/단위)"
+        },
+        {
+          "row": 2,
+          "column_index": 4,
+          "old": "단가(원/단위)",
+          "new": "안전재고"
+        },
+        {
+          "row": 2,
+          "column_index": 5,
+          "old": "안전재고",
+          "new": null
+        }
+      ],
+      "expected_detection": {
+        "rule": "표 구조 보존 (ERR-TABLE)",
+        "result": "시트 '자재'의 헤더 열 구성 불일치로 보고 (레코드 *, 필드 *)"
+      },
+      "derived_effects": [
+        "자재 시트 10행 전체가 잘못된 열로 해석될 위험"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-007",
+      "error_code": "ERR-IDVER",
+      "vendor": "A",
+      "file": "invalid/vendor_a/bom.csv",
+      "clean_file": "vendor_a/bom.csv",
+      "sheet": "",
+      "row_number": 12,
+      "field": "bom_version",
+      "canonical_field": "bom_version",
+      "canonical_entity": "BOMLine",
+      "business_key": "BOM-FG002-V1|3",
+      "description": "같은 bom_code의 다른 행과 버전 표기가 다름 (ID·버전 불일치)",
+      "changes": [
+        {
+          "row": 12,
+          "column": "bom_version",
+          "old": "V1",
+          "new": "V2"
+        }
+      ],
+      "expected_detection": {
+        "rule": "BOM 헤더 일관성 (ERR-IDVER)",
+        "result": "bom_code BM-0001002-1의 (product_code, bom_version)이 행마다 다름으로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-008",
+      "error_code": "ERR-DATE",
+      "vendor": "A",
+      "file": "invalid/vendor_a/orders.csv",
+      "clean_file": "vendor_a/orders.csv",
+      "sheet": "",
+      "row_number": 8,
+      "field": "due_date",
+      "canonical_field": "due_date",
+      "canonical_entity": "Order",
+      "business_key": "O007",
+      "description": "존재하지 않는 날짜",
+      "changes": [
+        {
+          "row": 8,
+          "column": "due_date",
+          "old": "2026-12-04",
+          "new": "2026-02-30"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-04 ①",
+        "result": "Order O007 due_date 형식·날짜 오류로 보고"
+      },
+      "derived_effects": [
+        "O007은 납기 판정 불가(unknown)"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-009",
+      "error_code": "ERR-DATE",
+      "vendor": "B",
+      "file": "invalid/vendor_b/vendor_b_orders.csv",
+      "clean_file": "vendor_b/vendor_b_orders.csv",
+      "sheet": "",
+      "row_number": 13,
+      "field": "납기일자",
+      "canonical_field": "due_date",
+      "canonical_entity": "Order",
+      "business_key": "O012",
+      "description": "납기일이 주문일(2026.11.11)보다 빠름",
+      "changes": [
+        {
+          "row": 13,
+          "column": "납기일자",
+          "old": "2026.12.11",
+          "new": "2026.10.01"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-04 ②",
+        "result": "Order O012 due_date < order_date로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-010",
+      "error_code": "ERR-BOMCYCLE",
+      "vendor": "B",
+      "file": "invalid/vendor_b/vendor_b_master.xlsx",
+      "clean_file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "BOM",
+      "row_number": 26,
+      "field": "자품목코드",
+      "canonical_field": "component_product_id",
+      "canonical_entity": "BOMLine",
+      "business_key": "BOM-SF002-V1|4",
+      "description": "반제품 SF002의 구성품으로 완제품 FG003 추가 → FG003→SF002→FG003 순환",
+      "changes": [
+        {
+          "row": 26,
+          "append": true
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-05",
+        "result": "순환 경로 FG003 → SF002 → FG003의 BOMLine 레코드로 보고"
+      },
+      "derived_effects": [
+        "Vendor B 기준 FG003·SF002 전개 불가"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-011",
+      "error_code": "ERR-BOMVER",
+      "vendor": "A",
+      "file": "invalid/vendor_a/bom.csv",
+      "clean_file": "vendor_a/bom.csv",
+      "sheet": "",
+      "row_number": 25,
+      "field": "valid_from",
+      "canonical_field": "valid_from",
+      "canonical_entity": "BOM",
+      "business_key": "FG002 V2",
+      "description": "FG002에 V1과 기간·수량·사이트 조건이 모두 겹치는 활성 V2 추가",
+      "changes": [
+        {
+          "row": 25,
+          "append": true
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-06 ①",
+        "result": "FG002의 활성 버전 V1(BM-0001002-1)과 V2(BM-0001002-2) 유효 조건 중복(기간·수량·사이트)으로 보고"
+      },
+      "derived_effects": [
+        "2026-11-01 이후 FG002 BOM 선택 모호 → FG002 계산 중단"
+      ]
+    },
+    {
+      "error_id": "E01-ERR-012",
+      "error_code": "ERR-INVQTY",
+      "vendor": "A",
+      "file": "invalid/vendor_a/inventory.csv",
+      "clean_file": "vendor_a/inventory.csv",
+      "sheet": "",
+      "row_number": 3,
+      "field": "allocated",
+      "canonical_field": "allocated_qty",
+      "canonical_entity": "Inventory",
+      "business_key": "PRODUCT|FG002|2026-11-15",
+      "description": "할당 수량이 보유 수량(60)보다 큼",
+      "changes": [
+        {
+          "row": 3,
+          "column": "allocated",
+          "old": "0",
+          "new": "80"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-07 ②",
+        "result": "Inventory FG002의 allocated_qty > on_hand_qty로 보고"
+      },
+      "derived_effects": []
+    },
+    {
+      "error_id": "E01-ERR-013",
+      "error_code": "ERR-RESREL",
+      "vendor": "A",
+      "file": "invalid/vendor_a/routing.csv",
+      "clean_file": "vendor_a/routing.csv",
+      "sheet": "",
+      "row_number": 7,
+      "field": "resource_code",
+      "canonical_field": "resource_id",
+      "canonical_entity": "Operation",
+      "business_key": "OP-FG003-20",
+      "description": "존재하지 않는 자원 참조",
+      "changes": [
+        {
+          "row": 7,
+          "column": "resource_code",
+          "old": "R02",
+          "new": "R09"
+        }
+      ],
+      "expected_detection": {
+        "rule": "QR-08 ①",
+        "result": "Operation OP-FG003-20의 resource_id가 Resource에 없음으로 보고"
+      },
+      "derived_effects": [
+        "FG003 공정 경로 불완전 → 능력 계산 불가"
+      ]
+    }
+  ]
+}
