@@ -37,7 +37,10 @@ def test_six_documents_present_and_no_fail(report):
     assert sorted(report) == ["D-01", "D-02", "P-01", "P-02", "T-01", "T-02"]
     fails = [(d, k) for d, it in report.items() for k, v in it.items() if not k.startswith("_") and v["status"] == "FAIL"]
     assert fails == []
-    assert all(it["13_visual_layout"]["status"] == "NEEDS_MANUAL_REVIEW" for it in report.values())
+    # 파일이 없는 보류 문서는 NOT_MEASURED(test_missing_document_is_not_measured_not_fail에서 검사)
+    present = [d for d, it in report.items() if not str(it["13_visual_layout"].get("detail", "")).startswith("파일 없음")]
+    assert all(report[d]["13_visual_layout"]["status"] == "NEEDS_MANUAL_REVIEW" for d in present)
+    assert PDF_PRESENT or not {"P-01", "P-02"} & set(present)
 
 
 def test_no_zero_denominator_reported_as_pass(report):
