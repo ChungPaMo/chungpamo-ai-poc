@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.7.0 -- C:\chungpamo\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\chungpamo
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 16 items
+
+tests/test_environment.py::test_python_version_matches_expected PASSED   [  6%]
+tests/test_environment.py::test_running_in_project_venv PASSED           [ 12%]
+tests/test_environment.py::test_venv_excludes_global_site_packages PASSED [ 18%]
+tests/test_environment.py::test_package_installed_in_venv_with_locked_version[pytest] PASSED [ 25%]
+tests/test_environment.py::test_package_installed_in_venv_with_locked_version[psutil] PASSED [ 31%]
+tests/test_environment.py::test_lock_file_matches_installed_packages PASSED [ 37%]
+tests/test_environment.py::test_env_json_has_required_fields PASSED      [ 43%]
+tests/test_environment.py::test_env_json_utf8_roundtrip PASSED           [ 50%]
+tests/test_environment.py::test_output_files_created PASSED              [ 56%]
+tests/test_environment.py::test_saved_e00_result_files_exist PASSED      [ 62%]
+tests/test_environment.py::test_stable_fields_match_across_two_runs PASSED [ 68%]
+tests/test_environment.py::test_compare_stable_detects_differences PASSED [ 75%]
+tests/test_environment.py::test_volatile_fields_not_compared PASSED      [ 81%]
+tests/test_environment.py::test_korean_path_handling PASSED              [ 87%]
+tests/test_environment.py::test_no_home_path_in_output PASSED            [ 93%]
+tests/test_environment.py::test_mask_sensitive_replaces_home_and_user_dirs PASSED [100%]
+
+- generated xml file: C:\chungpamo\results\E00_environment\pytest_report.xml --
+============================= 16 passed in 0.66s ==============================

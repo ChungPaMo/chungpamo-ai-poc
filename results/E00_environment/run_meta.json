@@ -1,0 +1,102 @@
+{
+  "experiment_id": "E00",
+  "experiment_name": "개발환경 및 재현성 확인",
+  "run_timestamp": "2026-10-20T10:02:15+09:00",
+  "status": "COMPLETED",
+  "status_reasons": [],
+  "os": {
+    "system": "Windows",
+    "edition": "Professional",
+    "display_version": "22H2",
+    "build": "19045.6466",
+    "machine": "AMD64"
+  },
+  "python_version": "3.11.9",
+  "python_executable": "C:\\chungpamo\\.venv\\Scripts\\python.exe",
+  "dependency_lock": {
+    "file": "requirements.lock",
+    "sha256": "9adcbb8e64b34a587459af79519c4a86ced2fcedf41ede7664872f1ee48849f9"
+  },
+  "git": {
+    "branch": "master",
+    "commit": null,
+    "commit_note": "커밋 없음 (최초 커밋은 사용자 승인 대기)",
+    "status_short": [
+      "?? .env.example",
+      "?? .gitignore",
+      "?? CLAUDE.md",
+      "?? configs/",
+      "?? data/",
+      "?? docs/",
+      "?? ontology/",
+      "?? pyproject.toml",
+      "?? requirements.lock",
+      "?? results/",
+      "?? scripts/",
+      "?? src/",
+      "?? tests/"
+    ],
+    "remotes": []
+  },
+  "tests": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "reproducibility": {
+    "method": "check_environment.py를 같은 가상환경에서 별도 프로세스로 2회 실행 후 STABLE_FIELDS 비교",
+    "compared_files": [
+      "env_check_run1.json",
+      "env_check_run2.json"
+    ],
+    "stable_fields": [
+      "python.executable",
+      "python.version",
+      "python.implementation",
+      "python.bits",
+      "os.system",
+      "os.release",
+      "os.version",
+      "os.edition",
+      "os.display_version",
+      "os.machine",
+      "cpu.model",
+      "cpu.physical_cores",
+      "cpu.logical_cores",
+      "memory.total_bytes",
+      "venv.in_venv",
+      "venv.is_project_venv",
+      "venv.include_system_site_packages",
+      "packages.pytest",
+      "packages.psutil",
+      "packages.installed",
+      "git.installed",
+      "git.version",
+      "project_root.path",
+      "project_root.name",
+      "project_root.is_git_repo"
+    ],
+    "excluded_volatile_fields": [
+      "run_timestamp",
+      "elapsed_seconds",
+      "memory.available_bytes",
+      "memory.available_percent",
+      "errors"
+    ],
+    "match": true,
+    "differences": []
+  },
+  "collection_errors": [],
+  "failed_commands": [],
+  "artifacts": [
+    "env_check.json",
+    "env_check_run1.json",
+    "env_check_run2.json",
+    "pytest_output.txt",
+    "pytest_report.xml",
+    "run_meta.json",
+    "summary.md"
+  ]
+}

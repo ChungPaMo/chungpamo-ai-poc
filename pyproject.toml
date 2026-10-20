@@ -1,0 +1,19 @@
+# 프로젝트 메타데이터 및 pytest 설정 전용.
+# 의존성 설치·잠금은 venv + pip + requirements.lock 기준으로 관리한다(이 파일로 설치하지 않음).
+
+[project]
+name = "chungpamo-task7-poc"
+version = "0.1.0"
+description = "충파모 과제 7 사전 기술 PoC (문서 파싱·데이터 검증·온톨로지 적합성 실험)"
+requires-python = "==3.11.*"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+addopts = "-ra"
+
+# E00 환경 점검 기대값 (테스트가 이 값을 기준으로 검증한다)
+[tool.chungpamo.environment]
+expected_python = "3.11.9"
+venv_dir = ".venv"
+lock_file = "requirements.lock"
