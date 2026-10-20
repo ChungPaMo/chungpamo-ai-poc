@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 # pip freeze 결과 (Python 3.11.9, Windows 10 x64)
 # 설치: .\.venv\Scripts\python.exe -m pip install -r requirements.lock
+# (첫 줄 coding 선언: 한국어 주석 때문에 pip이 cp949로 읽어 실패하던 문제 수정 — 2026-10-20 새 클론 검증에서 발견)
 # 2026-10-20 E00: pytest, psutil 직접 설치 (colorama, iniconfig, packaging, pluggy, Pygments는 pytest 의존성)
 # 2026-10-20 E01: pydantic, openpyxl 직접 설치 (annotated-types, pydantic_core, typing-inspection,
 #                 typing_extensions는 pydantic 의존성 / et_xmlfile은 openpyxl 의존성)
@@ -7,23 +9,33 @@
 #                 xlsxwriter는 python-pptx 의존성, charset-normalizer는 reportlab 의존성), pip check 이상 없음
 # 2026-10-20 E04 준비: python-dotenv 직접 설치 (필수 의존성 없음, BSD-3-Clause), pip check 이상 없음
 # 2026-10-20 E04 예비: requests 직접 설치 (Apache-2.0; certifi MPL-2.0, idna BSD-3-Clause, urllib3 MIT 의존성), pip check 이상 없음
+# 2026-10-20 E03 직접 파서: pypdf(BSD-3-Clause), pdfplumber(MIT) 직접 설치 — 의존성 pdfminer.six(MIT),
+#                 pypdfium2(BSD-3-Clause·Apache-2.0, PDFium 바이너리 포함), cryptography(Apache-2.0 OR BSD-3-Clause),
+#                 cffi(MIT-0), pycparser(BSD-3-Clause). pip check 이상 없음
 # 가상환경 기본 포함 패키지(pip 24.0, setuptools 65.5.0)는 pip freeze 기본 출력에서 제외됨
 annotated-types==0.8.0
 certifi==2026.10.19
+cffi==2.1.1
 charset-normalizer==3.5.2
 colorama==0.4.6
+cryptography==50.0.2
 et_xmlfile==2.0.0
 idna==3.20
 iniconfig==2.3.1
 lxml==6.1.3
 openpyxl==3.1.5
 packaging==26.3
+pdfminer.six==20260107
+pdfplumber==0.11.10
 pillow==13.0.0
 pluggy==1.7.0
 psutil==7.2.2
+pycparser==3.11
 pydantic==2.14.1
 pydantic_core==2.50.1
 Pygments==2.21.0
+pypdf==6.21.1
+pypdfium2==5.14.0
 pytest==9.1.1
 python-docx==1.2.0
 python-dotenv==1.2.4

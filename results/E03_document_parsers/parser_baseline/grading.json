@@ -1,0 +1,3122 @@
+{
+ "definition": "E03 직접 파서 독립 채점기: 공통 중간 JSON(0.2) 출력을 E03 정답 명세·위치 메타데이터와 대조.\n\n파서 코드(src/parsers)를 import하지 않는다. 입력은 IR JSON(dict)뿐이다.\n분모가 0이면 NOT_MEASURED. 상태 PASS/PARTIAL/FAIL은 '분모 전부 일치/일부/전무'를 뜻하는 사실 표기이며 채택 기준이 아니다.\n\n공통 규칙\n- 텍스트 비교: 공백 연속을 한 칸으로 바꾸고 앞뒤 공백 제거 후 완전 일치 (E04 예비 분석과 같은 규칙)\n- 표 매칭: DOCX = table_index, PPTX = slide_index + shape_id, PDF = 같은 page + 표 영역 IoU ≥ 0.5 (임시 기준, intermediate_representation.md §7)\n- 표 조각의 IR 행 i ↔ 정답 조각의 logical_rows[i-1] (E04 예비 분석과 같은 정렬)\n",
+ "results": [
+  {
+   "parser": "python-docx",
+   "doc_id": "D-01",
+   "error": null,
+   "status": "MEASURED",
+   "format": "docx",
+   "parser_version": "1.2.0",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS1-b02",
+     "unit": "header",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "header"
+     ],
+     "rank_in_unit": [
+      1,
+      1
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b01",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "heading"
+     ],
+     "rank_in_unit": [
+      1,
+      7
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b03",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      2,
+      7
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b04",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      7,
+      7
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T1",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      7
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T2",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      5,
+      7
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 2,
+    "truth_fragments": 2
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS1-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS1-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t002",
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 16,
+     "denominator": 16,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "quantity": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "unit": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "date": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "block_date": {
+     "numerator": 4,
+     "denominator": 4,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "ir_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS1-b01": "exact",
+     "CS1-b03": "exact",
+     "CS1-T1": "table_match",
+     "CS1-T2": "table_match",
+     "CS1-b04": "exact"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "paragraph→header": 1,
+    "heading→heading": 1,
+    "paragraph→paragraph": 1,
+    "footnote→paragraph": 1
+   },
+   "ir_diagnostics": []
+  },
+  {
+   "parser": "python-docx",
+   "doc_id": "D-02",
+   "error": null,
+   "status": "MEASURED",
+   "format": "docx",
+   "parser_version": "1.2.0",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "footer",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "footer"
+     ],
+     "rank_in_unit": [
+      1,
+      1
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b01",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "heading"
+     ],
+     "rank_in_unit": [
+      1,
+      7
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b02",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      2,
+      7
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b03",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      5,
+      7
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T1",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      7
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T2",
+     "unit": "body",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      6,
+      7
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 2,
+    "truth_fragments": 2
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "ir_rows": 22,
+     "expected_rows": 22,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS2-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t002",
+     "ir_rows": 17,
+     "expected_rows": 17,
+     "ir_cols": 7,
+     "expected_cols": 7
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 241,
+     "denominator": 241,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 16,
+     "denominator": 16,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 241,
+     "denominator": 241,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 241,
+     "denominator": 241,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "quantity": {
+     "numerator": 35,
+     "denominator": 35,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "unit": {
+     "numerator": 35,
+     "denominator": 35,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "date": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_date": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "ir_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS2-b01": "exact",
+     "CS2-b02": "exact",
+     "CS2-T1": "table_match",
+     "CS2-b03": "exact",
+     "CS2-T2": "table_match"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "footer→footer": 1,
+    "heading→heading": 1,
+    "paragraph→paragraph": 2
+   },
+   "ir_diagnostics": []
+  },
+  {
+   "parser": "python-pptx",
+   "doc_id": "T-01",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pptx",
+   "parser_version": "1.0.2",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS3-b01",
+     "unit": "(1, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      1
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS3-b02",
+     "unit": "(4, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      3,
+      3
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS3-b03",
+     "unit": "(4, 'notes')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "speaker_notes"
+     ],
+     "rank_in_unit": [
+      1,
+      1
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS3-T1",
+     "unit": "(2, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS3-T2",
+     "unit": "(4, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      3
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 3,
+    "truth_fragments": 3
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS3-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "ir_rows": 5,
+     "expected_rows": 5,
+     "ir_cols": 5,
+     "expected_cols": 5
+    },
+    {
+     "table_id": "CS3-T1",
+     "fragment_index": 1,
+     "matched_ir_table": "t002",
+     "ir_rows": 4,
+     "expected_rows": 4,
+     "ir_cols": 5,
+     "expected_cols": 5
+    },
+    {
+     "table_id": "CS3-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t003",
+     "ir_rows": 5,
+     "expected_rows": 5,
+     "ir_cols": 6,
+     "expected_cols": 6
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 62,
+     "denominator": 62,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 19,
+     "denominator": 19,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 7,
+     "denominator": 7,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 62,
+     "denominator": 62,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 62,
+     "denominator": 62,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "quantity": {
+     "numerator": 19,
+     "denominator": 19,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 12,
+     "denominator": 12,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "unit": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "date": {
+     "numerator": 4,
+     "denominator": 4,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_date": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS3-b01",
+     "CS3-T1",
+     "CS3-T2",
+     "CS3-b02",
+     "CS3-b03"
+    ],
+    "ir_sequence": [
+     "CS3-b01",
+     "CS3-T1",
+     "CS3-T2",
+     "CS3-b02",
+     "CS3-b03"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS3-b01": "exact",
+     "CS3-T1": "table_match",
+     "CS3-T2": "table_match",
+     "CS3-b02": "exact",
+     "CS3-b03": "exact"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "repeated_header": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "predicted_links": 1,
+    "false_links": 0,
+    "links": [
+     {
+      "table_id": "CS3-T1",
+      "from": 0,
+      "to": 1,
+      "linked": true,
+      "repeated_header_rows_match": true,
+      "method": "header_repeat_rule"
+     }
+    ],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "slide_title→slide_body": 1,
+    "slide_body→slide_body": 1,
+    "speaker_notes→speaker_notes": 1
+   },
+   "ir_diagnostics": []
+  },
+  {
+   "parser": "python-pptx",
+   "doc_id": "T-02",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pptx",
+   "parser_version": "1.0.2",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS1-b01",
+     "unit": "(1, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b02",
+     "unit": "(1, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      2,
+      2
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b03",
+     "unit": "(3, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      3,
+      3
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T1",
+     "unit": "(2, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T2",
+     "unit": "(3, 'slide')",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "slide_body"
+     ],
+     "rank_in_unit": [
+      1,
+      3
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 2,
+    "truth_fragments": 2
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS1-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS1-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t002",
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 16,
+     "denominator": 16,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "quantity": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "unit": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "date": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "block_date": {
+     "numerator": 4,
+     "denominator": 4,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS1-b01",
+     "CS1-b02",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b03"
+    ],
+    "ir_sequence": [
+     "CS1-b01",
+     "CS1-b02",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b03"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS1-b01": "exact",
+     "CS1-b02": "exact",
+     "CS1-T1": "table_match",
+     "CS1-T2": "table_match",
+     "CS1-b03": "exact"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "heading→slide_body": 1,
+    "paragraph→slide_body": 2
+   },
+   "ir_diagnostics": []
+  },
+  {
+   "parser": "pypdf",
+   "doc_id": "P-01",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pdf",
+   "parser_version": "6.21.1",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 3,
+      "denominator": 4,
+      "rate": 0.75,
+      "status": "PARTIAL"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 0,
+      "denominator": 4,
+      "rate": 0.0,
+      "status": "FAIL"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 0,
+      "denominator": 2,
+      "rate": 0.0,
+      "status": "FAIL"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS1-b01",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      72
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b03",
+     "unit": "1",
+     "exact": false,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [],
+     "rank_in_unit": null
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b04",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      72,
+      72
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b02",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      72
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T1",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      6,
+      72
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T2",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      39,
+      72
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 2,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "ir_tables": 0,
+    "truth_fragments": 2
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS1-T1",
+     "fragment_index": 0,
+     "matched_ir_table": null,
+     "table_bbox_iou": null
+    },
+    {
+     "table_id": "CS1-T2",
+     "fragment_index": 0,
+     "matched_ir_table": null,
+     "table_bbox_iou": null
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 0,
+     "denominator": 64,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "header_text": {
+     "numerator": 0,
+     "denominator": 16,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "merge_spans": {
+     "numerator": 0,
+     "denominator": 8,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "fine_location": {
+     "numerator": 0,
+     "denominator": 64,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 0,
+     "denominator": 8,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "quantity": {
+     "numerator": 0,
+     "denominator": 8,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "money": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "unit": {
+     "numerator": 0,
+     "denominator": 8,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "date": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "block_date": {
+     "numerator": 4,
+     "denominator": 4,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "ir_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-b04"
+    ],
+    "matched_elements": {
+     "numerator": 3,
+     "denominator": 5,
+     "rate": 0.6,
+     "status": "PARTIAL"
+    },
+    "pairwise_order": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS1-b01": "exact",
+     "CS1-b03": "prefix15",
+     "CS1-b04": "exact"
+    },
+    "exact_sequence": false
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "heading→paragraph": 1,
+    "paragraph→(미일치)": 1,
+    "footnote→paragraph": 1,
+    "paragraph→paragraph": 1
+   },
+   "ir_diagnostics": [
+    "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+    "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+    "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+   ]
+  },
+  {
+   "parser": "pypdf",
+   "doc_id": "P-02",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pdf",
+   "parser_version": "6.21.1",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 0,
+      "denominator": 6,
+      "rate": 0.0,
+      "status": "FAIL"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 0,
+      "denominator": 2,
+      "rate": 0.0,
+      "status": "FAIL"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS2-b01",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      84
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b02",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      4,
+      84
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b03",
+     "unit": "2",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      58,
+      58
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      84
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "2",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      58
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "3",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      117
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T1",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      5,
+      84
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T2",
+     "unit": "3",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": false,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      117
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 3,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "ir_tables": 0,
+    "truth_fragments": 3
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 0,
+     "matched_ir_table": null,
+     "table_bbox_iou": null
+    },
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 1,
+     "matched_ir_table": null,
+     "table_bbox_iou": null
+    },
+    {
+     "table_id": "CS2-T2",
+     "fragment_index": 0,
+     "matched_ir_table": null,
+     "table_bbox_iou": null
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 0,
+     "denominator": 248,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "header_text": {
+     "numerator": 0,
+     "denominator": 23,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "merge_spans": {
+     "numerator": 0,
+     "denominator": 15,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "fine_location": {
+     "numerator": 0,
+     "denominator": 248,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 248,
+     "denominator": 248,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 0,
+     "denominator": 20,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "quantity": {
+     "numerator": 0,
+     "denominator": 35,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "money": {
+     "numerator": 0,
+     "denominator": 20,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "unit": {
+     "numerator": 0,
+     "denominator": 35,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "date": {
+     "numerator": 0,
+     "denominator": 20,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "block_date": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "ir_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-b03"
+    ],
+    "matched_elements": {
+     "numerator": 3,
+     "denominator": 5,
+     "rate": 0.6,
+     "status": "PARTIAL"
+    },
+    "pairwise_order": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS2-b01": "exact",
+     "CS2-b02": "exact",
+     "CS2-b03": "exact"
+    },
+    "exact_sequence": false
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 1,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 1,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [
+     {
+      "table_id": "CS2-T1",
+      "from": 0,
+      "to": 1,
+      "linked": false,
+      "repeated_header_rows_match": false,
+      "method": null
+     }
+    ],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "heading→paragraph": 1,
+    "paragraph→paragraph": 2,
+    "footer→paragraph": 3
+   },
+   "ir_diagnostics": [
+    "EXT-UNSUPPORTED: pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+    "EXT-UNSUPPORTED: pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+    "EXT-UNSUPPORTED: 문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)"
+   ]
+  },
+  {
+   "parser": "pdfplumber",
+   "doc_id": "P-01",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pdf",
+   "parser_version": "0.11.10",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS1-b01",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      2,
+      9
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b03",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      9
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b04",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      8,
+      9
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS1-b02",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      9
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T1",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      4,
+      9
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS1-T2",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      6,
+      9
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 2,
+    "truth_fragments": 2
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS1-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "table_bbox_iou": 1.0,
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS1-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t002",
+     "table_bbox_iou": 1.0,
+     "ir_rows": 6,
+     "expected_rows": 6,
+     "ir_cols": 6,
+     "expected_cols": 6
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 16,
+     "denominator": 16,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 64,
+     "denominator": 64,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "quantity": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "unit": {
+     "numerator": 8,
+     "denominator": 8,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "date": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "block_date": {
+     "numerator": 4,
+     "denominator": 4,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 2,
+     "denominator": 2,
+     "rate": 1.0,
+     "status": "PASS"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "ir_sequence": [
+     "CS1-b01",
+     "CS1-b03",
+     "CS1-T1",
+     "CS1-T2",
+     "CS1-b04"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS1-b01": "exact",
+     "CS1-b03": "exact",
+     "CS1-T1": "table_match",
+     "CS1-T2": "table_match",
+     "CS1-b04": "exact"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "precision": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "repeated_header": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    },
+    "predicted_links": 0,
+    "false_links": 0,
+    "links": [],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "heading→paragraph": 1,
+    "paragraph→paragraph": 2,
+    "footnote→paragraph": 1
+   },
+   "ir_diagnostics": [
+    "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph"
+   ]
+  },
+  {
+   "parser": "pdfplumber",
+   "doc_id": "P-02",
+   "error": null,
+   "status": "MEASURED",
+   "format": "pdf",
+   "parser_version": "0.11.10",
+   "text": {
+    "block": {
+     "exact": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 6,
+      "denominator": 6,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "caption": {
+     "exact": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "found_ignoring_whitespace": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "fine_location": {
+      "numerator": 2,
+      "denominator": 2,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    }
+   },
+   "text_occurrences": [
+    {
+     "kind": "block",
+     "id": "CS2-b01",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      6
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b02",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      2,
+      6
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b03",
+     "unit": "2",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      2,
+      4
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      5,
+      6
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "2",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      4
+     ]
+    },
+    {
+     "kind": "block",
+     "id": "CS2-b04",
+     "unit": "3",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      4
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T1",
+     "unit": "1",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      3,
+      6
+     ]
+    },
+    {
+     "kind": "caption",
+     "id": "CS2-T2",
+     "unit": "3",
+     "exact": true,
+     "found_ignoring_whitespace": true,
+     "fine_location": true,
+     "ir_types": [
+      "paragraph"
+     ],
+     "rank_in_unit": [
+      1,
+      4
+     ]
+    }
+   ],
+   "table_detection": {
+    "recall": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 3,
+     "denominator": 3,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "ir_tables": 3,
+    "truth_fragments": 3
+   },
+   "table_fragments": [
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 0,
+     "matched_ir_table": "t001",
+     "table_bbox_iou": 1.0,
+     "ir_rows": 14,
+     "expected_rows": 14,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 1,
+     "matched_ir_table": "t002",
+     "table_bbox_iou": 1.0,
+     "ir_rows": 10,
+     "expected_rows": 10,
+     "ir_cols": 6,
+     "expected_cols": 6
+    },
+    {
+     "table_id": "CS2-T2",
+     "fragment_index": 0,
+     "matched_ir_table": "t003",
+     "table_bbox_iou": 1.0,
+     "ir_rows": 17,
+     "expected_rows": 17,
+     "ir_cols": 7,
+     "expected_cols": 7
+    }
+   ],
+   "cells": {
+    "text": {
+     "numerator": 248,
+     "denominator": 248,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_text": {
+     "numerator": 23,
+     "denominator": 23,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merge_spans": {
+     "numerator": 15,
+     "denominator": 15,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "fine_location": {
+     "numerator": 248,
+     "denominator": 248,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "text_found_ignoring_structure": {
+     "numerator": 248,
+     "denominator": 248,
+     "rate": 1.0,
+     "status": "PASS",
+     "note": "구조 무시·공백 무시 포함 여부 (짧은 값은 다른 위치 텍스트와 우연히 일치할 수 있어 상한값)"
+    }
+   },
+   "values": {
+    "id": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "quantity": {
+     "numerator": 35,
+     "denominator": 35,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "money": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "unit": {
+     "numerator": 35,
+     "denominator": 35,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "date": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_date": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "block_qty_unit": {
+     "numerator": 0,
+     "denominator": 0,
+     "rate": null,
+     "status": "NOT_MEASURED"
+    }
+   },
+   "reading_order": {
+    "expected_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "ir_sequence": [
+     "CS2-b01",
+     "CS2-b02",
+     "CS2-T1",
+     "CS2-b03",
+     "CS2-T2"
+    ],
+    "matched_elements": {
+     "numerator": 5,
+     "denominator": 5,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "pairwise_order": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "match_method": {
+     "CS2-b01": "exact",
+     "CS2-b02": "exact",
+     "CS2-T1": "table_match",
+     "CS2-b03": "exact",
+     "CS2-T2": "table_match"
+    },
+    "exact_sequence": true
+   },
+   "linkage": {
+    "recall": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "precision": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "repeated_header": {
+     "numerator": 1,
+     "denominator": 1,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "predicted_links": 1,
+    "false_links": 0,
+    "links": [
+     {
+      "table_id": "CS2-T1",
+      "from": 0,
+      "to": 1,
+      "linked": true,
+      "repeated_header_rows_match": true,
+      "method": "header_repeat_rule"
+     }
+    ],
+    "native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과"
+   },
+   "block_type_pairs": {
+    "heading→paragraph": 1,
+    "paragraph→paragraph": 2,
+    "footer→paragraph": 3
+   },
+   "ir_diagnostics": [
+    "EXT-UNSUPPORTED: 블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph"
+   ]
+  }
+ ],
+ "p02_preflight_compatible": {
+  "direct_parsers": {
+   "pypdf": {
+    "definition": "scripts/e04_preflight_analyze.py와 같은 정의 (P-02, 텍스트 공백 정규화 후 완전 일치, 표 IoU ≥ 0.5 매칭)",
+    "text_blocks": [
+     {
+      "block_id": "CS2-b01",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": []
+     },
+     {
+      "block_id": "CS2-b02",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": []
+     },
+     {
+      "block_id": "CS2-b03",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": []
+     },
+     {
+      "block_id": "CS2-b04",
+      "found_occurrences": 3,
+      "expected_occurrences": 3,
+      "bbox_iou_per_occurrence": []
+     }
+    ],
+    "table_captions_found": {
+     "CS2-T1": true,
+     "CS2-T2": true
+    },
+    "tables": [
+     {
+      "table_id": "CS2-T1",
+      "fragment_index": 0,
+      "matched_ir_table": null,
+      "ir_rows": null,
+      "expected_rows": null,
+      "ir_cols": null,
+      "expected_cols": null,
+      "table_bbox_iou": null
+     },
+     {
+      "table_id": "CS2-T1",
+      "fragment_index": 1,
+      "matched_ir_table": null,
+      "ir_rows": null,
+      "expected_rows": null,
+      "ir_cols": null,
+      "expected_cols": null,
+      "table_bbox_iou": null
+     },
+     {
+      "table_id": "CS2-T2",
+      "fragment_index": 0,
+      "matched_ir_table": null,
+      "ir_rows": null,
+      "expected_rows": null,
+      "ir_cols": null,
+      "expected_cols": null,
+      "table_bbox_iou": null
+     }
+    ],
+    "cells_all_fragments": {
+     "numerator": 0,
+     "denominator": 248,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "header_cells": {
+     "numerator": 0,
+     "denominator": 23,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "merged_cells_spans": {
+     "numerator": 0,
+     "denominator": 15,
+     "rate": 0.0,
+     "status": "FAIL",
+     "note": "IR에 표 구조 없음 (표 미검출·파서 미지원)"
+    },
+    "product_material_codes": {
+     "numerator": 0,
+     "denominator": 35,
+     "rate": 0.0,
+     "status": "FAIL"
+    },
+    "values_by_field": {
+     "due_date": {
+      "numerator": 0,
+      "denominator": 20,
+      "rate": 0.0,
+      "status": "FAIL"
+     },
+     "inventory_value_krw": {
+      "numerator": 0,
+      "denominator": 10,
+      "rate": 0.0,
+      "status": "FAIL"
+     },
+     "on_hand_qty": {
+      "numerator": 0,
+      "denominator": 15,
+      "rate": 0.0,
+      "status": "FAIL"
+     },
+     "order_id": {
+      "numerator": 0,
+      "denominator": 20,
+      "rate": 0.0,
+      "status": "FAIL"
+     },
+     "order_qty": {
+      "numerator": 0,
+      "denominator": 20,
+      "rate": 0.0,
+      "status": "FAIL"
+     },
+     "unit_cost": {
+      "numerator": 0,
+      "denominator": 10,
+      "rate": 0.0,
+      "status": "FAIL"
+     }
+    },
+    "multipage_link": [
+     {
+      "table_id": "CS2-T1",
+      "from": 0,
+      "to": 1,
+      "linked": false,
+      "repeated_header_rows_match": false,
+      "method": null
+     }
+    ]
+   },
+   "pdfplumber": {
+    "definition": "scripts/e04_preflight_analyze.py와 같은 정의 (P-02, 텍스트 공백 정규화 후 완전 일치, 표 IoU ≥ 0.5 매칭)",
+    "text_blocks": [
+     {
+      "block_id": "CS2-b01",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": [
+       0.909
+      ]
+     },
+     {
+      "block_id": "CS2-b02",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": [
+       0.909
+      ]
+     },
+     {
+      "block_id": "CS2-b03",
+      "found_occurrences": 1,
+      "expected_occurrences": 1,
+      "bbox_iou_per_occurrence": [
+       0.909
+      ]
+     },
+     {
+      "block_id": "CS2-b04",
+      "found_occurrences": 3,
+      "expected_occurrences": 3,
+      "bbox_iou_per_occurrence": [
+       0.909,
+       0.909,
+       0.909
+      ]
+     }
+    ],
+    "table_captions_found": {
+     "CS2-T1": true,
+     "CS2-T2": true
+    },
+    "tables": [
+     {
+      "table_id": "CS2-T1",
+      "fragment_index": 0,
+      "matched_ir_table": "t001",
+      "ir_rows": 14,
+      "expected_rows": 14,
+      "ir_cols": 6,
+      "expected_cols": 6,
+      "table_bbox_iou": 1.0
+     },
+     {
+      "table_id": "CS2-T1",
+      "fragment_index": 1,
+      "matched_ir_table": "t002",
+      "ir_rows": 10,
+      "expected_rows": 10,
+      "ir_cols": 6,
+      "expected_cols": 6,
+      "table_bbox_iou": 1.0
+     },
+     {
+      "table_id": "CS2-T2",
+      "fragment_index": 0,
+      "matched_ir_table": "t003",
+      "ir_rows": 17,
+      "expected_rows": 17,
+      "ir_cols": 7,
+      "expected_cols": 7,
+      "table_bbox_iou": 1.0
+     }
+    ],
+    "cells_all_fragments": {
+     "numerator": 248,
+     "denominator": 248,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "header_cells": {
+     "numerator": 23,
+     "denominator": 23,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "merged_cells_spans": {
+     "numerator": 15,
+     "denominator": 15,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "product_material_codes": {
+     "numerator": 35,
+     "denominator": 35,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "values_by_field": {
+     "due_date": {
+      "numerator": 20,
+      "denominator": 20,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "inventory_value_krw": {
+      "numerator": 10,
+      "denominator": 10,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "on_hand_qty": {
+      "numerator": 15,
+      "denominator": 15,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "order_id": {
+      "numerator": 20,
+      "denominator": 20,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "order_qty": {
+      "numerator": 20,
+      "denominator": 20,
+      "rate": 1.0,
+      "status": "PASS"
+     },
+     "unit_cost": {
+      "numerator": 10,
+      "denominator": 10,
+      "rate": 1.0,
+      "status": "PASS"
+     }
+    },
+    "multipage_link": [
+     {
+      "table_id": "CS2-T1",
+      "from": 0,
+      "to": 1,
+      "linked": true,
+      "repeated_header_rows_match": true,
+      "method": "header_repeat_rule"
+     }
+    ]
+   }
+  },
+  "upstage_standard_preflight": {
+   "source": "results/E04_upstage_preflight/preflight_summary.json",
+   "model": "document-parse-260930",
+   "mode": "standard",
+   "text_blocks": [
+    {
+     "block_id": "CS2-b01",
+     "truth_type": "heading",
+     "found_occurrences": 1,
+     "expected_occurrences": 1,
+     "api_categories": [
+      "caption"
+     ],
+     "bbox_iou_per_occurrence": [
+      0.796
+     ]
+    },
+    {
+     "block_id": "CS2-b02",
+     "truth_type": "paragraph",
+     "found_occurrences": 1,
+     "expected_occurrences": 1,
+     "api_categories": [
+      "paragraph"
+     ],
+     "bbox_iou_per_occurrence": [
+      0.711
+     ]
+    },
+    {
+     "block_id": "CS2-b03",
+     "truth_type": "paragraph",
+     "found_occurrences": 1,
+     "expected_occurrences": 1,
+     "api_categories": [
+      "paragraph"
+     ],
+     "bbox_iou_per_occurrence": [
+      0.71
+     ]
+    },
+    {
+     "block_id": "CS2-b04",
+     "truth_type": "footer",
+     "found_occurrences": 3,
+     "expected_occurrences": 3,
+     "api_categories": [
+      "footer"
+     ],
+     "bbox_iou_per_occurrence": [
+      0.674,
+      0.689,
+      0.669
+     ]
+    }
+   ],
+   "table_captions": [
+    {
+     "table_id": "CS2-T1",
+     "found": true,
+     "api_categories": [
+      "heading1"
+     ]
+    },
+    {
+     "table_id": "CS2-T2",
+     "found": true,
+     "api_categories": [
+      "caption"
+     ]
+    }
+   ],
+   "tables": [
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 0,
+     "api_rows": 14,
+     "expected_rows": 14,
+     "api_cols": 6,
+     "expected_cols": 6,
+     "table_bbox_iou": 0.993
+    },
+    {
+     "table_id": "CS2-T1",
+     "fragment_index": 1,
+     "api_rows": 10,
+     "expected_rows": 10,
+     "api_cols": 6,
+     "expected_cols": 6,
+     "table_bbox_iou": 0.988
+    },
+    {
+     "table_id": "CS2-T2",
+     "fragment_index": 0,
+     "api_rows": 17,
+     "expected_rows": 17,
+     "api_cols": 7,
+     "expected_cols": 7,
+     "table_bbox_iou": 0.991
+    }
+   ],
+   "cells_all_fragments": {
+    "numerator": 248,
+    "denominator": 248,
+    "rate": 1.0,
+    "status": "PASS"
+   },
+   "header_cells": {
+    "numerator": 23,
+    "denominator": 23,
+    "rate": 1.0,
+    "status": "PASS"
+   },
+   "merged_cells_spans": {
+    "numerator": 15,
+    "denominator": 15,
+    "rate": 1.0,
+    "status": "PASS"
+   },
+   "product_material_codes": {
+    "numerator": 35,
+    "denominator": 35,
+    "rate": 1.0,
+    "status": "PASS"
+   },
+   "values_by_field": {
+    "due_date": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "inventory_value_krw": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "on_hand_qty": {
+     "numerator": 15,
+     "denominator": 15,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "order_id": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "order_qty": {
+     "numerator": 20,
+     "denominator": 20,
+     "rate": 1.0,
+     "status": "PASS"
+    },
+    "unit_cost": {
+     "numerator": 10,
+     "denominator": 10,
+     "rate": 1.0,
+     "status": "PASS"
+    }
+   },
+   "multipage_link": {
+    "truth": "CS2-T1이 1쪽(데이터 12행)과 2쪽(데이터 8행)으로 나뉘고 2쪽에서 헤더 2행 반복",
+    "api_elements_for_fragments": [
+     3,
+     6
+    ],
+    "api_merged_into_one_table": false,
+    "explicit_continuation_field": false,
+    "repeated_header_recognized_in_fragment2": true,
+    "request_option": "merge_multipage_tables 기본값(false)으로 요청 — 병합 기능(베타)은 시험하지 않음"
+   },
+   "elapsed_seconds_incl_network": 7.904
+  }
+ }
+}

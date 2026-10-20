@@ -1,0 +1,1361 @@
+{
+ "schema": "chungpamo.parse_ir",
+ "schema_version": "0.2",
+ "document": {
+  "source_file": "data/documents/T-01_plan_comparison.pptx",
+  "format": "pptx",
+  "sha256": "2ce8264fc778d659f1d8f44e343238b50ec89909ab7f1c2617d9f61be9019046",
+  "bytes": 37885,
+  "units_of_division": {
+   "slides": 4
+  }
+ },
+ "parser": {
+  "name": "python-pptx",
+  "version": "1.0.2",
+  "options": {},
+  "mode": "direct",
+  "api_calls": 0
+ },
+ "blocks": [
+  {
+   "block_id": "b0001",
+   "type": "slide_body",
+   "order": 0,
+   "text": "생산계획안 비교 (Production Plan Comparison) — 2026-11-16 ~ 2026-12-13",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 1,
+    "slide_id": 256,
+    "shape_id": 2,
+    "shape_name": "title_CS3-b01",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     2743200,
+     11064240,
+     1097280
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "title_CS3-b01"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0002",
+   "type": "slide_body",
+   "order": 1,
+   "text": "정규생산안(PLAN-REG) 주차별 계획",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 2,
+    "slide_id": 257,
+    "shape_id": 2,
+    "shape_name": "cap_CS3-T1_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     548640,
+     11064240,
+     365760
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "cap_CS3-T1_f0"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0003",
+   "type": "slide_body",
+   "order": 4,
+   "text": "계획안별 비용·능력 초과 (v2 정답셋 기대값)",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 4,
+    "slide_id": 259,
+    "shape_id": 2,
+    "shape_name": "cap_CS3-T2_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     548640,
+     11064240,
+     365760
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "cap_CS3-T2_f0"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0004",
+   "type": "slide_body",
+   "order": 6,
+   "text": "잔업안은 같은 수량을 정규 + 잔업 시간으로 생산한다. 외주안은 FG003 일부를 가상 외주처(합성 가정)에 맡긴다.",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 4,
+    "slide_id": 259,
+    "shape_id": 6,
+    "shape_name": "txt_CS3-b02",
+    "placeholder_type": null,
+    "bbox": [
+     731520,
+     5212080,
+     10698480,
+     822960
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "grp_CS3-b02",
+     "txt_CS3-b02"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0005",
+   "type": "speaker_notes",
+   "order": 7,
+   "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.",
+   "location": {
+    "format": "pptx",
+    "part": "notes",
+    "slide_index": 4,
+    "slide_id": 259,
+    "nested_path": [
+     "notes"
+    ]
+   },
+   "level": null
+  }
+ ],
+ "tables": [
+  {
+   "table_id": "t001",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 2,
+    "slide_id": 257,
+    "shape_id": 3,
+    "shape_name": "tbl_CS3-T1_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     1005840,
+     11064240,
+     1828800
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "tbl_CS3-T1_f0"
+    ]
+   },
+   "n_rows": 5,
+   "n_cols": 5,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "제품 Product",
+     "raw": "제품 Product",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 4,
+     "text": "주차별 계획 수량 Weekly planned qty (EA)",
+     "raw": "주차별 계획 수량 Weekly planned qty (EA)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-16",
+     "raw": "2026-11-16",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-23",
+     "raw": "2026-11-23",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 3
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-30",
+     "raw": "2026-11-30",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 4
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-07",
+     "raw": "2026-12-07",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 1
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "30",
+     "raw": "30",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 2
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "160",
+     "raw": "160",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 3
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "90",
+     "raw": "90",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 4
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "180",
+     "raw": "180",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 5
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 1
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "10",
+     "raw": "10",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 2
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "60",
+     "raw": "60",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 3
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "50",
+     "raw": "50",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 4
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "100",
+     "raw": "100",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 5
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 1
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "80",
+     "raw": "80",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 2
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "250",
+     "raw": "250",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 3
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "210",
+     "raw": "210",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 4
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "200",
+     "raw": "200",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 5
+     }
+    }
+   ],
+   "continuation": {
+    "continues_to": "t002",
+    "method": "header_repeat_rule",
+    "detection": "inferred"
+   },
+   "caption_block_id": null,
+   "detection": "native",
+   "first_row_flag": true,
+   "logical_table_id": "t001",
+   "fragment_index": 0
+  },
+  {
+   "table_id": "t002",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 3,
+    "slide_id": 258,
+    "shape_id": 2,
+    "shape_name": "tbl_CS3-T1_f1",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     1005840,
+     11064240,
+     1463040
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "tbl_CS3-T1_f1"
+    ]
+   },
+   "n_rows": 4,
+   "n_cols": 5,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "제품 Product",
+     "raw": "제품 Product",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 4,
+     "text": "주차별 계획 수량 Weekly planned qty (EA)",
+     "raw": "주차별 계획 수량 Weekly planned qty (EA)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-16",
+     "raw": "2026-11-16",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 2,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-23",
+     "raw": "2026-11-23",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 2,
+      "col": 3
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-30",
+     "raw": "2026-11-30",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 2,
+      "col": 4
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-07",
+     "raw": "2026-12-07",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 2,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF001",
+     "raw": "SF001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 3,
+      "col": 1
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 3,
+      "col": 2
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "200",
+     "raw": "200",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 3,
+      "col": 3
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "190",
+     "raw": "190",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 3,
+      "col": 4
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "380",
+     "raw": "380",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 3,
+      "col": 5
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF002",
+     "raw": "SF002",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 4,
+      "col": 1
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "50",
+     "raw": "50",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 4,
+      "col": 2
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "250",
+     "raw": "250",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 4,
+      "col": 3
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "210",
+     "raw": "210",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 4,
+      "col": 4
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "200",
+     "raw": "200",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 2,
+      "row": 4,
+      "col": 5
+     }
+    }
+   ],
+   "continuation": {
+    "continues_from": "t001",
+    "repeated_header": true,
+    "method": "header_repeat_rule",
+    "detection": "inferred"
+   },
+   "caption_block_id": null,
+   "detection": "native",
+   "first_row_flag": true,
+   "logical_table_id": "t001",
+   "fragment_index": 1,
+   "repeated_header_rows": [
+    1,
+    2
+   ]
+  },
+  {
+   "table_id": "t003",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 4,
+    "slide_id": 259,
+    "shape_id": 3,
+    "shape_name": "tbl_CS3-T2_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     1005840,
+     11064240,
+     1828800
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "tbl_CS3-T2_f0"
+    ]
+   },
+   "n_rows": 5,
+   "n_cols": 6,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "계획안 Plan",
+     "raw": "계획안 Plan",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 4,
+     "text": "비용(원) Cost (KRW)",
+     "raw": "비용(원) Cost (KRW)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "능력 초과(h)",
+     "raw": "능력 초과(h)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 1,
+      "col": 6
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재비",
+     "raw": "자재비",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 2,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "정규 생산비",
+     "raw": "정규 생산비",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 2,
+      "col": 3
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "잔업비",
+     "raw": "잔업비",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 2,
+      "col": 4
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "외주비",
+     "raw": "외주비",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 2,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "PLAN-OT",
+     "raw": "PLAN-OT",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 1
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "23,932,680",
+     "raw": "23,932,680",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 2
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "30,918,500",
+     "raw": "30,918,500",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 3
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2,025,000",
+     "raw": "2,025,000",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 4
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "10.5",
+     "raw": "10.5",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 3,
+      "col": 6
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "PLAN-OUT",
+     "raw": "PLAN-OUT",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 1
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "12,713,640",
+     "raw": "12,713,640",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 2
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "21,999,500",
+     "raw": "21,999,500",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 3
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 4
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "20,140,000",
+     "raw": "20,140,000",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 5
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "18",
+     "raw": "18",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 4,
+      "col": 6
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "PLAN-REG",
+     "raw": "PLAN-REG",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 1
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "23,932,680",
+     "raw": "23,932,680",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 2
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "30,918,500",
+     "raw": "30,918,500",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 3
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 4
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 5
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "36.5",
+     "raw": "36.5",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 4,
+      "shape_id": 3,
+      "row": 5,
+      "col": 6
+     }
+    }
+   ],
+   "continuation": null,
+   "caption_block_id": null,
+   "detection": "native",
+   "first_row_flag": true
+  }
+ ],
+ "extracted_values": [],
+ "records": [],
+ "diagnostics": [],
+ "format_specific": {
+  "reading_sequence": [
+   "b0001",
+   "b0002",
+   "t001",
+   "t002",
+   "b0003",
+   "t003",
+   "b0004",
+   "b0005"
+  ],
+  "location_index_base": {
+   "slide_index": 1,
+   "row": 1,
+   "col": 1
+  },
+  "slide_size_emu": [
+   12191695,
+   6858000
+  ],
+  "layouts": [
+   "Blank",
+   "Blank",
+   "Blank",
+   "Blank"
+  ],
+  "groups": [
+   {
+    "slide_index": 4,
+    "group_shape_id": 4,
+    "group_name": "grp_CS3-b02",
+    "children": [
+     {
+      "shape_id": 5,
+      "name": "bg_CS3-b02"
+     },
+     {
+      "shape_id": 6,
+      "name": "txt_CS3-b02"
+     }
+    ]
+   }
+  ],
+  "reading_order_basis": "도형 트리 순서(z-order), 노트는 슬라이드 끝",
+  "continuation_links": {
+   "count": 1,
+   "method": "header_repeat_rule (python-pptx 자체 기능 아님)"
+  }
+ }
+}

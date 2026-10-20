@@ -1,0 +1,5592 @@
+{
+ "schema": "chungpamo.parse_ir",
+ "schema_version": "0.2",
+ "document": {
+  "source_file": "data/documents/P-02_order_inventory.pdf",
+  "format": "pdf",
+  "sha256": "cf9de77765ddf04ac01b6023d7af1e51a73cf0edc355b9768f272fe3d4b66349",
+  "bytes": 45577,
+  "units_of_division": {
+   "pages": 3
+  },
+  "is_scanned": {
+   "value": false,
+   "method": "pdfplumber 페이지 문자 객체 수"
+  }
+ },
+ "parser": {
+  "name": "pdfplumber",
+  "version": "0.11.10",
+  "backend": {
+   "pdfminer.six": "20260107"
+  },
+  "options": {
+   "table_settings": "기본값 (vertical/horizontal_strategy=lines)",
+   "x_tolerance": 3,
+   "y_tolerance": 3,
+   "paragraph_rule": "같은 x0(±1.0pt)이고 줄 간격 < 줄 높이×0.6"
+  },
+  "mode": "direct",
+  "api_calls": 0
+ },
+ "blocks": [
+  {
+   "block_id": "b0001",
+   "type": "paragraph",
+   "order": 0,
+   "text": "주문·재고 현황 보고서 (Order & Inventory Report) — 기준일 2026-11-15",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     50.0,
+     58.45,
+     478.5,
+     71.45
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0002",
+   "type": "paragraph",
+   "order": 1,
+   "text": "전체 주문 20건 중 진행(OPEN) 18건, 완료 1건, 취소 1건이다. 표 1의 주문은 납기순이 아니라 주문번호순이다.",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     50.0,
+     82.5,
+     493.16,
+     91.5
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0003",
+   "type": "paragraph",
+   "order": 2,
+   "text": "표 1. 주문 목록 (Order list)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     50.0,
+     100.95,
+     158.22,
+     109.95
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0004",
+   "type": "paragraph",
+   "order": 4,
+   "text": "충파모 과제 7 PoC 합성 데이터 — Synthetic data, not real company records.",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     50.0,
+     801.89,
+     311.22,
+     809.39
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0005",
+   "type": "paragraph",
+   "order": 5,
+   "text": "1 / 3",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     288.84,
+     815.49,
+     306.44,
+     823.49
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0006",
+   "type": "paragraph",
+   "order": 7,
+   "text": "표 2의 재고금액은 보유 수량(기준 단위 환산) × 자재 단가로 계산했다. 제품은 단가가 없어 '-'로 표기한다.",
+   "location": {
+    "format": "pdf",
+    "page": 2,
+    "bbox": [
+     50.0,
+     237.85,
+     477.01,
+     246.85
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0007",
+   "type": "paragraph",
+   "order": 8,
+   "text": "충파모 과제 7 PoC 합성 데이터 — Synthetic data, not real company records.",
+   "location": {
+    "format": "pdf",
+    "page": 2,
+    "bbox": [
+     50.0,
+     801.89,
+     311.22,
+     809.39
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0008",
+   "type": "paragraph",
+   "order": 9,
+   "text": "2 / 3",
+   "location": {
+    "format": "pdf",
+    "page": 2,
+    "bbox": [
+     288.84,
+     815.49,
+     306.44,
+     823.49
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0009",
+   "type": "paragraph",
+   "order": 10,
+   "text": "표 2. 재고 현황 (Inventory)",
+   "location": {
+    "format": "pdf",
+    "page": 3,
+    "bbox": [
+     50.0,
+     55.85,
+     158.22,
+     64.85
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0010",
+   "type": "paragraph",
+   "order": 12,
+   "text": "충파모 과제 7 PoC 합성 데이터 — Synthetic data, not real company records.",
+   "location": {
+    "format": "pdf",
+    "page": 3,
+    "bbox": [
+     50.0,
+     801.89,
+     311.22,
+     809.39
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0011",
+   "type": "paragraph",
+   "order": 13,
+   "text": "3 / 3",
+   "location": {
+    "format": "pdf",
+    "page": 3,
+    "bbox": [
+     288.84,
+     815.49,
+     306.44,
+     823.49
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left",
+    "lines": 1
+   },
+   "level": null
+  }
+ ],
+ "tables": [
+  {
+   "table_id": "t001",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "bbox": [
+     50.0,
+     117.55,
+     545.28,
+     355.55
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left"
+   },
+   "n_rows": 14,
+   "n_cols": 6,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "주문번호 Order No.",
+     "raw": "주문번호 Order No.",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       117.55,
+       156.41,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "제품 Product",
+     "raw": "제품 Product",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       117.55,
+       320.38,
+       134.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 4,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "수량 Qty",
+     "raw": "수량 Qty",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       117.55,
+       384.79,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 5,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "납기 Due date",
+     "raw": "납기 Due date",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       117.55,
+       471.07,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "상태 Status",
+     "raw": "상태 Status",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       117.55,
+       545.28,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "코드 Code",
+     "raw": "코드 Code",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       134.55,
+       227.28,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품명 Name",
+     "raw": "제품명 Name",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       134.55,
+       320.38,
+       151.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O001",
+     "raw": "O001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       151.55,
+       156.41,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       151.55,
+       227.28,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       151.55,
+       320.38,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "80 EA",
+     "raw": "80 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       151.55,
+       384.79,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-20",
+     "raw": "2026-11-20",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       151.55,
+       471.07,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       151.55,
+       545.28,
+       168.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O002",
+     "raw": "O002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       168.55,
+       156.41,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       168.55,
+       227.28,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       168.55,
+       320.38,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "40 EA",
+     "raw": "40 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       168.55,
+       384.79,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-20",
+     "raw": "2026-11-20",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       168.55,
+       471.07,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       168.55,
+       545.28,
+       185.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O003",
+     "raw": "O003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       185.55,
+       156.41,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       185.55,
+       227.28,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       185.55,
+       320.38,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "120 EA",
+     "raw": "120 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       185.55,
+       384.79,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-21",
+     "raw": "2026-11-21",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       185.55,
+       471.07,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       185.55,
+       545.28,
+       202.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O004",
+     "raw": "O004",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       202.55,
+       156.41,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       202.55,
+       227.28,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       202.55,
+       320.38,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "100 EA",
+     "raw": "100 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       202.55,
+       384.79,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-27",
+     "raw": "2026-11-27",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       202.55,
+       471.07,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       202.55,
+       545.28,
+       219.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O005",
+     "raw": "O005",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       219.55,
+       156.41,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       219.55,
+       227.28,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       219.55,
+       320.38,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "60 EA",
+     "raw": "60 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       219.55,
+       384.79,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-27",
+     "raw": "2026-11-27",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       219.55,
+       471.07,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       219.55,
+       545.28,
+       236.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O006",
+     "raw": "O006",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       236.55,
+       156.41,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       236.55,
+       227.28,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       236.55,
+       320.38,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "150 EA",
+     "raw": "150 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       236.55,
+       384.79,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-27",
+     "raw": "2026-11-27",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       236.55,
+       471.07,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       236.55,
+       545.28,
+       253.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O007",
+     "raw": "O007",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       253.55,
+       156.41,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       253.55,
+       227.28,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       253.55,
+       320.38,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "90 EA",
+     "raw": "90 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       253.55,
+       384.79,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-04",
+     "raw": "2026-12-04",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       253.55,
+       471.07,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       253.55,
+       545.28,
+       270.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O008",
+     "raw": "O008",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       270.55,
+       156.41,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       270.55,
+       227.28,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       270.55,
+       320.38,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "50 EA",
+     "raw": "50 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       270.55,
+       384.79,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-04",
+     "raw": "2026-12-04",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       270.55,
+       471.07,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       270.55,
+       545.28,
+       287.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O009",
+     "raw": "O009",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       287.55,
+       156.41,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       287.55,
+       227.28,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       287.55,
+       320.38,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "130 EA",
+     "raw": "130 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       287.55,
+       384.79,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-04",
+     "raw": "2026-12-04",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       287.55,
+       471.07,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       287.55,
+       545.28,
+       304.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O010",
+     "raw": "O010",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       304.55,
+       156.41,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       304.55,
+       227.28,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       304.55,
+       320.38,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "110 EA",
+     "raw": "110 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       304.55,
+       384.79,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-11",
+     "raw": "2026-12-11",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       304.55,
+       471.07,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       304.55,
+       545.28,
+       321.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O011",
+     "raw": "O011",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       321.55,
+       156.41,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       321.55,
+       227.28,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       321.55,
+       320.38,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "70 EA",
+     "raw": "70 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       321.55,
+       384.79,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-11",
+     "raw": "2026-12-11",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       321.55,
+       471.07,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       321.55,
+       545.28,
+       338.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O012",
+     "raw": "O012",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       50.0,
+       338.55,
+       156.41,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       156.41,
+       338.55,
+       227.28,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       227.28,
+       338.55,
+       320.38,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "160 EA",
+     "raw": "160 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       320.38,
+       338.55,
+       384.79,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-11",
+     "raw": "2026-12-11",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       384.79,
+       338.55,
+       471.07,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 1,
+      "bbox": [
+       471.07,
+       338.55,
+       545.28,
+       355.55
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    }
+   ],
+   "continuation": {
+    "continues_to": "t002",
+    "method": "header_repeat_rule",
+    "detection": "inferred"
+   },
+   "caption_block_id": null,
+   "detection": "inferred",
+   "logical_table_id": "t001",
+   "fragment_index": 0
+  },
+  {
+   "table_id": "t002",
+   "location": {
+    "format": "pdf",
+    "page": 2,
+    "bbox": [
+     50.0,
+     54.0,
+     545.28,
+     224.0
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left"
+   },
+   "n_rows": 10,
+   "n_cols": 6,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "주문번호 Order No.",
+     "raw": "주문번호 Order No.",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       54.0,
+       156.41,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "제품 Product",
+     "raw": "제품 Product",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       54.0,
+       320.38,
+       71.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 4,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "수량 Qty",
+     "raw": "수량 Qty",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       54.0,
+       384.79,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 5,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "납기 Due date",
+     "raw": "납기 Due date",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       54.0,
+       471.07,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "상태 Status",
+     "raw": "상태 Status",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       54.0,
+       545.28,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "코드 Code",
+     "raw": "코드 Code",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       71.0,
+       227.28,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품명 Name",
+     "raw": "제품명 Name",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       71.0,
+       320.38,
+       88.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O013",
+     "raw": "O013",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       88.0,
+       156.41,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       88.0,
+       227.28,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       88.0,
+       320.38,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "60 EA",
+     "raw": "60 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       88.0,
+       384.79,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-25",
+     "raw": "2026-11-25",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       88.0,
+       471.07,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       88.0,
+       545.28,
+       105.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O014",
+     "raw": "O014",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       105.0,
+       156.41,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       105.0,
+       227.28,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       105.0,
+       320.38,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "80 EA",
+     "raw": "80 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       105.0,
+       384.79,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-02",
+     "raw": "2026-12-02",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       105.0,
+       471.07,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       105.0,
+       545.28,
+       122.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O015",
+     "raw": "O015",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       122.0,
+       156.41,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       122.0,
+       227.28,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       122.0,
+       320.38,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "30 EA",
+     "raw": "30 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       122.0,
+       384.79,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-09",
+     "raw": "2026-12-09",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       122.0,
+       471.07,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       122.0,
+       545.28,
+       139.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O016",
+     "raw": "O016",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       139.0,
+       156.41,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       139.0,
+       227.28,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       139.0,
+       320.38,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "70 EA",
+     "raw": "70 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       139.0,
+       384.79,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-09",
+     "raw": "2026-12-09",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       139.0,
+       471.07,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       139.0,
+       545.28,
+       156.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O017",
+     "raw": "O017",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       156.0,
+       156.41,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       156.0,
+       227.28,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       156.0,
+       320.38,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "100 EA",
+     "raw": "100 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       156.0,
+       384.79,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-24",
+     "raw": "2026-11-24",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       156.0,
+       471.07,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       156.0,
+       545.28,
+       173.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O018",
+     "raw": "O018",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       173.0,
+       156.41,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       173.0,
+       227.28,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       173.0,
+       320.38,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "45 EA",
+     "raw": "45 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       173.0,
+       384.79,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-01",
+     "raw": "2026-12-01",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       173.0,
+       471.07,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "취소",
+     "raw": "취소",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       173.0,
+       545.28,
+       190.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O019",
+     "raw": "O019",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       190.0,
+       156.41,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       190.0,
+       227.28,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       190.0,
+       320.38,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "50 EA",
+     "raw": "50 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       190.0,
+       384.79,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-11-18",
+     "raw": "2026-11-18",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       190.0,
+       471.07,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "완료",
+     "raw": "완료",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       190.0,
+       545.28,
+       207.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "O020",
+     "raw": "O020",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       50.0,
+       207.0,
+       156.41,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       156.41,
+       207.0,
+       227.28,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       227.28,
+       207.0,
+       320.38,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "40 EA",
+     "raw": "40 EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       320.38,
+       207.0,
+       384.79,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2026-12-13",
+     "raw": "2026-12-13",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       384.79,
+       207.0,
+       471.07,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "진행",
+     "raw": "진행",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 2,
+      "bbox": [
+       471.07,
+       207.0,
+       545.28,
+       224.0
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    }
+   ],
+   "continuation": {
+    "continues_from": "t001",
+    "repeated_header": true,
+    "method": "header_repeat_rule",
+    "detection": "inferred"
+   },
+   "caption_block_id": null,
+   "detection": "inferred",
+   "logical_table_id": "t001",
+   "fragment_index": 1,
+   "repeated_header_rows": [
+    1,
+    2
+   ]
+  },
+  {
+   "table_id": "t003",
+   "location": {
+    "format": "pdf",
+    "page": 3,
+    "bbox": [
+     50.0,
+     72.45,
+     545.28,
+     361.45
+    ],
+    "bbox_unit": "pt",
+    "bbox_origin": "top-left"
+   },
+   "n_rows": 17,
+   "n_cols": 7,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "구분 Type",
+     "raw": "구분 Type",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       72.45,
+       107.35,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "품목 Item",
+     "raw": "품목 Item",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       72.45,
+       259.44,
+       89.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "현재고 On hand",
+     "raw": "현재고 On hand",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       72.45,
+       366.99,
+       89.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "단가(원) Unit cost",
+     "raw": "단가(원) Unit cost",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       72.45,
+       454.26,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 1,
+     "col": 7,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "재고금액(원) Value",
+     "raw": "재고금액(원) Value",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       72.45,
+       545.28,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "코드 Code",
+     "raw": "코드 Code",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       89.45,
+       166.48,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "품목명 Name",
+     "raw": "품목명 Name",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       89.45,
+       259.44,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "수량 Qty",
+     "raw": "수량 Qty",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       89.45,
+       312.1,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "단위 Unit",
+     "raw": "단위 Unit",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       89.45,
+       366.99,
+       106.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품",
+     "raw": "제품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       106.45,
+       107.35,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG001",
+     "raw": "FG001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       106.45,
+       166.48,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 A",
+     "raw": "가정용 히터 A",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       106.45,
+       259.44,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "120",
+     "raw": "120",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       106.45,
+       312.1,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       106.45,
+       366.99,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       106.45,
+       454.26,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 3,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       106.45,
+       545.28,
+       123.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품",
+     "raw": "제품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       123.45,
+       107.35,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG002",
+     "raw": "FG002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       123.45,
+       166.48,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "가정용 히터 B",
+     "raw": "가정용 히터 B",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       123.45,
+       259.44,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "60",
+     "raw": "60",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       123.45,
+       312.1,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       123.45,
+       366.99,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       123.45,
+       454.26,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 4,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       123.45,
+       545.28,
+       140.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품",
+     "raw": "제품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       140.45,
+       107.35,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "FG003",
+     "raw": "FG003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       140.45,
+       166.48,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "산업용 송풍기 C",
+     "raw": "산업용 송풍기 C",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       140.45,
+       259.44,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "90",
+     "raw": "90",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       140.45,
+       312.1,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       140.45,
+       366.99,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       140.45,
+       454.26,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 5,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       140.45,
+       545.28,
+       157.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품",
+     "raw": "제품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       157.45,
+       107.35,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF001",
+     "raw": "SF001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       157.45,
+       166.48,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "히터 코어 모듈",
+     "raw": "히터 코어 모듈",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       157.45,
+       259.44,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "150",
+     "raw": "150",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       157.45,
+       312.1,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       157.45,
+       366.99,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       157.45,
+       454.26,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 6,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       157.45,
+       545.28,
+       174.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "제품",
+     "raw": "제품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       174.45,
+       107.35,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF002",
+     "raw": "SF002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       174.45,
+       166.48,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "모터 하우징 조립품",
+     "raw": "모터 하우징 조립품",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       174.45,
+       259.44,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "40",
+     "raw": "40",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       174.45,
+       312.1,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       174.45,
+       366.99,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       174.45,
+       454.26,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 7,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "-",
+     "raw": "-",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       174.45,
+       545.28,
+       191.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       191.45,
+       107.35,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M001",
+     "raw": "M001",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       191.45,
+       166.48,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "강판",
+     "raw": "강판",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       191.45,
+       259.44,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "800",
+     "raw": "800",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       191.45,
+       312.1,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "kg",
+     "raw": "kg",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       191.45,
+       366.99,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1,200",
+     "raw": "1,200",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       191.45,
+       454.26,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 8,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "960,000",
+     "raw": "960,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       191.45,
+       545.28,
+       208.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       208.45,
+       107.35,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M002",
+     "raw": "M002",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       208.45,
+       166.48,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "알루미늄 판재",
+     "raw": "알루미늄 판재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       208.45,
+       259.44,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "500",
+     "raw": "500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       208.45,
+       312.1,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "kg",
+     "raw": "kg",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       208.45,
+       366.99,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "3,500",
+     "raw": "3,500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       208.45,
+       454.26,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 9,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1,750,000",
+     "raw": "1,750,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       208.45,
+       545.28,
+       225.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       225.45,
+       107.35,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M003",
+     "raw": "M003",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       225.45,
+       166.48,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "구리선",
+     "raw": "구리선",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       225.45,
+       259.44,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "200,000",
+     "raw": "200,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       225.45,
+       312.1,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "g",
+     "raw": "g",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       225.45,
+       366.99,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "11,000",
+     "raw": "11,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       225.45,
+       454.26,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 10,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2,200,000",
+     "raw": "2,200,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       225.45,
+       545.28,
+       242.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       242.45,
+       107.35,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M004",
+     "raw": "M004",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       242.45,
+       166.48,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "ABS 수지",
+     "raw": "ABS 수지",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       242.45,
+       259.44,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "300",
+     "raw": "300",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       242.45,
+       312.1,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "kg",
+     "raw": "kg",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       242.45,
+       366.99,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2,500",
+     "raw": "2,500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       242.45,
+       454.26,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 11,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "750,000",
+     "raw": "750,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       242.45,
+       545.28,
+       259.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       259.45,
+       107.35,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M005",
+     "raw": "M005",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       259.45,
+       166.48,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "PCB 기판",
+     "raw": "PCB 기판",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       259.45,
+       259.44,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "600",
+     "raw": "600",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       259.45,
+       312.1,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       259.45,
+       366.99,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "4,500",
+     "raw": "4,500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       259.45,
+       454.26,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 12,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2,700,000",
+     "raw": "2,700,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       259.45,
+       545.28,
+       276.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       276.45,
+       107.35,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M006",
+     "raw": "M006",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       276.45,
+       166.48,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "전원 케이블",
+     "raw": "전원 케이블",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       276.45,
+       259.44,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "500",
+     "raw": "500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       276.45,
+       312.1,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       276.45,
+       366.99,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1,500",
+     "raw": "1,500",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       276.45,
+       454.26,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 13,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "750,000",
+     "raw": "750,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       276.45,
+       545.28,
+       293.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       293.45,
+       107.35,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M007",
+     "raw": "M007",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       293.45,
+       166.48,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "소형 모터",
+     "raw": "소형 모터",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       293.45,
+       259.44,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "400",
+     "raw": "400",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       293.45,
+       312.1,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       293.45,
+       366.99,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "18,000",
+     "raw": "18,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       293.45,
+       454.26,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 14,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "7,200,000",
+     "raw": "7,200,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       293.45,
+       545.28,
+       310.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       310.45,
+       107.35,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M008",
+     "raw": "M008",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       310.45,
+       166.48,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "체결 볼트 세트",
+     "raw": "체결 볼트 세트",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       310.45,
+       259.44,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1,000",
+     "raw": "1,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       310.45,
+       312.1,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       310.45,
+       366.99,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "300",
+     "raw": "300",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       310.45,
+       454.26,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 15,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "300,000",
+     "raw": "300,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       310.45,
+       545.28,
+       327.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       327.45,
+       107.35,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M009",
+     "raw": "M009",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       327.45,
+       166.48,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "분체 도료",
+     "raw": "분체 도료",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       327.45,
+       259.44,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "50",
+     "raw": "50",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       327.45,
+       312.1,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "kg",
+     "raw": "kg",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       327.45,
+       366.99,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "9,000",
+     "raw": "9,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       327.45,
+       454.26,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 16,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "450,000",
+     "raw": "450,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       327.45,
+       545.28,
+       344.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "자재",
+     "raw": "자재",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       50.0,
+       344.45,
+       107.35,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M010",
+     "raw": "M010",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       107.35,
+       344.45,
+       166.48,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "포장 박스",
+     "raw": "포장 박스",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       166.48,
+       344.45,
+       259.44,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "700",
+     "raw": "700",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       259.44,
+       344.45,
+       312.1,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       312.1,
+       344.45,
+       366.99,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "800",
+     "raw": "800",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       366.99,
+       344.45,
+       454.26,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    },
+    {
+     "row": 17,
+     "col": 7,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "560,000",
+     "raw": "560,000",
+     "is_header": null,
+     "location": {
+      "format": "pdf",
+      "page": 3,
+      "bbox": [
+       454.26,
+       344.45,
+       545.28,
+       361.45
+      ],
+      "bbox_unit": "pt",
+      "bbox_origin": "top-left"
+     }
+    }
+   ],
+   "continuation": null,
+   "caption_block_id": null,
+   "detection": "inferred"
+  }
+ ],
+ "extracted_values": [],
+ "records": [],
+ "diagnostics": [
+  {
+   "code": "EXT-UNSUPPORTED",
+   "severity": "warning",
+   "location": null,
+   "field": null,
+   "message": "블록 유형(제목·캡션·머리말 등)은 구분하지 않음 — 모두 paragraph",
+   "raw": null
+  }
+ ],
+ "format_specific": {
+  "reading_sequence": [
+   "b0001",
+   "b0002",
+   "b0003",
+   "t001",
+   "b0004",
+   "b0005",
+   "t002",
+   "b0006",
+   "b0007",
+   "b0008",
+   "b0009",
+   "t003",
+   "b0010",
+   "b0011"
+  ],
+  "location_index_base": {
+   "page": 1,
+   "row": 1,
+   "col": 1
+  },
+  "text_layer": true,
+  "table_evidence": "그려진 선(lines)으로 셀 경계 추정 — 선 없는 표는 검출되지 않을 수 있음",
+  "reading_order_basis": "페이지별 위→아래, 왼쪽→오른쪽 (요소 상단 좌표)",
+  "continuation_links": {
+   "count": 1,
+   "method": "header_repeat_rule (pdfplumber 자체 기능 아님)"
+  }
+ }
+}

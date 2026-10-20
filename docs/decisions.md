@@ -95,6 +95,7 @@
 | D-019 | 공통 중간 JSON 0.2 변경안(content_set·logical_id·planned/actual 위치 등) 채택 여부 | E03 | 팀 | **명세 반영** (DEC-20261020-10, intermediate_representation.md §8). E02 출력은 0.1 그대로 |
 | D-020 | 폰트 서브셋을 임베드한 PDF(P-01·P-02)의 공개 저장소 업로드 | E03 | 사용자 | **보류** (2026-10-20) — 맑은 고딕 서브셋의 재배포 조건(Microsoft EULA) 미확인. 로컬 전용(.gitignore 명시). 해제 방안: ① 재배포 가능 폰트(예: OFL 한글 폰트)로 재생성 — 재생성 시 E03 결과 재측정 필요 ② 라이선스 확인 |
 | D-021 | E04 본 실험 착수와 호출·비용 상한 ([e04_upstage_plan.md](e04_upstage_plan.md) §4) | E04 | 사용자 | 대기 |
+| D-022 | E03 완료 판정 조건: 생성 도구와 다른 경로로 만든 문서(Word·PowerPoint·한글에서 저장한 파일, 선 없는 표 PDF 등) 추가 측정 필요 여부, HWP/HWPX 미측정 상태로의 완료 가능 여부 | E03 | 사용자·팀 | 대기 (직접 파서 Baseline은 같은 라이브러리 계열 왕복 결과 — `parser_baseline/summary.md` §5) |
 | D-015 | Upstage Document Parse의 지원 입력 형식(HWP/HWPX/PPTX 포함 여부) 공식 문서 확인 | E04 | 팀 | 대기 (확인 전 지원 가정 금지) |
 | D-016 | E02 pandas 비교 실행 여부 (pandas 설치 승인 포함) | E02 | 사용자·팀 | **보류** (2026-10-20, DEC-20261020-09) — 1차 Baseline 결과상 급하지 않음. 대용량·`.xls`·자동 형식 추론 위험 확인이 필요할 때 재검토 |
 
@@ -208,3 +209,11 @@
 - 결정 내용: 로컬 `.env`의 `UPSTAGE_API_KEY`로 E03 합성 문서 P-02(텍스트형 PDF 3쪽)만 1회 전송. model `document-parse`, mode `standard`, 재시도·동시 요청·Enhanced·OCR 전용 모델 없음. 패키지 python-dotenv, requests 설치.
 - 실행 결과: 성공(HTTP 200), 응답 모델 `document-parse-260930`, 과금 3쪽(standard), 추정 $0.03(VAT 별도, 공개 단가 기준 — 실제 청구는 콘솔 확인 전 미확인). 응답 원문은 `data/raw/upstage_test/`(Git 제외), 요약은 `results/E04_upstage_preflight/`.
 - 조건: 실패 시 승인 없이 재호출 금지(호출 기록 파일로 차단). 결과는 1개 문서 예비 확인이며 정확도로 일반화하지 않음. E04 본 실험은 별도 승인.
+
+### DEC-20261020-12: E03 직접 문서 파서 Baseline 착수, pypdf·pdfplumber 설치
+- 날짜: 2026-10-20
+- 결정 주체: 사용자
+- 결정 내용: DOCX = python-docx, PPTX = python-pptx, PDF = pypdf·pdfplumber로 직접 파서 Baseline 측정. PyMuPDF(D-018)·HWP/HWPX 파서·OCR 엔진은 설치하지 않음. Upstage는 기존 예비 결과만 참고(추가 호출 금지).
+- 이행: pypdf 6.21.1(BSD-3-Clause), pdfplumber 0.11.10(MIT) 설치 — 의존성 pdfminer.six 20260107(MIT), pypdfium2 5.14.0(BSD-3-Clause·Apache-2.0, PDFium 바이너리 포함), cryptography 50.0.2(Apache-2.0 OR BSD-3-Clause), cffi 2.1.1(MIT-0), pycparser 3.11(BSD-3-Clause). 모두 Python 3.11 지원, `pip check` 이상 없음.
+- 환경 수정: 새 클론 검증에서 `requirements.lock`의 한국어 주석 때문에 pip이 파일을 cp949로 읽어 설치가 실패함을 발견(최초 커밋부터 존재한 결함). 첫 줄에 `# -*- coding: utf-8 -*-` 선언을 추가해 해결하고, 새 가상환경에서 설치·pip check·pytest로 확인.
+- 결과: `results/E03_document_parsers/parser_baseline/` (상태 RUNNING). 이 판단은 기술 채택 판단이 아니다.

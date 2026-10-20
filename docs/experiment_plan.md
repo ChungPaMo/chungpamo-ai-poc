@@ -30,7 +30,7 @@
 | E00 | 개발환경 및 재현성 확인 | COMPLETED (2026-10-20, 결과 검토 대기) | — |
 | E01 | 제조업 공통 합성 데이터·정답셋 구성 | COMPLETED (2026-10-20 승인 — 독립 검증 143/143, pytest 48/48, 재현성 31/31, Git 보안 점검 통과. 정답셋 v2 기준, v1 보존. `results/E01_dataset/summary.md`) | E00 |
 | E02 | CSV/Excel 직접 파싱 | RUNNING — 1차 Baseline(csv + openpyxl) **완료** (2026-10-20 승인, DEC-20261020-09), pandas 비교 보류(D-016). `results/E02_tabular_parsing/summary.md` | E01 |
-| E03 | DOCX/PDF/HWP/HWPX/PPTX 직접 추출 파서 비교 | RUNNING — 1단계 설계·정답 명세 완료, 1단계-b 샘플 6개(DOCX·텍스트형 PDF·PPTX) 생성·독립 검증(2026-10-20). 스캔 PDF 보류(OCR 제외), HWP/HWPX 미측정, 파서 비교 미착수. [e03_document_samples_plan.md](e03_document_samples_plan.md) | E01, E02 검토 |
+| E03 | DOCX/PDF/HWP/HWPX/PPTX 직접 추출 파서 비교 | RUNNING — 1단계 설계·정답 명세 완료, 1단계-b 샘플 6개(DOCX·텍스트형 PDF·PPTX) 생성·독립 검증(2026-10-20). 스캔 PDF 보류(OCR 제외), HWP/HWPX 미측정. 직접 파서 Baseline(python-docx·python-pptx·pypdf·pdfplumber) 측정(2026-10-20, `results/E03_document_parsers/parser_baseline/`, 완료 판정 조건 D-022 대기). [e03_document_samples_plan.md](e03_document_samples_plan.md) | E01, E02 검토 |
 | E04 | 복잡한 PDF·스캔 문서: 직접 추출 vs Upstage Document Parse API | NOT_STARTED — 예비 호출 1회만 수행(2026-10-20, P-02, `results/E04_upstage_preflight/`), 본 실험 미착수. 후속 계획 [e04_upstage_plan.md](e04_upstage_plan.md) | E01, E03(PDF 직접 추출 결과) |
 
 **전체 파싱 검증 범위 (2026-10-20 확정)**: CSV, XLSX (E02) / DOCX, PDF, HWP, HWPX, PPTX (E03) / 복잡한 PDF·스캔 문서 (E04). 세 실험 모두 공통 중간 JSON([intermediate_representation.md](intermediate_representation.md))과 형식별 지표([evaluation_protocol.md](evaluation_protocol.md) §10)를 쓴다.
@@ -183,6 +183,13 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 
 - 원본 파일이 없는 형식은 측정 완료로 처리하지 않는다. 샘플을 확보하기 전 E03의 모든 지표는 `미측정`이다.
 - 샘플은 합성(SYNTHETIC) 또는 라이선스가 확인된 공개 자료만 쓴다.
+
+**직접 파서 Baseline (2026-10-20, DEC-20261020-12)** — 위 표의 계획 중 실행한 부분
+
+- 파서: DOCX python-docx 1.2.0 / PPTX python-pptx 1.0.2 / PDF pypdf 6.21.1, pdfplumber 0.11.10. PyMuPDF(D-018)·zipfile+lxml 직접 파싱 비교·HWP/HWPX·스캔 PDF는 미실행.
+- 코드: `src/parsers/doc_*.py`(파서 → 공통 중간 JSON 0.2), `scripts/e03_grade_parsers.py`(독립 채점기, 파서 import 없음), `scripts/e03_run_parsers.py`(해시 검증·3회 반복 측정·결과 기록), `tests/test_e03_parsers.py`
+- 결과: `results/E03_document_parsers/parser_baseline/` (`summary.md`, `metrics.csv`, `grading.json`, `failures.md`, `run_meta.json`, `output/`). 계획 9행의 `compatibility_matrix.md`는 HWP/HWPX 측정 전이라 만들지 않음.
+- 한계: 샘플이 생성 라이브러리와 같은 계열로 읽힌 왕복 결과 → 실제 문서 일반화 불가. 완료 판정 조건은 D-022.
 
 ---
 

@@ -161,3 +161,16 @@ E03 문서 샘플 생성 과정에서 확인한 한계(1단계 제안, D-019)를
 정답 쪽 기록 위치 원칙: `actual_location`은 생성기가 렌더링하며 기록한 값이다. 파서가 추출한 위치와 비교할 때만 위치 정확도로 쓰고, 생성 기록만으로 위치 정확도 통과를 판정하지 않는다.
 
 변경 이력: 0.1 (2026-10-20 초안) → 0.2 (2026-10-20, 위 필드 추가). E02 1차 출력(`results/E02_tabular_parsing/output/`)은 0.1 기준이며 변경하지 않았다.
+
+## 9. E03 직접 파서 구현에서의 사용 방식 (2026-10-20, 스키마 버전 변경 없음)
+
+`src/parsers/doc_*.py`가 0.2를 다음처럼 채운다. 아래 추가 키는 모두 선택 필드이며 0.2 해석을 바꾸지 않는다.
+
+| 항목 | 사용 방식 |
+|---|---|
+| 읽기 순서 | `format_specific.reading_sequence` = 블록·표 ID를 한 순번 공간에 나열. `blocks[].order` = 그 순번 (표가 끼면 블록 순번에 빈 번호가 생김) |
+| 번호 기준 | `format_specific.location_index_base` 에 필드별 0/1 시작 기준 기록 (DOCX body_index 0부터, 표 행·열 1부터 등) |
+| 표 조각 연결 | 라이브러리가 연결 정보를 주지 않으므로 공통 후처리 규칙(`doc_common.link_fragments`)으로 `continuation`·`logical_table_id`·`fragment_index`·`repeated_header_rows`를 채우고 `continuation.method = "header_repeat_rule"`, `continuation.detection = "inferred"` 로 표시. `logical_table_id`는 첫 조각의 파서 내부 ID (정답 ID 아님) |
+| 미지원 정보 | `diagnostics` `EXT-UNSUPPORTED`로 명시 (예: pypdf 표 구조·bbox·문단, PDF 블록 유형) |
+| 추가 위치 키 | pypdf `location.line_index`(페이지 안 줄 순번), pdfplumber `location.lines`(문단 줄 수), PPTX 표 `first_row_flag`(첫 행 강조 설정값) |
+| extracted_values·records | 채우지 않음 — 업무 필드 해석은 E03 범위 밖 (셀 원문 보존만 채점) |

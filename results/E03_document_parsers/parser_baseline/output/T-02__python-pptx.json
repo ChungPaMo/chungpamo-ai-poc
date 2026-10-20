@@ -1,0 +1,1338 @@
+{
+ "schema": "chungpamo.parse_ir",
+ "schema_version": "0.2",
+ "document": {
+  "source_file": "data/documents/T-02_bom_spec.pptx",
+  "format": "pptx",
+  "sha256": "7ff3ec3f477d08629dc81b97ea9619edd991af87981f77bbfb80400819b9fdc1",
+  "bytes": 31950,
+  "units_of_division": {
+   "slides": 3
+  }
+ },
+ "parser": {
+  "name": "python-pptx",
+  "version": "1.0.2",
+  "options": {},
+  "mode": "direct",
+  "api_calls": 0
+ },
+ "blocks": [
+  {
+   "block_id": "b0001",
+   "type": "slide_body",
+   "order": 0,
+   "text": "FG001 가정용 히터 A — BOM 사양서 (BOM Specification)",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 1,
+    "slide_id": 256,
+    "shape_id": 2,
+    "shape_name": "title_CS1-b01",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     2377440,
+     11064240,
+     1097280
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "title_CS1-b01"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0002",
+   "type": "slide_body",
+   "order": 1,
+   "text": "문서번호 Doc No.: SPEC-FG001 / 개정 Rev. V2 / 적용일 Effective: 2026-12-01",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 1,
+    "slide_id": 256,
+    "shape_id": 3,
+    "shape_name": "txt_CS1-b02",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     3657600,
+     11064240,
+     548640
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "txt_CS1-b02"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0003",
+   "type": "slide_body",
+   "order": 2,
+   "text": "표 1. FG001 BOM V1 (2026-01-01~2026-11-30)",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 2,
+    "slide_id": 257,
+    "shape_id": 2,
+    "shape_name": "cap_CS1-T1_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     548640,
+     11064240,
+     365760
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "cap_CS1-T1_f0"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0004",
+   "type": "slide_body",
+   "order": 4,
+   "text": "표 2. FG001 BOM V2 (2026-12-01~)",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 3,
+    "slide_id": 258,
+    "shape_id": 2,
+    "shape_name": "cap_CS1-T2_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     548640,
+     11064240,
+     365760
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "cap_CS1-T2_f0"
+    ]
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0005",
+   "type": "slide_body",
+   "order": 6,
+   "text": "표 1은 V1 구성(2026-01-01~2026-11-30), 표 2는 V2 구성(2026-12-01~)이다. V2에서 강판(M001) 소요량이 1.2 kg에서 1,000 g으로 바뀌었다 (The steel sheet quantity changed from 1.2 kg to 1000 g).",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 3,
+    "slide_id": 258,
+    "shape_id": 4,
+    "shape_name": "txt_CS1-b03",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     4206240,
+     11064240,
+     1280160
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "txt_CS1-b03"
+    ]
+   },
+   "level": null
+  }
+ ],
+ "tables": [
+  {
+   "table_id": "t001",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 2,
+    "slide_id": 257,
+    "shape_id": 3,
+    "shape_name": "tbl_CS1-T1_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     1005840,
+     11064240,
+     2194560
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "tbl_CS1-T1_f0"
+    ]
+   },
+   "n_rows": 6,
+   "n_cols": 6,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "순번 No.",
+     "raw": "순번 No.",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "구성품 Component",
+     "raw": "구성품 Component",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "row": 1,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "소요량 Qty per unit",
+     "raw": "소요량 Qty per unit",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 4
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "손실률(%)",
+     "raw": "손실률(%)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 6
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "코드 Code",
+     "raw": "코드 Code",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "품목명 Name",
+     "raw": "품목명 Name",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 3
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "수량 Qty",
+     "raw": "수량 Qty",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 4
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "단위 Unit",
+     "raw": "단위 Unit",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 2,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 1
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF001",
+     "raw": "SF001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 2
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "히터 코어 모듈",
+     "raw": "히터 코어 모듈",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 3
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 4
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 3,
+      "col": 6
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2",
+     "raw": "2",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 1
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M001",
+     "raw": "M001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 2
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "강판",
+     "raw": "강판",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 3
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1.2",
+     "raw": "1.2",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 4
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "kg",
+     "raw": "kg",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 5
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 4,
+      "col": 6
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "3",
+     "raw": "3",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 1
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M006",
+     "raw": "M006",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 2
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "전원 케이블",
+     "raw": "전원 케이블",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 3
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 4
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 5
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 5,
+      "col": 6
+     }
+    },
+    {
+     "row": 6,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "4",
+     "raw": "4",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 1
+     }
+    },
+    {
+     "row": 6,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M010",
+     "raw": "M010",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 2
+     }
+    },
+    {
+     "row": 6,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "포장 박스",
+     "raw": "포장 박스",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 3
+     }
+    },
+    {
+     "row": 6,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 4
+     }
+    },
+    {
+     "row": 6,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 5
+     }
+    },
+    {
+     "row": 6,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 6,
+      "col": 6
+     }
+    }
+   ],
+   "continuation": null,
+   "caption_block_id": null,
+   "detection": "native",
+   "first_row_flag": true
+  },
+  {
+   "table_id": "t002",
+   "location": {
+    "format": "pptx",
+    "part": "slide",
+    "slide_index": 3,
+    "slide_id": 258,
+    "shape_id": 3,
+    "shape_name": "tbl_CS1-T2_f0",
+    "placeholder_type": null,
+    "bbox": [
+     548640,
+     1005840,
+     11064240,
+     2194560
+    ],
+    "bbox_unit": "EMU",
+    "nested_path": [
+     "tbl_CS1-T2_f0"
+    ]
+   },
+   "n_rows": 6,
+   "n_cols": 6,
+   "header_rows": null,
+   "cells": [
+    {
+     "row": 1,
+     "col": 1,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "순번 No.",
+     "raw": "순번 No.",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "구성품 Component",
+     "raw": "구성품 Component",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "row": 1,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 2,
+     "text": "소요량 Qty per unit",
+     "raw": "소요량 Qty per unit",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 1,
+      "col": 4
+     }
+    },
+    {
+     "row": 1,
+     "col": 6,
+     "rowspan": 2,
+     "colspan": 1,
+     "text": "손실률(%)",
+     "raw": "손실률(%)",
+     "is_header": true,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 1,
+      "col": 6
+     }
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "코드 Code",
+     "raw": "코드 Code",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 2,
+      "col": 2
+     }
+    },
+    {
+     "row": 2,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "품목명 Name",
+     "raw": "품목명 Name",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 2,
+      "col": 3
+     }
+    },
+    {
+     "row": 2,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "수량 Qty",
+     "raw": "수량 Qty",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 2,
+      "col": 4
+     }
+    },
+    {
+     "row": 2,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "단위 Unit",
+     "raw": "단위 Unit",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 2,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 1
+     }
+    },
+    {
+     "row": 3,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "SF001",
+     "raw": "SF001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 2
+     }
+    },
+    {
+     "row": 3,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "히터 코어 모듈",
+     "raw": "히터 코어 모듈",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 3
+     }
+    },
+    {
+     "row": 3,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 4
+     }
+    },
+    {
+     "row": 3,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 5
+     }
+    },
+    {
+     "row": 3,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 3,
+      "col": 6
+     }
+    },
+    {
+     "row": 4,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "2",
+     "raw": "2",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 1
+     }
+    },
+    {
+     "row": 4,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M001",
+     "raw": "M001",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 2
+     }
+    },
+    {
+     "row": 4,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "강판",
+     "raw": "강판",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 3
+     }
+    },
+    {
+     "row": 4,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1,000",
+     "raw": "1,000",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 4
+     }
+    },
+    {
+     "row": 4,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "g",
+     "raw": "g",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 5
+     }
+    },
+    {
+     "row": 4,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 4,
+      "col": 6
+     }
+    },
+    {
+     "row": 5,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "3",
+     "raw": "3",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 1
+     }
+    },
+    {
+     "row": 5,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M006",
+     "raw": "M006",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 2
+     }
+    },
+    {
+     "row": 5,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "전원 케이블",
+     "raw": "전원 케이블",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 3
+     }
+    },
+    {
+     "row": 5,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 4
+     }
+    },
+    {
+     "row": 5,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 5
+     }
+    },
+    {
+     "row": 5,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 5,
+      "col": 6
+     }
+    },
+    {
+     "row": 6,
+     "col": 1,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "4",
+     "raw": "4",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 1
+     }
+    },
+    {
+     "row": 6,
+     "col": 2,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "M010",
+     "raw": "M010",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 2
+     }
+    },
+    {
+     "row": 6,
+     "col": 3,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "포장 박스",
+     "raw": "포장 박스",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 3
+     }
+    },
+    {
+     "row": 6,
+     "col": 4,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "1",
+     "raw": "1",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 4
+     }
+    },
+    {
+     "row": 6,
+     "col": 5,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "EA",
+     "raw": "EA",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 5
+     }
+    },
+    {
+     "row": 6,
+     "col": 6,
+     "rowspan": 1,
+     "colspan": 1,
+     "text": "0",
+     "raw": "0",
+     "is_header": false,
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 3,
+      "shape_id": 3,
+      "row": 6,
+      "col": 6
+     }
+    }
+   ],
+   "continuation": null,
+   "caption_block_id": null,
+   "detection": "native",
+   "first_row_flag": true
+  }
+ ],
+ "extracted_values": [],
+ "records": [],
+ "diagnostics": [],
+ "format_specific": {
+  "reading_sequence": [
+   "b0001",
+   "b0002",
+   "b0003",
+   "t001",
+   "b0004",
+   "t002",
+   "b0005"
+  ],
+  "location_index_base": {
+   "slide_index": 1,
+   "row": 1,
+   "col": 1
+  },
+  "slide_size_emu": [
+   12191695,
+   6858000
+  ],
+  "layouts": [
+   "Blank",
+   "Blank",
+   "Blank"
+  ],
+  "groups": [],
+  "reading_order_basis": "도형 트리 순서(z-order), 노트는 슬라이드 끝",
+  "continuation_links": {
+   "count": 0,
+   "method": "header_repeat_rule (python-pptx 자체 기능 아님)"
+  }
+ }
+}

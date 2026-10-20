@@ -1,0 +1,1003 @@
+{
+ "schema": "chungpamo.parse_ir",
+ "schema_version": "0.2",
+ "document": {
+  "source_file": "data/documents/P-01_bom_spec.pdf",
+  "format": "pdf",
+  "sha256": "27cff01a4c876628965f2364de5cd9a49cdede5ab37c3d009fea79e7bb6e2dcb",
+  "bytes": 33045,
+  "units_of_division": {
+   "pages": 1
+  },
+  "is_scanned": {
+   "value": false,
+   "method": "pypdf 텍스트 추출 결과가 비었는지"
+  }
+ },
+ "parser": {
+  "name": "pypdf",
+  "version": "6.21.1",
+  "options": {
+   "extraction_mode": "plain"
+  },
+  "mode": "direct",
+  "api_calls": 0
+ },
+ "blocks": [
+  {
+   "block_id": "b0001",
+   "type": "paragraph",
+   "order": 0,
+   "text": "문서번호 Doc No.: SPEC-FG001 / 개정 Rev. V2 / 적용일 Effective: 2026-12-01",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 0
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0002",
+   "type": "paragraph",
+   "order": 1,
+   "text": "1 / 1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 1
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0003",
+   "type": "paragraph",
+   "order": 2,
+   "text": "FG001 가정용 히터 A — BOM 사양서 (BOM Specification)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 2
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0004",
+   "type": "paragraph",
+   "order": 3,
+   "text": "표 1은 V1 구성(2026-01-01~2026-11-30), 표 2는 V2 구성(2026-12-01~)이다. V2에서 강판(M001) 소요량이 1.2 kg에서 ",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 3
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0005",
+   "type": "paragraph",
+   "order": 4,
+   "text": "1,000 g으로 바뀌었다 (The steel sheet quantity changed from 1.2 kg to 1000 g).",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 4
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0006",
+   "type": "paragraph",
+   "order": 5,
+   "text": "표 1. FG001 BOM V1 (2026-01-01~2026-11-30)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 5
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0007",
+   "type": "paragraph",
+   "order": 6,
+   "text": "순번 No.",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 6
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0008",
+   "type": "paragraph",
+   "order": 7,
+   "text": "구성품 Component",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 7
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0009",
+   "type": "paragraph",
+   "order": 8,
+   "text": "소요량 Qty per unit",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 8
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0010",
+   "type": "paragraph",
+   "order": 9,
+   "text": " 손실률(%)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 9
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0011",
+   "type": "paragraph",
+   "order": 10,
+   "text": "코드 Code",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 10
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0012",
+   "type": "paragraph",
+   "order": 11,
+   "text": "품목명 Name",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 11
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0013",
+   "type": "paragraph",
+   "order": 12,
+   "text": "수량 Qty",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 12
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0014",
+   "type": "paragraph",
+   "order": 13,
+   "text": "단위 Unit",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 13
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0015",
+   "type": "paragraph",
+   "order": 14,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 14
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0016",
+   "type": "paragraph",
+   "order": 15,
+   "text": "SF001",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 15
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0017",
+   "type": "paragraph",
+   "order": 16,
+   "text": "히터 코어 모듈",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 16
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0018",
+   "type": "paragraph",
+   "order": 17,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 17
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0019",
+   "type": "paragraph",
+   "order": 18,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 18
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0020",
+   "type": "paragraph",
+   "order": 19,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 19
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0021",
+   "type": "paragraph",
+   "order": 20,
+   "text": "2",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 20
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0022",
+   "type": "paragraph",
+   "order": 21,
+   "text": "M001",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 21
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0023",
+   "type": "paragraph",
+   "order": 22,
+   "text": "강판",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 22
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0024",
+   "type": "paragraph",
+   "order": 23,
+   "text": "1.2",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 23
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0025",
+   "type": "paragraph",
+   "order": 24,
+   "text": "kg",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 24
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0026",
+   "type": "paragraph",
+   "order": 25,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 25
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0027",
+   "type": "paragraph",
+   "order": 26,
+   "text": "3",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 26
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0028",
+   "type": "paragraph",
+   "order": 27,
+   "text": "M006",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 27
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0029",
+   "type": "paragraph",
+   "order": 28,
+   "text": "전원 케이블",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 28
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0030",
+   "type": "paragraph",
+   "order": 29,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 29
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0031",
+   "type": "paragraph",
+   "order": 30,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 30
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0032",
+   "type": "paragraph",
+   "order": 31,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 31
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0033",
+   "type": "paragraph",
+   "order": 32,
+   "text": "4",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 32
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0034",
+   "type": "paragraph",
+   "order": 33,
+   "text": "M010",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 33
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0035",
+   "type": "paragraph",
+   "order": 34,
+   "text": "포장 박스",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 34
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0036",
+   "type": "paragraph",
+   "order": 35,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 35
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0037",
+   "type": "paragraph",
+   "order": 36,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 36
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0038",
+   "type": "paragraph",
+   "order": 37,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 37
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0039",
+   "type": "paragraph",
+   "order": 38,
+   "text": "표 2. FG001 BOM V2 (2026-12-01~)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 38
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0040",
+   "type": "paragraph",
+   "order": 39,
+   "text": "순번 No.",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 39
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0041",
+   "type": "paragraph",
+   "order": 40,
+   "text": "구성품 Component",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 40
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0042",
+   "type": "paragraph",
+   "order": 41,
+   "text": "소요량 Qty per unit",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 41
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0043",
+   "type": "paragraph",
+   "order": 42,
+   "text": " 손실률(%)",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 42
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0044",
+   "type": "paragraph",
+   "order": 43,
+   "text": "코드 Code",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 43
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0045",
+   "type": "paragraph",
+   "order": 44,
+   "text": "품목명 Name",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 44
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0046",
+   "type": "paragraph",
+   "order": 45,
+   "text": "수량 Qty",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 45
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0047",
+   "type": "paragraph",
+   "order": 46,
+   "text": "단위 Unit",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 46
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0048",
+   "type": "paragraph",
+   "order": 47,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 47
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0049",
+   "type": "paragraph",
+   "order": 48,
+   "text": "SF001",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 48
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0050",
+   "type": "paragraph",
+   "order": 49,
+   "text": "히터 코어 모듈",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 49
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0051",
+   "type": "paragraph",
+   "order": 50,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 50
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0052",
+   "type": "paragraph",
+   "order": 51,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 51
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0053",
+   "type": "paragraph",
+   "order": 52,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 52
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0054",
+   "type": "paragraph",
+   "order": 53,
+   "text": "2",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 53
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0055",
+   "type": "paragraph",
+   "order": 54,
+   "text": "M001",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 54
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0056",
+   "type": "paragraph",
+   "order": 55,
+   "text": "강판",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 55
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0057",
+   "type": "paragraph",
+   "order": 56,
+   "text": "1,000",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 56
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0058",
+   "type": "paragraph",
+   "order": 57,
+   "text": "g",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 57
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0059",
+   "type": "paragraph",
+   "order": 58,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 58
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0060",
+   "type": "paragraph",
+   "order": 59,
+   "text": "3",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 59
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0061",
+   "type": "paragraph",
+   "order": 60,
+   "text": "M006",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 60
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0062",
+   "type": "paragraph",
+   "order": 61,
+   "text": "전원 케이블",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 61
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0063",
+   "type": "paragraph",
+   "order": 62,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 62
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0064",
+   "type": "paragraph",
+   "order": 63,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 63
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0065",
+   "type": "paragraph",
+   "order": 64,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 64
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0066",
+   "type": "paragraph",
+   "order": 65,
+   "text": "4",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 65
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0067",
+   "type": "paragraph",
+   "order": 66,
+   "text": "M010",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 66
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0068",
+   "type": "paragraph",
+   "order": 67,
+   "text": "포장 박스",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 67
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0069",
+   "type": "paragraph",
+   "order": 68,
+   "text": "1",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 68
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0070",
+   "type": "paragraph",
+   "order": 69,
+   "text": "EA",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 69
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0071",
+   "type": "paragraph",
+   "order": 70,
+   "text": "0",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 70
+   },
+   "level": null
+  },
+  {
+   "block_id": "b0072",
+   "type": "paragraph",
+   "order": 71,
+   "text": "※ 반제품 SF001(히터 코어 모듈)은 별도 BOM(BOM-SF001-V1)으로 관리한다. Semi-finished SF001 has its own BOM.",
+   "location": {
+    "format": "pdf",
+    "page": 1,
+    "line_index": 71
+   },
+   "level": null
+  }
+ ],
+ "tables": [],
+ "extracted_values": [],
+ "records": [],
+ "diagnostics": [
+  {
+   "code": "EXT-UNSUPPORTED",
+   "severity": "warning",
+   "location": null,
+   "field": null,
+   "message": "pypdf는 표 구조(행·열·병합) 추출 기능이 없음 — 표 셀 텍스트는 줄 텍스트에 섞여 나옴",
+   "raw": null
+  },
+  {
+   "code": "EXT-UNSUPPORTED",
+   "severity": "warning",
+   "location": null,
+   "field": null,
+   "message": "pypdf extract_text는 텍스트 좌표(bbox)를 주지 않음 — 위치는 page·줄 순번만",
+   "raw": null
+  },
+  {
+   "code": "EXT-UNSUPPORTED",
+   "severity": "warning",
+   "location": null,
+   "field": null,
+   "message": "문단 구분 정보 없음 — 줄 단위 블록 (여러 줄 문단은 나뉨)",
+   "raw": null
+  }
+ ],
+ "format_specific": {
+  "reading_sequence": [
+   "b0001",
+   "b0002",
+   "b0003",
+   "b0004",
+   "b0005",
+   "b0006",
+   "b0007",
+   "b0008",
+   "b0009",
+   "b0010",
+   "b0011",
+   "b0012",
+   "b0013",
+   "b0014",
+   "b0015",
+   "b0016",
+   "b0017",
+   "b0018",
+   "b0019",
+   "b0020",
+   "b0021",
+   "b0022",
+   "b0023",
+   "b0024",
+   "b0025",
+   "b0026",
+   "b0027",
+   "b0028",
+   "b0029",
+   "b0030",
+   "b0031",
+   "b0032",
+   "b0033",
+   "b0034",
+   "b0035",
+   "b0036",
+   "b0037",
+   "b0038",
+   "b0039",
+   "b0040",
+   "b0041",
+   "b0042",
+   "b0043",
+   "b0044",
+   "b0045",
+   "b0046",
+   "b0047",
+   "b0048",
+   "b0049",
+   "b0050",
+   "b0051",
+   "b0052",
+   "b0053",
+   "b0054",
+   "b0055",
+   "b0056",
+   "b0057",
+   "b0058",
+   "b0059",
+   "b0060",
+   "b0061",
+   "b0062",
+   "b0063",
+   "b0064",
+   "b0065",
+   "b0066",
+   "b0067",
+   "b0068",
+   "b0069",
+   "b0070",
+   "b0071",
+   "b0072"
+  ],
+  "location_index_base": {
+   "page": 1,
+   "line_index": 0
+  },
+  "text_layer": true,
+  "reading_order_basis": "pypdf 콘텐츠 스트림 순서"
+ }
+}

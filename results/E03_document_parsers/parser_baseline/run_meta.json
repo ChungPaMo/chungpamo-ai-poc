@@ -1,0 +1,366 @@
+{
+  "experiment_id": "E03",
+  "experiment_name": "DOCX·PDF·PPTX 직접 문서 파서 Baseline",
+  "status": "RUNNING",
+  "status_note": "직접 파서 Baseline 측정 완료, 사용자·ChatGPT 검토 대기. HWP/HWPX·OCR·E04 본 실험 미착수",
+  "run_timestamp": "2026-10-20T16:33:05+09:00",
+  "python": "3.11.9",
+  "packages": {
+    "python-docx": "1.2.0",
+    "python-pptx": "1.0.2",
+    "pypdf": "6.21.1",
+    "pdfplumber": "0.11.10",
+    "pdfminer.six": "20260107",
+    "pypdfium2": "5.14.0",
+    "psutil": "7.2.2"
+  },
+  "git": {
+    "base_commit": "1946c139a38819d88feef7b6f6d9230a12548d7a",
+    "uncommitted_changes": [
+      " M docs/decisions.md",
+      " M docs/experiment_plan.md",
+      " M docs/intermediate_representation.md",
+      " M requirements.lock",
+      "?? results/E03_document_parsers/parser_baseline/",
+      "?? results/maintenance/2026-10-20_fresh_clone_check/",
+      "?? scripts/e03_grade_parsers.py",
+      "?? scripts/e03_parse_doc.py",
+      "?? scripts/e03_run_parsers.py",
+      "?? src/parsers/doc_common.py",
+      "?? src/parsers/doc_docx.py",
+      "?? src/parsers/doc_pdf.py",
+      "?? src/parsers/doc_pptx.py",
+      "?? src/parsers/doc_registry.py",
+      "?? tests/test_e03_parsers.py"
+    ]
+  },
+  "inputs": {
+    "truth_sha256": "982af3be7af0b4f512851a3a2cba2d68578b8e046540d94f0efe1170b0cf554a",
+    "locations_sha256": "0fd368dfa9fae65e4dd8fa978afd7dcc110a75796cb5532c9abb4c74af515159",
+    "manifest": "results/E03_document_parsers/sample_manifest.csv",
+    "documents": [
+      {
+        "doc_id": "D-01",
+        "file": "data/documents/D-01_bom_spec.docx",
+        "format": "docx",
+        "content_set": "CS1",
+        "sha256": "4e6e9c77074426883a404de2a0681c5cfeb9ef59dd7b3452b5e6454275e61bf8",
+        "bytes": "38911",
+        "present": true,
+        "sha256_matches_manifest": true
+      },
+      {
+        "doc_id": "D-02",
+        "file": "data/documents/D-02_order_inventory.docx",
+        "format": "docx",
+        "content_set": "CS2",
+        "sha256": "3211c39ee392514431fb938c4c3aec1d58d0663feee8789f8a44e93129357d28",
+        "bytes": "39298",
+        "present": true,
+        "sha256_matches_manifest": true
+      },
+      {
+        "doc_id": "P-01",
+        "file": "data/documents/P-01_bom_spec.pdf",
+        "format": "pdf_text",
+        "content_set": "CS1",
+        "sha256": "27cff01a4c876628965f2364de5cd9a49cdede5ab37c3d009fea79e7bb6e2dcb",
+        "bytes": "33045",
+        "present": true,
+        "sha256_matches_manifest": true
+      },
+      {
+        "doc_id": "P-02",
+        "file": "data/documents/P-02_order_inventory.pdf",
+        "format": "pdf_text",
+        "content_set": "CS2",
+        "sha256": "cf9de77765ddf04ac01b6023d7af1e51a73cf0edc355b9768f272fe3d4b66349",
+        "bytes": "45577",
+        "present": true,
+        "sha256_matches_manifest": true
+      },
+      {
+        "doc_id": "T-01",
+        "file": "data/documents/T-01_plan_comparison.pptx",
+        "format": "pptx",
+        "content_set": "CS3",
+        "sha256": "2ce8264fc778d659f1d8f44e343238b50ec89909ab7f1c2617d9f61be9019046",
+        "bytes": "37885",
+        "present": true,
+        "sha256_matches_manifest": true
+      },
+      {
+        "doc_id": "T-02",
+        "file": "data/documents/T-02_bom_spec.pptx",
+        "format": "pptx",
+        "content_set": "CS1",
+        "sha256": "7ff3ec3f477d08629dc81b97ea9619edd991af87981f77bbfb80400819b9fdc1",
+        "bytes": "31950",
+        "present": true,
+        "sha256_matches_manifest": true
+      }
+    ]
+  },
+  "measurement": {
+    "repeats": 3,
+    "time": "자식 프로세스 안 time.perf_counter — import_seconds(파서 모듈·라이브러리 import), parse_seconds(파일 열기~IR 완성). tracemalloc 미사용 3회의 중앙값",
+    "py_heap": "tracemalloc 파싱 중 피크 (별도 3회 실행 중앙값, Python 힙만 — C 확장·pdfium 내부 메모리 미포함)",
+    "rss": "자식 프로세스 피크 RSS = venv 런처 + 인터프리터 합 (psutil 5ms 폴링, 인터프리터·라이브러리 적재 포함)",
+    "determinism": "6회 실행(시간 3 + 메모리 3)과 결과 저장용 실행의 IR SHA-256(키 정렬 JSON) 동일 여부"
+  },
+  "runs": [
+    {
+      "parser": "python-docx",
+      "doc_id": "D-01",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "38e317ea053ba085d5c518108ca23da8ae52c8446f5d62337f0c54205fc9e3ae",
+        "parse_seconds": [
+          0.02679179992992431,
+          0.025414500036276877,
+          0.02558600006159395
+        ],
+        "import_seconds": [
+          0.2701554000377655,
+          0.2564612999558449,
+          0.264591799932532
+        ],
+        "peak_rss_mb": [
+          43.4,
+          43.4,
+          43.7
+        ],
+        "py_heap_peak_mb": [
+          2.286,
+          2.286,
+          2.286
+        ]
+      }
+    },
+    {
+      "parser": "python-docx",
+      "doc_id": "D-02",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "56d6ba8c173f52f0e67367d1df72d6810d0525497556ca4668630a2944d2158a",
+        "parse_seconds": [
+          0.03741810005158186,
+          0.035866099991835654,
+          0.03522399999201298
+        ],
+        "import_seconds": [
+          0.2644232000457123,
+          0.24605670000892133,
+          0.24478750000707805
+        ],
+        "peak_rss_mb": [
+          44.5,
+          44.4,
+          44.4
+        ],
+        "py_heap_peak_mb": [
+          2.311,
+          2.311,
+          2.311
+        ]
+      }
+    },
+    {
+      "parser": "python-pptx",
+      "doc_id": "T-01",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "9a11b9129b71ff61a0e11228003eee8c62d7a1d4624af2ab5ca841c6cbedbfac",
+        "parse_seconds": [
+          0.01753930002450943,
+          0.01784020010381937,
+          0.01807860005646944
+        ],
+        "import_seconds": [
+          0.24872439994942397,
+          0.24074109992943704,
+          0.2662961999885738
+        ],
+        "peak_rss_mb": [
+          39.8,
+          39.8,
+          39.8
+        ],
+        "py_heap_peak_mb": [
+          0.437,
+          0.437,
+          0.437
+        ]
+      }
+    },
+    {
+      "parser": "python-pptx",
+      "doc_id": "T-02",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "e56e7f9bed7a5a6cfad678a62d2ff3db8bd0222b53b01f7ae369b5733a294199",
+        "parse_seconds": [
+          0.01635550009086728,
+          0.01634209998883307,
+          0.017397699994035065
+        ],
+        "import_seconds": [
+          0.25776439998298883,
+          0.28424010006710887,
+          0.2549623000668362
+        ],
+        "peak_rss_mb": [
+          39.3,
+          39.3,
+          39.1
+        ],
+        "py_heap_peak_mb": [
+          0.413,
+          0.413,
+          0.413
+        ]
+      }
+    },
+    {
+      "parser": "pypdf",
+      "doc_id": "P-01",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "aa62e8b0938d65e5c5ebe2a5e95227c049d02cbd5e9b6a73d2c498dd7cc18c66",
+        "parse_seconds": [
+          0.01248270005453378,
+          0.012332999962382019,
+          0.012535999994724989
+        ],
+        "import_seconds": [
+          0.3858568000141531,
+          0.36248420004267246,
+          0.36941369995474815
+        ],
+        "peak_rss_mb": [
+          48.1,
+          48.3,
+          48.2
+        ],
+        "py_heap_peak_mb": [
+          0.429,
+          0.429,
+          0.429
+        ]
+      }
+    },
+    {
+      "parser": "pypdf",
+      "doc_id": "P-02",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "6069353d6b339c1bec3cd7086dc38358e887ab1752e72eda9e9d097c33a99a1c",
+        "parse_seconds": [
+          0.04170719999819994,
+          0.040034000063315034,
+          0.042303499998524785
+        ],
+        "import_seconds": [
+          0.3466612999327481,
+          0.3556440999964252,
+          0.34649959998205304
+        ],
+        "peak_rss_mb": [
+          48.9,
+          48.7,
+          48.7
+        ],
+        "py_heap_peak_mb": [
+          0.973,
+          0.974,
+          0.974
+        ]
+      }
+    },
+    {
+      "parser": "pdfplumber",
+      "doc_id": "P-01",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "77ed3d213a0c7d561f44142f92e789e5f9885c29a7b2e957742fff08fd612617",
+        "parse_seconds": [
+          0.08247209992259741,
+          0.0814816999481991,
+          0.08342450007330626
+        ],
+        "import_seconds": [
+          0.3255054000765085,
+          0.3326163000892848,
+          0.3515065999235958
+        ],
+        "peak_rss_mb": [
+          48.5,
+          48.6,
+          48.4
+        ],
+        "py_heap_peak_mb": [
+          2.164,
+          2.165,
+          2.165
+        ]
+      }
+    },
+    {
+      "parser": "pdfplumber",
+      "doc_id": "P-02",
+      "error": null,
+      "perf": {
+        "failed_runs": 0,
+        "output_identical_across_runs": true,
+        "ir_sha256": "633d6f828db25dce84009e06e2c979f1d425a0fff054a114580aa729cdc96ad3",
+        "parse_seconds": [
+          0.22984290006570518,
+          0.23584310000296682,
+          0.23432340007275343
+        ],
+        "import_seconds": [
+          0.3298855999018997,
+          0.351602999959141,
+          0.33053049992304295
+        ],
+        "peak_rss_mb": [
+          52.7,
+          53.2,
+          52.8
+        ],
+        "py_heap_peak_mb": [
+          6.14,
+          6.141,
+          6.14
+        ]
+      }
+    }
+  ],
+  "upstage": {
+    "api_calls_this_run": 0,
+    "source": "results/E04_upstage_preflight/preflight_summary.json (기존 예비 호출 1회 결과)"
+  },
+  "tests": {
+    "total": 103,
+    "passed": 103,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skipped_detail": [],
+    "note": "skipped는 통과로 세지 않는다"
+  }
+}
