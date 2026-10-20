@@ -9,7 +9,7 @@ requires-python = "==3.11.*"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["scripts"]
+pythonpath = ["scripts", "src"]
 addopts = "-ra"
 
 # E00 환경 점검 기대값 (테스트가 이 값을 기준으로 검증한다)

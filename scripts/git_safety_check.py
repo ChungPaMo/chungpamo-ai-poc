@@ -54,6 +54,9 @@ def texts_of(path: Path) -> list[str]:
 
 
 def main() -> int:
+    global OUT
+    if len(sys.argv) > 1:  # 보고서 경로 지정 (예: results/E02_tabular_parsing/git_safety_report.md)
+        OUT = ROOT / sys.argv[1]
     home = str(Path.home())
     user = Path.home().name
     host = socket.gethostname()
@@ -144,7 +147,7 @@ def main() -> int:
     too_large = [(r, s) for r, s in sizes if s >= 10 * 1024 * 1024]
     ok = (not staged and not tracked_but_ignored and all(r[2] for r in ignore_rows) and priv_ok and not candidate_ignored
           and not blocking and not copies and not too_large)
-    L = ["# Git 업로드 전 안전 점검 — E01", "",
+    L = [f"# Git 업로드 전 안전 점검 — {OUT.parent.name}", "",
          "> scripts/git_safety_check.py 실행 결과. 사용자 이름·PC 이름·홈 경로·로컬 검사어·비공개 원본 파일명은 기록하지 않는다.", "",
          f"- 종합: **{'통과' if ok else '문제 있음'}**",
          f"- 커밋 후보 {len(candidates)}개 (추적 중 {len(tracked)} + 미추적·비제외 {len(untracked)}), 스테이징 {len(staged)}개, 작업트리 삭제 {len(deleted)}개", "",

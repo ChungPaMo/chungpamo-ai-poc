@@ -29,9 +29,11 @@
 |---|---|---|---|
 | E00 | 개발환경 및 재현성 확인 | COMPLETED (2026-10-20, 결과 검토 대기) | — |
 | E01 | 제조업 공통 합성 데이터·정답셋 구성 | COMPLETED (2026-10-20 승인 — 독립 검증 143/143, pytest 48/48, 재현성 31/31, Git 보안 점검 통과. 정답셋 v2 기준, v1 보존. `results/E01_dataset/summary.md`) | E00 |
-| E02 | CSV/Excel 직접 파싱 | NOT_STARTED | E01 |
-| E03 | DOCX/PDF/HWP/HWPX 파서 호환성 비교 | NOT_STARTED | E01 |
-| E04 | 직접 PDF 추출과 Upstage Document Parse API 비교 | NOT_STARTED | E01, E03(PDF 직접 추출 결과) |
+| E02 | CSV/Excel 직접 파싱 | RUNNING — 1차 Baseline(csv + openpyxl) **완료** (2026-10-20 승인, DEC-20261020-09), pandas 비교 보류(D-016). `results/E02_tabular_parsing/summary.md` | E01 |
+| E03 | DOCX/PDF/HWP/HWPX/PPTX 직접 추출 파서 비교 | NOT_STARTED (문서 샘플 미확보 — 확보 계획만 수립) | E01, E02 검토 |
+| E04 | 복잡한 PDF·스캔 문서: 직접 추출 vs Upstage Document Parse API | NOT_STARTED | E01, E03(PDF 직접 추출 결과) |
+
+**전체 파싱 검증 범위 (2026-10-20 확정)**: CSV, XLSX (E02) / DOCX, PDF, HWP, HWPX, PPTX (E03) / 복잡한 PDF·스캔 문서 (E04). 세 실험 모두 공통 중간 JSON([intermediate_representation.md](intermediate_representation.md))과 형식별 지표([evaluation_protocol.md](evaluation_protocol.md) §10)를 쓴다.
 | E05 | 공통 JSON/Pydantic/SQL 데이터 검증 | NOT_STARTED | E01, E02 |
 | E06 | RDFLib/RDF/SHACL 검증 | NOT_STARTED | E01, E05 |
 | E07 | GraphDB/SPARQL 관계 조회 | NOT_STARTED | E06 |
@@ -148,40 +150,56 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 10. 선행조건 및 미확정 사항 | pandas 설치 승인, 컬럼 매핑 방식(규칙 사전 고정 — 자동 매핑은 매핑·에이전트·보안 담당의 Tri-CHEF 실험과 분리), `.xls` 구형식 포함 여부 |
 | 11. 후속 의사결정 조건 | 결과가 E05 입력이 된다. 필수 필드 정확도 목표값은 `팀 합의 필요` |
 
+**E02 1차 실행 (2026-10-20, RUNNING)**: Baseline(표준 csv + openpyxl)만 실행했다. pandas 비교는 하지 않았다(설치 미승인). 파서 `src/parsers/`, `src/normalization/`, 매핑 설정 `configs/e02_vendor_mapping.json`, 채점기 `scripts/e02_grade.py`(파서와 분리), 실행기 `scripts/e02_run.py`. 결과는 `results/E02_tabular_parsing/`. 업무 규칙 오류 4건(납기<주문일, BOM 순환, BOM 버전 중복, 할당>보유)은 파서 범위 밖으로 분류해 E05로 넘긴다.
+
 ---
 
-## E03. DOCX/PDF/HWP/HWPX 파서 호환성 비교
+## E03. DOCX/PDF/HWP/HWPX/PPTX 직접 추출 파서 비교
 
 | 항목 | 내용 |
 |---|---|
-| 1. 검증 목적 | 비정형 문서 형식별로 로컬 오픈소스 파서가 텍스트·표·ID·버전을 보존하는지, 그리고 HWP/HWPX를 무GPU 로컬 환경에서 처리할 수 있는지 확인한다. |
-| 2. 기술적 가설 | DOCX·HWPX(ZIP+XML 구조)·텍스트형 PDF는 로컬 파서로 표 구조를 상당 부분 보존할 수 있고, HWP(바이너리)는 오픈소스 도구로 처리 가능한 범위가 제한적이다. 스캔형 PDF는 OCR 없이 처리할 수 없다. |
-| 3. 필요한 입력 데이터 | E01의 동일 내용 DOCX / 텍스트 PDF / 스캔 PDF / HWPX / HWP (ERR-TABLE, ERR-IDVER 케이스 포함) |
-| 4. 비교 대상과 Baseline | DOCX: python-docx(Baseline). PDF: pypdf(Baseline, 설치됨) vs PyMuPDF vs pdfplumber. HWPX: zipfile+lxml 직접 파싱(Baseline) vs 공개 라이브러리 후보. HWP: olefile/pyhwp 계열 후보(호환성 미확인). 각 후보의 최종 목록은 설치 가능성 확인 후 확정 |
+| 1. 검증 목적 | 비정형 문서 형식(DOCX, PDF, HWP, HWPX, PPTX)별로 로컬 직접 추출 파서가 텍스트·표·ID·버전·원본 위치를 보존하는지, 그리고 HWP/HWPX를 무GPU 로컬 환경에서 처리할 수 있는지 확인한다. |
+| 2. 기술적 가설 | DOCX·HWPX·PPTX(ZIP+XML 구조)·텍스트형 PDF는 로컬 파서로 표 구조를 상당 부분 보존할 수 있고, HWP(바이너리)는 오픈소스 도구로 처리 가능한 범위가 제한적이다. PPTX는 도형 배치 순서와 읽기 순서가 달라 텍스트 순서 보존이 위험 요소다. 스캔형 PDF는 OCR 없이 처리할 수 없다. (모두 검증 전 가설) |
+| 3. 필요한 입력 데이터 | E01 정답 원천에서 만든 동일 내용 DOCX / 텍스트 PDF / 스캔 PDF / HWPX / HWP / PPTX (ERR-TABLE, ERR-IDVER 케이스 포함). **현재 원본 파일 없음** → 아래 "문서 샘플 확보 계획" |
+| 4. 비교 대상과 Baseline | 직접 추출 방식만 비교한다. DOCX: python-docx(Baseline). PDF: pypdf(Baseline) vs PyMuPDF vs pdfplumber. HWPX: zipfile+lxml 직접 파싱(Baseline) vs 공개 라이브러리 후보. HWP: olefile/pyhwp 계열 후보(호환성 미확인). **PPTX: python-pptx(후보, Baseline)**, 비교 = zipfile+lxml 직접 파싱. 각 후보의 최종 목록은 설치 가능성·라이선스 확인 후 확정 (모두 미설치, 설치 승인 필요) |
 | 5. 정답 데이터 확보 방법 | E01 정답 원천(같은 내용을 여러 형식으로 렌더링했으므로 형식 간 동일 정답 사용) |
-| 6. 평가 지표 | 필수 필드 정확 일치율·누락률, 표 셀 정확 일치율(+내용 일치율), 표 구조 보존율, 숫자·단위 보존율, 제품 ID·문서 버전 보존 여부, 처리시간, 피크 메모리, 실패율, 오류 복구 여부. 정성: 설치 난이도, 라이선스, 유지보수 상태 |
-| 7. 실행 방법 | 형식×파서 조합 실행 → 공통 중간형식(텍스트 블록 + 표 배열 JSON) 변환 → 정답 비교. 각 조합 반복 측정 |
-| 8. 예상 실패 유형(가설) | PDF 표가 줄 단위 텍스트로 풀림, 병합 셀 위치 이동, 머리말·표 제목의 버전 정보 누락, HWP 배포용/암호 문서 열기 실패, HWP 5.0 이외 버전 미지원, 한글 조합형 문자 깨짐, 스캔 PDF에서 빈 출력(`output_generated=False`) |
+| 6. 평가 지표 | 필수 필드 정확 일치율·누락률, 표 검출 재현율·정밀도, 표 셀 정확 일치율(+내용 일치율), 표 구조 보존율, 페이지 넘김 표 연결, 숫자·단위 보존율, 제품 ID·문서 버전 보존 여부, 텍스트 블록 순서 보존, 머리말·각주·발표자 노트 보존, 원본 위치 보존 성공률(형식별 판정 — protocol §10.3), 처리시간, 피크 메모리, 추출 실패율, 오류 복구 여부. 정성: 설치 난이도, 라이선스, 유지보수 상태 |
+| 7. 실행 방법 | 형식×파서 조합 실행 → 공통 중간 JSON([intermediate_representation.md](intermediate_representation.md)) 변환 → 파서와 분리된 채점기로 정답 비교. 각 조합 3회 반복 측정 |
+| 8. 예상 실패 유형(가설) | PDF 표가 줄 단위 텍스트로 풀림, 병합 셀 위치 이동, 머리말·표 제목의 버전 정보 누락, HWP 배포용/암호 문서 열기 실패, HWP 5.0 이외 버전 미지원, 한글 조합형 문자 깨짐, PPTX 그룹 도형·이미지 속 표 누락, 슬라이드 도형 순서 뒤섞임, 스캔 PDF에서 빈 출력(`output_generated=False`) |
 | 9. 결과 파일명 | `results/E03_document_parsers/metrics.csv`, `compatibility_matrix.md`(형식×도구), `failures.md`, `summary.md`, `run_meta.json` |
-| 10. 선행조건 및 미확정 사항 | HWP/HWPX 샘플 확보(한글 미설치), PyMuPDF 라이선스(AGPL/상용) 확인, OCR 후보 추가 여부(Tesseract 등 미설치), 파서별 라이선스 검토 |
+| 10. 선행조건 및 미확정 사항 | 문서 샘플 확보(아래 계획), HWP/HWPX 샘플(한글 미설치), 파서·생성 도구 설치 승인(python-docx, PyMuPDF, pdfplumber, python-pptx, PDF 생성 도구 등 — 모두 미설치), PyMuPDF 라이선스(AGPL/상용) 확인, OCR 후보 추가 여부(Tesseract 등 미설치), 파서별 라이선스 검토, PDF bbox IoU 임계값(팀 합의) |
 | 11. 후속 의사결정 조건 | 형식별 권장 파서·라우팅 규칙 도출. HWP 처리 불가 시 "사용자 측 PDF/HWPX 변환 후 업로드" 같은 대체안 검토 → MVP 포함/후속 분리 판단 근거 |
+
+**문서 샘플 확보 계획 (2026-10-20, 계획만 — 샘플 미생성, 측정 미실행)**
+
+| 형식 | 현재 원본 | 확보 방법 (안) | 정답 위치 기록 방법 | 필요 승인·선행조건 |
+|---|---|---|---|---|
+| DOCX | 없음 | E01 canonical에서 생성 (제품 사양서·BOM 표·머리말 버전, 병합 셀 표 포함) | 생성 시 문단·표 순번 기록 | 생성 패키지(python-docx) 설치 승인 |
+| PDF (텍스트형) | 없음 | E01 canonical에서 생성 (페이지 넘김 표, 머리말 ID·버전 포함) | 생성 도구가 아는 좌표(bbox)를 생성 시 기록 | PDF 생성 패키지 설치 승인, 한글 폰트 사용 조건 확인 |
+| PDF (스캔형) | 없음 | 텍스트형 PDF를 이미지로 렌더링해 재조립 (해상도 기준 팀 합의) | 원 텍스트형 PDF 좌표를 해상도 비율로 환산 | 렌더링 도구 설치 승인 |
+| HWPX | 없음 | canonical에서 XML 직접 작성 시도. 한글 프로그램에서 열리는지 확인 불가 → HWP 예외 규칙 준용 가능성 | 섹션·문단 ID 생성 시 기록 | lxml 설치 승인, 한글 프로그램 보유자 확인 |
+| HWP | 없음 | 공개 샘플 또는 한글 보유자가 별도 제작 (E01 "HWP 정답 원천 예외") | 사람이 뷰어에서 확인해 독립 검수 | 제작·검수 담당 지정 |
+| PPTX | 없음 | E01 canonical에서 생성 (슬라이드별 표 도형, 그룹 도형, 텍스트 상자, 발표자 노트에 버전 정보) | 생성 시 슬라이드 번호·도형 ID 기록 | python-pptx 설치 승인 |
+
+- 원본 파일이 없는 형식은 측정 완료로 처리하지 않는다. 샘플을 확보하기 전 E03의 모든 지표는 `미측정`이다.
+- 샘플은 합성(SYNTHETIC) 또는 라이선스가 확인된 공개 자료만 쓴다.
 
 ---
 
-## E04. 직접 PDF 추출과 Upstage Document Parse API 비교
+## E04. 복잡한 PDF·스캔 문서: 직접 추출 vs Upstage Document Parse API
 
 | 항목 | 내용 |
 |---|---|
 | 1. 검증 목적 | 복잡한 표·스캔 PDF에서 외부 Document Parse API가 로컬 직접 추출보다 정확도 이익이 있는지, 그 이익이 시간·비용·보안 부담을 상회하는지 확인한다. |
 | 2. 기술적 가설 | 텍스트형 단순 표 PDF에서는 직접 추출과 API의 정확도 차이가 작고, 스캔 PDF·병합 셀 표에서는 API가 표 구조 보존에서 우세할 수 있다. (검증 전 가설) |
-| 3. 필요한 입력 데이터 | E01 합성 PDF 5~10개(텍스트형/스캔형/복잡 표 포함). 실기업 문서 사용 금지 |
+| 3. 필요한 입력 데이터 | E01 합성 PDF 5~10개(텍스트형/스캔형/복잡 표 포함). 실기업 문서 사용 금지. **HWP/HWPX/PPTX의 API 지원 여부는 공식 문서로 확인하기 전까지 가정하지 않는다** — 지원이 확인되면 해당 형식 추가를 별도 검토하고, 확인 전에는 E04 비교 대상에 넣지 않는다 |
 | 4. 비교 대상과 Baseline | Baseline = E03에서 선정된 최선의 로컬 PDF 파서. 비교 = Upstage Document Parse API. 필요 시 로컬 OCR 대체 후보 1종 |
 | 5. 정답 데이터 확보 방법 | E01 정답 원천 |
 | 6. 평가 지표 | E03과 동일 지표 + API 호출 수(재시도 포함), 실제 청구 비용(콘솔 확인 전 `미확인`), 네트워크 포함 처리시간, 외부 전송 데이터 범위, API 오류율·재시도 성공 여부 |
 | 7. 실행 방법 | 승인 후 API 키를 환경변수로 주입(코드·로그·결과 파일에 키 기록 금지) → 동일 PDF를 로컬/API로 처리 → 응답을 공통 중간형식으로 변환 → 정답 비교 |
 | 8. 예상 실패 유형(가설) | API 응답 형식(HTML/Markdown) 변환 과정에서 셀 위치 손실, 한글 단위 표기 오인식, 요청 한도·타임아웃, 페이지 수 기준 과금으로 예상보다 비용 증가, 네트워크 차단 환경에서 실행 불가 |
 | 9. 결과 파일명 | `results/E04_pdf_vs_upstage/metrics.csv`, `cost_log.csv`, `failures.md`, `summary.md`, `run_meta.json` |
-| 10. 선행조건 및 미확정 사항 | 외부 API 사용 승인(회사·운영기관), API 키 발급 주체, 요금·무료 한도·데이터 보존·재학습 정책(공급사 공식 문서로 확인, 매핑·에이전트·보안 담당의 보안 검토와 연계), 테스트 예산 상한 |
+| 10. 선행조건 및 미확정 사항 | 외부 API 사용 승인(회사·운영기관), API 키 발급 주체, 요금·무료 한도·데이터 보존·재학습 정책(공급사 공식 문서로 확인, 매핑·에이전트·보안 담당의 보안 검토와 연계), 테스트 예산 상한, **API의 지원 입력 형식(HWP/HWPX/PPTX 포함 여부) — 미확인, 공식 문서 확인 필요** |
 | 11. 후속 의사결정 조건 | 정확도 이익과 비용·보안 조건을 함께 비교해 "API 사용 / 특정 문서 유형만 API / 미사용" 중 판단. API 승인 불가 시 `BLOCKED`로 두고 로컬 대체안만 판단 |
 
 ---

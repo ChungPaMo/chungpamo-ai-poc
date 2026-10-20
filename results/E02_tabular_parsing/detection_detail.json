@@ -1,0 +1,294 @@
+{
+ "clean": {
+  "dataset": "clean",
+  "reports": 0,
+  "warnings": 0,
+  "warning_codes": {},
+  "per_error": [],
+  "by_type": {},
+  "false_positives": [],
+  "field_fp": {
+   "numerator": 0,
+   "denominator": 2220
+  },
+  "record_fp": {
+   "numerator": 0,
+   "denominator": 227
+  }
+ },
+ "invalid": {
+  "dataset": "invalid",
+  "reports": 10,
+  "warnings": 12,
+  "warning_codes": {
+   "ERR-UNRESOLVED": 12
+  },
+  "per_error": [
+   {
+    "error_id": "E01-ERR-001",
+    "error_code": "ERR-MISSING",
+    "file": "invalid/vendor_a/orders.csv",
+    "sheet": "",
+    "row": 5,
+    "field": "qty",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-002",
+    "error_code": "ERR-DUPID",
+    "file": "invalid/vendor_a/materials.csv",
+    "sheet": "",
+    "row": 12,
+    "field": "material_code",
+    "scope": "E02",
+    "detected": true,
+    "reports": 2,
+    "duplicate_reports": 1,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-003",
+    "error_code": "ERR-BADREF",
+    "file": "invalid/vendor_b/vendor_b_master.xlsx",
+    "sheet": "BOM",
+    "row": 21,
+    "field": "자품목코드",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-004",
+    "error_code": "ERR-UNIT",
+    "file": "invalid/vendor_a/bom.csv",
+    "sheet": "",
+    "row": 21,
+    "field": "uom",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-005",
+    "error_code": "ERR-NUMFMT",
+    "file": "invalid/vendor_b/vendor_b_inventory.csv",
+    "sheet": "",
+    "row": 7,
+    "field": "현재고",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-006",
+    "error_code": "ERR-TABLE",
+    "file": "invalid/vendor_b/vendor_b_master.xlsx",
+    "sheet": "자재",
+    "row": 2,
+    "field": "*",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-007",
+    "error_code": "ERR-IDVER",
+    "file": "invalid/vendor_a/bom.csv",
+    "sheet": "",
+    "row": 12,
+    "field": "bom_version",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-008",
+    "error_code": "ERR-DATE",
+    "file": "invalid/vendor_a/orders.csv",
+    "sheet": "",
+    "row": 8,
+    "field": "due_date",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   },
+   {
+    "error_id": "E01-ERR-009",
+    "error_code": "ERR-DATE",
+    "file": "invalid/vendor_b/vendor_b_orders.csv",
+    "sheet": "",
+    "row": 13,
+    "field": "납기일자",
+    "scope": "E05",
+    "detected": false,
+    "reports": 0,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": "납기일 < 주문일: 두 값 모두 형식은 정상이며 레코드 업무 규칙(QR-04 ②) 위반"
+   },
+   {
+    "error_id": "E01-ERR-010",
+    "error_code": "ERR-BOMCYCLE",
+    "file": "invalid/vendor_b/vendor_b_master.xlsx",
+    "sheet": "BOM",
+    "row": 26,
+    "field": "자품목코드",
+    "scope": "E05",
+    "detected": false,
+    "reports": 0,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": "BOM 순환: 여러 BOM에 걸친 그래프 검사(QR-05)"
+   },
+   {
+    "error_id": "E01-ERR-011",
+    "error_code": "ERR-BOMVER",
+    "file": "invalid/vendor_a/bom.csv",
+    "sheet": "",
+    "row": 25,
+    "field": "valid_from",
+    "scope": "E05",
+    "detected": false,
+    "reports": 0,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": "BOM 버전 유효조건 중복: 버전 간 기간·수량·사이트 비교(QR-06 ①)"
+   },
+   {
+    "error_id": "E01-ERR-012",
+    "error_code": "ERR-INVQTY",
+    "file": "invalid/vendor_a/inventory.csv",
+    "sheet": "",
+    "row": 3,
+    "field": "allocated",
+    "scope": "E05",
+    "detected": false,
+    "reports": 0,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": "할당 > 보유: 두 수량 모두 형식은 정상이며 재고 업무 규칙(QR-07 ②) 위반"
+   },
+   {
+    "error_id": "E01-ERR-013",
+    "error_code": "ERR-RESREL",
+    "file": "invalid/vendor_a/routing.csv",
+    "sheet": "",
+    "row": 7,
+    "field": "resource_code",
+    "scope": "E02",
+    "detected": true,
+    "reports": 1,
+    "duplicate_reports": 0,
+    "partial": 0,
+    "e05_reason": null
+   }
+  ],
+  "by_type": {
+   "ERR-BADREF": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-BOMCYCLE": {
+    "injected": 1,
+    "detected": 0,
+    "in_e02_scope": 0,
+    "detected_in_scope": 0
+   },
+   "ERR-BOMVER": {
+    "injected": 1,
+    "detected": 0,
+    "in_e02_scope": 0,
+    "detected_in_scope": 0
+   },
+   "ERR-DATE": {
+    "injected": 2,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-DUPID": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-IDVER": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-INVQTY": {
+    "injected": 1,
+    "detected": 0,
+    "in_e02_scope": 0,
+    "detected_in_scope": 0
+   },
+   "ERR-MISSING": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-NUMFMT": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-RESREL": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-TABLE": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   },
+   "ERR-UNIT": {
+    "injected": 1,
+    "detected": 1,
+    "in_e02_scope": 1,
+    "detected_in_scope": 1
+   }
+  },
+  "false_positives": [],
+  "field_fp": {
+   "numerator": 0,
+   "denominator": 2195
+  },
+  "record_fp": {
+   "numerator": 0,
+   "denominator": 206
+  }
+ }
+}

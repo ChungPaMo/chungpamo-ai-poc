@@ -1,0 +1,194 @@
+{
+  "_meta": {
+    "purpose": "E02 파서 전용 업체별 컬럼·코드 매핑 설정 (채점용 정답표 data/canonical/vendor_*_map_v1 과 별도)",
+    "source": "업체 파일의 헤더와 코드 체계를 사람이 보고 작성. 업체별 코드 → 사내 표준 코드 대응표는 업체(또는 기준정보 담당)가 제공한다고 가정",
+    "author": "Claude Code (수작업 작성)",
+    "created": "2026-10-20",
+    "limitation": "코드 대응표는 E01 생성 규칙을 알고 있는 상태에서 작성했으므로, ID 매핑 정확도는 '설정을 정확히 적용하는가'를 측정한다. 낯선 코드의 자동 매칭 능력은 측정하지 않는다 (자동 매핑은 별도 실험 범위)"
+  },
+  "standard_units": {"MASS": "kg", "COUNT": "EA", "TIME": "h"},
+  "units": {
+    "EA": {"dimension": "COUNT", "factor": "1"},
+    "kg": {"dimension": "MASS", "factor": "1"},
+    "g": {"dimension": "MASS", "factor": "0.001"},
+    "h": {"dimension": "TIME", "factor": "1"}
+  },
+  "vendors": {
+    "A": {
+      "dir": "vendor_a",
+      "number_format": "plain",
+      "date_format": "%Y-%m-%d",
+      "bool": {"Y": true, "N": false},
+      "unit_labels": {},
+      "codes": {
+        "product": {"0001001": "FG001", "0001002": "FG002", "0001003": "FG003", "0002001": "SF001", "0002002": "SF002"},
+        "material": {"000101": "M001", "000102": "M002", "000103": "M003", "000104": "M004", "000105": "M005",
+                     "000106": "M006", "000107": "M007", "000108": "M008", "000109": "M009", "000110": "M010"},
+        "supplier": {"SUP-01": "S001", "SUP-02": "S002", "SUP-03": "S003", "SUP-04": "S004"},
+        "resource": {"R01": "R1", "R02": "R2", "R03": "R3"}
+      },
+      "id_rules": {
+        "order": {"pattern": "^SO26(\\d{4})$", "template": "O{n:03d}"},
+        "bom": {"template": "BOM-{product_id}-{bom_version}"}
+      },
+      "files": [
+        {"path": "materials.csv", "entity": "Material", "key": ["material_id"], "material_master": true, "columns": {
+          "material_code": {"field": "material_id", "type": "code", "codes": "material", "required": true},
+          "material_name": {"field": "material_name", "type": "text", "required": true},
+          "uom": {"field": "base_unit", "type": "unit", "required": true},
+          "unit_cost_krw": {"field": "unit_cost", "type": "price_per_unit", "unit_column": "uom", "required": true},
+          "safety_stock": {"field": "safety_stock_qty", "type": "qty", "unit_column": "uom", "required": true}}},
+        {"path": "products.csv", "entity": "Product", "key": ["product_id"], "columns": {
+          "product_code": {"field": "product_id", "type": "code", "codes": "product", "required": true},
+          "product_name": {"field": "product_name", "type": "text", "required": true},
+          "product_type": {"field": "product_type", "type": "enum", "values": {"FG": "FINISHED", "SF": "SEMI_FINISHED"}, "required": true},
+          "uom": {"field": "base_unit", "type": "unit", "required": true},
+          "safety_stock": {"field": "safety_stock_qty", "type": "qty", "unit_column": "uom", "required": true},
+          "mfg_lead_time_days": {"field": "manuf_lead_time_days", "type": "int", "required": true},
+          "outsourcing_allowed": {"field": "outsourcing_allowed", "type": "bool", "required": true},
+          "outsourcing_unit_cost_krw": {"field": "outsourcing_unit_cost", "type": "number"}}},
+        {"path": "suppliers.csv", "entity": "Supplier", "key": ["supplier_id"], "columns": {
+          "supplier_code": {"field": "supplier_id", "type": "code", "codes": "supplier", "required": true},
+          "supplier_name": {"field": "supplier_name", "type": "text", "required": true}}},
+        {"path": "supplier_materials.csv", "entity": "SupplierMaterial", "key": ["supplier_id", "material_id"], "columns": {
+          "supplier_code": {"field": "supplier_id", "type": "code", "codes": "supplier", "required": true},
+          "material_code": {"field": "material_id", "type": "code", "codes": "material", "required": true},
+          "lead_time_days": {"field": "lead_time_days", "type": "int", "required": true},
+          "moq": {"field": "min_order_qty", "type": "qty", "unit_from_material": "material_code"},
+          "preferred": {"field": "is_preferred", "type": "bool", "required": true}}},
+        {"path": "bom.csv", "entity": "BOMLine", "bom_flattened": true, "group_column": "bom_code", "key": ["bom_id", "line_no"], "columns": {
+          "bom_code": {"field": "_group", "type": "text", "required": true},
+          "product_code": {"field": "product_id", "type": "code", "codes": "product", "required": true, "bom_header": true},
+          "bom_version": {"field": "bom_version", "type": "text", "required": true, "bom_header": true},
+          "status": {"field": "status", "type": "enum", "values": {"APPROVED": "APPROVED", "DRAFT": "DRAFT"}, "required": true, "bom_header": true},
+          "active": {"field": "is_active", "type": "bool", "required": true, "bom_header": true},
+          "valid_from": {"field": "valid_from", "type": "date", "required": true, "bom_header": true},
+          "valid_to": {"field": "valid_to", "type": "date", "bom_header": true},
+          "min_qty": {"field": "min_qty", "type": "number", "required": true, "bom_header": true},
+          "max_qty": {"field": "max_qty", "type": "number", "bom_header": true},
+          "site": {"field": "site_id", "type": "text", "bom_header": true},
+          "base_qty": {"field": "base_qty", "type": "number", "required": true, "bom_header": true},
+          "line_no": {"field": "line_no", "type": "int", "required": true},
+          "component_type": {"field": "component_type", "type": "enum", "values": {"MAT": "MATERIAL", "PRD": "PRODUCT"}, "required": true},
+          "component_code": {"field": "component_id", "type": "item_code", "type_column": "component_type", "required": true},
+          "qty_per": {"field": "qty_per", "type": "qty", "unit_column": "uom", "item_column": "component_code", "required": true},
+          "uom": {"field": "unit", "type": "unit", "required": true},
+          "scrap_rate": {"field": "scrap_rate", "type": "ratio", "required": true}}},
+        {"path": "inventory.csv", "entity": "Inventory", "key": ["item_type", "item_id"], "columns": {
+          "item_type": {"field": "item_type", "type": "enum", "values": {"PRO": "PRODUCT", "MAT": "MATERIAL"}, "required": true},
+          "item_code": {"field": "item_id", "type": "item_code", "type_column": "item_type", "required": true},
+          "as_of": {"field": "as_of_date", "type": "date", "required": true},
+          "on_hand": {"field": "on_hand_qty", "type": "qty", "unit_column": "uom", "item_column": "item_code", "required": true},
+          "allocated": {"field": "allocated_qty", "type": "qty", "unit_column": "uom", "item_column": "item_code"},
+          "on_order": {"field": "on_order_qty", "type": "qty", "unit_column": "uom", "item_column": "item_code"},
+          "expected_receipt": {"field": "expected_receipt_date", "type": "date"},
+          "uom": {"field": "unit", "type": "unit", "required": true}}},
+        {"path": "orders.csv", "entity": "Order", "key": ["order_id"], "columns": {
+          "order_no": {"field": "order_id", "type": "id_rule", "rule": "order", "required": true},
+          "product_code": {"field": "product_id", "type": "code", "codes": "product", "required": true},
+          "qty": {"field": "order_qty", "type": "qty", "unit_column": "uom", "item_column": "product_code", "required": true},
+          "uom": {"field": "unit", "type": "unit", "required": true},
+          "order_date": {"field": "order_date", "type": "date", "required": true},
+          "due_date": {"field": "due_date", "type": "date", "required": true},
+          "priority": {"field": "priority", "type": "enum", "values": {"NORMAL": "NORMAL", "URGENT": "URGENT"}, "required": true},
+          "status": {"field": "status", "type": "enum", "values": {"OPEN": "OPEN", "CLOSED": "CLOSED", "CANCELLED": "CANCELLED"}, "required": true}}},
+        {"path": "resources.csv", "entity": "Resource", "key": ["resource_id"], "columns": {
+          "resource_code": {"field": "resource_id", "type": "code", "codes": "resource", "required": true},
+          "resource_name": {"field": "resource_name", "type": "text", "required": true},
+          "resource_type": {"field": "resource_type", "type": "enum", "values": {"MACHINE": "MACHINE", "LINE": "LINE", "WORKCENTER": "WORKCENTER"}, "required": true},
+          "regular_hours_per_day": {"field": "regular_hours_per_day", "type": "number", "required": true},
+          "max_overtime_hours_per_day": {"field": "overtime_hours_per_day_max", "type": "number", "required": true},
+          "cost_per_hour_krw": {"field": "cost_per_hour", "type": "number", "required": true},
+          "overtime_cost_per_hour_krw": {"field": "overtime_cost_per_hour", "type": "number", "required": true}}},
+        {"path": "routing.csv", "entity": "Operation", "key": ["operation_id"], "columns": {
+          "operation_code": {"field": "operation_id", "type": "text", "required": true},
+          "product_code": {"field": "product_id", "type": "code", "codes": "product", "required": true},
+          "seq": {"field": "sequence_no", "type": "int", "required": true},
+          "resource_code": {"field": "resource_id", "type": "code", "codes": "resource", "required": true},
+          "run_time_h_per_unit": {"field": "run_time_per_unit_h", "type": "number", "required": true},
+          "setup_time_h": {"field": "setup_time_h", "type": "number", "required": true}}},
+        {"path": "vendor_a_master.xlsx", "sheet": "Materials", "same_as": "materials.csv"},
+        {"path": "vendor_a_master.xlsx", "sheet": "Products", "same_as": "products.csv"},
+        {"path": "vendor_a_master.xlsx", "sheet": "BOM", "same_as": "bom.csv"}
+      ]
+    },
+    "B": {
+      "dir": "vendor_b",
+      "number_format": "thousands",
+      "date_format": "%Y.%m.%d",
+      "bool": {"예": true, "아니오": false},
+      "unit_labels": {"개": "EA"},
+      "codes": {
+        "product": {"HT-A": "FG001", "HT-B": "FG002", "BL-C": "FG003", "MD-CORE": "SF001", "MD-HOUS": "SF002"},
+        "material": {"MAT-01": "M001", "MAT-02": "M002", "MAT-03": "M003", "MAT-04": "M004", "MAT-05": "M005",
+                     "MAT-06": "M006", "MAT-07": "M007", "MAT-08": "M008", "MAT-09": "M009", "MAT-10": "M010"},
+        "supplier": {"SP01": "S001", "SP02": "S002", "SP03": "S003", "SP04": "S004"}
+      },
+      "id_rules": {
+        "order": {"pattern": "^주문-(\\d{3})$", "template": "O{n:03d}"},
+        "bom": {"template": "BOM-{product_id}-{bom_version}"}
+      },
+      "files": [
+        {"path": "vendor_b_master.xlsx", "sheet": "자재", "entity": "Material", "key": ["material_id"], "material_master": true, "columns": {
+          "자재코드": {"field": "material_id", "type": "code", "codes": "material", "required": true},
+          "자재명": {"field": "material_name", "type": "text", "required": true},
+          "단위": {"field": "base_unit", "type": "unit", "required": true},
+          "단가(원/단위)": {"field": "unit_cost", "type": "price_per_unit", "unit_column": "단위", "required": true},
+          "안전재고": {"field": "safety_stock_qty", "type": "qty", "unit_column": "단위", "required": true}}},
+        {"path": "vendor_b_master.xlsx", "sheet": "제품", "entity": "Product", "key": ["product_id"], "columns": {
+          "품목코드": {"field": "product_id", "type": "code", "codes": "product", "required": true},
+          "품목명": {"field": "product_name", "type": "text", "required": true},
+          "구분": {"field": "product_type", "type": "enum", "values": {"완제품": "FINISHED", "반제품": "SEMI_FINISHED"}, "required": true},
+          "단위": {"field": "base_unit", "type": "unit", "required": true},
+          "안전재고": {"field": "safety_stock_qty", "type": "qty", "unit_column": "단위", "required": true},
+          "생산리드타임(일)": {"field": "manuf_lead_time_days", "type": "int", "required": true},
+          "외주가능": {"field": "outsourcing_allowed", "type": "bool", "required": true},
+          "외주단가(원)": {"field": "outsourcing_unit_cost", "type": "number"}}},
+        {"path": "vendor_b_master.xlsx", "sheet": "공급조건", "entity": "SupplierMaterial", "key": ["supplier_id", "material_id"],
+         "derive": {"entity": "Supplier", "key": ["supplier_id"], "fields": ["supplier_id", "supplier_name"]}, "columns": {
+          "공급사코드": {"field": "supplier_id", "type": "code", "codes": "supplier", "required": true},
+          "공급사명": {"field": "supplier_name", "type": "text", "required": true},
+          "자재코드": {"field": "material_id", "type": "code", "codes": "material", "required": true},
+          "리드타임(일)": {"field": "lead_time_days", "type": "int", "required": true},
+          "최소주문량": {"field": "min_order_qty", "type": "qty", "unit_from_material": "자재코드"},
+          "우선공급": {"field": "is_preferred", "type": "bool", "required": true}}},
+        {"path": "vendor_b_master.xlsx", "sheet": "BOM", "entity": "BOMLine", "bom_flattened": true, "group_column": "BOM번호", "key": ["bom_id", "line_no"], "columns": {
+          "BOM번호": {"field": "_group", "type": "text", "required": true},
+          "모품목코드": {"field": "product_id", "type": "code", "codes": "product", "required": true, "bom_header": true},
+          "버전": {"field": "bom_version", "type": "text", "required": true, "bom_header": true},
+          "상태": {"field": "status", "type": "enum", "values": {"승인": "APPROVED", "초안": "DRAFT"}, "required": true, "bom_header": true},
+          "활성": {"field": "is_active", "type": "bool", "required": true, "bom_header": true},
+          "시작일": {"field": "valid_from", "type": "date", "required": true, "bom_header": true},
+          "종료일": {"field": "valid_to", "type": "date", "bom_header": true},
+          "최소수량": {"field": "min_qty", "type": "number", "required": true, "bom_header": true},
+          "최대수량": {"field": "max_qty", "type": "number", "bom_header": true},
+          "사이트": {"field": "site_id", "type": "text", "bom_header": true},
+          "기준수량": {"field": "base_qty", "type": "number", "required": true, "bom_header": true},
+          "순번": {"field": "line_no", "type": "int", "required": true},
+          "자품목구분": {"field": "component_type", "type": "enum", "values": {"자재": "MATERIAL", "제품": "PRODUCT"}, "required": true},
+          "자품목코드": {"field": "component_id", "type": "item_code", "type_column": "자품목구분", "required": true},
+          "소요량": {"field": "qty_per", "type": "qty", "unit_column": "단위", "item_column": "자품목코드", "required": true},
+          "단위": {"field": "unit", "type": "unit", "required": true},
+          "손실률(%)": {"field": "scrap_rate", "type": "percent", "required": true}}},
+        {"path": "vendor_b_orders.csv", "entity": "Order", "key": ["order_id"], "columns": {
+          "주문번호": {"field": "order_id", "type": "id_rule", "rule": "order", "required": true},
+          "품목코드": {"field": "product_id", "type": "code", "codes": "product", "required": true},
+          "수량": {"field": "order_qty", "type": "qty", "unit_column": "단위", "item_column": "품목코드", "required": true},
+          "단위": {"field": "unit", "type": "unit", "required": true},
+          "주문일자": {"field": "order_date", "type": "date", "required": true},
+          "납기일자": {"field": "due_date", "type": "date", "required": true},
+          "긴급여부": {"field": "priority", "type": "enum", "values": {"긴급": "URGENT", "일반": "NORMAL"}, "required": true},
+          "상태": {"field": "status", "type": "enum", "values": {"진행": "OPEN", "완료": "CLOSED", "취소": "CANCELLED"}, "required": true}}},
+        {"path": "vendor_b_inventory.csv", "entity": "Inventory", "key": ["item_type", "item_id"], "columns": {
+          "구분": {"field": "item_type", "type": "enum", "values": {"제품": "PRODUCT", "자재": "MATERIAL"}, "required": true},
+          "품목코드": {"field": "item_id", "type": "item_code", "type_column": "구분", "required": true},
+          "기준일": {"field": "as_of_date", "type": "date", "required": true},
+          "현재고": {"field": "on_hand_qty", "type": "qty", "unit_column": "단위", "item_column": "품목코드", "required": true},
+          "할당": {"field": "allocated_qty", "type": "qty", "unit_column": "단위", "item_column": "품목코드"},
+          "입고예정": {"field": "on_order_qty", "type": "qty", "unit_column": "단위", "item_column": "품목코드"},
+          "입고예정일": {"field": "expected_receipt_date", "type": "date"},
+          "단위": {"field": "unit", "type": "unit", "required": true}}}
+      ]
+    }
+  }
+}

@@ -1,0 +1,6576 @@
+{
+ "vendor": "B",
+ "dataset": "invalid",
+ "files": [
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "자재",
+   "entity": "Material",
+   "run_ok": true,
+   "output_generated": false,
+   "records": 0,
+   "error": "헤더 불일치로 파싱 중단",
+   "format": "xlsx",
+   "merged_header_ranges": [
+    "A1:C1",
+    "D1:E1"
+   ],
+   "header_rows": 2
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "제품",
+   "entity": "Product",
+   "run_ok": true,
+   "output_generated": true,
+   "records": 5,
+   "error": null,
+   "format": "xlsx",
+   "merged_header_ranges": [
+    "A1:D1",
+    "E1:H1"
+   ],
+   "header_rows": 2
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "entity": "SupplierMaterial",
+   "run_ok": true,
+   "output_generated": true,
+   "records": 12,
+   "error": null,
+   "format": "xlsx",
+   "merged_header_ranges": [
+    "C1:F1",
+    "A1:B1"
+   ],
+   "header_rows": 2
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "BOM",
+   "entity": "BOMLine",
+   "run_ok": true,
+   "output_generated": true,
+   "records": 24,
+   "error": null,
+   "format": "xlsx",
+   "merged_header_ranges": [
+    "F1:J1",
+    "A1:E1",
+    "K1:Q1"
+   ],
+   "header_rows": 2
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_orders.csv",
+   "sheet": "",
+   "entity": "Order",
+   "run_ok": true,
+   "output_generated": true,
+   "records": 20,
+   "error": null,
+   "format": "csv",
+   "encoding": "cp949",
+   "bom": false,
+   "delimiter": ",",
+   "newline": "CRLF"
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_inventory.csv",
+   "sheet": "",
+   "entity": "Inventory",
+   "run_ok": true,
+   "output_generated": true,
+   "records": 15,
+   "error": null,
+   "format": "csv",
+   "encoding": "cp949",
+   "bom": false,
+   "delimiter": ",",
+   "newline": "CRLF"
+  }
+ ],
+ "headers": [
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "자재",
+   "header_rows": 2,
+   "header": [
+    {
+     "col_index": 1,
+     "group": "기본정보",
+     "name": "자재코드"
+    },
+    {
+     "col_index": 2,
+     "group": "기본정보",
+     "name": "자재명"
+    },
+    {
+     "col_index": 3,
+     "group": "기본정보",
+     "name": "단가(원/단위)"
+    },
+    {
+     "col_index": 4,
+     "group": "관리기준",
+     "name": "안전재고"
+    },
+    {
+     "col_index": 5,
+     "group": "관리기준",
+     "name": null
+    }
+   ]
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "제품",
+   "header_rows": 2,
+   "header": [
+    {
+     "col_index": 1,
+     "group": "기본정보",
+     "name": "품목코드"
+    },
+    {
+     "col_index": 2,
+     "group": "기본정보",
+     "name": "품목명"
+    },
+    {
+     "col_index": 3,
+     "group": "기본정보",
+     "name": "구분"
+    },
+    {
+     "col_index": 4,
+     "group": "기본정보",
+     "name": "단위"
+    },
+    {
+     "col_index": 5,
+     "group": "관리기준",
+     "name": "안전재고"
+    },
+    {
+     "col_index": 6,
+     "group": "관리기준",
+     "name": "생산리드타임(일)"
+    },
+    {
+     "col_index": 7,
+     "group": "관리기준",
+     "name": "외주가능"
+    },
+    {
+     "col_index": 8,
+     "group": "관리기준",
+     "name": "외주단가(원)"
+    }
+   ]
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "header_rows": 2,
+   "header": [
+    {
+     "col_index": 1,
+     "group": "공급사",
+     "name": "공급사코드"
+    },
+    {
+     "col_index": 2,
+     "group": "공급사",
+     "name": "공급사명"
+    },
+    {
+     "col_index": 3,
+     "group": "공급조건",
+     "name": "자재코드"
+    },
+    {
+     "col_index": 4,
+     "group": "공급조건",
+     "name": "리드타임(일)"
+    },
+    {
+     "col_index": 5,
+     "group": "공급조건",
+     "name": "최소주문량"
+    },
+    {
+     "col_index": 6,
+     "group": "공급조건",
+     "name": "우선공급"
+    }
+   ]
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "BOM",
+   "header_rows": 2,
+   "header": [
+    {
+     "col_index": 1,
+     "group": "BOM 정보",
+     "name": "BOM번호"
+    },
+    {
+     "col_index": 2,
+     "group": "BOM 정보",
+     "name": "모품목코드"
+    },
+    {
+     "col_index": 3,
+     "group": "BOM 정보",
+     "name": "버전"
+    },
+    {
+     "col_index": 4,
+     "group": "BOM 정보",
+     "name": "상태"
+    },
+    {
+     "col_index": 5,
+     "group": "BOM 정보",
+     "name": "활성"
+    },
+    {
+     "col_index": 6,
+     "group": "유효조건",
+     "name": "시작일"
+    },
+    {
+     "col_index": 7,
+     "group": "유효조건",
+     "name": "종료일"
+    },
+    {
+     "col_index": 8,
+     "group": "유효조건",
+     "name": "최소수량"
+    },
+    {
+     "col_index": 9,
+     "group": "유효조건",
+     "name": "최대수량"
+    },
+    {
+     "col_index": 10,
+     "group": "유효조건",
+     "name": "사이트"
+    },
+    {
+     "col_index": 11,
+     "group": "구성",
+     "name": "기준수량"
+    },
+    {
+     "col_index": 12,
+     "group": "구성",
+     "name": "순번"
+    },
+    {
+     "col_index": 13,
+     "group": "구성",
+     "name": "자품목구분"
+    },
+    {
+     "col_index": 14,
+     "group": "구성",
+     "name": "자품목코드"
+    },
+    {
+     "col_index": 15,
+     "group": "구성",
+     "name": "소요량"
+    },
+    {
+     "col_index": 16,
+     "group": "구성",
+     "name": "단위"
+    },
+    {
+     "col_index": 17,
+     "group": "구성",
+     "name": "손실률(%)"
+    }
+   ]
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_orders.csv",
+   "sheet": "",
+   "header_rows": 1,
+   "header": [
+    {
+     "col_index": 1,
+     "group": null,
+     "name": "주문번호"
+    },
+    {
+     "col_index": 2,
+     "group": null,
+     "name": "품목코드"
+    },
+    {
+     "col_index": 3,
+     "group": null,
+     "name": "수량"
+    },
+    {
+     "col_index": 4,
+     "group": null,
+     "name": "단위"
+    },
+    {
+     "col_index": 5,
+     "group": null,
+     "name": "주문일자"
+    },
+    {
+     "col_index": 6,
+     "group": null,
+     "name": "납기일자"
+    },
+    {
+     "col_index": 7,
+     "group": null,
+     "name": "긴급여부"
+    },
+    {
+     "col_index": 8,
+     "group": null,
+     "name": "상태"
+    }
+   ]
+  },
+  {
+   "file": "invalid/vendor_b/vendor_b_inventory.csv",
+   "sheet": "",
+   "header_rows": 1,
+   "header": [
+    {
+     "col_index": 1,
+     "group": null,
+     "name": "구분"
+    },
+    {
+     "col_index": 2,
+     "group": null,
+     "name": "품목코드"
+    },
+    {
+     "col_index": 3,
+     "group": null,
+     "name": "기준일"
+    },
+    {
+     "col_index": 4,
+     "group": null,
+     "name": "현재고"
+    },
+    {
+     "col_index": 5,
+     "group": null,
+     "name": "할당"
+    },
+    {
+     "col_index": 6,
+     "group": null,
+     "name": "입고예정"
+    },
+    {
+     "col_index": 7,
+     "group": null,
+     "name": "입고예정일"
+    },
+    {
+     "col_index": 8,
+     "group": null,
+     "name": "단위"
+    }
+   ]
+  }
+ ],
+ "entities": {
+  "Product": [
+   {
+    "entity": "Product",
+    "values": {
+     "product_id": "FG001",
+     "product_name": "가정용 히터 A",
+     "product_type": "FINISHED",
+     "base_unit": "EA",
+     "safety_stock_qty": "50",
+     "manuf_lead_time_days": 3,
+     "outsourcing_allowed": false,
+     "outsourcing_unit_cost": null
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "제품",
+     "row": 3,
+     "cells": {
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 1,
+       "raw": "HT-A"
+      },
+      "product_name": {
+       "column": "품목명",
+       "col_index": 2,
+       "raw": "가정용 히터 A"
+      },
+      "product_type": {
+       "column": "구분",
+       "col_index": 3,
+       "raw": "완제품"
+      },
+      "base_unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "safety_stock_qty": {
+       "column": "안전재고",
+       "col_index": 5,
+       "raw": "50"
+      },
+      "manuf_lead_time_days": {
+       "column": "생산리드타임(일)",
+       "col_index": 6,
+       "raw": "3"
+      },
+      "outsourcing_allowed": {
+       "column": "외주가능",
+       "col_index": 7,
+       "raw": "아니오"
+      },
+      "outsourcing_unit_cost": {
+       "column": "외주단가(원)",
+       "col_index": 8,
+       "raw": null
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Product",
+    "values": {
+     "product_id": "FG002",
+     "product_name": "가정용 히터 B",
+     "product_type": "FINISHED",
+     "base_unit": "EA",
+     "safety_stock_qty": "30",
+     "manuf_lead_time_days": 3,
+     "outsourcing_allowed": false,
+     "outsourcing_unit_cost": null
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "제품",
+     "row": 4,
+     "cells": {
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 1,
+       "raw": "HT-B"
+      },
+      "product_name": {
+       "column": "품목명",
+       "col_index": 2,
+       "raw": "가정용 히터 B"
+      },
+      "product_type": {
+       "column": "구분",
+       "col_index": 3,
+       "raw": "완제품"
+      },
+      "base_unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "safety_stock_qty": {
+       "column": "안전재고",
+       "col_index": 5,
+       "raw": "30"
+      },
+      "manuf_lead_time_days": {
+       "column": "생산리드타임(일)",
+       "col_index": 6,
+       "raw": "3"
+      },
+      "outsourcing_allowed": {
+       "column": "외주가능",
+       "col_index": 7,
+       "raw": "아니오"
+      },
+      "outsourcing_unit_cost": {
+       "column": "외주단가(원)",
+       "col_index": 8,
+       "raw": null
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Product",
+    "values": {
+     "product_id": "FG003",
+     "product_name": "산업용 송풍기 C",
+     "product_type": "FINISHED",
+     "base_unit": "EA",
+     "safety_stock_qty": "40",
+     "manuf_lead_time_days": 2,
+     "outsourcing_allowed": true,
+     "outsourcing_unit_cost": "38000"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "제품",
+     "row": 5,
+     "cells": {
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 1,
+       "raw": "BL-C"
+      },
+      "product_name": {
+       "column": "품목명",
+       "col_index": 2,
+       "raw": "산업용 송풍기 C"
+      },
+      "product_type": {
+       "column": "구분",
+       "col_index": 3,
+       "raw": "완제품"
+      },
+      "base_unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "safety_stock_qty": {
+       "column": "안전재고",
+       "col_index": 5,
+       "raw": "40"
+      },
+      "manuf_lead_time_days": {
+       "column": "생산리드타임(일)",
+       "col_index": 6,
+       "raw": "2"
+      },
+      "outsourcing_allowed": {
+       "column": "외주가능",
+       "col_index": 7,
+       "raw": "예"
+      },
+      "outsourcing_unit_cost": {
+       "column": "외주단가(원)",
+       "col_index": 8,
+       "raw": "38,000"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Product",
+    "values": {
+     "product_id": "SF001",
+     "product_name": "히터 코어 모듈",
+     "product_type": "SEMI_FINISHED",
+     "base_unit": "EA",
+     "safety_stock_qty": "20",
+     "manuf_lead_time_days": 2,
+     "outsourcing_allowed": false,
+     "outsourcing_unit_cost": null
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "제품",
+     "row": 6,
+     "cells": {
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 1,
+       "raw": "MD-CORE"
+      },
+      "product_name": {
+       "column": "품목명",
+       "col_index": 2,
+       "raw": "히터 코어 모듈"
+      },
+      "product_type": {
+       "column": "구분",
+       "col_index": 3,
+       "raw": "반제품"
+      },
+      "base_unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "safety_stock_qty": {
+       "column": "안전재고",
+       "col_index": 5,
+       "raw": "20"
+      },
+      "manuf_lead_time_days": {
+       "column": "생산리드타임(일)",
+       "col_index": 6,
+       "raw": "2"
+      },
+      "outsourcing_allowed": {
+       "column": "외주가능",
+       "col_index": 7,
+       "raw": "아니오"
+      },
+      "outsourcing_unit_cost": {
+       "column": "외주단가(원)",
+       "col_index": 8,
+       "raw": null
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Product",
+    "values": {
+     "product_id": "SF002",
+     "product_name": "모터 하우징 조립품",
+     "product_type": "SEMI_FINISHED",
+     "base_unit": "EA",
+     "safety_stock_qty": "10",
+     "manuf_lead_time_days": 2,
+     "outsourcing_allowed": false,
+     "outsourcing_unit_cost": null
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "제품",
+     "row": 7,
+     "cells": {
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 1,
+       "raw": "MD-HOUS"
+      },
+      "product_name": {
+       "column": "품목명",
+       "col_index": 2,
+       "raw": "모터 하우징 조립품"
+      },
+      "product_type": {
+       "column": "구분",
+       "col_index": 3,
+       "raw": "반제품"
+      },
+      "base_unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "safety_stock_qty": {
+       "column": "안전재고",
+       "col_index": 5,
+       "raw": "10"
+      },
+      "manuf_lead_time_days": {
+       "column": "생산리드타임(일)",
+       "col_index": 6,
+       "raw": "2"
+      },
+      "outsourcing_allowed": {
+       "column": "외주가능",
+       "col_index": 7,
+       "raw": "아니오"
+      },
+      "outsourcing_unit_cost": {
+       "column": "외주단가(원)",
+       "col_index": 8,
+       "raw": null
+      }
+     }
+    },
+    "field_errors": []
+   }
+  ],
+  "SupplierMaterial": [
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S001",
+     "supplier_name": "가나소재(가상)",
+     "material_id": "M001",
+     "lead_time_days": 7,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 3,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP01"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "가나소재(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-01"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "7"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "100,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S002",
+     "supplier_name": "다라금속(가상)",
+     "material_id": "M001",
+     "lead_time_days": 4,
+     "min_order_qty": null,
+     "is_preferred": false
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 4,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP02"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "다라금속(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-01"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "4"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "200,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "아니오"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S002",
+     "supplier_name": "다라금속(가상)",
+     "material_id": "M002",
+     "lead_time_days": 10,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 5,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP02"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "다라금속(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-02"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "10"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "50,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S003",
+     "supplier_name": "마바전자(가상)",
+     "material_id": "M003",
+     "lead_time_days": 12,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 6,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP03"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "마바전자(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-03"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "12"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "20,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S002",
+     "supplier_name": "다라금속(가상)",
+     "material_id": "M004",
+     "lead_time_days": 6,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 7,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP02"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "다라금속(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-04"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "6"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "25,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S003",
+     "supplier_name": "마바전자(가상)",
+     "material_id": "M005",
+     "lead_time_days": 10,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 8,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP03"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "마바전자(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-05"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "10"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "100"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S004",
+     "supplier_name": "사아산업(가상)",
+     "material_id": "M006",
+     "lead_time_days": 5,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 9,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP04"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "사아산업(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-06"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "5"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "100"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S003",
+     "supplier_name": "마바전자(가상)",
+     "material_id": "M007",
+     "lead_time_days": 21,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 10,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP03"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "마바전자(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-07"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "21"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "50"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S004",
+     "supplier_name": "사아산업(가상)",
+     "material_id": "M007",
+     "lead_time_days": 14,
+     "min_order_qty": null,
+     "is_preferred": false
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 11,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP04"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "사아산업(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-07"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "14"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "50"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "아니오"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S004",
+     "supplier_name": "사아산업(가상)",
+     "material_id": "M008",
+     "lead_time_days": 3,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 12,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP04"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "사아산업(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-08"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "3"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "500"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S001",
+     "supplier_name": "가나소재(가상)",
+     "material_id": "M009",
+     "lead_time_days": 8,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 13,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP01"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "가나소재(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-09"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "8"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "10,000"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   },
+   {
+    "entity": "SupplierMaterial",
+    "values": {
+     "supplier_id": "S004",
+     "supplier_name": "사아산업(가상)",
+     "material_id": "M010",
+     "lead_time_days": 4,
+     "min_order_qty": null,
+     "is_preferred": true
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 14,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP04"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "사아산업(가상)"
+      },
+      "material_id": {
+       "column": "자재코드",
+       "col_index": 3,
+       "raw": "MAT-10"
+      },
+      "lead_time_days": {
+       "column": "리드타임(일)",
+       "col_index": 4,
+       "raw": "4"
+      },
+      "min_order_qty": {
+       "column": "최소주문량",
+       "col_index": 5,
+       "raw": "200"
+      },
+      "is_preferred": {
+       "column": "우선공급",
+       "col_index": 6,
+       "raw": "예"
+      }
+     }
+    },
+    "field_errors": [
+     "min_order_qty"
+    ]
+   }
+  ],
+  "Supplier": [
+   {
+    "entity": "Supplier",
+    "values": {
+     "supplier_id": "S001",
+     "supplier_name": "가나소재(가상)"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 3,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP01"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "가나소재(가상)"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Supplier",
+    "values": {
+     "supplier_id": "S002",
+     "supplier_name": "다라금속(가상)"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 4,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP02"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "다라금속(가상)"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Supplier",
+    "values": {
+     "supplier_id": "S003",
+     "supplier_name": "마바전자(가상)"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 6,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP03"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "마바전자(가상)"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Supplier",
+    "values": {
+     "supplier_id": "S004",
+     "supplier_name": "사아산업(가상)"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "공급조건",
+     "row": 9,
+     "cells": {
+      "supplier_id": {
+       "column": "공급사코드",
+       "col_index": 1,
+       "raw": "SP04"
+      },
+      "supplier_name": {
+       "column": "공급사명",
+       "col_index": 2,
+       "raw": "사아산업(가상)"
+      }
+     }
+    },
+    "field_errors": []
+   }
+  ],
+  "BOM": [
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-FG001-V1",
+     "product_id": "FG001",
+     "bom_version": "V1",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": "2026-11-30",
+     "min_qty": "0",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "group": "B-BOM-01"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-FG001-V2",
+     "product_id": "FG001",
+     "bom_version": "V2",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-12-01",
+     "valid_to": null,
+     "min_qty": "0",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      7,
+      8,
+      9,
+      10
+     ],
+     "group": "B-BOM-02"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-FG002-V1",
+     "product_id": "FG002",
+     "bom_version": "V1",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": null,
+     "min_qty": "0",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      11,
+      12,
+      13
+     ],
+     "group": "B-BOM-03"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-FG003-V1",
+     "product_id": "FG003",
+     "bom_version": "V1",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": null,
+     "min_qty": "0",
+     "max_qty": "500",
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      14,
+      15,
+      16
+     ],
+     "group": "B-BOM-04"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-FG003-V2",
+     "product_id": "FG003",
+     "bom_version": "V2",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": null,
+     "min_qty": "500",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      17,
+      18,
+      19
+     ],
+     "group": "B-BOM-05"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-SF001-V1",
+     "product_id": "SF001",
+     "bom_version": "V1",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": null,
+     "min_qty": "0",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      20,
+      21,
+      22
+     ],
+     "group": "B-BOM-06"
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOM",
+    "values": {
+     "bom_id": "BOM-SF002-V1",
+     "product_id": "SF002",
+     "bom_version": "V1",
+     "status": "APPROVED",
+     "is_active": true,
+     "valid_from": "2026-01-01",
+     "valid_to": null,
+     "min_qty": "0",
+     "max_qty": null,
+     "site_id": null,
+     "base_qty": "1"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "rows": [
+      23,
+      24,
+      25,
+      26
+     ],
+     "group": "B-BOM-07"
+    },
+    "field_errors": []
+   }
+  ],
+  "BOMLine": [
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V1",
+     "line_no": 1,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "SF001",
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 3,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-01"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": "2026.11.30"
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MD-CORE"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V1",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M001",
+     "component_product_id": null,
+     "qty_per": "1.2",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 4,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-01"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": "2026.11.30"
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1,200"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-01"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V1",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M006",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 5,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-01"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": "2026.11.30"
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-06"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V1",
+     "line_no": 4,
+     "component_type": "MATERIAL",
+     "component_material_id": "M010",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 6,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-01"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": "2026.11.30"
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "4"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-10"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V2",
+     "line_no": 1,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "SF001",
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 7,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-02"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.12.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MD-CORE"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V2",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M001",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 8,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-02"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.12.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1,000"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-01"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V2",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M006",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 9,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-02"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.12.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-06"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG001-V2",
+     "line_no": 4,
+     "component_type": "MATERIAL",
+     "component_material_id": "M010",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 10,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-02"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.12.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "4"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-10"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG002-V1",
+     "line_no": 1,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "SF001",
+     "qty_per": "2",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 11,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-03"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "2"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MD-CORE"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG002-V1",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M002",
+     "component_product_id": null,
+     "qty_per": "0.8",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 12,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-03"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "800"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-02"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG002-V1",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M010",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 13,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-03"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-10"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V1",
+     "line_no": 1,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "SF002",
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 14,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-04"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": "500"
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MD-HOUS"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V1",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M001",
+     "component_product_id": null,
+     "qty_per": "0.6",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 15,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-04"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": "500"
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "600"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-01"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V1",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M009",
+     "component_product_id": null,
+     "qty_per": "0.08",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 16,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-04"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": "500"
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "80"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-09"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V2",
+     "line_no": 1,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "SF002",
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 17,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-05"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "500"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MD-HOUS"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V2",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M001",
+     "component_product_id": null,
+     "qty_per": "0.6",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 18,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-05"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "500"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "600"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-01"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-FG003-V2",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M009",
+     "component_product_id": null,
+     "qty_per": "0.06",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 19,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-05"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V2"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "500"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "60"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-09"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF001-V1",
+     "line_no": 1,
+     "component_type": "MATERIAL",
+     "component_material_id": "M003",
+     "component_product_id": null,
+     "qty_per": "0.3",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 20,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-06"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-CORE"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "300"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-03"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF001-V1",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": null,
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 21,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-06"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-CORE"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-99"
+      }
+     }
+    },
+    "field_errors": [
+     "component_id"
+    ]
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF001-V1",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M004",
+     "component_product_id": null,
+     "qty_per": "0.2",
+     "unit": "kg",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 22,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-06"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-CORE"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "200"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-04"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF002-V1",
+     "line_no": 1,
+     "component_type": "MATERIAL",
+     "component_material_id": "M007",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 23,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-07"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-HOUS"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "1"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-07"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF002-V1",
+     "line_no": 2,
+     "component_type": "MATERIAL",
+     "component_material_id": "M002",
+     "component_product_id": null,
+     "qty_per": "0.4",
+     "unit": "kg",
+     "scrap_rate": "0.02"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 24,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-07"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-HOUS"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "2"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "400"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "g"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "2"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-02"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF002-V1",
+     "line_no": 3,
+     "component_type": "MATERIAL",
+     "component_material_id": "M008",
+     "component_product_id": null,
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 25,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-07"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-HOUS"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "3"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "자재"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_material_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "MAT-08"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "BOMLine",
+    "values": {
+     "bom_id": "BOM-SF002-V1",
+     "line_no": 4,
+     "component_type": "PRODUCT",
+     "component_material_id": null,
+     "component_product_id": "FG003",
+     "qty_per": "1",
+     "unit": "EA",
+     "scrap_rate": "0"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_master.xlsx",
+     "sheet": "BOM",
+     "row": 26,
+     "cells": {
+      "_group": {
+       "column": "BOM번호",
+       "col_index": 1,
+       "raw": "B-BOM-07"
+      },
+      "product_id": {
+       "column": "모품목코드",
+       "col_index": 2,
+       "raw": "MD-HOUS"
+      },
+      "bom_version": {
+       "column": "버전",
+       "col_index": 3,
+       "raw": "V1"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 4,
+       "raw": "승인"
+      },
+      "is_active": {
+       "column": "활성",
+       "col_index": 5,
+       "raw": "예"
+      },
+      "valid_from": {
+       "column": "시작일",
+       "col_index": 6,
+       "raw": "2026.01.01"
+      },
+      "valid_to": {
+       "column": "종료일",
+       "col_index": 7,
+       "raw": null
+      },
+      "min_qty": {
+       "column": "최소수량",
+       "col_index": 8,
+       "raw": "0"
+      },
+      "max_qty": {
+       "column": "최대수량",
+       "col_index": 9,
+       "raw": null
+      },
+      "site_id": {
+       "column": "사이트",
+       "col_index": 10,
+       "raw": null
+      },
+      "base_qty": {
+       "column": "기준수량",
+       "col_index": 11,
+       "raw": "1"
+      },
+      "line_no": {
+       "column": "순번",
+       "col_index": 12,
+       "raw": "4"
+      },
+      "component_type": {
+       "column": "자품목구분",
+       "col_index": 13,
+       "raw": "제품"
+      },
+      "qty_per": {
+       "column": "소요량",
+       "col_index": 15,
+       "raw": "1"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 16,
+       "raw": "개"
+      },
+      "scrap_rate": {
+       "column": "손실률(%)",
+       "col_index": 17,
+       "raw": "0"
+      },
+      "component_product_id": {
+       "column": "자품목코드",
+       "col_index": 14,
+       "raw": "BL-C"
+      }
+     }
+    },
+    "field_errors": []
+   }
+  ],
+  "Order": [
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O001",
+     "product_id": "FG001",
+     "order_qty": "80",
+     "unit": "EA",
+     "order_date": "2026-11-02",
+     "due_date": "2026-11-20",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 2,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-001"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "80"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.02"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.20"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O002",
+     "product_id": "FG002",
+     "order_qty": "40",
+     "unit": "EA",
+     "order_date": "2026-11-02",
+     "due_date": "2026-11-20",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 3,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-002"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "40"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.02"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.20"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O003",
+     "product_id": "FG003",
+     "order_qty": "120",
+     "unit": "EA",
+     "order_date": "2026-11-03",
+     "due_date": "2026-11-21",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 4,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-003"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "120"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.03"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.21"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O004",
+     "product_id": "FG001",
+     "order_qty": "100",
+     "unit": "EA",
+     "order_date": "2026-11-04",
+     "due_date": "2026-11-27",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 5,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-004"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "100"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.04"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.27"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O005",
+     "product_id": "FG002",
+     "order_qty": "60",
+     "unit": "EA",
+     "order_date": "2026-11-05",
+     "due_date": "2026-11-27",
+     "priority": "URGENT",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 6,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-005"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "60"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.05"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.27"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "긴급"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O006",
+     "product_id": "FG003",
+     "order_qty": "150",
+     "unit": "EA",
+     "order_date": "2026-11-05",
+     "due_date": "2026-11-27",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 7,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-006"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "150"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.05"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.27"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O007",
+     "product_id": "FG001",
+     "order_qty": "90",
+     "unit": "EA",
+     "order_date": "2026-11-06",
+     "due_date": "2026-12-04",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 8,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-007"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "90"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.06"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.04"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O008",
+     "product_id": "FG002",
+     "order_qty": "50",
+     "unit": "EA",
+     "order_date": "2026-11-09",
+     "due_date": "2026-12-04",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 9,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-008"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "50"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.09"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.04"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O009",
+     "product_id": "FG003",
+     "order_qty": "130",
+     "unit": "EA",
+     "order_date": "2026-11-09",
+     "due_date": "2026-12-04",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 10,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-009"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "130"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.09"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.04"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O010",
+     "product_id": "FG001",
+     "order_qty": "110",
+     "unit": "EA",
+     "order_date": "2026-11-10",
+     "due_date": "2026-12-11",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 11,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-010"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "110"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.10"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.11"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O011",
+     "product_id": "FG002",
+     "order_qty": "70",
+     "unit": "EA",
+     "order_date": "2026-11-10",
+     "due_date": "2026-12-11",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 12,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-011"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "70"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.10"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.11"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O012",
+     "product_id": "FG003",
+     "order_qty": "160",
+     "unit": "EA",
+     "order_date": "2026-11-11",
+     "due_date": "2026-10-01",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 13,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-012"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "160"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.11"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.10.01"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O013",
+     "product_id": "FG001",
+     "order_qty": "60",
+     "unit": "EA",
+     "order_date": "2026-11-11",
+     "due_date": "2026-11-25",
+     "priority": "URGENT",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 14,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-013"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "60"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.11"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.25"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "긴급"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O014",
+     "product_id": "FG003",
+     "order_qty": "80",
+     "unit": "EA",
+     "order_date": "2026-11-12",
+     "due_date": "2026-12-02",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 15,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-014"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "80"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.12"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.02"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O015",
+     "product_id": "FG002",
+     "order_qty": "30",
+     "unit": "EA",
+     "order_date": "2026-11-12",
+     "due_date": "2026-12-09",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 16,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-015"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "30"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.12"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.09"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O016",
+     "product_id": "FG001",
+     "order_qty": "70",
+     "unit": "EA",
+     "order_date": "2026-11-12",
+     "due_date": "2026-12-09",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 17,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-016"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "70"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.12"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.09"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O017",
+     "product_id": "FG003",
+     "order_qty": "100",
+     "unit": "EA",
+     "order_date": "2026-11-13",
+     "due_date": "2026-11-24",
+     "priority": "URGENT",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 18,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-017"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "100"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.13"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.24"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "긴급"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O018",
+     "product_id": "FG002",
+     "order_qty": "45",
+     "unit": "EA",
+     "order_date": "2026-11-03",
+     "due_date": "2026-12-01",
+     "priority": "NORMAL",
+     "status": "CANCELLED"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 19,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-018"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "45"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.03"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.01"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "취소"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O019",
+     "product_id": "FG001",
+     "order_qty": "50",
+     "unit": "EA",
+     "order_date": "2026-10-28",
+     "due_date": "2026-11-18",
+     "priority": "NORMAL",
+     "status": "CLOSED"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 20,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-019"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "50"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.10.28"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.11.18"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "완료"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Order",
+    "values": {
+     "order_id": "O020",
+     "product_id": "FG003",
+     "order_qty": "40",
+     "unit": "EA",
+     "order_date": "2026-11-13",
+     "due_date": "2026-12-13",
+     "priority": "NORMAL",
+     "status": "OPEN"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_orders.csv",
+     "sheet": "",
+     "row": 21,
+     "cells": {
+      "order_id": {
+       "column": "주문번호",
+       "col_index": 1,
+       "raw": "주문-020"
+      },
+      "product_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "order_qty": {
+       "column": "수량",
+       "col_index": 3,
+       "raw": "40"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 4,
+       "raw": "개"
+      },
+      "order_date": {
+       "column": "주문일자",
+       "col_index": 5,
+       "raw": "2026.11.13"
+      },
+      "due_date": {
+       "column": "납기일자",
+       "col_index": 6,
+       "raw": "2026.12.13"
+      },
+      "priority": {
+       "column": "긴급여부",
+       "col_index": 7,
+       "raw": "일반"
+      },
+      "status": {
+       "column": "상태",
+       "col_index": 8,
+       "raw": "진행"
+      }
+     }
+    },
+    "field_errors": []
+   }
+  ],
+  "Inventory": [
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "PRODUCT",
+     "item_id": "FG001",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "120",
+     "allocated_qty": "20",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 2,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "제품"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-A"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "120"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "20"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "PRODUCT",
+     "item_id": "FG002",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "60",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 3,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "제품"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "HT-B"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "60"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "PRODUCT",
+     "item_id": "FG003",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "90",
+     "allocated_qty": "10",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 4,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "제품"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "BL-C"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "90"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "10"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "PRODUCT",
+     "item_id": "SF001",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "150",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 5,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "제품"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MD-CORE"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "150"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "PRODUCT",
+     "item_id": "SF002",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "40",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 6,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "제품"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MD-HOUS"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "40"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M001",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": null,
+     "allocated_qty": "0",
+     "on_order_qty": "150",
+     "expected_receipt_date": "2026-11-20",
+     "unit": "kg"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 7,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-01"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "8OO,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "150,000"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": "2026.11.20"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "g"
+      }
+     }
+    },
+    "field_errors": [
+     "on_hand_qty"
+    ]
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M002",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "500",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "kg"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 8,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-02"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "500,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "g"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M003",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "200",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "kg"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 9,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-03"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "200,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "g"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M004",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "300",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "kg"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 10,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-04"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "300,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "g"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M005",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "600",
+     "allocated_qty": "0",
+     "on_order_qty": "300",
+     "expected_receipt_date": "2026-11-25",
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 11,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-05"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "600"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "300"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": "2026.11.25"
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M006",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "500",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 12,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-06"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "500"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M007",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "400",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 13,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-07"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "400"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M008",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "1000",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 14,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-08"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "1,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M009",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "50",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "kg"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 15,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-09"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "50,000"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "g"
+      }
+     }
+    },
+    "field_errors": []
+   },
+   {
+    "entity": "Inventory",
+    "values": {
+     "item_type": "MATERIAL",
+     "item_id": "M010",
+     "as_of_date": "2026-11-15",
+     "on_hand_qty": "700",
+     "allocated_qty": "0",
+     "on_order_qty": "0",
+     "expected_receipt_date": null,
+     "unit": "EA"
+    },
+    "source": {
+     "vendor": "B",
+     "file": "invalid/vendor_b/vendor_b_inventory.csv",
+     "sheet": "",
+     "row": 16,
+     "cells": {
+      "item_type": {
+       "column": "구분",
+       "col_index": 1,
+       "raw": "자재"
+      },
+      "item_id": {
+       "column": "품목코드",
+       "col_index": 2,
+       "raw": "MAT-10"
+      },
+      "as_of_date": {
+       "column": "기준일",
+       "col_index": 3,
+       "raw": "2026.11.15"
+      },
+      "on_hand_qty": {
+       "column": "현재고",
+       "col_index": 4,
+       "raw": "700"
+      },
+      "allocated_qty": {
+       "column": "할당",
+       "col_index": 5,
+       "raw": "0"
+      },
+      "on_order_qty": {
+       "column": "입고예정",
+       "col_index": 6,
+       "raw": "0"
+      },
+      "expected_receipt_date": {
+       "column": "입고예정일",
+       "col_index": 7,
+       "raw": ""
+      },
+      "unit": {
+       "column": "단위",
+       "col_index": 8,
+       "raw": "개"
+      }
+     }
+    },
+    "field_errors": []
+   }
+  ]
+ },
+ "diagnostics": [
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "자재",
+   "row": 2,
+   "column": "*",
+   "field": "*",
+   "error_code": "ERR-TABLE",
+   "severity": "error",
+   "message": "헤더 열 구성이 설정과 다름 (기대 5열, 실제 ['자재코드', '자재명', '단가(원/단위)', '안전재고'])",
+   "raw": null
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 3,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-01'의 단위를 찾지 못함",
+   "raw": "100,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 4,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-01'의 단위를 찾지 못함",
+   "raw": "200,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 5,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-02'의 단위를 찾지 못함",
+   "raw": "50,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 6,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-03'의 단위를 찾지 못함",
+   "raw": "20,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 7,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-04'의 단위를 찾지 못함",
+   "raw": "25,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 8,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-05'의 단위를 찾지 못함",
+   "raw": "100"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 9,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-06'의 단위를 찾지 못함",
+   "raw": "100"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 10,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-07'의 단위를 찾지 못함",
+   "raw": "50"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 11,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-07'의 단위를 찾지 못함",
+   "raw": "50"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 12,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-08'의 단위를 찾지 못함",
+   "raw": "500"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 13,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-09'의 단위를 찾지 못함",
+   "raw": "10,000"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "공급조건",
+   "row": 14,
+   "column": "최소주문량",
+   "field": "min_order_qty",
+   "error_code": "ERR-UNRESOLVED",
+   "severity": "warning",
+   "message": "자재 마스터에서 'MAT-10'의 단위를 찾지 못함",
+   "raw": "200"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_master.xlsx",
+   "sheet": "BOM",
+   "row": 21,
+   "column": "자품목코드",
+   "field": "component_id",
+   "error_code": "ERR-BADREF",
+   "severity": "error",
+   "message": "코드 대응표(material)에 없는 코드: 'MAT-99'",
+   "raw": "MAT-99"
+  },
+  {
+   "vendor": "B",
+   "file": "invalid/vendor_b/vendor_b_inventory.csv",
+   "sheet": "",
+   "row": 7,
+   "column": "현재고",
+   "field": "on_hand_qty",
+   "error_code": "ERR-NUMFMT",
+   "severity": "error",
+   "message": "숫자 형식 오류: '8OO,000' (형식 thousands)",
+   "raw": "8OO,000"
+  }
+ ]
+}

@@ -1,0 +1,383 @@
+{
+  "experiment_id": "E02",
+  "experiment_name": "CSV/Excel 직접 파싱 (1차 Baseline: 표준 csv + openpyxl)",
+  "status": "RUNNING",
+  "status_note": "1차 Baseline(표준 csv + openpyxl) 완료 — 2026-10-20 사용자 승인(DEC-20261020-09). E02 전체는 RUNNING (pandas 비교는 D-016 보류)",
+  "phases": {
+    "phase1_baseline_csv_openpyxl": "COMPLETED",
+    "phase2_pandas_comparison": "보류 (D-016, pandas 미설치)"
+  },
+  "scope_note": "주입 오류 13건 중 9건이 파서 범위, 4건(E01-ERR-009~012)은 업무 규칙 오류로 E05 검증 대상. 경고(ERR-UNRESOLVED)는 정탐·오탐과 별도 집계",
+  "mapping_note": "코드 매핑 41항목은 수작업 설정이며, ID 매핑 정확도는 설정 적용 정확도다. 자동 매핑 정확도는 측정하지 않음",
+  "run_timestamp": "2026-10-20T13:54:32+09:00",
+  "python": "3.11.9",
+  "packages": {
+    "openpyxl": "3.1.5",
+    "psutil": "7.2.2"
+  },
+  "git": {
+    "base_commit": "8d520d82048da080f4bac03aace28b1950038526",
+    "uncommitted_changes": [
+      " M docs/decisions.md",
+      " M docs/evaluation_protocol.md",
+      " M docs/experiment_plan.md",
+      " M pyproject.toml",
+      " M scripts/git_safety_check.py",
+      "?? configs/e02_vendor_mapping.json",
+      "?? docs/intermediate_representation.md",
+      "?? results/E02_tabular_parsing/",
+      "?? scripts/e02_grade.py",
+      "?? scripts/e02_parse_one.py",
+      "?? scripts/e02_run.py",
+      "?? src/normalization/values.py",
+      "?? src/parsers/tabular.py",
+      "?? src/parsers/vendor_parser.py",
+      "?? tests/test_e02_parsing.py"
+    ]
+  },
+  "inputs": {
+    "ground_truth_v2_sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+    "files_verified_against_e01_manifest": 32,
+    "all_match": true,
+    "files": [
+      {
+        "path": "data/canonical/ground_truth_v2.json",
+        "sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/canonical/injected_errors_v1.json",
+        "sha256": "9ff9286557712f2c771d2cfd83b7ff5413980defd72b5c776db8daca6cf441c6",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/canonical/vendor_column_map_v1.json",
+        "sha256": "2f4aaaa660f4857a2f208079269a08f7b5208c8a78ad4ac5c714f0e2ce1214be",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/canonical/vendor_id_map_v1.csv",
+        "sha256": "90352b32d499f5fb9cabdb805ede88a28b83041bf3908cfe13adcafc792bba9c",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/canonical/vendor_row_map_v1.csv",
+        "sha256": "d45babe91fd8900076d537d0e36a9bdadc845dce739aba4dcef817ee2a355343",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/products.csv",
+        "sha256": "568ce2e5bba7a752f163b1e35f987d471026832c03161278c553367b1eecbec8",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/materials.csv",
+        "sha256": "c3f5445c0033f23b2a5c3759d43d438a38882e4d8c331552ef8b38d840d2d95d",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/suppliers.csv",
+        "sha256": "7ce9897b6309b15c505c35991120c83216eda755d5b5d9a274b0038668cd13d6",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/supplier_materials.csv",
+        "sha256": "dfdeb8715530beacd8b0805dde0a78289ff5f44856984a4a7128c327a4910d25",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/bom.csv",
+        "sha256": "d313539c31d03e5e6c7743f75b27597d6d922a881824f74fd525bc1454cfad9d",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/inventory.csv",
+        "sha256": "48d6225f0efa5807e78b53d5001c03335b0767909914046090377e79380a4b99",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/orders.csv",
+        "sha256": "b4046b4c19fc9d48fbd657e0677a80ae9724d215d1fc22c58ca1cac4c863c6f3",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/resources.csv",
+        "sha256": "2b00153128ffa87990540e3522abcd5ad82de8a850fc985100bc40311b05e3cc",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/routing.csv",
+        "sha256": "1b2409b21bf41e443346ab63780b6e2a3941f07c8cb59bea64310b6e6002ec1c",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_a/vendor_a_master.xlsx",
+        "sha256": "24b741dd5075e203ddaf6d27ea6cd0096607e69605ecbbbab24970a3be660365",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_b/vendor_b_master.xlsx",
+        "sha256": "99ee2b053f4e48ee36da462068e53cffa3a4520c6f81a48da860a092892ba060",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_b/vendor_b_orders.csv",
+        "sha256": "8decf84d941efd60cd0ae4671e312c502dc4a0ba33d4b1223dd1e8c5f3a160b3",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/vendor_b/vendor_b_inventory.csv",
+        "sha256": "e1864eb380def96ec15281fe2e569e2636f0e986565c70d0150b8c58c8f6721b",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/products.csv",
+        "sha256": "568ce2e5bba7a752f163b1e35f987d471026832c03161278c553367b1eecbec8",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/materials.csv",
+        "sha256": "b400cfc599e975b044682deb3908ee58acc855825e4fc211b00c3d96b9154de5",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/suppliers.csv",
+        "sha256": "7ce9897b6309b15c505c35991120c83216eda755d5b5d9a274b0038668cd13d6",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/supplier_materials.csv",
+        "sha256": "dfdeb8715530beacd8b0805dde0a78289ff5f44856984a4a7128c327a4910d25",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/bom.csv",
+        "sha256": "519bb6a55a575a631a9c6ad58ff2de0d2da9fe0c3e3d4de63b893304a29d3004",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/inventory.csv",
+        "sha256": "737f3047685326b0fd2448638639021f1cadeebcae785031cc361a1016395900",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/orders.csv",
+        "sha256": "8a20890ec774be4a085aa96bdb4ec9019690fd363795ad46c841df2413202226",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/resources.csv",
+        "sha256": "2b00153128ffa87990540e3522abcd5ad82de8a850fc985100bc40311b05e3cc",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/routing.csv",
+        "sha256": "722be47ee32521a7b1b45d5cf60ef3e2ccda1e3e8280f92e7227047342de3246",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_a/vendor_a_master.xlsx",
+        "sha256": "24b741dd5075e203ddaf6d27ea6cd0096607e69605ecbbbab24970a3be660365",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_b/vendor_b_master.xlsx",
+        "sha256": "fdcb7d2685b72a14ec4d4651b11f2b1d73934f509e7f89ad9d5c0cfb5db53a7f",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_b/vendor_b_orders.csv",
+        "sha256": "4973f4be881977d0fd491d4b480c749406d7207111c7c643edb0289fa479b57e",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/invalid/vendor_b/vendor_b_inventory.csv",
+        "sha256": "f30b9d5fc7d2cf524c07e5689997adeded24295ab6c98100b794b00168811e09",
+        "matches_e01_manifest": true
+      },
+      {
+        "path": "data/canonical/ground_truth_v1.json",
+        "sha256": "89f1b075b281d4eaa53fb2b788f0b18b9296e534e195e272114bd36f7c2053a7",
+        "matches_e01_manifest": true
+      }
+    ]
+  },
+  "config": {
+    "file": "configs/e02_vendor_mapping.json",
+    "sha256": "aa041756707cfe94115ae62af3f18249242d41b91de110e061ac1680fa40d928",
+    "code_mapping_entries": 41,
+    "column_specs": 118,
+    "source": "업체 파일의 헤더와 코드 체계를 사람이 보고 작성. 업체별 코드 → 사내 표준 코드 대응표는 업체(또는 기준정보 담당)가 제공한다고 가정",
+    "limitation": "코드 대응표는 E01 생성 규칙을 알고 있는 상태에서 작성했으므로, ID 매핑 정확도는 '설정을 정확히 적용하는가'를 측정한다. 낯선 코드의 자동 매칭 능력은 측정하지 않는다 (자동 매핑은 별도 실험 범위)"
+  },
+  "measurement": {
+    "repeats": 3,
+    "time": "자식 프로세스 안에서 파일별 time.perf_counter (tracemalloc 미사용 실행 3회의 중앙값)",
+    "py_heap": "tracemalloc 파일별 피크 − 파일 시작 시점 사용량 (별도 3회 실행의 중앙값, Python 힙만 — C 확장 내부 메모리 일부 미포함)",
+    "rss": "업체·데이터셋 묶음 프로세스의 피크 RSS = venv 런처 + 실제 인터프리터 자식 프로세스 합 (psutil 5ms 폴링, 인터프리터·라이브러리 적재 포함, 파일별 분리 불가)"
+  },
+  "perf_bundles": {
+    "clean_A": {
+      "total_seconds_median": 0.03691870009060949,
+      "peak_rss_mb_median": 28.546875,
+      "failed_runs": 0
+    },
+    "clean_B": {
+      "total_seconds_median": 0.051449700025841594,
+      "peak_rss_mb_median": 27.91796875,
+      "failed_runs": 0
+    },
+    "invalid_A": {
+      "total_seconds_median": 0.039981900015845895,
+      "peak_rss_mb_median": 28.4375,
+      "failed_runs": 0
+    },
+    "invalid_B": {
+      "total_seconds_median": 0.05107419996056706,
+      "peak_rss_mb_median": 27.87890625,
+      "failed_runs": 0
+    }
+  },
+  "headers": [
+    {
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "자재",
+      "header_rows": 2,
+      "cells_total": 5,
+      "cells_correct": 5
+    },
+    {
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "제품",
+      "header_rows": 2,
+      "cells_total": 8,
+      "cells_correct": 8
+    },
+    {
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "공급조건",
+      "header_rows": 2,
+      "cells_total": 6,
+      "cells_correct": 6
+    },
+    {
+      "file": "vendor_b/vendor_b_master.xlsx",
+      "sheet": "BOM",
+      "header_rows": 2,
+      "cells_total": 17,
+      "cells_correct": 17
+    }
+  ],
+  "detection": {
+    "clean": {
+      "reports": 0,
+      "warnings": 0,
+      "warning_codes": {},
+      "by_type": {},
+      "field_fp": {
+        "numerator": 0,
+        "denominator": 2220
+      },
+      "record_fp": {
+        "numerator": 0,
+        "denominator": 227
+      }
+    },
+    "invalid": {
+      "reports": 10,
+      "warnings": 12,
+      "warning_codes": {
+        "ERR-UNRESOLVED": 12
+      },
+      "by_type": {
+        "ERR-BADREF": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-BOMCYCLE": {
+          "injected": 1,
+          "detected": 0,
+          "in_e02_scope": 0,
+          "detected_in_scope": 0
+        },
+        "ERR-BOMVER": {
+          "injected": 1,
+          "detected": 0,
+          "in_e02_scope": 0,
+          "detected_in_scope": 0
+        },
+        "ERR-DATE": {
+          "injected": 2,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-DUPID": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-IDVER": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-INVQTY": {
+          "injected": 1,
+          "detected": 0,
+          "in_e02_scope": 0,
+          "detected_in_scope": 0
+        },
+        "ERR-MISSING": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-NUMFMT": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-RESREL": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-TABLE": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        },
+        "ERR-UNIT": {
+          "injected": 1,
+          "detected": 1,
+          "in_e02_scope": 1,
+          "detected_in_scope": 1
+        }
+      },
+      "field_fp": {
+        "numerator": 0,
+        "denominator": 2195
+      },
+      "record_fp": {
+        "numerator": 0,
+        "denominator": 206
+      }
+    }
+  },
+  "tests": {
+    "total": 59,
+    "passed": 59,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}
