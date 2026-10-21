@@ -1,0 +1,201 @@
+{
+ "python": {
+  "file_lines": 416,
+  "function_lines": {
+   "dec": 7,
+   "date": 7,
+   "schema_layer": 41,
+   "dup_keys": 12,
+   "referential": 26,
+   "relational": 147,
+   "business": 52,
+   "capacity": 23,
+   "validate": 17,
+   "__init__": 2,
+   "add": 10,
+   "chk": 5,
+   "reach": 9,
+   "dim_check": 4
+  },
+  "dependencies": [
+   "pydantic (E01 모델 재사용)",
+   "표준 라이브러리"
+  ]
+ },
+ "sql": {
+  "rule_queries": 308,
+  "generated_structure_queries": 239,
+  "per_rule": {
+   "S01": {
+    "queries": 107,
+    "sql_chars": 10601
+   },
+   "S04": {
+    "queries": 27,
+    "sql_chars": 4353
+   },
+   "S02": {
+    "queries": 35,
+    "sql_chars": 9516
+   },
+   "S06": {
+    "queries": 27,
+    "sql_chars": 9116
+   },
+   "S05": {
+    "queries": 14,
+    "sql_chars": 3278
+   },
+   "S07": {
+    "queries": 18,
+    "sql_chars": 1475
+   },
+   "S03": {
+    "queries": 10,
+    "sql_chars": 1902
+   },
+   "V01": {
+    "queries": 1,
+    "sql_chars": 327
+   },
+   "S08": {
+    "queries": 14,
+    "sql_chars": 3690
+   },
+   "R01": {
+    "queries": 7,
+    "sql_chars": 1501
+   },
+   "R02": {
+    "queries": 3,
+    "sql_chars": 706
+   },
+   "R03": {
+    "queries": 1,
+    "sql_chars": 217
+   },
+   "R04": {
+    "queries": 1,
+    "sql_chars": 178
+   },
+   "R05": {
+    "queries": 2,
+    "sql_chars": 429
+   },
+   "R06": {
+    "queries": 1,
+    "sql_chars": 205
+   },
+   "R07": {
+    "queries": 7,
+    "sql_chars": 1307
+   },
+   "B01": {
+    "queries": 1,
+    "sql_chars": 461
+   },
+   "B02": {
+    "queries": 1,
+    "sql_chars": 1012
+   },
+   "B03": {
+    "queries": 1,
+    "sql_chars": 119
+   },
+   "B04": {
+    "queries": 1,
+    "sql_chars": 330
+   },
+   "B05": {
+    "queries": 2,
+    "sql_chars": 592
+   },
+   "B06": {
+    "queries": 1,
+    "sql_chars": 1273
+   },
+   "B07": {
+    "queries": 1,
+    "sql_chars": 239
+   },
+   "B08": {
+    "queries": 4,
+    "sql_chars": 1113
+   },
+   "B09": {
+    "queries": 1,
+    "sql_chars": 105
+   },
+   "B10": {
+    "queries": 1,
+    "sql_chars": 383
+   },
+   "B11": {
+    "queries": 1,
+    "sql_chars": 242
+   },
+   "B12": {
+    "queries": 1,
+    "sql_chars": 774
+   },
+   "B13": {
+    "queries": 2,
+    "sql_chars": 263
+   },
+   "B14": {
+    "queries": 1,
+    "sql_chars": 158
+   },
+   "V02": {
+    "queries": 1,
+    "sql_chars": 467
+   },
+   "V03": {
+    "queries": 3,
+    "sql_chars": 963
+   },
+   "V04": {
+    "queries": 1,
+    "sql_chars": 431
+   },
+   "V05": {
+    "queries": 1,
+    "sql_chars": 288
+   },
+   "V06": {
+    "queries": 1,
+    "sql_chars": 145
+   },
+   "V07": {
+    "queries": 1,
+    "sql_chars": 200
+   },
+   "V08": {
+    "queries": 2,
+    "sql_chars": 405
+   },
+   "V09": {
+    "queries": 1,
+    "sql_chars": 302
+   },
+   "V10": {
+    "queries": 1,
+    "sql_chars": 165
+   },
+   "V11": {
+    "queries": 1,
+    "sql_chars": 178
+   },
+   "V12": {
+    "queries": 1,
+    "sql_chars": 426
+   }
+  },
+  "file_lines": 394,
+  "constraint_ddl_tables": 14,
+  "constraint_ddl_chars": 18243,
+  "dependencies": [
+   "sqlite3 (표준, SQLite 3.45.1)"
+  ]
+ }
+}

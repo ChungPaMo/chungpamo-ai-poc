@@ -1,0 +1,829 @@
+[
+ {
+  "dataset_id": "clean",
+  "kind": "clean",
+  "effects": 0,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S01a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S01b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S02a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S02b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S03a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S03b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S04a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S04b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S05",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S06a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S06b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S06c",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S06d",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S07",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S08a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S08b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-S08c",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R01",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R02a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R02b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R02c",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R03",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R04",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R05a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R05b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R06",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-R07",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B01a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "cycle_products": [
+    "FG003",
+    "SF002"
+   ],
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B01b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "cycle_products": [
+    "SF001"
+   ],
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B02a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "both_active_same_window": true,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B02b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "v1_to": "2026-12-01",
+   "v2_from": "2026-12-01",
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B02c",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B03",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B04",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B05a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B05b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B06",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "lines_after_valid_to": 9,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B07",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B08a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B08b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B09",
+  "kind": "single",
+  "effects": 3,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B10",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B11a",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "preferred_count": 2,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B11b",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "preferred_count": 0,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B12",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "groups_not_one": 1,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B13",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-B14",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V01",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V02",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V03",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V04",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V05",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V06",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V07",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V08",
+  "kind": "single",
+  "effects": 2,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": {
+   "fg002_ops": 0,
+   "ok": true
+  },
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V09",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V10",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V11",
+  "kind": "single",
+  "effects": 2,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "I-V12",
+  "kind": "single",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-01",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-02",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-03",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-04",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-05",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-06",
+  "kind": "pass",
+  "effects": 2,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-07",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-08",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "P-09",
+  "kind": "pass",
+  "effects": 1,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "C-1",
+  "kind": "compound",
+  "effects": 5,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "C-2",
+  "kind": "compound",
+  "effects": 6,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ },
+ {
+  "dataset_id": "C-3",
+  "kind": "compound",
+  "effects": 8,
+  "noop_ops": 0,
+  "undeclared_changes": [],
+  "adds_match_diff": true,
+  "expected_without_target": [],
+  "condition_check": null,
+  "ok": true
+ }
+]

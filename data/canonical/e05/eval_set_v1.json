@@ -1,0 +1,4175 @@
+{
+ "schema": "chungpamo.e05_eval_set",
+ "version": "v1",
+ "created": "2026-10-21",
+ "seed": 20261021,
+ "base": {
+  "file": "data/canonical/ground_truth_v2.json",
+  "sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e"
+ },
+ "reference_date": "2026-11-15",
+ "site_id": null,
+ "truth_rules": "expected = 반드시 보고돼야 하는 (규칙, 레코드, 필드). acceptable = 같은 원인으로 보고돼도 오탐이 아닌 규칙(레코드 생략 시 대상 레코드 아무거나). derived = 연쇄로 생기는 보고 (탐지율·오탐에서 제외, 따로 집계). 정답은 검증기 출력과 무관하게 이 생성기에서만 정한다",
+ "datasets": [
+  {
+   "dataset_id": "clean",
+   "kind": "clean",
+   "description": "E01 정답셋 v2 그대로",
+   "error_code": null,
+   "severity": null,
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [],
+   "injection_record": [],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "156cd117ba8a41628e8b4d17e3cf540a1fd53614f2b5f02d26358bc1acca78ab",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S01a",
+   "kind": "single",
+   "description": "주문 수량 null",
+   "error_code": "ERR-MISSING",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O004"
+     },
+     "field": "order_qty",
+     "value": null
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_7d652d3b438e07a9",
+     "field": "order_qty",
+     "old": "100",
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S01",
+      "record_uids": [
+       "rec_7d652d3b438e07a9"
+      ],
+      "field": "order_qty"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "6eacea8d5e30904b3d9c5a22155816812f82e7ba75466f5bb4aa26f36eb47987",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S01b",
+   "kind": "single",
+   "description": "BOM 유효 시작일 빈 문자열 (NULL과 빈 문자열 경계)",
+   "error_code": "ERR-MISSING",
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-SF002-V1"
+     },
+     "field": "valid_from",
+     "value": ""
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_133c1310b14b6c9d",
+     "field": "valid_from",
+     "old": "2026-01-01",
+     "new": ""
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S01",
+      "record_uids": [
+       "rec_133c1310b14b6c9d"
+      ],
+      "field": "valid_from"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_2471871f7ac77a0f",
+       "rec_50ef03da16444078",
+       "rec_b8df3c3b064c55e7",
+       "rec_497c684373d82f44",
+       "rec_30c59250f8cfa6a2",
+       "rec_d4fba4f83f483c46",
+       "rec_6a3bf3b7f560fefe",
+       "rec_9be9dd50a09f79e7",
+       "rec_cd35786d01ea909a",
+       "rec_937df9a8157ab670",
+       "rec_d4370e5097de56df"
+      ],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "52ee99914cd264acffd3cfa8e9c55ee2ec4820ef040b1a78230b6d949d4926a6",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S02a",
+   "kind": "single",
+   "description": "자재 단가에 영문자 O (1O50)",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Material",
+     "where": {
+      "material_id": "M004"
+     },
+     "field": "unit_cost",
+     "value": "1O50"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Material",
+     "record_uid": "rec_ae7d3885fe9886f2",
+     "field": "unit_cost",
+     "old": "2500",
+     "new": "1O50"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S02",
+      "record_uids": [
+       "rec_ae7d3885fe9886f2"
+      ],
+      "field": "unit_cost"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "daf9d799af58cd8ba0594a5e47282263e9ebddcf4b88d962dc33f44006d1339e",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S02b",
+   "kind": "single",
+   "description": "공정 가공시간 문자",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Operation",
+     "where": {
+      "operation_id": "OP-FG002-20"
+     },
+     "field": "run_time_per_unit_h",
+     "value": "abc"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Operation",
+     "record_uid": "rec_1010133c49a93880",
+     "field": "run_time_per_unit_h",
+     "old": "0.25",
+     "new": "abc"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S02",
+      "record_uids": [
+       "rec_1010133c49a93880"
+      ],
+      "field": "run_time_per_unit_h"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "03ff40851af259ed76f53e67c3b0433b028449ded327ce48e58763386193da2e",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S03a",
+   "kind": "single",
+   "description": "존재하지 않는 날짜 2026-02-30",
+   "error_code": "ERR-DATE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O007"
+     },
+     "field": "due_date",
+     "value": "2026-02-30"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_5ee648ee9a69daf6",
+     "field": "due_date",
+     "old": "2026-12-04",
+     "new": "2026-02-30"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S03",
+      "record_uids": [
+       "rec_5ee648ee9a69daf6"
+      ],
+      "field": "due_date"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V07",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "59bf325394ea686a383990aeff91e0ed0e886a2f4b471be68c3830932ccecd54",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S03b",
+   "kind": "single",
+   "description": "날짜 구분자 형식 오류 2026/11/15",
+   "error_code": "ERR-DATE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M006"
+     },
+     "field": "as_of_date",
+     "value": "2026/11/15"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_86fc41700e5b9227",
+     "field": "as_of_date",
+     "old": "2026-11-15",
+     "new": "2026/11/15"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S03",
+      "record_uids": [
+       "rec_86fc41700e5b9227"
+      ],
+      "field": "as_of_date"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "8633f0d124fe9033497bda95a80c42b2be84dbb5551f32e68b7e5eee34ec2b45",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S04a",
+   "kind": "single",
+   "description": "주문 상태 허용값 아님",
+   "error_code": "ERR-ENUM",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O010"
+     },
+     "field": "status",
+     "value": "PENDING"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_d0f4c4b7bb7e7a35",
+     "field": "status",
+     "old": "OPEN",
+     "new": "PENDING"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S04",
+      "record_uids": [
+       "rec_d0f4c4b7bb7e7a35"
+      ],
+      "field": "status"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "b682b20dbcddf28455c7e64361e83ab8f0fbff810339b4836de8d45b4c9b5493",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S04b",
+   "kind": "single",
+   "description": "BOM 상태 소문자 approved",
+   "error_code": "ERR-ENUM",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG003-V2"
+     },
+     "field": "status",
+     "value": "approved"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_48584daa30dd10b7",
+     "field": "status",
+     "old": "APPROVED",
+     "new": "approved"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S04",
+      "record_uids": [
+       "rec_48584daa30dd10b7"
+      ],
+      "field": "status"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B03",
+      "record_uids": null
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "09cfb2f71547eb5da862fe0e55f226d72efd85f2587abe6f98b373302a0f2385",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S05",
+   "kind": "single",
+   "description": "record_uid 형식 오류",
+   "error_code": "ERR-IDFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Supplier",
+     "where": {
+      "supplier_id": "S002"
+     },
+     "field": "record_uid",
+     "value": "REC_bad"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Supplier",
+     "record_uid": "rec_eee4acb6269e7118",
+     "field": "record_uid",
+     "old": "rec_eee4acb6269e7118",
+     "new": "REC_bad"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S05",
+      "record_uids": [
+       "REC_bad"
+      ],
+      "field": "record_uid"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "f7184f94520c057a53175035a21d63f5668e2beb50c3ac67dae6b343677582e4",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S06a",
+   "kind": "single",
+   "description": "소요량 0 (> 0 경계)",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-SF001-V1",
+      "line_no": 2
+     },
+     "field": "qty_per",
+     "value": "0"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_539041cfa6fa5e74",
+     "field": "qty_per",
+     "old": "1",
+     "new": "0"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S06",
+      "record_uids": [
+       "rec_539041cfa6fa5e74"
+      ],
+      "field": "qty_per"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "880767228b7f45c5811a6cad544937611df5a10e6caa2663b6e1109b3abf6914",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S06b",
+   "kind": "single",
+   "description": "음수 주문 수량",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O011"
+     },
+     "field": "order_qty",
+     "value": "-5"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_341d5b819ed04880",
+     "field": "order_qty",
+     "old": "70",
+     "new": "-5"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S06",
+      "record_uids": [
+       "rec_341d5b819ed04880"
+      ],
+      "field": "order_qty"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "65eca838cf32ebe8ef2af0408db19f9df8820c2ffe8bbebc54197bc97d4df0e6",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S06c",
+   "kind": "single",
+   "description": "손실률 1 (< 1 경계)",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG002-V1",
+      "line_no": 2
+     },
+     "field": "scrap_rate",
+     "value": "1"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_faed18647e516350",
+     "field": "scrap_rate",
+     "old": "0",
+     "new": "1"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S06",
+      "record_uids": [
+       "rec_faed18647e516350"
+      ],
+      "field": "scrap_rate"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "d9de90a4a08fabf6c01548f082ebfc5ffe53fac7bdef032e0f457b0e8d149434",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S06d",
+   "kind": "single",
+   "description": "배분 비율 1.2 (≤ 1 위반)",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SalesHistory",
+     "where": {
+      "record_uid": "rec_1066dd5e9936780d"
+     },
+     "field": "allocation_share",
+     "value": "1.2"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SalesHistory",
+     "record_uid": "rec_1066dd5e9936780d",
+     "field": "allocation_share",
+     "old": "0.4216",
+     "new": "1.2"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S06",
+      "record_uids": [
+       "rec_1066dd5e9936780d"
+      ],
+      "field": "allocation_share"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B12",
+      "record_uids": [
+       "rec_1066dd5e9936780d",
+       "rec_c182faba659b8610",
+       "rec_50baa06bc1c6c7d3"
+      ],
+      "field": "allocation_share"
+     }
+    ]
+   },
+   "dataset_sha256": "7d1735feb17185ea7c36737f0370dea4bd5c21159e62f387242b22874951bd78",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S07",
+   "kind": "single",
+   "description": "선택 필드 site_id 빈 문자열",
+   "error_code": "ERR-MISSING",
+   "severity": "WARNING",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG001-V2"
+     },
+     "field": "site_id",
+     "value": ""
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_56af60086ee67acf",
+     "field": "site_id",
+     "old": null,
+     "new": ""
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S07",
+      "record_uids": [
+       "rec_56af60086ee67acf"
+      ],
+      "field": "site_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_a9a02f8538b8aac8",
+       "rec_d7631b343df88387",
+       "rec_23fd251c0b91917c"
+      ],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "84973f08ec3db0be2ab1617cedff401d6c4a47975413601ecd2002d72b4abdfa",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-S08a",
+   "kind": "single",
+   "description": "같은 자재 ID를 다른 이름·단가로 중복 등록",
+   "error_code": "ERR-DUPID",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "Material",
+     "copy_of": {
+      "material_id": "M005"
+     },
+     "values": {
+      "material_name": "중복 자재",
+      "unit_cost": "999"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "Material",
+     "record_uid": "rec_878631a4408e8636",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_878631a4408e8636"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_4ef19f05e1cc8439"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "5332bf5471e26716ab881ef55493c02e0be4f40f5460db7233052015d7f476b9",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-S08b",
+   "kind": "single",
+   "description": "같은 주문 ID 중복",
+   "error_code": "ERR-DUPID",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "Order",
+     "copy_of": {
+      "order_id": "O003"
+     },
+     "values": {
+      "order_qty": "1"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "Order",
+     "record_uid": "rec_21dee955185a170d",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_21dee955185a170d"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_3ea3ffb04c3370a6"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "f860fcdfe01ce72e2f8956e8f0043bc2fe3009c7542521673504e330ec54ba02",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-S08c",
+   "kind": "single",
+   "description": "BOM 라인 키(bom_id, line_no) 중복",
+   "error_code": "ERR-DUPID",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "copy_of": {
+      "bom_id": "BOM-FG003-V1",
+      "line_no": 3
+     },
+     "values": {
+      "qty_per": "70"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_cff5a7adc755e66c",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_cff5a7adc755e66c"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_f634c4429bc8e7e4"
+      ]
+     },
+     {
+      "rule": "B10",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "a28202e20db36801f66f0d7543e700e18a613e37f4d8b5a81e5ef56e49c39f68",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-R01",
+   "kind": "single",
+   "description": "없는 제품 참조 (주문)",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O013"
+     },
+     "field": "product_id",
+     "value": "FG009"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_dc024ee206f72b29",
+     "field": "product_id",
+     "old": "FG001",
+     "new": "FG009"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R01",
+      "record_uids": [
+       "rec_dc024ee206f72b29"
+      ],
+      "field": "product_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V08",
+      "record_uids": null
+     },
+     {
+      "rule": "B08",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "aca49548f36664adbb0a4f83c996665369f680a1e7444ac07a1e775e8109a5b0",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R02a",
+   "kind": "single",
+   "description": "없는 자재 참조 (BOM 라인)",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG002-V1",
+      "line_no": 3
+     },
+     "field": "component_material_id",
+     "value": "M099"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_63312641cc902ec9",
+     "field": "component_material_id",
+     "old": "M010",
+     "new": "M099"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_63312641cc902ec9"
+      ],
+      "field": "component_material_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "3d5b0d4f6c28cf512b0f84419bd09b97f37921875fe73120acd35aa4e30bffc0",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R02b",
+   "kind": "single",
+   "description": "매핑되지 않은 업체 자재 코드 그대로 사용 (불완전한 외부 코드 매핑)",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-SF002-V1",
+      "line_no": 1
+     },
+     "field": "component_material_id",
+     "value": "000107"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_87ac4c1b12a1badc",
+     "field": "component_material_id",
+     "old": "M007",
+     "new": "000107"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_87ac4c1b12a1badc"
+      ],
+      "field": "component_material_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "1617b9a977062a4b2ea2f27e12375ce3db7af5b009c95e0fb7681ed8b89d0808",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R02c",
+   "kind": "single",
+   "description": "자재 마스터 레코드 삭제 → 참조 3건이 고아가 됨",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "remove",
+     "entity": "Material",
+     "where": {
+      "material_id": "M003"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "remove",
+     "entity": "Material",
+     "record_uid": "rec_752906654b613dc0",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_352cbb3264509242"
+      ],
+      "field": "component_material_id"
+     },
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_fb694a77ac062b4c"
+      ],
+      "field": "material_id"
+     },
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_367d8e714ac1b695"
+      ],
+      "field": "item_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     },
+     {
+      "rule": "B11",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "97196fb928418c424f2c79ff42cce2202542a1fdf1c464078ca55d39480af5b7",
+   "records": 352
+  },
+  {
+   "dataset_id": "I-R03",
+   "kind": "single",
+   "description": "없는 공급사 참조",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SupplierMaterial",
+     "where": {
+      "supplier_id": "S004",
+      "material_id": "M008"
+     },
+     "field": "supplier_id",
+     "value": "S099"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SupplierMaterial",
+     "record_uid": "rec_77999e04447f956f",
+     "field": "supplier_id",
+     "old": "S004",
+     "new": "S099"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R03",
+      "record_uids": [
+       "rec_77999e04447f956f"
+      ],
+      "field": "supplier_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "708fb7c79f2d85b36ef2d58f3fa8a1438aa38f94335291896d223cd021eb9737",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R04",
+   "kind": "single",
+   "description": "없는 BOM 참조 (BOM 라인)",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG003-V2",
+      "line_no": 3
+     },
+     "field": "bom_id",
+     "value": "BOM-FG003-V9"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_d2cca52a274869d1",
+     "field": "bom_id",
+     "old": "BOM-FG003-V2",
+     "new": "BOM-FG003-V9"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R04",
+      "record_uids": [
+       "rec_d2cca52a274869d1"
+      ],
+      "field": "bom_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "d7dfc435fd543e81c60c40a6adde52e5ea28fb7f4c902bb3a0a50f441027f9f6",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R05a",
+   "kind": "single",
+   "description": "공정이 없는 자원 참조",
+   "error_code": "ERR-RESREL",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Operation",
+     "where": {
+      "operation_id": "OP-FG003-20"
+     },
+     "field": "resource_id",
+     "value": "R09"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Operation",
+     "record_uid": "rec_399d5a02c199abe7",
+     "field": "resource_id",
+     "old": "R2",
+     "new": "R09"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R05",
+      "record_uids": [
+       "rec_399d5a02c199abe7"
+      ],
+      "field": "resource_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "a09f4c5a160acccab897a67e5c15e239fdbe5c7611974d017452d09e0cef69af",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R05b",
+   "kind": "single",
+   "description": "계획 라인이 없는 자원 참조",
+   "error_code": "ERR-RESREL",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-OT",
+      "line_no": 5
+     },
+     "field": "resource_id",
+     "value": "R9"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_233a6ff89a36c0a1",
+     "field": "resource_id",
+     "old": "R1",
+     "new": "R9"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R05",
+      "record_uids": [
+       "rec_233a6ff89a36c0a1"
+      ],
+      "field": "resource_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V09",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "95cd89174d8b958d6e21b59c6b572cf66d2a849a0a01ffa2249d39b1f7b1d46c",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R06",
+   "kind": "single",
+   "description": "없는 계획 참조",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "line_no": 5
+     },
+     "field": "plan_id",
+     "value": "PLAN-XX"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_1607d4a2a6c2de41",
+     "field": "plan_id",
+     "old": "PLAN-REG",
+     "new": "PLAN-XX"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R06",
+      "record_uids": [
+       "rec_1607d4a2a6c2de41"
+      ],
+      "field": "plan_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V12",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "53b2a7c711abd15ccea93a283b1c8c7737f7695b9482423aad11b103d667bb61",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-R07",
+   "kind": "single",
+   "description": "Unit 목록에 없는 단위",
+   "error_code": "ERR-UNIT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M006"
+     },
+     "field": "unit",
+     "value": "pcs"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_86fc41700e5b9227",
+     "field": "unit",
+     "old": "EA",
+     "new": "pcs"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R07",
+      "record_uids": [
+       "rec_86fc41700e5b9227"
+      ],
+      "field": "unit"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     },
+     {
+      "rule": "V03",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "1af629a6ca4f334182024e01f1a5ec09ede9646145d03f0b5f06a7b8e8c72f88",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B01a",
+   "kind": "single",
+   "description": "반제품 SF002 구성품에 완제품 FG003 추가 → FG003→SF002→FG003 순환",
+   "error_code": "ERR-BOMCYCLE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "values": {
+      "bom_id": "BOM-SF002-V1",
+      "line_no": 4,
+      "component_type": "PRODUCT",
+      "component_material_id": null,
+      "component_product_id": "FG003",
+      "qty_per": "1",
+      "unit": "EA",
+      "scrap_rate": "0",
+      "line_type": "ITEM",
+      "origin_class": "SYNTHETIC"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_0bdf55f468360e43",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B01",
+      "record_uids": [
+       "rec_0bdf55f468360e43"
+      ],
+      "field": "component_product_id"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B01",
+      "record_uids": [
+       "rec_533c95c175e5a1ff",
+       "rec_3970a71bf16483a1"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "a0cdea4251135910eb05c9c533f6be514c4c626ee44789a957bd609cd035f86d",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-B01b",
+   "kind": "single",
+   "description": "자기 참조 SF001→SF001",
+   "error_code": "ERR-BOMCYCLE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "values": {
+      "bom_id": "BOM-SF001-V1",
+      "line_no": 4,
+      "component_type": "PRODUCT",
+      "component_material_id": null,
+      "component_product_id": "SF001",
+      "qty_per": "1",
+      "unit": "EA",
+      "scrap_rate": "0",
+      "line_type": "ITEM",
+      "origin_class": "SYNTHETIC"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_5db7c125a15f98df",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B01",
+      "record_uids": [
+       "rec_5db7c125a15f98df"
+      ],
+      "field": "component_product_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "6ae886b44689c0053df2e9f6e8ee31f127364db25abd8f2c9aed33cd3424377c",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-B02a",
+   "kind": "single",
+   "description": "FG002에 V1과 모든 조건이 겹치는 활성 V2 추가",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOM",
+     "copy_of": {
+      "bom_id": "BOM-FG002-V1"
+     },
+     "values": {
+      "bom_id": "BOM-FG002-V2",
+      "bom_version": "V2"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOM",
+     "record_uid": "rec_67ca1c17bd0470af",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_67ca1c17bd0470af"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_8c75fd594fab5063"
+      ]
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_1607d4a2a6c2de41",
+       "rec_879776be691e6d69",
+       "rec_6d1729ee9e2cc07d",
+       "rec_7bc777cf179e236c",
+       "rec_233a6ff89a36c0a1",
+       "rec_1108df78610f37c0",
+       "rec_6296bf848588fbb2",
+       "rec_e9a93b809ab8820f",
+       "rec_972fda2be6d7eae4",
+       "rec_613143b4dbd01957",
+       "rec_573143a632ce6cca",
+       "rec_aa3127bb3163604b"
+      ],
+      "field": "product_id"
+     },
+     {
+      "rule": "B09",
+      "record_uids": [
+       "rec_67ca1c17bd0470af"
+      ],
+      "field": "*"
+     }
+    ]
+   },
+   "dataset_sha256": "4cdbcdccde738ae60d9be1f8bec6603b207fbd409d0a6d8aeac8b13028a08347",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-B02b",
+   "kind": "single",
+   "description": "교체일 하루 겹침 (V1 종료일 = V2 시작일, 종료일 포함 규칙 경계)",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG001-V1"
+     },
+     "field": "valid_to",
+     "value": "2026-12-01"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_426ffe9aea1abdd3",
+     "field": "valid_to",
+     "old": "2026-11-30",
+     "new": "2026-12-01"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_426ffe9aea1abdd3"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_56af60086ee67acf"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "1723092de7056ce2cf8c6ccdf026eca59ac633d97a8f5fb403ab0a114475e16e",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B02c",
+   "kind": "single",
+   "description": "수량 구간 겹침 (V1 상한 500→600, V2 하한 500)",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG003-V1"
+     },
+     "field": "max_qty",
+     "value": "600"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_f8df671e73b78d87",
+     "field": "max_qty",
+     "old": "500",
+     "new": "600"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_f8df671e73b78d87"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_48584daa30dd10b7"
+      ]
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "ee40720d16f59cd4e2f45ca3a28ef6cfcb20de65bdaa861566d83b5746d093a1",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B03",
+   "kind": "single",
+   "description": "미승인(DRAFT) 버전이 활성",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-SF001-V1"
+     },
+     "field": "status",
+     "value": "DRAFT"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_79a7bd82c4d55576",
+     "field": "status",
+     "old": "APPROVED",
+     "new": "DRAFT"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B03",
+      "record_uids": [
+       "rec_79a7bd82c4d55576"
+      ],
+      "field": "status"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_7f2fff8b75674337",
+       "rec_dbf5d8cab038a55e",
+       "rec_3ac7d7a3c32738de",
+       "rec_e5c70caaa5564118",
+       "rec_9e6e45d8a7117403",
+       "rec_02fdb342f49bca45",
+       "rec_ca96e4d2b7d4b401",
+       "rec_e10575813edbba20",
+       "rec_f67ef0988829fd2f"
+      ],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "5865ceb1716ad3047f13cfe2ceb08f91b1538fd54f4d64df7c3df0804eaf780d",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B04",
+   "kind": "single",
+   "description": "같은 제품·버전 표기 중복 (비활성 사본)",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOM",
+     "copy_of": {
+      "bom_id": "BOM-FG002-V1"
+     },
+     "values": {
+      "bom_id": "BOM-FG002-V1B",
+      "is_active": false
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOM",
+     "record_uid": "rec_c7752d8dbab4f109",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B04",
+      "record_uids": [
+       "rec_c7752d8dbab4f109"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B04",
+      "record_uids": [
+       "rec_8c75fd594fab5063"
+      ]
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B09",
+      "record_uids": [
+       "rec_c7752d8dbab4f109"
+      ],
+      "field": "*"
+     }
+    ]
+   },
+   "dataset_sha256": "2f14aca5868859dfdcac07d70af8ab51896c75c1e238f78784c2d59769630f52",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-B05a",
+   "kind": "single",
+   "description": "valid_to < valid_from",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-SF002-V1"
+     },
+     "field": "valid_to",
+     "value": "2025-12-31"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_133c1310b14b6c9d",
+     "field": "valid_to",
+     "old": null,
+     "new": "2025-12-31"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B05",
+      "record_uids": [
+       "rec_133c1310b14b6c9d"
+      ],
+      "field": "valid_to"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_2471871f7ac77a0f",
+       "rec_50ef03da16444078",
+       "rec_b8df3c3b064c55e7",
+       "rec_497c684373d82f44",
+       "rec_30c59250f8cfa6a2",
+       "rec_d4fba4f83f483c46",
+       "rec_6a3bf3b7f560fefe",
+       "rec_9be9dd50a09f79e7",
+       "rec_cd35786d01ea909a",
+       "rec_937df9a8157ab670",
+       "rec_d4370e5097de56df"
+      ],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "423a5126ceda60de39bbc31d8df17d51f84a254182aa0bc1309a37569c3c852a",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B05b",
+   "kind": "single",
+   "description": "max_qty ≤ min_qty",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG003-V2"
+     },
+     "field": "max_qty",
+     "value": "400"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_48584daa30dd10b7",
+     "field": "max_qty",
+     "old": null,
+     "new": "400"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B05",
+      "record_uids": [
+       "rec_48584daa30dd10b7"
+      ],
+      "field": "max_qty"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "a4bd1110a2e17540fd88a07485a0555f091b0adb502b13e06e7b17cbb7fe5a26",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B06",
+   "kind": "single",
+   "description": "FG002 유일 버전 종료일을 11-20으로 → 11-23 이후 계획 라인에 적용 BOM 없음",
+   "error_code": "ERR-BOMVER",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG002-V1"
+     },
+     "field": "valid_to",
+     "value": "2026-11-20"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_8c75fd594fab5063",
+     "field": "valid_to",
+     "old": null,
+     "new": "2026-11-20"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_879776be691e6d69",
+       "rec_6d1729ee9e2cc07d",
+       "rec_7bc777cf179e236c",
+       "rec_1108df78610f37c0",
+       "rec_6296bf848588fbb2",
+       "rec_e9a93b809ab8820f",
+       "rec_613143b4dbd01957",
+       "rec_573143a632ce6cca",
+       "rec_aa3127bb3163604b"
+      ],
+      "field": "product_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "00b6229115705812e92273405d52433965a12cdadc5bd5aa6ab852d71bb2843e",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B07",
+   "kind": "single",
+   "description": "component_type PRODUCT인데 자재 ID만 있음",
+   "error_code": "ERR-BADREF",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG001-V1",
+      "line_no": 3
+     },
+     "field": "component_type",
+     "value": "PRODUCT"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_e364818cd2a09ae9",
+     "field": "component_type",
+     "old": "MATERIAL",
+     "new": "PRODUCT"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B07",
+      "record_uids": [
+       "rec_e364818cd2a09ae9"
+      ],
+      "field": "component_type"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "R01",
+      "record_uids": null
+     },
+     {
+      "rule": "B08",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "e39b967ec053f0fba6e9fc821fa31d76db1081f2bc87591b3c7650ecc0a41530",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B08a",
+   "kind": "single",
+   "description": "kg 자재(M004)에 EA",
+   "error_code": "ERR-UNIT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-SF001-V1",
+      "line_no": 3
+     },
+     "field": "unit",
+     "value": "EA"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_4e29fcc3c9b08c42",
+     "field": "unit",
+     "old": "kg",
+     "new": "EA"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B08",
+      "record_uids": [
+       "rec_4e29fcc3c9b08c42"
+      ],
+      "field": "unit"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "30190011b59570eb78e63c893e2540e6971d7576152ce91eed5b9ff375c30807",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B08b",
+   "kind": "single",
+   "description": "EA 제품 주문에 kg",
+   "error_code": "ERR-UNIT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O014"
+     },
+     "field": "unit",
+     "value": "kg"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_f8699be15b52ae9d",
+     "field": "unit",
+     "old": "EA",
+     "new": "kg"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B08",
+      "record_uids": [
+       "rec_f8699be15b52ae9d"
+      ],
+      "field": "unit"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "506724629bc3c230279081e4ca4049491cc5fcac194d0a288a5e9b053c0eff94",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B09",
+   "kind": "single",
+   "description": "BOM의 라인 전부 삭제 (구성품 누락)",
+   "error_code": "ERR-BOMVER",
+   "severity": "WARNING",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "remove",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-SF002-V1"
+     },
+     "many": true
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_22968f53f1bcc7fd",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_87ac4c1b12a1badc",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_8dc089a9ed596c48",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B09",
+      "record_uids": [
+       "rec_133c1310b14b6c9d"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "52836b3c14b9dd1b4830e51e74f6e873bd21fc01412e7fe7785cfb02e61bd8c0",
+   "records": 350
+  },
+  {
+   "dataset_id": "I-B10",
+   "kind": "single",
+   "description": "같은 BOM에 같은 구성품 라인 추가",
+   "error_code": "ERR-DUPID",
+   "severity": "WARNING",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "copy_of": {
+      "bom_id": "BOM-FG001-V2",
+      "line_no": 3
+     },
+     "values": {
+      "line_no": 5
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_82419ef304cbe3f2",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B10",
+      "record_uids": [
+       "rec_82419ef304cbe3f2"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B10",
+      "record_uids": [
+       "rec_f6d67e31377f577a"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "278ff203a2b5f5868e1adf5de6fc67d85fcc01070d2470e16aca4daf580a2944",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-B11a",
+   "kind": "single",
+   "description": "자재 M001 우선 공급사 2개",
+   "error_code": "ERR-DUPID",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SupplierMaterial",
+     "where": {
+      "supplier_id": "S002",
+      "material_id": "M001"
+     },
+     "field": "is_preferred",
+     "value": true
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SupplierMaterial",
+     "record_uid": "rec_0f8418a171df4bdb",
+     "field": "is_preferred",
+     "old": false,
+     "new": true
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B11",
+      "record_uids": [
+       "rec_0f8418a171df4bdb"
+      ],
+      "field": "is_preferred"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B11",
+      "record_uids": [
+       "rec_ba4e6bf368c7a96d",
+       "rec_0f8418a171df4bdb"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "5dec48f137efb674236b0c772c3eb54a755e3d851aa6073d70916ed974d842dc",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B11b",
+   "kind": "single",
+   "description": "자재 M007 우선 공급사 0개",
+   "error_code": "ERR-DUPID",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SupplierMaterial",
+     "where": {
+      "supplier_id": "S003",
+      "material_id": "M007"
+     },
+     "field": "is_preferred",
+     "value": false
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SupplierMaterial",
+     "record_uid": "rec_9674d1988b25c5b2",
+     "field": "is_preferred",
+     "old": true,
+     "new": false
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B11",
+      "record_uids": [
+       "rec_9674d1988b25c5b2",
+       "rec_be8ff9405fc00ef0"
+      ],
+      "field": "is_preferred"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "69ce78b2a05b24219aac5fd1c9d34e76cd7d8c6d21ee4358a7c282ceddcbd66b",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B12",
+   "kind": "single",
+   "description": "배분 비율 합 ≠ 1",
+   "error_code": "ERR-NUMFMT",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SalesHistory",
+     "where": {
+      "record_uid": "rec_c182faba659b8610"
+     },
+     "field": "allocation_share",
+     "value": "0.4243"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SalesHistory",
+     "record_uid": "rec_c182faba659b8610",
+     "field": "allocation_share",
+     "old": "0.3243",
+     "new": "0.4243"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B12",
+      "record_uids": [
+       "rec_c182faba659b8610"
+      ],
+      "field": "allocation_share"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B12",
+      "record_uids": [
+       "rec_1066dd5e9936780d",
+       "rec_c182faba659b8610",
+       "rec_50baa06bc1c6c7d3"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "a5c73a2f3b349befaf6c11fc3ae43c0fb30bbaf1cb1e118d39d442ff4b3ba2cd",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B13",
+   "kind": "single",
+   "description": "ALLOCATED 행의 원본 레코드 없음",
+   "error_code": "ERR-MISSING",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "SalesHistory",
+     "where": {
+      "record_uid": "rec_482758c8f289feec"
+     },
+     "field": "derived_from_record_uid",
+     "value": null
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "SalesHistory",
+     "record_uid": "rec_482758c8f289feec",
+     "field": "derived_from_record_uid",
+     "old": "rec_6cd5e97ad8be596b",
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B13",
+      "record_uids": [
+       "rec_482758c8f289feec"
+      ],
+      "field": "derived_from_record_uid"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "B12",
+      "record_uids": [
+       "rec_e8b5f1fa95ab9470",
+       "rec_2478b01fe6028207"
+      ],
+      "field": "allocation_share"
+     }
+    ]
+   },
+   "dataset_sha256": "2dc4f3738009a91634d5ad56cf8fb3e707919b967b53c8114f4ba78ae0d48e17",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-B14",
+   "kind": "single",
+   "description": "외주 불가 제품에 외주 단가",
+   "error_code": "ERR-MISSING",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Product",
+     "where": {
+      "product_id": "FG001"
+     },
+     "field": "outsourcing_unit_cost",
+     "value": "5000"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Product",
+     "record_uid": "rec_cd69242a9dcf2445",
+     "field": "outsourcing_unit_cost",
+     "old": null,
+     "new": "5000"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "B14",
+      "record_uids": [
+       "rec_cd69242a9dcf2445"
+      ],
+      "field": "outsourcing_unit_cost"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "b6d132e32c0753739e27f652cc29445266bb70f22a0defb915e21e9b7682b689",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V01",
+   "kind": "single",
+   "description": "음수 보유 재고",
+   "error_code": "ERR-INVQTY",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M007"
+     },
+     "field": "on_hand_qty",
+     "value": "-10"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_0e58aa10a0b0b494",
+     "field": "on_hand_qty",
+     "old": "400",
+     "new": "-10"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V01",
+      "record_uids": [
+       "rec_0e58aa10a0b0b494"
+      ],
+      "field": "on_hand_qty"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V02",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "01c9e3160852b8409a2d33c4c0987bc09c2c043b7e93095a31493ac224894130",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V02",
+   "kind": "single",
+   "description": "할당 80 > 보유 60 (E01-ERR-012와 같은 위치)",
+   "error_code": "ERR-INVQTY",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "FG002"
+     },
+     "field": "allocated_qty",
+     "value": "80"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_9ce3ac1bed1dae93",
+     "field": "allocated_qty",
+     "old": "0",
+     "new": "80"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V02",
+      "record_uids": [
+       "rec_9ce3ac1bed1dae93"
+      ],
+      "field": "allocated_qty"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "999cc6732aa9370f56e97e62d2b26917094b9d89f654851ae02458d4434468d8",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V03",
+   "kind": "single",
+   "description": "EA 재고 소수 수량",
+   "error_code": "ERR-INVQTY",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M008"
+     },
+     "field": "on_hand_qty",
+     "value": "999.5"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_c2b4c918d638b848",
+     "field": "on_hand_qty",
+     "old": "1000",
+     "new": "999.5"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V03",
+      "record_uids": [
+       "rec_c2b4c918d638b848"
+      ],
+      "field": "on_hand_qty"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "3ed1cfb5ef3e7e2d568047e7f82797b9ddfba00aee1ec40996076968c4f30a34",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V04",
+   "kind": "single",
+   "description": "같은 품목·기준일 재고 중복",
+   "error_code": "ERR-INVQTY",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "Inventory",
+     "copy_of": {
+      "item_id": "M002"
+     },
+     "values": {
+      "on_hand_qty": "450"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "Inventory",
+     "record_uid": "rec_9abfd3b315011b76",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V04",
+      "record_uids": [
+       "rec_9abfd3b315011b76"
+      ],
+      "field": "*"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V04",
+      "record_uids": [
+       "rec_8e15c3bc877ffa45"
+      ]
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "ea2fae9a4dda6d9d0532b90e5da00d1dd4fadc494f02feb9b18caf44addbb484",
+   "records": 354
+  },
+  {
+   "dataset_id": "I-V05",
+   "kind": "single",
+   "description": "입고 예정 수량 있는데 예정일 없음",
+   "error_code": "ERR-DATE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M006"
+     },
+     "field": "on_order_qty",
+     "value": "50"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_86fc41700e5b9227",
+     "field": "on_order_qty",
+     "old": "0",
+     "new": "50"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V05",
+      "record_uids": [
+       "rec_86fc41700e5b9227"
+      ],
+      "field": "expected_receipt_date"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "feeb183d60c564efd49d58176234429dce6479a05be40d87a1ca0747c5d7b491",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V06",
+   "kind": "single",
+   "description": "재고 기준일이 데이터셋 기준일 이후",
+   "error_code": "ERR-DATE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M010"
+     },
+     "field": "as_of_date",
+     "value": "2026-11-20"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_9ec12f93b3c09d6d",
+     "field": "as_of_date",
+     "old": "2026-11-15",
+     "new": "2026-11-20"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V06",
+      "record_uids": [
+       "rec_9ec12f93b3c09d6d"
+      ],
+      "field": "as_of_date"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "6a3443ca9419c15e4102daad0b7803b4bd687412b302161d1d78d9d10ac18f07",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V07",
+   "kind": "single",
+   "description": "납기 < 주문일 (E01-ERR-009와 같은 주문)",
+   "error_code": "ERR-DATE",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O012"
+     },
+     "field": "due_date",
+     "value": "2026-10-01"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_84f763f6a2563616",
+     "field": "due_date",
+     "old": "2026-12-11",
+     "new": "2026-10-01"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V07",
+      "record_uids": [
+       "rec_84f763f6a2563616"
+      ],
+      "field": "due_date"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "3d74aae1e27b63c43dd20b919fd32dd79cbf3f926b1c4c5a93b63018844cf216",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V08",
+   "kind": "single",
+   "description": "FG002 공정 전부 삭제 → 주문·계획 제품에 공정 없음",
+   "error_code": "ERR-RESREL",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "remove",
+     "entity": "Operation",
+     "where": {
+      "product_id": "FG002"
+     },
+     "many": true
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "remove",
+     "entity": "Operation",
+     "record_uid": "rec_1010133c49a93880",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "Operation",
+     "record_uid": "rec_9aa50bd17729a0a8",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V08",
+      "record_uids": [
+       "rec_f47deba67c2464fb",
+       "rec_01be0d60c0db0469",
+       "rec_acb02a9d1f81ac6f",
+       "rec_341d5b819ed04880",
+       "rec_7a020872c9aedc5c"
+      ],
+      "field": "product_id"
+     },
+     {
+      "rule": "V08",
+      "record_uids": [
+       "rec_1607d4a2a6c2de41",
+       "rec_879776be691e6d69",
+       "rec_6d1729ee9e2cc07d",
+       "rec_7bc777cf179e236c",
+       "rec_233a6ff89a36c0a1",
+       "rec_1108df78610f37c0",
+       "rec_6296bf848588fbb2",
+       "rec_e9a93b809ab8820f",
+       "rec_972fda2be6d7eae4",
+       "rec_613143b4dbd01957",
+       "rec_573143a632ce6cca",
+       "rec_aa3127bb3163604b"
+      ],
+      "field": "product_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": [
+     {
+      "rule": "V09",
+      "record_uids": [
+       "rec_1607d4a2a6c2de41",
+       "rec_879776be691e6d69",
+       "rec_6d1729ee9e2cc07d",
+       "rec_7bc777cf179e236c",
+       "rec_233a6ff89a36c0a1",
+       "rec_1108df78610f37c0",
+       "rec_6296bf848588fbb2",
+       "rec_e9a93b809ab8820f",
+       "rec_972fda2be6d7eae4",
+       "rec_613143b4dbd01957",
+       "rec_573143a632ce6cca",
+       "rec_aa3127bb3163604b"
+      ],
+      "field": "resource_id"
+     }
+    ]
+   },
+   "dataset_sha256": "d1be09fc3b743216e4e820bab13ef937183bac72257750f74d4b36ccf92c12e4",
+   "records": 351
+  },
+  {
+   "dataset_id": "I-V09",
+   "kind": "single",
+   "description": "계획 라인 자원이 제품 공정에 없는 자원",
+   "error_code": "ERR-RESREL",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "line_no": 1
+     },
+     "field": "resource_id",
+     "value": "R3"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_42835a48ce9fb52a",
+     "field": "resource_id",
+     "old": "R1",
+     "new": "R3"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V09",
+      "record_uids": [
+       "rec_42835a48ce9fb52a"
+      ],
+      "field": "resource_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "5f9d97997cf81763a1dbdb702efc630ef4efee102140311b20cd0e3f285e1379",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V10",
+   "kind": "single",
+   "description": "외주 라인에 자원",
+   "error_code": "ERR-RESREL",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-OUT",
+      "line_no": 9
+     },
+     "field": "resource_id",
+     "value": "R1"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_d87223dc2473ea9e",
+     "field": "resource_id",
+     "old": null,
+     "new": "R1"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V10",
+      "record_uids": [
+       "rec_d87223dc2473ea9e"
+      ],
+      "field": "resource_id"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "bfb25c071aa095e72172ed55460b0c4523457ea1435f2dca8cf1c42c95ba0efa",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V11",
+   "kind": "single",
+   "description": "외주 불가 제품(FG001)의 외주 라인",
+   "error_code": "ERR-RESREL",
+   "severity": "WARNING",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "line_no": 2
+     },
+     "field": "production_mode",
+     "value": "OUTSOURCE"
+    },
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "line_no": 2
+     },
+     "field": "resource_id",
+     "value": null
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_f5d557f8c11d5d1f",
+     "field": "production_mode",
+     "old": "INHOUSE",
+     "new": "OUTSOURCE"
+    },
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_f5d557f8c11d5d1f",
+     "field": "resource_id",
+     "old": "R1",
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V11",
+      "record_uids": [
+       "rec_f5d557f8c11d5d1f"
+      ],
+      "field": "production_mode"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "26da407c119ca9b12d90679c54c5799da13dc6a72eea1466565148c829d2d467",
+   "records": 353
+  },
+  {
+   "dataset_id": "I-V12",
+   "kind": "single",
+   "description": "계획 라인 기간이 계획 기간 밖",
+   "error_code": "ERR-DATE",
+   "severity": "WARNING",
+   "boundary_case": false,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-OT",
+      "line_no": 3
+     },
+     "field": "period_start",
+     "value": "2026-12-21"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_47539f6525643972",
+     "field": "period_start",
+     "old": "2026-11-30",
+     "new": "2026-12-21"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "V12",
+      "record_uids": [
+       "rec_47539f6525643972"
+      ],
+      "field": "period_start"
+     }
+    ],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "5d838cdcc86a1eb90175b4f790a2cfdbd64c916a2f5cca63fb6f2020d04a0010",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-01",
+   "kind": "pass",
+   "description": "할당 = 보유 (≤ 경계, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "FG003"
+     },
+     "field": "allocated_qty",
+     "value": "90"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_59dbe89d3d148a81",
+     "field": "allocated_qty",
+     "old": "10",
+     "new": "90"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "e8b14ce8491b6feda14eafec12d03f61743de90a286089f035055222f0d79c17",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-02",
+   "kind": "pass",
+   "description": "FG003 계획 수량 정확히 500 → V2만 후보 (min 포함·max 미포함 경계, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "product_id": "FG003",
+      "period_start": "2026-11-16"
+     },
+     "field": "planned_qty",
+     "value": "500"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_7a133dbbadca2978",
+     "field": "planned_qty",
+     "old": "80",
+     "new": "500"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "84221e5fc8951a0406193ea5ec80e5888968eeece846d93a9e01ee0f6847bbf4",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-03",
+   "kind": "pass",
+   "description": "손실률 0.99 (< 1, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG002-V1",
+      "line_no": 2
+     },
+     "field": "scrap_rate",
+     "value": "0.99"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_faed18647e516350",
+     "field": "scrap_rate",
+     "old": "0",
+     "new": "0.99"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "31b89a571d74fcfe58f0c7189a4ff8c11ca45380ec6a99668b1c263643b98b2a",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-04",
+   "kind": "pass",
+   "description": "계획 수량 0 (≥ 0, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "ProductionPlanLine",
+     "where": {
+      "plan_id": "PLAN-REG",
+      "line_no": 1
+     },
+     "field": "planned_qty",
+     "value": "0"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "ProductionPlanLine",
+     "record_uid": "rec_42835a48ce9fb52a",
+     "field": "planned_qty",
+     "old": "30",
+     "new": "0"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "30ad4c26e6c624be8c844d36dc137be4d998db257797c94892c0d5cba0c99f59",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-05",
+   "kind": "pass",
+   "description": "3단계 BOM: SF001 구성품에 SF002 추가 (순환 아님, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "values": {
+      "bom_id": "BOM-SF001-V1",
+      "line_no": 4,
+      "component_type": "PRODUCT",
+      "component_material_id": null,
+      "component_product_id": "SF002",
+      "qty_per": "1",
+      "unit": "EA",
+      "scrap_rate": "0",
+      "line_type": "ITEM",
+      "origin_class": "SYNTHETIC"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_5d468009c59e132e",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "30c7f81d208fa1d7e68420ededc10cf4448c5ffa2bf87e608eda6f7c5dbf6042",
+   "records": 354
+  },
+  {
+   "dataset_id": "P-06",
+   "kind": "pass",
+   "description": "kg 자재 재고를 g로 표기 (같은 차원 다른 단위, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M001"
+     },
+     "field": "unit",
+     "value": "g"
+    },
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M001"
+     },
+     "field": "on_hand_qty",
+     "value": "800000"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_3588725d04fec280",
+     "field": "unit",
+     "old": "kg",
+     "new": "g"
+    },
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_3588725d04fec280",
+     "field": "on_hand_qty",
+     "old": "800",
+     "new": "800000"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "9bb2fc7853467e3fd6a5618792e6c5f5dc7e0b435a1fa3cd4ee0793641ceea45",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-07",
+   "kind": "pass",
+   "description": "소요량 0.001 (> 0, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG003-V2",
+      "line_no": 3
+     },
+     "field": "qty_per",
+     "value": "0.001"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_d2cca52a274869d1",
+     "field": "qty_per",
+     "old": "60",
+     "new": "0.001"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "0cb81fed263fd9659c589d028405c998284db1a9b5f8c0a5e97fc827e9f12a00",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-08",
+   "kind": "pass",
+   "description": "납기 = 주문일 (≥ 경계, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O001"
+     },
+     "field": "due_date",
+     "value": "2026-11-02"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_cf9012fc3d406cac",
+     "field": "due_date",
+     "old": "2026-11-20",
+     "new": "2026-11-02"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "22b8126b8e4444a1bb4f06a0a7bb531550b4feb77cc17206cabc97be5e9c6543",
+   "records": 353
+  },
+  {
+   "dataset_id": "P-09",
+   "kind": "pass",
+   "description": "소수 없는 큰 EA 재고 1000000 (V03 경계, 정상)",
+   "error_code": null,
+   "severity": "ERROR",
+   "boundary_case": true,
+   "components": null,
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M010"
+     },
+     "field": "on_hand_qty",
+     "value": "1000000"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_9ec12f93b3c09d6d",
+     "field": "on_hand_qty",
+     "old": "700",
+     "new": "1000000"
+    }
+   ],
+   "truth": {
+    "expected": [],
+    "acceptable": [],
+    "derived": []
+   },
+   "dataset_sha256": "cdd7eefe6ff522d9da4c274a654fdd8cdcacd295d709b262268ea098ae781bfb",
+   "records": 353
+  },
+  {
+   "dataset_id": "C-1",
+   "kind": "compound",
+   "description": "서로 다른 엔터티의 독립 오류 5개",
+   "error_code": "COMPOUND",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": [
+    "I-S01a",
+    "I-R02a",
+    "I-V02",
+    "I-B02c",
+    "I-S04a"
+   ],
+   "interaction_note": null,
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O004"
+     },
+     "field": "order_qty",
+     "value": null
+    },
+    {
+     "op": "set",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-FG002-V1",
+      "line_no": 3
+     },
+     "field": "component_material_id",
+     "value": "M099"
+    },
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "FG002"
+     },
+     "field": "allocated_qty",
+     "value": "80"
+    },
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG003-V1"
+     },
+     "field": "max_qty",
+     "value": "600"
+    },
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O010"
+     },
+     "field": "status",
+     "value": "PENDING"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_7d652d3b438e07a9",
+     "field": "order_qty",
+     "old": "100",
+     "new": null
+    },
+    {
+     "kind": "set",
+     "entity": "BOMLine",
+     "record_uid": "rec_63312641cc902ec9",
+     "field": "component_material_id",
+     "old": "M010",
+     "new": "M099"
+    },
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_9ce3ac1bed1dae93",
+     "field": "allocated_qty",
+     "old": "0",
+     "new": "80"
+    },
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_f8df671e73b78d87",
+     "field": "max_qty",
+     "old": "500",
+     "new": "600"
+    },
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_d0f4c4b7bb7e7a35",
+     "field": "status",
+     "old": "OPEN",
+     "new": "PENDING"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S01",
+      "record_uids": [
+       "rec_7d652d3b438e07a9"
+      ],
+      "field": "order_qty",
+      "from": "I-S01a"
+     },
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_63312641cc902ec9"
+      ],
+      "field": "component_material_id",
+      "from": "I-R02a"
+     },
+     {
+      "rule": "V02",
+      "record_uids": [
+       "rec_9ce3ac1bed1dae93"
+      ],
+      "field": "allocated_qty",
+      "from": "I-V02"
+     },
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_f8df671e73b78d87"
+      ],
+      "field": "*",
+      "from": "I-B02c"
+     },
+     {
+      "rule": "S04",
+      "record_uids": [
+       "rec_d0f4c4b7bb7e7a35"
+      ],
+      "field": "status",
+      "from": "I-S04a"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     },
+     {
+      "rule": "B02",
+      "record_uids": [
+       "rec_48584daa30dd10b7"
+      ]
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "be69ba98c7aed0a78d514d2a17a7fe26cdb888df4f9d7bf371a9e22c53ca10e4",
+   "records": 353
+  },
+  {
+   "dataset_id": "C-2",
+   "kind": "compound",
+   "description": "상호작용: 자재 삭제(고아 참조) + 자재 ID 중복 + BOM 라인 전부 삭제 뒤 순환 라인 추가",
+   "error_code": "COMPOUND",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": [
+    "I-R02c",
+    "I-S08a",
+    "I-B09",
+    "I-B01a"
+   ],
+   "interaction_note": "I-B09로 SF002 라인을 지운 뒤 I-B01a가 SF002에 순환 라인을 추가하므로 SF002 BOM은 라인 1개 → B09(라인 없음)는 성립하지 않음 (정답에서 제외)",
+   "ops": [
+    {
+     "op": "remove",
+     "entity": "Material",
+     "where": {
+      "material_id": "M003"
+     }
+    },
+    {
+     "op": "add",
+     "entity": "Material",
+     "copy_of": {
+      "material_id": "M005"
+     },
+     "values": {
+      "material_name": "중복 자재",
+      "unit_cost": "999"
+     }
+    },
+    {
+     "op": "remove",
+     "entity": "BOMLine",
+     "where": {
+      "bom_id": "BOM-SF002-V1"
+     },
+     "many": true
+    },
+    {
+     "op": "add",
+     "entity": "BOMLine",
+     "values": {
+      "bom_id": "BOM-SF002-V1",
+      "line_no": 4,
+      "component_type": "PRODUCT",
+      "component_material_id": null,
+      "component_product_id": "FG003",
+      "qty_per": "1",
+      "unit": "EA",
+      "scrap_rate": "0",
+      "line_type": "ITEM",
+      "origin_class": "SYNTHETIC"
+     }
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "remove",
+     "entity": "Material",
+     "record_uid": "rec_752906654b613dc0",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "add",
+     "entity": "Material",
+     "record_uid": "rec_06b9b2ac81e02ac5",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_22968f53f1bcc7fd",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_87ac4c1b12a1badc",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "remove",
+     "entity": "BOMLine",
+     "record_uid": "rec_8dc089a9ed596c48",
+     "field": null,
+     "old": null,
+     "new": null
+    },
+    {
+     "kind": "add",
+     "entity": "BOMLine",
+     "record_uid": "rec_6771109c49c7f75f",
+     "field": null,
+     "old": null,
+     "new": null
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_352cbb3264509242"
+      ],
+      "field": "component_material_id",
+      "from": "I-R02c"
+     },
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_fb694a77ac062b4c"
+      ],
+      "field": "material_id",
+      "from": "I-R02c"
+     },
+     {
+      "rule": "R02",
+      "record_uids": [
+       "rec_367d8e714ac1b695"
+      ],
+      "field": "item_id",
+      "from": "I-R02c"
+     },
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_06b9b2ac81e02ac5"
+      ],
+      "field": "*",
+      "from": "I-S08a"
+     },
+     {
+      "rule": "B01",
+      "record_uids": [
+       "rec_6771109c49c7f75f"
+      ],
+      "field": "component_product_id",
+      "from": "I-B01a"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "B08",
+      "record_uids": null
+     },
+     {
+      "rule": "B11",
+      "record_uids": null
+     },
+     {
+      "rule": "S08",
+      "record_uids": [
+       "rec_4ef19f05e1cc8439"
+      ]
+     },
+     {
+      "rule": "B01",
+      "record_uids": [
+       "rec_533c95c175e5a1ff",
+       "rec_3970a71bf16483a1"
+      ]
+     },
+     {
+      "rule": "B09",
+      "record_uids": null
+     }
+    ],
+    "derived": []
+   },
+   "dataset_sha256": "68b28b3f7981e2d109d61eb9f248c8981e9277ed7f448f1ac1064522c84457e5",
+   "records": 351
+  },
+  {
+   "dataset_id": "C-3",
+   "kind": "compound",
+   "description": "같은 레코드에 여러 오류: 주문 O015(날짜·상태·제품) / 재고 M009(음수·단위·기준일) / BOM FG002-V1(상태 소문자 + 종료일 < 시작일)",
+   "error_code": "COMPOUND",
+   "severity": "ERROR",
+   "boundary_case": false,
+   "components": [],
+   "interaction_note": "pydantic은 필드 오류가 있으면 model_validator를 실행하지 않으므로 BOM FG002-V1의 B05(종료일 < 시작일)가 가려질 수 있음 — 정답에는 포함",
+   "ops": [
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O015"
+     },
+     "field": "due_date",
+     "value": "2026-02-30"
+    },
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O015"
+     },
+     "field": "status",
+     "value": "PENDING"
+    },
+    {
+     "op": "set",
+     "entity": "Order",
+     "where": {
+      "order_id": "O015"
+     },
+     "field": "product_id",
+     "value": "FG009"
+    },
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M009"
+     },
+     "field": "on_hand_qty",
+     "value": "-5"
+    },
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M009"
+     },
+     "field": "unit",
+     "value": "pcs"
+    },
+    {
+     "op": "set",
+     "entity": "Inventory",
+     "where": {
+      "item_id": "M009"
+     },
+     "field": "as_of_date",
+     "value": "2026-11-30"
+    },
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG002-V1"
+     },
+     "field": "status",
+     "value": "approved"
+    },
+    {
+     "op": "set",
+     "entity": "BOM",
+     "where": {
+      "bom_id": "BOM-FG002-V1"
+     },
+     "field": "valid_to",
+     "value": "2025-01-01"
+    }
+   ],
+   "injection_record": [
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_7a020872c9aedc5c",
+     "field": "due_date",
+     "old": "2026-12-09",
+     "new": "2026-02-30"
+    },
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_7a020872c9aedc5c",
+     "field": "status",
+     "old": "OPEN",
+     "new": "PENDING"
+    },
+    {
+     "kind": "set",
+     "entity": "Order",
+     "record_uid": "rec_7a020872c9aedc5c",
+     "field": "product_id",
+     "old": "FG002",
+     "new": "FG009"
+    },
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_8e1d740335bee22c",
+     "field": "on_hand_qty",
+     "old": "50",
+     "new": "-5"
+    },
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_8e1d740335bee22c",
+     "field": "unit",
+     "old": "kg",
+     "new": "pcs"
+    },
+    {
+     "kind": "set",
+     "entity": "Inventory",
+     "record_uid": "rec_8e1d740335bee22c",
+     "field": "as_of_date",
+     "old": "2026-11-15",
+     "new": "2026-11-30"
+    },
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_8c75fd594fab5063",
+     "field": "status",
+     "old": "APPROVED",
+     "new": "approved"
+    },
+    {
+     "kind": "set",
+     "entity": "BOM",
+     "record_uid": "rec_8c75fd594fab5063",
+     "field": "valid_to",
+     "old": null,
+     "new": "2025-01-01"
+    }
+   ],
+   "truth": {
+    "expected": [
+     {
+      "rule": "S03",
+      "record_uids": [
+       "rec_7a020872c9aedc5c"
+      ],
+      "field": "due_date",
+      "from": "C-3"
+     },
+     {
+      "rule": "S04",
+      "record_uids": [
+       "rec_7a020872c9aedc5c"
+      ],
+      "field": "status",
+      "from": "C-3"
+     },
+     {
+      "rule": "R01",
+      "record_uids": [
+       "rec_7a020872c9aedc5c"
+      ],
+      "field": "product_id",
+      "from": "C-3"
+     },
+     {
+      "rule": "V01",
+      "record_uids": [
+       "rec_8e1d740335bee22c"
+      ],
+      "field": "on_hand_qty",
+      "from": "C-3"
+     },
+     {
+      "rule": "R07",
+      "record_uids": [
+       "rec_8e1d740335bee22c"
+      ],
+      "field": "unit",
+      "from": "C-3"
+     },
+     {
+      "rule": "V06",
+      "record_uids": [
+       "rec_8e1d740335bee22c"
+      ],
+      "field": "as_of_date",
+      "from": "C-3"
+     },
+     {
+      "rule": "S04",
+      "record_uids": [
+       "rec_8c75fd594fab5063"
+      ],
+      "field": "status",
+      "from": "C-3"
+     },
+     {
+      "rule": "B05",
+      "record_uids": [
+       "rec_8c75fd594fab5063"
+      ],
+      "field": "valid_to",
+      "from": "C-3"
+     }
+    ],
+    "acceptable": [
+     {
+      "rule": "V08",
+      "record_uids": null
+     },
+     {
+      "rule": "V02",
+      "record_uids": null
+     },
+     {
+      "rule": "B03",
+      "record_uids": null
+     },
+     {
+      "rule": "B08",
+      "record_uids": null
+     },
+     {
+      "rule": "V03",
+      "record_uids": null
+     }
+    ],
+    "derived": [
+     {
+      "rule": "B06",
+      "record_uids": [
+       "rec_1607d4a2a6c2de41",
+       "rec_879776be691e6d69",
+       "rec_6d1729ee9e2cc07d",
+       "rec_7bc777cf179e236c",
+       "rec_233a6ff89a36c0a1",
+       "rec_1108df78610f37c0",
+       "rec_6296bf848588fbb2",
+       "rec_e9a93b809ab8820f",
+       "rec_972fda2be6d7eae4",
+       "rec_613143b4dbd01957",
+       "rec_573143a632ce6cca",
+       "rec_aa3127bb3163604b"
+      ],
+      "field": "product_id"
+     }
+    ]
+   },
+   "dataset_sha256": "555fdc8aee69b2107cbc8dc50346ca4518f4d32221890f7c1803251774642334",
+   "records": 353
+  }
+ ]
+}

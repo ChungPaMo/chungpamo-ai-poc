@@ -1,0 +1,9 @@
+method,severity,tp,fp,fn,tn,precision,recall,f1,events_total,events_detected,fp_on_clean_and_pass,rules_implemented,rules_detected,rules_with_expected
+python_full,ERROR,99,0,0,291463,1.0,1.0,1.0,63,63,0,41,41,41
+python_full,WARNING,5,1,0,36070,0.8333,1.0,0.9091,5,5,,41,41,41
+python_pydantic_only,ERROR,31,0,68,177329,1.0,0.3131,0.4769,63,28,0,17,17,41
+python_pydantic_only,WARNING,1,0,4,25413,1.0,0.2,0.3333,5,1,,17,17,41
+sql_queries,ERROR,99,0,0,291463,1.0,1.0,1.0,63,63,0,41,41,41
+sql_queries,WARNING,5,1,0,36070,0.8333,1.0,0.9091,5,5,,41,41,41
+sql_constraints,ERROR,50,114,49,252246,0.3049,0.5051,0.3802,63,46,0,27,27,41
+sql_constraints,WARNING,0,0,5,0,,0.0,,5,0,,27,27,41

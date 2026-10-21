@@ -1,0 +1,40 @@
+{
+  "experiment_id": "E05",
+  "status": "RUNNING",
+  "run_timestamp": "2026-10-21T09:49:38+09:00",
+  "python": "3.11.9",
+  "packages": {
+    "pydantic": "2.14.1",
+    "psutil": "7.2.2",
+    "sqlite": "3.45.1"
+  },
+  "inputs": {
+    "ground_truth_v2_sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+    "eval_set_sha256": "d666c1600267e8de59a73a865f749487f3438f809c62b210eb83a99411db28c7",
+    "datasets": {
+      "clean": 1,
+      "single": 59,
+      "pass": 9,
+      "compound": 3
+    },
+    "expected_items": 80
+  },
+  "code_sha256": {
+    "e05_dataset.py": "17632200f04c1af11aa2eb83bc0a336cbf6d6e0107b4130e9067db2cf41f15e6",
+    "e05_validate_python.py": "9f3c63af34455e9d8fa5c1fef48886858d0cf5056855028de646230cbde268c5",
+    "e05_validate_sql.py": "e2d7c68d327e2bc703ebb839a4274a3bb795536dfbeb05b769e71f20b620c984",
+    "e05_score.py": "55a19fc261c6d1fb50d4633b60eac79145a082951237405ba8ab25391ccec0ae",
+    "e05_run.py": "4d2b2ad8041be2a69a16a40fcf3239ce29e1a15bbb99cd9a1416666c1c04945f",
+    "e05_build_eval_set.py": "19f24aa75aa0fbeb0a7588043e0a82dbbf9765a3c792de67ef1e9c6bf50d6ffe",
+    "e01_models.py": "43e20f18c455897f306ed8198bc889c2f75d42fe90c1f0766ea615e7548dd0fc"
+  },
+  "rules_sha256": "43046e6a0716d984f4d84b38a3bc6a6d322ed9ad38efdb1101fe9f6c5ccd6025",
+  "measurement": "자식 프로세스 3회 중앙값. load_s = SQLite 적재(Python은 0, 이미 dict), validate_s = 규칙 실행, 피크 RSS = 런처+인터프리터(psutil 5ms), heap = tracemalloc(별도 3회)",
+  "scales": {
+    "S": 1,
+    "M": 10,
+    "L": 50
+  },
+  "external_calls": 0,
+  "git_head": "5e9d9e09aaf769bd0a7aa1dacd91fdabfb245098"
+}
