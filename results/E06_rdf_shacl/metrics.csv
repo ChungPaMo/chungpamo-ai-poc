@@ -1,0 +1,7 @@
+method,severity,tp,fp,fn,tn,precision,recall,f1,events_total,events_detected,fp_on_clean_and_pass,rules_implemented,rules_detected,rules_with_expected
+shacl_pyshacl,ERROR,99,0,0,291463,1.0,1.0,1.0,63,63,0,41,41,41
+shacl_pyshacl,WARNING,5,1,0,36070,0.8333,1.0,0.9091,5,5,,41,41,41
+shacl_hybrid,ERROR,99,0,0,291463,1.0,1.0,1.0,63,63,0,41,41,41
+shacl_hybrid,WARNING,5,1,0,36070,0.8333,1.0,0.9091,5,5,,41,41,41
+shacl_core_compare,ERROR,90,0,9,291463,1.0,0.9091,0.9524,63,61,0,41,41,41
+shacl_core_compare,WARNING,5,1,0,36070,0.8333,1.0,0.9091,5,5,,41,41,41

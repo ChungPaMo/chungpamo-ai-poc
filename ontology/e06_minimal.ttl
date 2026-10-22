@@ -1,0 +1,175 @@
+# E06 최소 온톨로지 (scripts/e06_build_rdf.py가 E01 모델 정의에서 생성). OWL 추론에 쓰지 않음 — 어휘 문서화용.
+@prefix cp: <http://example.org/chungpamo/e06/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/chungpamo/e06/ns> a owl:Ontology ; rdfs:label "충파모 E06 최소 제조 데이터 어휘" ; rdfs:comment "레코드 노드(cp:*Record)와 업무 키 노드(cp:Product 등)를 구분한다" .
+
+cp:Dataset a owl:Class ; rdfs:label "데이터셋" .
+cp:hasKey a owl:ObjectProperty ; rdfs:comment "레코드 → 업무 키 노드" .
+cp:inDataset a owl:ObjectProperty ; rdfs:range cp:Dataset .
+cp:datasetId a owl:DatatypeProperty .
+cp:datasetSha256 a owl:DatatypeProperty .
+cp:groundTruthSha256 a owl:DatatypeProperty .
+cp:builtBy a owl:DatatypeProperty .
+
+cp:UnitRecord a owl:Class ; rdfs:label "Unit 원본 레코드" .
+cp:Unit a owl:Class ; rdfs:label "Unit (업무 키로 식별되는 개체)" .
+cp:Unit_record_uid a owl:DatatypeProperty ; rdfs:domain cp:UnitRecord ; rdfs:range xsd:string .
+cp:Unit_origin_class a owl:DatatypeProperty ; rdfs:domain cp:UnitRecord ; rdfs:range xsd:string .
+cp:Unit_unit_code a owl:DatatypeProperty ; rdfs:domain cp:UnitRecord ; rdfs:range xsd:string .
+cp:Unit_dimension a owl:DatatypeProperty ; rdfs:domain cp:UnitRecord ; rdfs:range xsd:string .
+cp:Unit_base_unit_code a owl:ObjectProperty ; rdfs:domain cp:UnitRecord ; rdfs:range cp:Unit .
+cp:Unit_to_base_factor a owl:DatatypeProperty ; rdfs:domain cp:UnitRecord ; rdfs:range xsd:decimal .
+
+cp:ProductRecord a owl:Class ; rdfs:label "Product 원본 레코드" .
+cp:Product a owl:Class ; rdfs:label "Product (업무 키로 식별되는 개체)" .
+cp:Product_record_uid a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:string .
+cp:Product_origin_class a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:string .
+cp:Product_product_id a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:string .
+cp:Product_product_name a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:string .
+cp:Product_product_type a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:string .
+cp:Product_base_unit a owl:ObjectProperty ; rdfs:domain cp:ProductRecord ; rdfs:range cp:Unit .
+cp:Product_safety_stock_qty a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:decimal .
+cp:Product_manuf_lead_time_days a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:integer .
+cp:Product_outsourcing_allowed a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:boolean .
+cp:Product_outsourcing_unit_cost a owl:DatatypeProperty ; rdfs:domain cp:ProductRecord ; rdfs:range xsd:decimal .
+
+cp:MaterialRecord a owl:Class ; rdfs:label "Material 원본 레코드" .
+cp:Material a owl:Class ; rdfs:label "Material (업무 키로 식별되는 개체)" .
+cp:Material_record_uid a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:string .
+cp:Material_origin_class a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:string .
+cp:Material_material_id a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:string .
+cp:Material_material_name a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:string .
+cp:Material_base_unit a owl:ObjectProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range cp:Unit .
+cp:Material_unit_cost a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:decimal .
+cp:Material_safety_stock_qty a owl:DatatypeProperty ; rdfs:domain cp:MaterialRecord ; rdfs:range xsd:decimal .
+
+cp:SupplierRecord a owl:Class ; rdfs:label "Supplier 원본 레코드" .
+cp:Supplier a owl:Class ; rdfs:label "Supplier (업무 키로 식별되는 개체)" .
+cp:Supplier_record_uid a owl:DatatypeProperty ; rdfs:domain cp:SupplierRecord ; rdfs:range xsd:string .
+cp:Supplier_origin_class a owl:DatatypeProperty ; rdfs:domain cp:SupplierRecord ; rdfs:range xsd:string .
+cp:Supplier_supplier_id a owl:DatatypeProperty ; rdfs:domain cp:SupplierRecord ; rdfs:range xsd:string .
+cp:Supplier_supplier_name a owl:DatatypeProperty ; rdfs:domain cp:SupplierRecord ; rdfs:range xsd:string .
+
+cp:SupplierMaterialRecord a owl:Class ; rdfs:label "SupplierMaterial 원본 레코드" .
+cp:SupplierMaterial_record_uid a owl:DatatypeProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range xsd:string .
+cp:SupplierMaterial_origin_class a owl:DatatypeProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range xsd:string .
+cp:SupplierMaterial_supplier_id a owl:ObjectProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range cp:Supplier .
+cp:SupplierMaterial_material_id a owl:ObjectProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range cp:Material .
+cp:SupplierMaterial_lead_time_days a owl:DatatypeProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range xsd:integer .
+cp:SupplierMaterial_min_order_qty a owl:DatatypeProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range xsd:decimal .
+cp:SupplierMaterial_is_preferred a owl:DatatypeProperty ; rdfs:domain cp:SupplierMaterialRecord ; rdfs:range xsd:boolean .
+
+cp:BOMRecord a owl:Class ; rdfs:label "BOM 원본 레코드" .
+cp:BOM a owl:Class ; rdfs:label "BOM (업무 키로 식별되는 개체)" .
+cp:BOM_record_uid a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_origin_class a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_bom_id a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_product_id a owl:ObjectProperty ; rdfs:domain cp:BOMRecord ; rdfs:range cp:Product .
+cp:BOM_bom_version a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_status a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_is_active a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:boolean .
+cp:BOM_valid_from a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:date .
+cp:BOM_valid_to a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:date .
+cp:BOM_min_qty a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:decimal .
+cp:BOM_max_qty a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:decimal .
+cp:BOM_site_id a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:string .
+cp:BOM_base_qty a owl:DatatypeProperty ; rdfs:domain cp:BOMRecord ; rdfs:range xsd:decimal .
+
+cp:BOMLineRecord a owl:Class ; rdfs:label "BOMLine 원본 레코드" .
+cp:BOMLine_record_uid a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:string .
+cp:BOMLine_origin_class a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:string .
+cp:BOMLine_bom_id a owl:ObjectProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range cp:BOM .
+cp:BOMLine_line_no a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:integer .
+cp:BOMLine_component_type a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:string .
+cp:BOMLine_component_material_id a owl:ObjectProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range cp:Material .
+cp:BOMLine_component_product_id a owl:ObjectProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range cp:Product .
+cp:BOMLine_qty_per a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:decimal .
+cp:BOMLine_unit a owl:ObjectProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range cp:Unit .
+cp:BOMLine_scrap_rate a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:decimal .
+cp:BOMLine_line_type a owl:DatatypeProperty ; rdfs:domain cp:BOMLineRecord ; rdfs:range xsd:string .
+
+cp:OrderRecord a owl:Class ; rdfs:label "Order 원본 레코드" .
+cp:Order_record_uid a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:string .
+cp:Order_origin_class a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:string .
+cp:Order_order_id a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:string .
+cp:Order_product_id a owl:ObjectProperty ; rdfs:domain cp:OrderRecord ; rdfs:range cp:Product .
+cp:Order_order_qty a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:decimal .
+cp:Order_unit a owl:ObjectProperty ; rdfs:domain cp:OrderRecord ; rdfs:range cp:Unit .
+cp:Order_order_date a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:date .
+cp:Order_due_date a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:date .
+cp:Order_priority a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:string .
+cp:Order_status a owl:DatatypeProperty ; rdfs:domain cp:OrderRecord ; rdfs:range xsd:string .
+
+cp:SalesHistoryRecord a owl:Class ; rdfs:label "SalesHistory 원본 레코드" .
+cp:SalesHistory_record_uid a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_origin_class a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_product_id a owl:ObjectProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range cp:Product .
+cp:SalesHistory_period_start a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:date .
+cp:SalesHistory_period_grain a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_sales_qty a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:decimal .
+cp:SalesHistory_source_series_id a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_generation_method a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_derived_from_record_uid a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:string .
+cp:SalesHistory_allocation_share a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:decimal .
+cp:SalesHistory_date_is_synthetic a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:boolean .
+cp:SalesHistory_source_day_of_week_code a owl:DatatypeProperty ; rdfs:domain cp:SalesHistoryRecord ; rdfs:range xsd:integer .
+
+cp:InventoryRecord a owl:Class ; rdfs:label "Inventory 원본 레코드" .
+cp:Inventory_record_uid a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:string .
+cp:Inventory_origin_class a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:string .
+cp:Inventory_item_type a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:string .
+cp:Inventory_item_id a owl:ObjectProperty ; rdfs:domain cp:InventoryRecord ; rdfs:comment "item_type에 따라 cp:Product 또는 cp:Material" .
+cp:Inventory_as_of_date a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:date .
+cp:Inventory_on_hand_qty a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:decimal .
+cp:Inventory_allocated_qty a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:decimal .
+cp:Inventory_on_order_qty a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:decimal .
+cp:Inventory_expected_receipt_date a owl:DatatypeProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range xsd:date .
+cp:Inventory_unit a owl:ObjectProperty ; rdfs:domain cp:InventoryRecord ; rdfs:range cp:Unit .
+
+cp:ResourceRecord a owl:Class ; rdfs:label "Resource 원본 레코드" .
+cp:Resource a owl:Class ; rdfs:label "Resource (업무 키로 식별되는 개체)" .
+cp:Resource_record_uid a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:string .
+cp:Resource_origin_class a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:string .
+cp:Resource_resource_id a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:string .
+cp:Resource_resource_name a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:string .
+cp:Resource_resource_type a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:string .
+cp:Resource_regular_hours_per_day a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:decimal .
+cp:Resource_overtime_hours_per_day_max a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:decimal .
+cp:Resource_cost_per_hour a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:decimal .
+cp:Resource_overtime_cost_per_hour a owl:DatatypeProperty ; rdfs:domain cp:ResourceRecord ; rdfs:range xsd:decimal .
+
+cp:OperationRecord a owl:Class ; rdfs:label "Operation 원본 레코드" .
+cp:Operation_record_uid a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:string .
+cp:Operation_origin_class a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:string .
+cp:Operation_operation_id a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:string .
+cp:Operation_product_id a owl:ObjectProperty ; rdfs:domain cp:OperationRecord ; rdfs:range cp:Product .
+cp:Operation_sequence_no a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:integer .
+cp:Operation_resource_id a owl:ObjectProperty ; rdfs:domain cp:OperationRecord ; rdfs:range cp:Resource .
+cp:Operation_run_time_per_unit_h a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:decimal .
+cp:Operation_setup_time_h a owl:DatatypeProperty ; rdfs:domain cp:OperationRecord ; rdfs:range xsd:decimal .
+
+cp:ProductionPlanRecord a owl:Class ; rdfs:label "ProductionPlan 원본 레코드" .
+cp:ProductionPlan a owl:Class ; rdfs:label "ProductionPlan (업무 키로 식별되는 개체)" .
+cp:ProductionPlan_record_uid a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:string .
+cp:ProductionPlan_origin_class a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:string .
+cp:ProductionPlan_plan_id a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:string .
+cp:ProductionPlan_plan_name a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:string .
+cp:ProductionPlan_horizon_start a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:date .
+cp:ProductionPlan_horizon_end a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:date .
+cp:ProductionPlan_generated_by a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:string .
+cp:ProductionPlan_overtime_allowed a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanRecord ; rdfs:range xsd:boolean .
+
+cp:ProductionPlanLineRecord a owl:Class ; rdfs:label "ProductionPlanLine 원본 레코드" .
+cp:ProductionPlanLine_record_uid a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:string .
+cp:ProductionPlanLine_origin_class a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:string .
+cp:ProductionPlanLine_plan_id a owl:ObjectProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range cp:ProductionPlan .
+cp:ProductionPlanLine_line_no a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:integer .
+cp:ProductionPlanLine_product_id a owl:ObjectProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range cp:Product .
+cp:ProductionPlanLine_period_start a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:date .
+cp:ProductionPlanLine_planned_qty a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:decimal .
+cp:ProductionPlanLine_unit a owl:ObjectProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range cp:Unit .
+cp:ProductionPlanLine_production_mode a owl:DatatypeProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range xsd:string .
+cp:ProductionPlanLine_resource_id a owl:ObjectProperty ; rdfs:domain cp:ProductionPlanLineRecord ; rdfs:range cp:Resource .

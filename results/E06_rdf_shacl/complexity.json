@@ -1,0 +1,148 @@
+{
+ "e06_build_rdf.py": 206,
+ "e06_shapes.py": 256,
+ "e06_validate_shacl.py": 140,
+ "e06_queries.py": 415,
+ "e05_validate_python.py": 416,
+ "e05_validate_sql.py": 394,
+ "e06_shapes.ttl": {
+  "lines": 1778,
+  "bytes": 141097
+ },
+ "e06_minimal.ttl": {
+  "lines": 175
+ },
+ "shapes_per_rule": {
+  "B01": {
+   "SPARQL": 1
+  },
+  "B02": {
+   "SPARQL": 1
+  },
+  "B03": {
+   "SPARQL": 1
+  },
+  "B04": {
+   "SPARQL": 1
+  },
+  "B05": {
+   "SPARQL": 2
+  },
+  "B06": {
+   "SPARQL": 2
+  },
+  "B07": {
+   "CORE": 1
+  },
+  "B08": {
+   "SPARQL": 4
+  },
+  "B09": {
+   "CORE": 1
+  },
+  "B10": {
+   "SPARQL": 1
+  },
+  "B11": {
+   "SPARQL": 2
+  },
+  "B12": {
+   "SPARQL": 1
+  },
+  "B13": {
+   "CORE": 2
+  },
+  "B14": {
+   "CORE": 1
+  },
+  "R01": {
+   "CORE": 7
+  },
+  "R02": {
+   "CORE": 3
+  },
+  "R03": {
+   "CORE": 1
+  },
+  "R04": {
+   "CORE": 1
+  },
+  "R05": {
+   "CORE": 2
+  },
+  "R06": {
+   "CORE": 1
+  },
+  "R07": {
+   "CORE": 7
+  },
+  "S01": {
+   "CORE": 214
+  },
+  "S02": {
+   "CORE": 35
+  },
+  "S03": {
+   "CORE": 10
+  },
+  "S04": {
+   "CORE": 27
+  },
+  "S05": {
+   "CORE": 14
+  },
+  "S06": {
+   "CORE": 29
+  },
+  "S07": {
+   "CORE": 18
+  },
+  "S08": {
+   "SPARQL": 13
+  },
+  "V01": {
+   "CORE": 1
+  },
+  "V02": {
+   "SPARQL": 1
+  },
+  "V03": {
+   "SPARQL": 3
+  },
+  "V04": {
+   "SPARQL": 1
+  },
+  "V05": {
+   "CORE": 1
+  },
+  "V06": {
+   "CORE": 1
+  },
+  "V07": {
+   "SPARQL": 1
+  },
+  "V08": {
+   "SPARQL": 2
+  },
+  "V09": {
+   "SPARQL": 1
+  },
+  "V10": {
+   "SPARQL": 1
+  },
+  "V11": {
+   "SPARQL": 1
+  },
+  "V12": {
+   "SPARQL": 1
+  }
+ },
+ "dependencies": {
+  "rdflib": "7.6.0",
+  "pyshacl": "0.40.1",
+  "owlrl": "7.6.2",
+  "pyparsing": "3.3.3",
+  "prettytable": "3.18.0",
+  "html5rdf": "1.2.1"
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "experiment_id": "E06",
+ "status": "RUNNING",
+ "run_timestamp": "2026-10-21T20:04:30+09:00",
+ "python": "3.11.9",
+ "packages": {
+  "rdflib": "7.6.0",
+  "pyshacl": "0.40.1",
+  "owlrl": "7.6.2",
+  "pydantic": "2.14.1",
+  "psutil": "7.2.2"
+ },
+ "inputs": {
+  "ground_truth_v2_sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+  "eval_set_sha256": "d666c1600267e8de59a73a865f749487f3438f809c62b210eb83a99411db28c7",
+  "e05_scores_sha256": "445a97faaa6289a85b04db7dbd1e78eabe1e8c2b3ec51e052d06d7a984ef465c"
+ },
+ "outputs": {
+  "ontology_sha256": "668a2764645fc535582a7e0f852b523f0fa193e7472c0325f3c61a8773bfbe49",
+  "shapes_sha256": "6b74768d1f16cf14cec91afb5b8a48739b61cc26701057cdb451b04e4766a632",
+  "shapes_core_compare_sha256": "fa59364e712cab1b00c0d23d99c834d254dd4c2d334f87d8a8253190aba0a435",
+  "clean_graph_sha256": "f7e2baac85d3e0a120566d783af70a0013ff44b94d7607b5dfe6c553775fbda7",
+  "clean_triples": 4668,
+  "per_entity": {
+   "Unit": {
+    "records": 4,
+    "triples_about_records": 36
+   },
+   "Product": {
+    "records": 5,
+    "triples_about_records": 61
+   },
+   "Material": {
+    "records": 10,
+    "triples_about_records": 100
+   },
+   "Supplier": {
+    "records": 4,
+    "triples_about_records": 28
+   },
+   "SupplierMaterial": {
+    "records": 12,
+    "triples_about_records": 120
+   },
+   "BOM": {
+    "records": 7,
+    "triples_about_records": 93
+   },
+   "BOMLine": {
+    "records": 23,
+    "triples_about_records": 299
+   },
+   "Order": {
+    "records": 20,
+    "triples_about_records": 260
+   },
+   "SalesHistory": {
+    "records": 180,
+    "triples_about_records": 2520
+   },
+   "Inventory": {
+    "records": 15,
+    "triples_about_records": 182
+   },
+   "Resource": {
+    "records": 3,
+    "triples_about_records": 36
+   },
+   "Operation": {
+    "records": 8,
+    "triples_about_records": 96
+   },
+   "ProductionPlan": {
+    "records": 3,
+    "triples_about_records": 33
+   },
+   "ProductionPlanLine": {
+    "records": 59,
+    "triples_about_records": 763
+   }
+  }
+ },
+ "code_sha256": {
+  "e06_build_rdf.py": "40c1e9a56f38fd51ca03c57c61b491318ad52600a3d43a44b56fe21c205b1e03",
+  "e06_shapes.py": "a3152ad4c8797fc1fc0ea81edee82afc9c601b022c023ec171fd708a3aabd0c0",
+  "e06_validate_shacl.py": "5555f3750b8a834de3523457711ed5a34771d8d591f4123b8580f19b789ebfd1",
+  "e06_queries.py": "dcd9a812091fdcf214e417ebdd0e5e737d45be8c5118827908270a506780bb4b",
+  "e06_schema_change.py": "4f9548b67fd532d3fe27226bf51d19021ea6ee7a14f21656496d16e0034ada6a",
+  "e06_run.py": "d3ba64a45bdabd2c6ff69b676b107b16e4eb14275a184c9654226f9f443571f5",
+  "e05_dataset.py": "17632200f04c1af11aa2eb83bc0a336cbf6d6e0107b4130e9067db2cf41f15e6",
+  "e05_score.py": "55a19fc261c6d1fb50d4633b60eac79145a082951237405ba8ab25391ccec0ae",
+  "e05_validate_python.py": "9f3c63af34455e9d8fa5c1fef48886858d0cf5056855028de646230cbde268c5",
+  "e05_validate_sql.py": "e2d7c68d327e2bc703ebb839a4274a3bb795536dfbeb05b769e71f20b620c984",
+  "e05_run.py": "4d2b2ad8041be2a69a16a40fcf3239ce29e1a15bbb99cd9a1416666c1c04945f",
+  "e01_models.py": "43e20f18c455897f306ed8198bc889c2f75d42fe90c1f0766ea615e7548dd0fc"
+ },
+ "external_calls": 0,
+ "pyshacl_options": {
+  "inference": "none",
+  "allow_warnings": true,
+  "abort_on_first": false
+ },
+ "git_head": "3d9974b8b885642f43a6980df995ccf129dc745c"
+}

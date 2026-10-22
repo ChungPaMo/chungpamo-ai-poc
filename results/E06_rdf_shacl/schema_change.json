@@ -1,0 +1,4518 @@
+{
+ "scenarios": {
+  "SC1": {
+   "title": "필수 속성 추가 — BOM.site_id 필수화 (다사이트 운영 가정)",
+   "kind": "schema",
+   "methods": {
+    "python": {
+     "files_changed": [
+      "scripts/e01_models.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e01_models.py": 2
+     },
+     "datasets_changed": 72,
+     "clean_reports_after": 7,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [
+        "S07|rec_56af60086ee67acf|site_id"
+       ],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_67ca1c17bd0470af|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_c7752d8dbab4f109|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      }
+     }
+    },
+    "sqlite": {
+     "files_changed": [
+      "scripts/e01_models.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e01_models.py": 2
+     },
+     "datasets_changed": 72,
+     "clean_reports_after": 7,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [
+        "S07|rec_56af60086ee67acf|site_id"
+       ],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_67ca1c17bd0470af|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_c7752d8dbab4f109|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      }
+     }
+    },
+    "shacl": {
+     "files_changed": [
+      "scripts/e01_models.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e01_models.py": 2
+     },
+     "generated_ttl_lines_changed": 10,
+     "datasets_changed": 72,
+     "clean_reports_after": 7,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [
+        "S07|rec_56af60086ee67acf|site_id"
+       ],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_67ca1c17bd0470af|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_c7752d8dbab4f109|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "S01|rec_133c1310b14b6c9d|site_id",
+        "S01|rec_426ffe9aea1abdd3|site_id",
+        "S01|rec_48584daa30dd10b7|site_id",
+        "S01|rec_56af60086ee67acf|site_id",
+        "S01|rec_79a7bd82c4d55576|site_id",
+        "S01|rec_8c75fd594fab5063|site_id",
+        "S01|rec_f8df671e73b78d87|site_id"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "SC2": {
+   "title": "유효기간 규칙 변경 — 종료일 포함 → 종료일 미포함 (QR-06① 판정식)",
+   "kind": "rule",
+   "methods": {
+    "python": {
+     "files_changed": [
+      "scripts/e05_validate_python.py"
+     ],
+     "lines_changed": 4,
+     "lines_by_file": {
+      "scripts/e05_validate_python.py": 4
+     },
+     "datasets_changed": 72,
+     "clean_reports_after": 3,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [
+        "B02|rec_426ffe9aea1abdd3|*",
+        "B02|rec_56af60086ee67acf|*"
+       ],
+       "added": []
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      }
+     }
+    },
+    "sqlite": {
+     "files_changed": [
+      "scripts/e05_validate_sql.py"
+     ],
+     "lines_changed": 4,
+     "lines_by_file": {
+      "scripts/e05_validate_sql.py": 4
+     },
+     "datasets_changed": 72,
+     "clean_reports_after": 3,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [
+        "B02|rec_426ffe9aea1abdd3|*",
+        "B02|rec_56af60086ee67acf|*"
+       ],
+       "added": []
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      }
+     }
+    },
+    "shacl": {
+     "files_changed": [
+      "scripts/e06_shapes.py"
+     ],
+     "lines_changed": 4,
+     "lines_by_file": {
+      "scripts/e06_shapes.py": 4
+     },
+     "generated_ttl_lines_changed": 8,
+     "datasets_changed": 72,
+     "clean_reports_after": 3,
+     "changes": {
+      "clean": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S03b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S04b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S06d": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-S08c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-R07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B01b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B02b": {
+       "removed": [
+        "B02|rec_426ffe9aea1abdd3|*",
+        "B02|rec_56af60086ee67acf|*"
+       ],
+       "added": []
+      },
+      "I-B02c": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B05b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B08b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11a": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B11b": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B13": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-B14": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V10": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V11": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "I-V12": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-01": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-02": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-03": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-04": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-05": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-06": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-07": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-08": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "P-09": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-1": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-2": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      },
+      "C-3": {
+       "removed": [],
+       "added": [
+        "B06|rec_073720db77f3ebe3|product_id",
+        "B06|rec_47539f6525643972|product_id",
+        "B06|rec_d411620b4551422b|product_id"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "SC3": {
+   "title": "공급사 관계 규칙 변경 — 자재당 우선 공급사 '정확히 1개' → '최대 1개'",
+   "kind": "rule",
+   "methods": {
+    "python": {
+     "files_changed": [
+      "scripts/e05_validate_python.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e05_validate_python.py": 2
+     },
+     "datasets_changed": 1,
+     "clean_reports_after": 0,
+     "changes": {
+      "I-B11b": {
+       "removed": [
+        "B11|rec_9674d1988b25c5b2|is_preferred",
+        "B11|rec_be8ff9405fc00ef0|is_preferred"
+       ],
+       "added": []
+      }
+     }
+    },
+    "sqlite": {
+     "files_changed": [
+      "scripts/e05_validate_sql.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e05_validate_sql.py": 2
+     },
+     "datasets_changed": 1,
+     "clean_reports_after": 0,
+     "changes": {
+      "I-B11b": {
+       "removed": [
+        "B11|rec_9674d1988b25c5b2|is_preferred",
+        "B11|rec_be8ff9405fc00ef0|is_preferred"
+       ],
+       "added": []
+      }
+     }
+    },
+    "shacl": {
+     "files_changed": [
+      "scripts/e06_shapes.py"
+     ],
+     "lines_changed": 2,
+     "lines_by_file": {
+      "scripts/e06_shapes.py": 2
+     },
+     "generated_ttl_lines_changed": 6,
+     "datasets_changed": 1,
+     "clean_reports_after": 0,
+     "changes": {
+      "I-B11b": {
+       "removed": [
+        "B11|rec_9674d1988b25c5b2|is_preferred",
+        "B11|rec_be8ff9405fc00ef0|is_preferred"
+       ],
+       "added": []
+      }
+     }
+    }
+   }
+  }
+ },
+ "data_scenarios": {
+  "SC4": {
+   "records_changed": 50,
+   "field_values_changed": 50,
+   "rdf_triples_removed": 92,
+   "rdf_triples_added": 92,
+   "rdf_note": "업무 ID에서 IRI를 만들므로 자재 키 노드 IRI가 바뀌고, 그 IRI를 가리키는 참조 트리플도 함께 바뀜",
+   "after_change_errors": {
+    "python": 0,
+    "sqlite": 0,
+    "shacl": 0
+   },
+   "title": "자재 코드 체계 변경 — M001 → MAT-0001 (데이터 이전, 규칙 변경 없음)"
+  },
+  "SC5": {
+   "pydantic_raw_errors": [
+    "extra_forbidden"
+   ],
+   "pydantic_raw_error_count": 7,
+   "python_full_reports": 0,
+   "python_note": "E05 검증기는 pydantic 오류 유형 extra_forbidden을 규칙에 대응시키지 않아 보고 없이 넘어감",
+   "sqlite_column_exists": false,
+   "sqlite_note": "적재 테이블 열이 모델 필드에서 정해져 새 속성 값은 적재되지 않고 사라짐",
+   "rdf_triples_with_new_property": 7,
+   "shacl_reports": 0,
+   "rdf_note": "변환기가 레코드의 모든 키를 속성으로 옮기므로 값은 그래프에 남고, shape가 없어 검증 대상은 아님 (열린 세계)",
+   "title": "BOM 속성 추가 — 선택 속성 revision_note (모델·테이블 미반영 상태로 데이터에 먼저 등장)"
+  }
+ }
+}

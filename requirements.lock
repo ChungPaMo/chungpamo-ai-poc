@@ -12,6 +12,8 @@
 # 2026-10-20 E03 직접 파서: pypdf(BSD-3-Clause), pdfplumber(MIT) 직접 설치 — 의존성 pdfminer.six(MIT),
 #                 pypdfium2(BSD-3-Clause·Apache-2.0, PDFium 바이너리 포함), cryptography(Apache-2.0 OR BSD-3-Clause),
 #                 cffi(MIT-0), pycparser(BSD-3-Clause). pip check 이상 없음
+# 2026-10-21 E06: rdflib(BSD-3-Clause), pyshacl(Apache-2.0) 직접 설치 — 의존성 owlrl(W3C), html5rdf(MIT), prettytable(BSD-3-Clause),
+#                 pyparsing(MIT), wcwidth(MIT), importlib_metadata(Apache-2.0), zipp(MIT). 기존 패키지 업그레이드 없음, pip check 이상 없음
 # 가상환경 기본 포함 패키지(pip 24.0, setuptools 65.5.0)는 pip freeze 기본 출력에서 제외됨
 annotated-types==0.8.0
 certifi==2026.10.19
@@ -20,29 +22,38 @@ charset-normalizer==3.5.2
 colorama==0.4.6
 cryptography==50.0.2
 et_xmlfile==2.0.0
+html5rdf==1.2.1
 idna==3.20
+importlib_metadata==9.0.1
 iniconfig==2.3.1
 lxml==6.1.3
 openpyxl==3.1.5
+owlrl==7.6.2
 packaging==26.3
 pdfminer.six==20260107
 pdfplumber==0.11.10
 pillow==13.0.0
 pluggy==1.7.0
+prettytable==3.18.0
 psutil==7.2.2
 pycparser==3.11
 pydantic==2.14.1
 pydantic_core==2.50.1
 Pygments==2.21.0
+pyparsing==3.3.3
 pypdf==6.21.1
 pypdfium2==5.14.0
+pyshacl==0.40.1
 pytest==9.1.1
 python-docx==1.2.0
 python-dotenv==1.2.4
 python-pptx==1.0.2
+rdflib==7.6.0
 reportlab==5.0.1
 requests==2.34.2
 typing-inspection==0.4.4
 typing_extensions==4.16.0
 urllib3==2.8.0
+wcwidth==0.9.3
 xlsxwriter==3.2.9
+zipp==4.1.1

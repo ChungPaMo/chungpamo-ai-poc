@@ -1,0 +1,664 @@
+{
+ "methods": {
+  "python": {
+   "ok": true,
+   "setup_s": 4.2599975131452084e-05,
+   "run_all_s_median": 0.00030779989901930094,
+   "per_query_s_median": {
+    "Q1": 1.1399970389902592e-05,
+    "Q2": 2.5499961338937283e-05,
+    "Q3Q4": 0.00015819992404431105,
+    "Q5": 9.699957445263863e-06
+   },
+   "score": {
+    "Q1": {
+     "expected_items": 19,
+     "correct": 19,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q2": {
+     "expected_items": 4,
+     "correct": 4,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q3": {
+     "expected_items": 10,
+     "correct": 10,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q4": {
+     "expected_items": 6,
+     "correct": 6,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q5": {
+     "expected_items": 2,
+     "correct": 2,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    }
+   },
+   "self_peak_mb": 40.8,
+   "wall_s": 0.4013008000329137,
+   "peak_rss_mb": 42.7
+  },
+  "sqlite": {
+   "ok": true,
+   "setup_s": 0.003663599956780672,
+   "run_all_s_median": 0.0008544999873265624,
+   "per_query_s_median": {
+    "Q1": 2.5700079277157784e-05,
+    "Q2": 7.940002251416445e-05,
+    "Q3Q4": 0.0005781999789178371,
+    "Q5": 6.609992124140263e-05
+   },
+   "score": {
+    "Q1": {
+     "expected_items": 19,
+     "correct": 19,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q2": {
+     "expected_items": 4,
+     "correct": 4,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q3": {
+     "expected_items": 10,
+     "correct": 10,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q4": {
+     "expected_items": 6,
+     "correct": 6,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q5": {
+     "expected_items": 2,
+     "correct": 2,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    }
+   },
+   "self_peak_mb": 41.8,
+   "wall_s": 0.4053222000366077,
+   "peak_rss_mb": 45.1
+  },
+  "sparql": {
+   "ok": true,
+   "setup_s": 0.06963429995812476,
+   "run_all_s_median": 0.7438563999021426,
+   "per_query_s_median": {
+    "Q1": 0.1084216000745073,
+    "Q2": 0.00706880004145205,
+    "Q3Q4": 0.5257360000396147,
+    "Q5": 0.013682299992069602
+   },
+   "score": {
+    "Q1": {
+     "expected_items": 19,
+     "correct": 19,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q2": {
+     "expected_items": 4,
+     "correct": 4,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q3": {
+     "expected_items": 10,
+     "correct": 10,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q4": {
+     "expected_items": 6,
+     "correct": 6,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q5": {
+     "expected_items": 2,
+     "correct": 2,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    }
+   },
+   "self_peak_mb": 58.7,
+   "wall_s": 4.765651699970476,
+   "peak_rss_mb": 62.0
+  },
+  "sparql_naive": {
+   "ok": true,
+   "setup_s": 0.07352949993219227,
+   "run_all_s_median": 0.7846772000193596,
+   "per_query_s_median": {
+    "Q1": 0.1090822999831289,
+    "Q2": 0.01599550002720207,
+    "Q3Q4": 0.5576699000084773,
+    "Q5": 0.014908300014212728
+   },
+   "score": {
+    "Q1": {
+     "expected_items": 19,
+     "correct": 19,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q2": {
+     "expected_items": 4,
+     "correct": 4,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q3": {
+     "expected_items": 10,
+     "correct": 10,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q4": {
+     "expected_items": 6,
+     "correct": 6,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    },
+    "Q5": {
+     "expected_items": 2,
+     "correct": 2,
+     "missing": [],
+     "wrong": [],
+     "exact": true
+    }
+   },
+   "self_peak_mb": 58.7,
+   "wall_s": 4.98837849998381,
+   "peak_rss_mb": 62.1
+  }
+ },
+ "chain": [
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 2,
+   "q2_s_median": 6.100046448409557e-06,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.8,
+   "wall_s": 0.3856415000045672,
+   "peak_rss_mb": 44.1
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 2,
+   "q2_s_median": 3.879994619637728e-05,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.5,
+   "wall_s": 0.37993970001116395,
+   "peak_rss_mb": 42.7
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 2,
+   "q2_s_median": 0.010911299963481724,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 49.8,
+   "wall_s": 0.5400066000875086,
+   "peak_rss_mb": 53.1
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 2,
+   "q2_s_median": 0.0062830999959260225,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 49.6,
+   "wall_s": 0.5129236000357196,
+   "peak_rss_mb": 52.8
+  },
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 4,
+   "q2_s_median": 9.09995287656784e-06,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.6,
+   "wall_s": 0.3622239000396803,
+   "peak_rss_mb": 43.2
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 4,
+   "q2_s_median": 3.970006946474314e-05,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.8,
+   "wall_s": 0.3744863000465557,
+   "peak_rss_mb": 42.8
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 4,
+   "q2_s_median": 0.011450999998487532,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 50.1,
+   "wall_s": 0.5502845000009984,
+   "peak_rss_mb": 53.3
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 4,
+   "q2_s_median": 0.006847099983133376,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 50.2,
+   "wall_s": 0.5310669000027701,
+   "peak_rss_mb": 53.5
+  },
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 8,
+   "q2_s_median": 1.4199991710484028e-05,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.7,
+   "wall_s": 0.544057400082238,
+   "peak_rss_mb": 42.5
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 8,
+   "q2_s_median": 7.870001718401909e-05,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.8,
+   "wall_s": 0.4005822000326589,
+   "peak_rss_mb": 45.1
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 8,
+   "q2_s_median": 0.012952999910339713,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 50.1,
+   "wall_s": 0.5726412000367418,
+   "peak_rss_mb": 53.4
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 8,
+   "q2_s_median": 0.007088500075042248,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 49.7,
+   "wall_s": 0.5308084000134841,
+   "peak_rss_mb": 53.0
+  },
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 16,
+   "q2_s_median": 3.900006413459778e-05,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.7,
+   "wall_s": 0.36096369998995215,
+   "peak_rss_mb": 43.3
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 16,
+   "q2_s_median": 0.00010059995111078024,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.8,
+   "wall_s": 0.49844480003230274,
+   "peak_rss_mb": 42.8
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 16,
+   "q2_s_median": 0.015681799966841936,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 50.6,
+   "wall_s": 0.5441805999726057,
+   "peak_rss_mb": 53.9
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 16,
+   "q2_s_median": 0.007067900034599006,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 50.6,
+   "wall_s": 0.510408400092274,
+   "peak_rss_mb": 53.7
+  },
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 32,
+   "q2_s_median": 0.00013719999697059393,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.8,
+   "wall_s": 0.3559030999895185,
+   "peak_rss_mb": 42.6
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 32,
+   "q2_s_median": 0.00018539989832788706,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.7,
+   "wall_s": 0.358768800040707,
+   "peak_rss_mb": 42.7
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 32,
+   "q2_s_median": 0.018065999960526824,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 51.3,
+   "wall_s": 0.5981874000281096,
+   "peak_rss_mb": 54.6
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 32,
+   "q2_s_median": 0.0071452000411227345,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 51.2,
+   "wall_s": 0.5581068000756204,
+   "peak_rss_mb": 54.5
+  },
+  {
+   "method": "python",
+   "ok": true,
+   "depth": 64,
+   "q2_s_median": 0.0005854999180883169,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 40.8,
+   "wall_s": 0.3758388999849558,
+   "peak_rss_mb": 42.9
+  },
+  {
+   "method": "sqlite",
+   "ok": true,
+   "depth": 64,
+   "q2_s_median": 0.0001759999431669712,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 41.8,
+   "wall_s": 0.37649639998562634,
+   "peak_rss_mb": 42.9
+  },
+  {
+   "method": "sparql",
+   "ok": true,
+   "depth": 64,
+   "q2_s_median": 0.02407009992748499,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 53.4,
+   "wall_s": 0.5963747999630868,
+   "peak_rss_mb": 56.7
+  },
+  {
+   "method": "sparql_naive",
+   "ok": true,
+   "depth": 64,
+   "q2_s_median": 0.007840399979613721,
+   "answer": [
+    "P0"
+   ],
+   "correct": true,
+   "self_peak_mb": 53.1,
+   "wall_s": 0.5461601000279188,
+   "peak_rss_mb": 56.4
+  }
+ ],
+ "complexity": {
+  "python_function_lines": {
+   "__init__": 10,
+   "unit": 3,
+   "item": 3,
+   "item_ids": 2,
+   "inventory": 3,
+   "open_orders": 3,
+   "bom_candidates": 11,
+   "bom_lines": 4,
+   "structure_edges": 3,
+   "ancestors_finished": 15,
+   "long_lead_materials": 2
+  },
+  "sql": {
+   "unit": {
+    "chars": 64,
+    "lines": 1
+   },
+   "item_m": {
+    "chars": 72,
+    "lines": 1
+   },
+   "item_p": {
+    "chars": 70,
+    "lines": 1
+   },
+   "ids": {
+    "chars": 43,
+    "lines": 1
+   },
+   "ids_m": {
+    "chars": 45,
+    "lines": 1
+   },
+   "inventory": {
+    "chars": 129,
+    "lines": 1
+   },
+   "orders": {
+    "chars": 98,
+    "lines": 1
+   },
+   "candidates": {
+    "chars": 269,
+    "lines": 3
+   },
+   "base_qty": {
+    "chars": 43,
+    "lines": 1
+   },
+   "lines": {
+    "chars": 193,
+    "lines": 2
+   },
+   "edges": {
+    "chars": 206,
+    "lines": 2
+   },
+   "ancestors": {
+    "chars": 546,
+    "lines": 8
+   },
+   "long_lead": {
+    "chars": 117,
+    "lines": 1
+   }
+  },
+  "sparql": {
+   "unit": {
+    "chars": 89,
+    "lines": 1
+   },
+   "item_m": {
+    "chars": 99,
+    "lines": 1
+   },
+   "item_p": {
+    "chars": 97,
+    "lines": 1
+   },
+   "ids": {
+    "chars": 83,
+    "lines": 1
+   },
+   "ids_m": {
+    "chars": 86,
+    "lines": 1
+   },
+   "inventory": {
+    "chars": 294,
+    "lines": 2
+   },
+   "orders": {
+    "chars": 175,
+    "lines": 2
+   },
+   "candidates": {
+    "chars": 386,
+    "lines": 3
+   },
+   "base_qty": {
+    "chars": 56,
+    "lines": 1
+   },
+   "lines": {
+    "chars": 304,
+    "lines": 2
+   },
+   "edges": {
+    "chars": 201,
+    "lines": 2
+   },
+   "used_by": {
+    "chars": 366,
+    "lines": 4
+   },
+   "ancestors": {
+    "chars": 96,
+    "lines": 1
+   },
+   "ancestors_naive": {
+    "chars": 320,
+    "lines": 4
+   },
+   "long_lead": {
+    "chars": 258,
+    "lines": 2
+   }
+  }
+ },
+ "discrimination_inactive_bom": {
+  "case": "P1의 비활성 BOM(B1-OLD)에만 자재 MY가 있음. 기대 정답: MY를 쓰는 완제품 없음 []",
+  "answers": {
+   "python": [],
+   "sqlite": [],
+   "sparql": [],
+   "sparql_naive": [
+    "P0"
+   ]
+  }
+ }
+}
