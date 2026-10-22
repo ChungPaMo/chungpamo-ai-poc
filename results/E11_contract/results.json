@@ -1,0 +1,334 @@
+{
+ "tests": [
+  {
+   "test": "T-01 독립 계산값",
+   "ok": true,
+   "detail": {
+    "required_production": "900",
+    "required_material_kg": "1800",
+    "material_shortage_kg": "300",
+    "capacity_shortfall_units": "100"
+   }
+  },
+  {
+   "test": "T-01 정규 생산만 → INFEASIBLE",
+   "ok": true,
+   "detail": {
+    "plan_id": "T01-BASELINE",
+    "feasibility": "INFEASIBLE",
+    "violations": [
+     {
+      "constraint_id": "HC-CAP",
+      "kind": "CAPACITY",
+      "status": "VIOLATED",
+      "measured": "900",
+      "limit": "800",
+      "shortfall": "100",
+      "unit": "EA",
+      "evidence": {},
+      "plan_id": "T01-BASELINE"
+     },
+     {
+      "constraint_id": "HC-MAT",
+      "kind": "MATERIAL_SUPPLY",
+      "status": "VIOLATED",
+      "measured": "1800",
+      "limit": "1500",
+      "shortfall": "300",
+      "unit": "kg",
+      "evidence": {
+       "procurement": "없음"
+      },
+      "plan_id": "T01-BASELINE"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   }
+  },
+  {
+   "test": "T-01 외주·잔업 100개 → UNVERIFIED (자동 FEASIBLE 금지)",
+   "ok": true,
+   "detail": {
+    "plan_id": "T01-EXTRA-100",
+    "feasibility": "UNVERIFIED",
+    "violations": [
+     {
+      "constraint_id": "HC-OUT",
+      "kind": "OUTSOURCING",
+      "status": "UNVERIFIED",
+      "measured": "100",
+      "limit": null,
+      "unit": "EA",
+      "evidence": {
+       "fact": "외주 가능성·비용·납기·자재 제공 조건"
+      },
+      "plan_id": "T01-EXTRA-100"
+     },
+     {
+      "constraint_id": "HC-MAT",
+      "kind": "MATERIAL_SUPPLY",
+      "status": "UNVERIFIED",
+      "measured": "1800",
+      "limit": "1500",
+      "shortfall": "300",
+      "unit": "kg",
+      "evidence": {
+       "fact": "300 kg 조달 리드타임"
+      },
+      "plan_id": "T01-EXTRA-100"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   }
+  },
+  {
+   "test": "T-01 FEASIBLE 계획 없음 → 순위 없음",
+   "ok": true,
+   "detail": [
+    null,
+    null
+   ]
+  },
+  {
+   "test": "T-02 (대조) 외주·조달 조건 확인 시 → FEASIBLE",
+   "ok": true,
+   "detail": [
+    "INFEASIBLE",
+    "FEASIBLE"
+   ]
+  },
+  {
+   "test": "가중치 극단값에도 INFEASIBLE은 비교 대상 아님",
+   "ok": true,
+   "detail": [
+    null,
+    1
+   ]
+  },
+  {
+   "test": "ScenarioEvaluation 출력이 계약 스키마를 만족",
+   "ok": true,
+   "detail": {
+    "T01-BASELINE": [],
+    "T01-EXTRA-100": []
+   }
+  },
+  {
+   "test": "계약 위반 예(INFEASIBLE인데 rank·comparable 설정)를 검증기가 잡음",
+   "ok": true,
+   "detail": [
+    "$.rank: 타입 null 아님",
+    "$.comparable: const False 아님"
+   ]
+  },
+  {
+   "test": "T-01 PlanningInput이 계약 스키마를 만족",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "test": "지수 표기 수량(1e3)을 계약이 거부 (E05·E06 결함 대응)",
+   "ok": true,
+   "detail": [
+    "$.orders[0].order_qty: 형식 불일치 (1e3)"
+   ]
+  },
+  {
+   "test": "E01 계획안 판정: 능력 초과가 있는 계획은 INFEASIBLE, 외주 계획은 미확인 조건 포함",
+   "ok": true,
+   "detail": [
+    [
+     "PLAN-REG",
+     "INFEASIBLE",
+     "36.5",
+     false
+    ],
+    [
+     "PLAN-OT",
+     "INFEASIBLE",
+     "10.5",
+     false
+    ],
+    [
+     "PLAN-OUT",
+     "INFEASIBLE",
+     "18",
+     true
+    ]
+   ]
+  }
+ ],
+ "t01": {
+  "calc": {
+   "required_production": "900",
+   "required_material_kg": "1800",
+   "material_shortage_kg": "300",
+   "capacity_shortfall_units": "100"
+  },
+  "evaluations": [
+   {
+    "plan_id": "T01-BASELINE",
+    "feasibility": "INFEASIBLE",
+    "violations": [
+     {
+      "constraint_id": "HC-CAP",
+      "kind": "CAPACITY",
+      "status": "VIOLATED",
+      "measured": "900",
+      "limit": "800",
+      "shortfall": "100",
+      "unit": "EA",
+      "evidence": {},
+      "plan_id": "T01-BASELINE"
+     },
+     {
+      "constraint_id": "HC-MAT",
+      "kind": "MATERIAL_SUPPLY",
+      "status": "VIOLATED",
+      "measured": "1800",
+      "limit": "1500",
+      "shortfall": "300",
+      "unit": "kg",
+      "evidence": {
+       "procurement": "없음"
+      },
+      "plan_id": "T01-BASELINE"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   },
+   {
+    "plan_id": "T01-EXTRA-100",
+    "feasibility": "UNVERIFIED",
+    "violations": [
+     {
+      "constraint_id": "HC-OUT",
+      "kind": "OUTSOURCING",
+      "status": "UNVERIFIED",
+      "measured": "100",
+      "limit": null,
+      "unit": "EA",
+      "evidence": {
+       "fact": "외주 가능성·비용·납기·자재 제공 조건"
+      },
+      "plan_id": "T01-EXTRA-100"
+     },
+     {
+      "constraint_id": "HC-MAT",
+      "kind": "MATERIAL_SUPPLY",
+      "status": "UNVERIFIED",
+      "measured": "1800",
+      "limit": "1500",
+      "shortfall": "300",
+      "unit": "kg",
+      "evidence": {
+       "fact": "300 kg 조달 리드타임"
+      },
+      "plan_id": "T01-EXTRA-100"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   }
+  ]
+ },
+ "e01_plans": [
+  {
+   "plan_id": "PLAN-REG",
+   "evaluation": {
+    "plan_id": "PLAN-REG",
+    "feasibility": "INFEASIBLE",
+    "violations": [
+     {
+      "constraint_id": "HC-CAP",
+      "kind": "CAPACITY",
+      "status": "VIOLATED",
+      "measured": "236.5",
+      "limit": null,
+      "shortfall": "36.5",
+      "unit": "h",
+      "evidence": {
+       "rows_over": 3
+      },
+      "plan_id": "PLAN-REG"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   },
+   "capacity_excess_total_h": "36.5",
+   "outsourced": false
+  },
+  {
+   "plan_id": "PLAN-OT",
+   "evaluation": {
+    "plan_id": "PLAN-OT",
+    "feasibility": "INFEASIBLE",
+    "violations": [
+     {
+      "constraint_id": "HC-CAP",
+      "kind": "CAPACITY",
+      "status": "VIOLATED",
+      "measured": "150.5",
+      "limit": null,
+      "shortfall": "10.5",
+      "unit": "h",
+      "evidence": {
+       "rows_over": 2
+      },
+      "plan_id": "PLAN-OT"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   },
+   "capacity_excess_total_h": "10.5",
+   "outsourced": false
+  },
+  {
+   "plan_id": "PLAN-OUT",
+   "evaluation": {
+    "plan_id": "PLAN-OUT",
+    "feasibility": "INFEASIBLE",
+    "violations": [
+     {
+      "constraint_id": "HC-CAP",
+      "kind": "CAPACITY",
+      "status": "VIOLATED",
+      "measured": "58",
+      "limit": null,
+      "shortfall": "18",
+      "unit": "h",
+      "evidence": {
+       "rows_over": 1
+      },
+      "plan_id": "PLAN-OUT"
+     },
+     {
+      "constraint_id": "HC-OUT",
+      "kind": "OUTSOURCING",
+      "status": "UNVERIFIED",
+      "measured": null,
+      "limit": null,
+      "unit": "EA",
+      "evidence": {
+       "reason": "외주처 조건은 E01 합성 가정(parameters.outsourcers) — 실제 조건 미확인"
+      },
+      "plan_id": "PLAN-OUT"
+     }
+    ],
+    "comparable": false,
+    "rank": null
+   },
+   "capacity_excess_total_h": "18",
+   "outsourced": true
+  }
+ ],
+ "summary": {
+  "passed": 11,
+  "total": 11
+ }
+}

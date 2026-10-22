@@ -1,0 +1,2313 @@
+{
+ "ideal": {
+  "score": {
+   "field_mapping_accuracy": {
+    "correct": 56,
+    "total": 56,
+    "rate": 1.0
+   },
+   "value_mapping_accuracy": {
+    "correct": 53,
+    "total": 54,
+    "rate": 0.9815
+   },
+   "wrong_field_mapping_rate": {
+    "wrong": 0,
+    "total_candidates": 56,
+    "rate": 0.0
+   },
+   "commits": [
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O022"
+     },
+     "approval_id": "APR-STG-B-M02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O027"
+     },
+     "approval_id": "APR-STG-B-M07-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O028"
+     },
+     "approval_id": "APR-STG-B-M12-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O021"
+     },
+     "approval_id": "APR-STG-B-X02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O029"
+     },
+     "approval_id": "APR-STG-B-X03-000",
+     "operation": "INSERT",
+     "correct": true
+    }
+   ],
+   "wrong_value_commits": [],
+   "wrong_value_commit_rate": {
+    "wrong": 0,
+    "committed": 5,
+    "rate": 0.0
+   },
+   "state_checks": {
+    "passed": 23,
+    "total": 24,
+    "failed": [
+     {
+      "scenario": "X02",
+      "check": "history_count",
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "count": 1,
+      "ok": false
+     }
+    ]
+   },
+   "duplicate_detection": {
+    "detected": 4,
+    "expected": 4,
+    "rate": 1.0
+   },
+   "staging": {
+    "total": 17,
+    "auto_accepted": 0,
+    "review_required": 17,
+    "blocked": 11,
+    "final_status": {
+     "PENDING": 1,
+     "APPROVED": 5,
+     "REJECTED": 10,
+     "HOLD": 1
+    }
+   },
+   "auto_accept_coverage": 0.0,
+   "manual_review_rate": 1.0,
+   "rejection_accuracy": {
+    "correctly_not_committed": 13,
+    "should_not_commit": 13,
+    "wrongly_blocked_should_commit": 0
+   },
+   "safety_tests": {
+    "passed": 13,
+    "total": 13,
+    "items": [
+     {
+      "scenario": "M12",
+      "test": "raw_insert_with_pending",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "E10: not approved — staging only"
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "approve→ALREADY_DECIDED",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "ALREADY_DECIDED"
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "db_update_decided",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "E10: decision already recorded"
+      }
+     },
+     {
+      "scenario": "X02",
+      "test": "approve→STALE_SOURCE",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "STALE_SOURCE"
+      }
+     },
+     {
+      "scenario": "X02",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→BAD_REVIEWER",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "BAD_REVIEWER"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→BAD_REVIEWER",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "BAD_REVIEWER"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "db_set_reviewer",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "FOREIGN KEY constraint failed"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→ROLLED_BACK",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "ROLLED_BACK",
+       "error": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "rollback_state",
+      "ok": true,
+      "result": {
+       "record_absent": true,
+       "approval_status": "PENDING",
+       "history_rows": 0
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "DRY",
+      "test": "dry_run_no_staging",
+      "ok": true,
+      "result": [
+       {
+        "table": "SalesOrder",
+        "key": {
+         "order_id": "O031"
+        },
+        "operation": "INSERT",
+        "blocking": 0,
+        "review_required": true,
+        "issues": []
+       }
+      ]
+     }
+    ]
+   },
+   "source_traceability": {
+    "traced": 5,
+    "committed": 5,
+    "rate": 1.0
+   },
+   "rule_checks": {
+    "passed": 6,
+    "total": 6,
+    "items": [
+     {
+      "scenario": "M05",
+      "check": "expected_rules",
+      "want": [
+       "B08"
+      ],
+      "got": [
+       "B08"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M06",
+      "check": "expected_rules",
+      "want": [
+       "S06",
+       "S02"
+      ],
+      "got": [
+       "S02",
+       "S06"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M08",
+      "check": "expected_rules",
+      "want": [
+       "M-15",
+       "B02"
+      ],
+      "got": [
+       "B02",
+       "M-15"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M09",
+      "check": "expected_rules",
+      "want": [
+       "B02"
+      ],
+      "got": [
+       "B02",
+       "B09",
+       "R04"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M10",
+      "check": "expected_rules",
+      "want": [
+       "R02"
+      ],
+      "got": [
+       "R02"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "X07",
+      "check": "expected_rules",
+      "want": [
+       "M-20"
+      ],
+      "got": [
+       "M-20"
+      ],
+      "ok": true
+     }
+    ]
+   },
+   "auto_approved_with_issues": 0,
+   "master_rows_without_approval_or_history": 0,
+   "mapper": "v2",
+   "auto_policy": null,
+   "fk_enabled": true,
+   "events": [
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-M12-000",
+     "reason": "ALREADY_DECIDED",
+     "reviewer": "REVIEWER_B"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X02-000",
+     "reason": "STALE_SOURCE",
+     "reviewer": "REVIEWER_A"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X03-000",
+     "reason": "BAD_REVIEWER",
+     "reviewer": "REVIEWER_X"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X03-000",
+     "reason": "BAD_REVIEWER",
+     "reviewer": "REVIEWER_OLD"
+    },
+    {
+     "event": "APPROVE_ROLLED_BACK",
+     "staging_id": "STG-B-X03-000",
+     "reason": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+    },
+    {
+     "event": "BATCH_RERUN_IGNORED",
+     "batch_id": "B-M01"
+    }
+   ]
+  },
+  "log": [
+   {
+    "scenario": "M01",
+    "step": "stage",
+    "batch_id": "B-M01",
+    "reused": false,
+    "staged": [
+     "STG-B-M01-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M02",
+    "step": "stage",
+    "batch_id": "B-M02",
+    "reused": false,
+    "staged": [
+     "STG-B-M02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O022"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M02",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M02-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "M03",
+    "step": "stage",
+    "batch_id": "B-M03",
+    "reused": false,
+    "staged": [
+     "STG-B-M03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O023"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-21",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M03",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M03-000",
+      "action": "HOLD"
+     }
+    ]
+   },
+   {
+    "scenario": "M04",
+    "step": "stage",
+    "batch_id": "B-M04",
+    "reused": false,
+    "staged": [
+     "STG-B-M04-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O024"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "R01",
+       "V08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M04",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M04-000",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M05",
+    "step": "stage",
+    "batch_id": "B-M05",
+    "reused": false,
+    "staged": [
+     "STG-B-M05-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG002-V1"
+      },
+      "operation": "NOOP"
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG002-V1",
+       "line_no": 9
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "B08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M05",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M05-001",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M06",
+    "step": "stage",
+    "batch_id": "B-M06",
+    "reused": false,
+    "staged": [
+     "STG-B-M06-000",
+     "STG-B-M06-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O025"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "S06"
+      ]
+     },
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O026"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "S02"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M06",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M06-000",
+      "action": "REJECT"
+     },
+     {
+      "staging_id": "STG-B-M06-001",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M07",
+    "step": "stage",
+    "batch_id": "B-M07",
+    "reused": false,
+    "staged": [
+     "STG-B-M07-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O027"
+      },
+      "rows": [
+       2,
+       3
+      ],
+      "kind": "IN_BATCH_DUPLICATE"
+     }
+    ],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O027"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": [
+       "S08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M07",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M07-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "M08",
+    "step": "stage",
+    "batch_id": "B-M08",
+    "reused": false,
+    "staged": [
+     "STG-B-M08-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG001-V1"
+      },
+      "operation": "UPDATE",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "B02",
+       "M-15"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG001-V1",
+       "line_no": 1
+      },
+      "operation": "NOOP"
+     }
+    ]
+   },
+   {
+    "scenario": "M08",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M08-000",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M09",
+    "step": "stage",
+    "batch_id": "B-M09",
+    "reused": false,
+    "staged": [
+     "STG-B-M09-000",
+     "STG-B-M09-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG002-V2"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "B02",
+       "B09"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG002-V2",
+       "line_no": 1
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "R04"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M09",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M09-000",
+      "action": "REJECT"
+     },
+     {
+      "staging_id": "STG-B-M09-001",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M10",
+    "step": "stage",
+    "batch_id": "B-M10",
+    "reused": false,
+    "staged": [
+     "STG-B-M10-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG003-V1"
+      },
+      "operation": "NOOP"
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG003-V1",
+       "line_no": 9
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "R02",
+       "R02"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M10",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M10-001",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "M11",
+    "step": "stage",
+    "batch_id": "B-M11",
+    "reused": false,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "rows": [
+       2
+      ],
+      "kind": "REIMPORT_SAME_SOURCE"
+     }
+    ],
+    "diff": []
+   },
+   {
+    "scenario": "M12",
+    "step": "stage",
+    "batch_id": "B-M12",
+    "reused": false,
+    "staged": [
+     "STG-B-M12-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O028"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M12",
+    "step": "raw_insert_with_pending",
+    "result": {
+     "blocked": true,
+     "error": "E10: not approved — staging only"
+    }
+   },
+   {
+    "scenario": "M12",
+    "step": "approve",
+    "staging_id": "STG-B-M12-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "M12",
+    "step": "approve",
+    "staging_id": "STG-B-M12-000",
+    "result": {
+     "ok": false,
+     "reason": "ALREADY_DECIDED"
+    },
+    "expected": "ALREADY_DECIDED",
+    "as_expected": true
+   },
+   {
+    "scenario": "M12",
+    "step": "db_update_decided",
+    "result": {
+     "blocked": true,
+     "error": "E10: decision already recorded"
+    }
+   },
+   {
+    "scenario": "M13",
+    "step": "stage",
+    "batch_id": "B-M13",
+    "reused": false,
+    "staged": [
+     "STG-B-M13-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O032"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-24",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M13",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M13-000",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "X02",
+    "step": "stage",
+    "batch_id": "B-X02",
+    "reused": false,
+    "staged": [
+     "STG-B-X02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "X02",
+    "step": "approve",
+    "staging_id": "STG-B-X02-000",
+    "result": {
+     "ok": false,
+     "reason": "STALE_SOURCE"
+    },
+    "expected": "STALE_SOURCE",
+    "as_expected": true
+   },
+   {
+    "scenario": "X02",
+    "step": "approve",
+    "staging_id": "STG-B-X02-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "stage",
+    "batch_id": "B-X03",
+    "reused": false,
+    "staged": [
+     "STG-B-X03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O029"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "BAD_REVIEWER"
+    },
+    "expected": "BAD_REVIEWER",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "BAD_REVIEWER"
+    },
+    "expected": "BAD_REVIEWER",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "db_set_reviewer",
+    "result": {
+     "blocked": true,
+     "error": "FOREIGN KEY constraint failed"
+    }
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "ROLLED_BACK",
+     "error": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+    },
+    "expected": "ROLLED_BACK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "check_rolled_back",
+    "result": {
+     "record_absent": true,
+     "approval_status": "PENDING",
+     "history_rows": 0
+    }
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X06",
+    "step": "stage",
+    "batch_id": "B-M01",
+    "reused": true,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": []
+   },
+   {
+    "scenario": "X07",
+    "step": "stage",
+    "batch_id": "B-X07",
+    "reused": false,
+    "staged": [
+     "STG-B-X07-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "rows": [
+       2,
+       3
+      ],
+      "kind": "KEY_CONFLICT"
+     },
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "rows": [
+       3
+      ],
+      "kind": "REIMPORT_SAME_SOURCE"
+     }
+    ],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "M-20"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "X07",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-X07-000",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "DRY",
+    "step": "stage",
+    "batch_id": "B-DRY",
+    "reused": false,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O031"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   }
+  ],
+  "final_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 25,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 116,
+   "ApprovalLog": 128,
+   "StagingRecord": 128,
+   "MappingCandidate": 196,
+   "ValidationIssue": 18
+  },
+  "base_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 20,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 111,
+   "ApprovalLog": 111,
+   "StagingRecord": 111,
+   "MappingCandidate": 0,
+   "ValidationIssue": 0
+  }
+ },
+ "rubber_stamp": {
+  "score": {
+   "field_mapping_accuracy": {
+    "correct": 56,
+    "total": 56,
+    "rate": 1.0
+   },
+   "value_mapping_accuracy": {
+    "correct": 53,
+    "total": 54,
+    "rate": 0.9815
+   },
+   "wrong_field_mapping_rate": {
+    "wrong": 0,
+    "total_candidates": 56,
+    "rate": 0.0
+   },
+   "commits": [
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O022"
+     },
+     "approval_id": "APR-STG-B-M02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O027"
+     },
+     "approval_id": "APR-STG-B-M07-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O028"
+     },
+     "approval_id": "APR-STG-B-M12-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O021"
+     },
+     "approval_id": "APR-STG-B-X02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O029"
+     },
+     "approval_id": "APR-STG-B-X03-000",
+     "operation": "INSERT",
+     "correct": true
+    }
+   ],
+   "wrong_value_commits": [],
+   "wrong_value_commit_rate": {
+    "wrong": 0,
+    "committed": 5,
+    "rate": 0.0
+   },
+   "state_checks": {
+    "passed": 23,
+    "total": 24,
+    "failed": [
+     {
+      "scenario": "X02",
+      "check": "history_count",
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "count": 1,
+      "ok": false
+     }
+    ]
+   },
+   "duplicate_detection": {
+    "detected": 4,
+    "expected": 4,
+    "rate": 1.0
+   },
+   "staging": {
+    "total": 17,
+    "auto_accepted": 0,
+    "review_required": 17,
+    "blocked": 11,
+    "final_status": {
+     "PENDING": 12,
+     "APPROVED": 5,
+     "REJECTED": 0,
+     "HOLD": 0
+    }
+   },
+   "auto_accept_coverage": 0.0,
+   "manual_review_rate": 1.0,
+   "rejection_accuracy": {
+    "correctly_not_committed": 13,
+    "should_not_commit": 13,
+    "wrongly_blocked_should_commit": 0
+   },
+   "safety_tests": {
+    "passed": 13,
+    "total": 13,
+    "items": [
+     {
+      "scenario": "M12",
+      "test": "raw_insert_with_pending",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "E10: not approved — staging only"
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "approve→ALREADY_DECIDED",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "ALREADY_DECIDED"
+      }
+     },
+     {
+      "scenario": "M12",
+      "test": "db_update_decided",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "E10: decision already recorded"
+      }
+     },
+     {
+      "scenario": "X02",
+      "test": "approve→STALE_SOURCE",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "STALE_SOURCE"
+      }
+     },
+     {
+      "scenario": "X02",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→BAD_REVIEWER",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "BAD_REVIEWER"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→BAD_REVIEWER",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "BAD_REVIEWER"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "db_set_reviewer",
+      "ok": true,
+      "result": {
+       "blocked": true,
+       "error": "FOREIGN KEY constraint failed"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→ROLLED_BACK",
+      "ok": true,
+      "result": {
+       "ok": false,
+       "reason": "ROLLED_BACK",
+       "error": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "rollback_state",
+      "ok": true,
+      "result": {
+       "record_absent": true,
+       "approval_status": "PENDING",
+       "history_rows": 0
+      }
+     },
+     {
+      "scenario": "X03-X05",
+      "test": "approve→OK",
+      "ok": true,
+      "result": {
+       "ok": true
+      }
+     },
+     {
+      "scenario": "DRY",
+      "test": "dry_run_no_staging",
+      "ok": true,
+      "result": [
+       {
+        "table": "SalesOrder",
+        "key": {
+         "order_id": "O031"
+        },
+        "operation": "INSERT",
+        "blocking": 0,
+        "review_required": true,
+        "issues": []
+       }
+      ]
+     }
+    ]
+   },
+   "source_traceability": {
+    "traced": 5,
+    "committed": 5,
+    "rate": 1.0
+   },
+   "rule_checks": {
+    "passed": 6,
+    "total": 6,
+    "items": [
+     {
+      "scenario": "M05",
+      "check": "expected_rules",
+      "want": [
+       "B08"
+      ],
+      "got": [
+       "B08"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M06",
+      "check": "expected_rules",
+      "want": [
+       "S06",
+       "S02"
+      ],
+      "got": [
+       "S02",
+       "S06"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M08",
+      "check": "expected_rules",
+      "want": [
+       "M-15",
+       "B02"
+      ],
+      "got": [
+       "B02",
+       "M-15"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M09",
+      "check": "expected_rules",
+      "want": [
+       "B02"
+      ],
+      "got": [
+       "B02",
+       "B09",
+       "R04"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "M10",
+      "check": "expected_rules",
+      "want": [
+       "R02"
+      ],
+      "got": [
+       "R02"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "X07",
+      "check": "expected_rules",
+      "want": [
+       "M-20"
+      ],
+      "got": [
+       "M-20"
+      ],
+      "ok": true
+     }
+    ]
+   },
+   "auto_approved_with_issues": 0,
+   "master_rows_without_approval_or_history": 0,
+   "mapper": "v2",
+   "auto_policy": null,
+   "fk_enabled": true,
+   "events": [
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-M12-000",
+     "reason": "ALREADY_DECIDED",
+     "reviewer": "REVIEWER_B"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X02-000",
+     "reason": "STALE_SOURCE",
+     "reviewer": "REVIEWER_A"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X03-000",
+     "reason": "BAD_REVIEWER",
+     "reviewer": "REVIEWER_X"
+    },
+    {
+     "event": "APPROVE_REFUSED",
+     "staging_id": "STG-B-X03-000",
+     "reason": "BAD_REVIEWER",
+     "reviewer": "REVIEWER_OLD"
+    },
+    {
+     "event": "APPROVE_ROLLED_BACK",
+     "staging_id": "STG-B-X03-000",
+     "reason": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+    },
+    {
+     "event": "BATCH_RERUN_IGNORED",
+     "batch_id": "B-M01"
+    }
+   ]
+  },
+  "log": [
+   {
+    "scenario": "M01",
+    "step": "stage",
+    "batch_id": "B-M01",
+    "reused": false,
+    "staged": [
+     "STG-B-M01-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M02",
+    "step": "stage",
+    "batch_id": "B-M02",
+    "reused": false,
+    "staged": [
+     "STG-B-M02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O022"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M02",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M02-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "M03",
+    "step": "stage",
+    "batch_id": "B-M03",
+    "reused": false,
+    "staged": [
+     "STG-B-M03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O023"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-21",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M03",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M03-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M04",
+    "step": "stage",
+    "batch_id": "B-M04",
+    "reused": false,
+    "staged": [
+     "STG-B-M04-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O024"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "R01",
+       "V08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M04",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M04-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M05",
+    "step": "stage",
+    "batch_id": "B-M05",
+    "reused": false,
+    "staged": [
+     "STG-B-M05-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG002-V1"
+      },
+      "operation": "NOOP"
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG002-V1",
+       "line_no": 9
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "B08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M05",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M05-001",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M06",
+    "step": "stage",
+    "batch_id": "B-M06",
+    "reused": false,
+    "staged": [
+     "STG-B-M06-000",
+     "STG-B-M06-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O025"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "S06"
+      ]
+     },
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O026"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "S02"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M06",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M06-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     },
+     {
+      "staging_id": "STG-B-M06-001",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M07",
+    "step": "stage",
+    "batch_id": "B-M07",
+    "reused": false,
+    "staged": [
+     "STG-B-M07-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O027"
+      },
+      "rows": [
+       2,
+       3
+      ],
+      "kind": "IN_BATCH_DUPLICATE"
+     }
+    ],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O027"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": [
+       "S08"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M07",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M07-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "M08",
+    "step": "stage",
+    "batch_id": "B-M08",
+    "reused": false,
+    "staged": [
+     "STG-B-M08-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG001-V1"
+      },
+      "operation": "UPDATE",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "B02",
+       "M-15"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG001-V1",
+       "line_no": 1
+      },
+      "operation": "NOOP"
+     }
+    ]
+   },
+   {
+    "scenario": "M08",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M08-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M09",
+    "step": "stage",
+    "batch_id": "B-M09",
+    "reused": false,
+    "staged": [
+     "STG-B-M09-000",
+     "STG-B-M09-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG002-V2"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "B02",
+       "B09"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG002-V2",
+       "line_no": 1
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "R04"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M09",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M09-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     },
+     {
+      "staging_id": "STG-B-M09-001",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M10",
+    "step": "stage",
+    "batch_id": "B-M10",
+    "reused": false,
+    "staged": [
+     "STG-B-M10-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG003-V1"
+      },
+      "operation": "NOOP"
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG003-V1",
+       "line_no": 9
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "R02",
+       "R02"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M10",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M10-001",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "M11",
+    "step": "stage",
+    "batch_id": "B-M11",
+    "reused": false,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "rows": [
+       2
+      ],
+      "kind": "REIMPORT_SAME_SOURCE"
+     }
+    ],
+    "diff": []
+   },
+   {
+    "scenario": "M12",
+    "step": "stage",
+    "batch_id": "B-M12",
+    "reused": false,
+    "staged": [
+     "STG-B-M12-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O028"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "M12",
+    "step": "raw_insert_with_pending",
+    "result": {
+     "blocked": true,
+     "error": "E10: not approved — staging only"
+    }
+   },
+   {
+    "scenario": "M12",
+    "step": "approve",
+    "staging_id": "STG-B-M12-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "M12",
+    "step": "approve",
+    "staging_id": "STG-B-M12-000",
+    "result": {
+     "ok": false,
+     "reason": "ALREADY_DECIDED"
+    },
+    "expected": "ALREADY_DECIDED",
+    "as_expected": true
+   },
+   {
+    "scenario": "M12",
+    "step": "db_update_decided",
+    "result": {
+     "blocked": true,
+     "error": "E10: decision already recorded"
+    }
+   },
+   {
+    "scenario": "M13",
+    "step": "stage",
+    "batch_id": "B-M13",
+    "reused": false,
+    "staged": [
+     "STG-B-M13-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O032"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-24",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "M13",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-M13-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "X02",
+    "step": "stage",
+    "batch_id": "B-X02",
+    "reused": false,
+    "staged": [
+     "STG-B-X02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O021"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "X02",
+    "step": "approve",
+    "staging_id": "STG-B-X02-000",
+    "result": {
+     "ok": false,
+     "reason": "STALE_SOURCE"
+    },
+    "expected": "STALE_SOURCE",
+    "as_expected": true
+   },
+   {
+    "scenario": "X02",
+    "step": "approve",
+    "staging_id": "STG-B-X02-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "stage",
+    "batch_id": "B-X03",
+    "reused": false,
+    "staged": [
+     "STG-B-X03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O029"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "BAD_REVIEWER"
+    },
+    "expected": "BAD_REVIEWER",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "BAD_REVIEWER"
+    },
+    "expected": "BAD_REVIEWER",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "db_set_reviewer",
+    "result": {
+     "blocked": true,
+     "error": "FOREIGN KEY constraint failed"
+    }
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": false,
+     "reason": "ROLLED_BACK",
+     "error": "RuntimeError: 시험용 주입 실패 (트랜잭션 중간)"
+    },
+    "expected": "ROLLED_BACK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "check_rolled_back",
+    "result": {
+     "record_absent": true,
+     "approval_status": "PENDING",
+     "history_rows": 0
+    }
+   },
+   {
+    "scenario": "X03-X05",
+    "step": "approve",
+    "staging_id": "STG-B-X03-000",
+    "result": {
+     "ok": true
+    },
+    "expected": "OK",
+    "as_expected": true
+   },
+   {
+    "scenario": "X06",
+    "step": "stage",
+    "batch_id": "B-M01",
+    "reused": true,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": []
+   },
+   {
+    "scenario": "X07",
+    "step": "stage",
+    "batch_id": "B-X07",
+    "reused": false,
+    "staged": [
+     "STG-B-X07-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "rows": [
+       2,
+       3
+      ],
+      "kind": "KEY_CONFLICT"
+     },
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "rows": [
+       3
+      ],
+      "kind": "REIMPORT_SAME_SOURCE"
+     }
+    ],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O030"
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "M-20"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "X07",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-X07-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "DRY",
+    "step": "stage",
+    "batch_id": "B-DRY",
+    "reused": false,
+    "staged": [],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O031"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   }
+  ],
+  "final_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 25,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 116,
+   "ApprovalLog": 128,
+   "StagingRecord": 128,
+   "MappingCandidate": 196,
+   "ValidationIssue": 18
+  },
+  "base_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 20,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 111,
+   "ApprovalLog": 111,
+   "StagingRecord": 111,
+   "MappingCandidate": 0,
+   "ValidationIssue": 0
+  }
+ }
+}

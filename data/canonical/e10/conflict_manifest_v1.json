@@ -1,0 +1,11 @@
+{
+ "eval_set_sha256": "a2d8fbccf1f51ce34acf420106b864a9f52e86455f5be93a4abed537e8aff14c",
+ "scenarios": [
+  "C01",
+  "C02",
+  "C03",
+  "C04",
+  "C05"
+ ],
+ "input_rows": 5
+}

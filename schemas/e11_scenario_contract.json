@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "chungpamo:e11:scenario_contract:v0.1",
+  "title": "E11 의사결정 PoC 데이터 계약 (초안 v0.1, 2026-10-21, 미구현)",
+  "description": "docs/e11_decision_interface.md §3의 구조. 수량·금액은 decimal 문자열. 모의 ERP·합성 데이터 전용이며 실제 기업 ERP 계약이 아니다.",
+  "$defs": {
+    "decimal": {"type": "string", "pattern": "^-?\\d+(\\.\\d+)?$", "description": "10진 문자열 (부동소수점·지수·NaN 금지)"},
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "unverified_fact": {"type": "object", "required": ["fact", "reason"], "properties": {"fact": {"type": "string"}, "reason": {"type": "string"}}},
+    "PlanningInput": {
+      "type": "object",
+      "required": ["input_id", "dataset_ref", "reference_date", "horizon", "orders", "inventory", "items", "boms", "capacity", "routings", "supply", "unverified_facts"],
+      "properties": {
+        "input_id": {"type": "string"},
+        "dataset_ref": {"type": "object", "required": ["source", "sha256"], "properties": {"source": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
+        "reference_date": {"$ref": "#/$defs/date"},
+        "horizon": {"type": "object", "required": ["start", "end", "grain"], "properties": {"start": {"$ref": "#/$defs/date"}, "end": {"$ref": "#/$defs/date"}, "grain": {"enum": ["WEEK", "DAY"]}}},
+        "orders": {"type": "array", "items": {"type": "object", "required": ["order_id", "product_id", "order_qty", "unit", "due_date", "status"],
+          "properties": {"order_id": {"type": "string"}, "product_id": {"type": "string"}, "order_qty": {"$ref": "#/$defs/decimal"}, "unit": {"type": "string"},
+                         "due_date": {"$ref": "#/$defs/date"}, "priority": {"enum": ["NORMAL", "URGENT"]}, "status": {"enum": ["OPEN", "CLOSED", "CANCELLED"]}}}},
+        "inventory": {"type": "array", "items": {"type": "object", "required": ["item_type", "item_id", "on_hand_qty", "unit"],
+          "properties": {"item_type": {"enum": ["PRODUCT", "MATERIAL"]}, "item_id": {"type": "string"}, "on_hand_qty": {"$ref": "#/$defs/decimal"},
+                         "allocated_qty": {"$ref": "#/$defs/decimal"}, "on_order_qty": {"$ref": "#/$defs/decimal"}, "expected_receipt_date": {"$ref": "#/$defs/date"}, "unit": {"type": "string"}}}},
+        "items": {"type": "array", "items": {"type": "object", "required": ["item_type", "item_id", "base_unit", "safety_stock_qty"],
+          "properties": {"item_type": {"enum": ["PRODUCT", "MATERIAL"]}, "item_id": {"type": "string"}, "base_unit": {"type": "string"}, "safety_stock_qty": {"$ref": "#/$defs/decimal"}}}},
+        "boms": {"type": "array", "items": {"type": "object", "required": ["product_id", "bom_id", "lines"],
+          "properties": {"product_id": {"type": "string"}, "bom_id": {"type": "string"}, "base_qty": {"$ref": "#/$defs/decimal"},
+                         "lines": {"type": "array", "items": {"type": "object", "required": ["component_type", "component_id", "qty_per", "unit"],
+                           "properties": {"component_type": {"enum": ["MATERIAL", "PRODUCT"]}, "component_id": {"type": "string"}, "qty_per": {"$ref": "#/$defs/decimal"},
+                                          "unit": {"type": "string"}, "scrap_rate": {"$ref": "#/$defs/decimal"}}}}}}},
+        "capacity": {"type": "array", "items": {"type": "object", "required": ["resource_id", "regular_hours_per_day", "overtime_hours_per_day_max", "unit"],
+          "properties": {"resource_id": {"type": "string"}, "regular_hours_per_day": {"$ref": "#/$defs/decimal"}, "overtime_hours_per_day_max": {"$ref": "#/$defs/decimal"},
+                         "unit": {"enum": ["h", "EA_PER_PERIOD"], "description": "E01은 h. EA_PER_PERIOD는 시나리오 전용(T-01)"},
+                         "units_per_period": {"$ref": "#/$defs/decimal"}}}},
+        "routings": {"type": "array", "items": {"type": "object", "required": ["product_id", "sequence_no", "resource_id", "run_time_per_unit_h", "setup_time_h"],
+          "properties": {"product_id": {"type": "string"}, "sequence_no": {"type": "integer", "minimum": 1}, "resource_id": {"type": "string"},
+                         "run_time_per_unit_h": {"$ref": "#/$defs/decimal"}, "setup_time_h": {"$ref": "#/$defs/decimal"}}}},
+        "supply": {"type": "array", "items": {"type": "object", "required": ["material_id", "supplier_id", "lead_time_days", "is_preferred"],
+          "properties": {"material_id": {"type": "string"}, "supplier_id": {"type": "string"}, "lead_time_days": {"type": "integer", "minimum": 0},
+                         "min_order_qty": {"$ref": "#/$defs/decimal"}, "is_preferred": {"type": "boolean"}}}},
+        "costs": {"type": "array", "items": {"type": "object", "required": ["ref_id", "cost_type", "value", "currency"],
+          "properties": {"ref_id": {"type": "string"}, "cost_type": {"enum": ["MATERIAL_UNIT", "REGULAR_HOUR", "OVERTIME_HOUR", "OUTSOURCE_UNIT", "HOLDING", "LATE_PENALTY"]},
+                         "value": {"$ref": "#/$defs/decimal"}, "currency": {"const": "KRW"}}}},
+        "unverified_facts": {"type": "array", "items": {"$ref": "#/$defs/unverified_fact"}}
+      }
+    },
+    "ForecastResult": {
+      "type": "object", "required": ["forecast_id", "model", "product_id", "period_start", "quantity", "unit", "training_data_ref"],
+      "properties": {"forecast_id": {"type": "string"}, "model": {"type": "object", "required": ["name", "version"], "properties": {"name": {"type": "string"}, "version": {"type": "string"}}},
+                     "product_id": {"type": "string"}, "period_start": {"$ref": "#/$defs/date"}, "quantity": {"$ref": "#/$defs/decimal"}, "unit": {"type": "string"},
+                     "interval": {"type": "object", "required": ["lower", "upper", "level"], "properties": {"lower": {"$ref": "#/$defs/decimal"}, "upper": {"$ref": "#/$defs/decimal"}, "level": {"$ref": "#/$defs/decimal"}}},
+                     "training_data_ref": {"type": "string"}}
+    },
+    "HardConstraint": {
+      "type": "object", "required": ["constraint_id", "kind", "scope", "source", "verified"],
+      "properties": {"constraint_id": {"type": "string"}, "kind": {"enum": ["CAPACITY", "MATERIAL_SUPPLY", "MANDATORY_DUE_DATE", "OUTSOURCING", "BUSINESS_RULE", "DATA_VALIDITY"]},
+                     "scope": {"type": "object"}, "limit": {"anyOf": [{"$ref": "#/$defs/decimal"}, {"type": "null"}]}, "source": {"type": "string"}, "verified": {"type": "boolean"}}
+    },
+    "ScenarioConfig": {
+      "type": "object", "required": ["scenario_id", "plan_style", "demand_source", "include_safety_stock", "allow_overtime", "allow_outsourcing"],
+      "properties": {"scenario_id": {"type": "string"}, "plan_style": {"enum": ["BASELINE", "COST_FIRST", "DUE_FIRST", "SAFETY_STOCK_FIRST"]},
+                     "demand_source": {"enum": ["ORDERS", "FORECAST", "MAX_ORDERS_FORECAST"]}, "include_safety_stock": {"type": "boolean"},
+                     "allow_overtime": {"type": "boolean"}, "allow_outsourcing": {"type": "boolean"},
+                     "soft_weights": {"type": "array", "items": {"type": "object", "required": ["objective", "weight"], "properties": {"objective": {"type": "string"}, "weight": {"$ref": "#/$defs/decimal"}}}}}
+    },
+    "PlanCandidate": {
+      "type": "object", "required": ["plan_id", "scenario_id", "generated_by", "lines", "assumptions"],
+      "properties": {"plan_id": {"type": "string"}, "scenario_id": {"type": "string"}, "generated_by": {"enum": ["RULE", "OPTIMIZER", "MANUAL"]},
+                     "lines": {"type": "array", "items": {"type": "object", "required": ["product_id", "period_start", "planned_qty", "unit", "production_mode"],
+                       "properties": {"product_id": {"type": "string"}, "period_start": {"$ref": "#/$defs/date"}, "planned_qty": {"$ref": "#/$defs/decimal"}, "unit": {"type": "string"},
+                                      "production_mode": {"enum": ["INHOUSE", "OUTSOURCE"]}, "resource_id": {"type": ["string", "null"]}}}},
+                     "procurement": {"type": "array", "items": {"type": "object", "required": ["material_id", "qty", "unit"],
+                       "properties": {"material_id": {"type": "string"}, "qty": {"$ref": "#/$defs/decimal"}, "unit": {"type": "string"}, "order_date": {"$ref": "#/$defs/date"}, "expected_receipt_date": {"$ref": "#/$defs/date"}}}},
+                     "assumptions": {"type": "array", "items": {"type": "string"}}}
+    },
+    "ConstraintViolation": {
+      "type": "object", "required": ["plan_id", "constraint_id", "kind", "status", "evidence"],
+      "properties": {"plan_id": {"type": "string"}, "constraint_id": {"type": "string"}, "kind": {"type": "string"}, "status": {"enum": ["VIOLATED", "UNVERIFIED"]},
+                     "measured": {"anyOf": [{"$ref": "#/$defs/decimal"}, {"type": "null"}]}, "limit": {"anyOf": [{"$ref": "#/$defs/decimal"}, {"type": "null"}]},
+                     "shortfall": {"anyOf": [{"$ref": "#/$defs/decimal"}, {"type": "null"}]}, "unit": {"type": ["string", "null"]}, "evidence": {"type": "object"}}
+    },
+    "ScenarioEvaluation": {
+      "type": "object", "required": ["plan_id", "feasibility", "violations", "comparable"],
+      "properties": {"plan_id": {"type": "string"}, "feasibility": {"enum": ["FEASIBLE", "INFEASIBLE", "UNVERIFIED"]},
+                     "violations": {"type": "array", "items": {"$ref": "#/$defs/ConstraintViolation"}},
+                     "soft_scores": {"type": "array", "items": {"type": "object", "required": ["objective", "value"], "properties": {"objective": {"type": "string"}, "value": {"anyOf": [{"$ref": "#/$defs/decimal"}, {"const": "미산정"}]}}}},
+                     "rank": {"type": ["integer", "null"]}, "comparable": {"type": "boolean"}},
+      "allOf": [{"if": {"properties": {"feasibility": {"enum": ["INFEASIBLE", "UNVERIFIED"]}}}, "then": {"properties": {"rank": {"type": "null"}, "comparable": {"const": false}}}}]
+    }
+  },
+  "examples": [
+    {
+      "test_id": "T-01",
+      "description": "필수 독립 계산 시나리오 (docs/e11_decision_interface.md §5). 단일 제품 P·자재 M, 할당·입고예정·자재 안전재고·손실률 0 가정",
+      "inputs": {"demand": "1000", "finished_inventory": "200", "safety_stock": "100", "material_per_unit_kg": "2", "material_on_hand_kg": "1500", "regular_capacity_units": "800"},
+      "expected": {
+        "required_production": "900", "required_material_kg": "1800", "material_shortage_kg": "300", "capacity_shortfall_units": "100",
+        "evaluations": [
+          {"plan_id": "T01-BASELINE", "feasibility": "INFEASIBLE", "violations": ["HC-CAP VIOLATED (900 > 800)", "HC-MAT VIOLATED (300 kg 부족, 조달 조건 없음)"], "rank": null, "comparable": false},
+          {"plan_id": "T01-EXTRA-100", "feasibility": "UNVERIFIED", "violations": ["HC-OUT UNVERIFIED (외주 가능성·비용·납기·자재 제공 조건 미확인)", "HC-MAT UNVERIFIED (조달 리드타임 미확인)"], "rank": null, "comparable": false}
+        ],
+        "ranking": "없음 (FEASIBLE 계획 없음)"
+      }
+    }
+  ]
+}

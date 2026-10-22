@@ -1,0 +1,767 @@
+{
+ "ideal": {
+  "score": {
+   "field_mapping_accuracy": {
+    "correct": 24,
+    "total": 24,
+    "rate": 1.0
+   },
+   "value_mapping_accuracy": {
+    "correct": 24,
+    "total": 24,
+    "rate": 1.0
+   },
+   "wrong_field_mapping_rate": {
+    "wrong": 0,
+    "total_candidates": 24,
+    "rate": 0.0
+   },
+   "commits": [
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O041"
+     },
+     "approval_id": "APR-STG-B-C02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O042"
+     },
+     "approval_id": "APR-STG-B-C03-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O044"
+     },
+     "approval_id": "APR-STG-B-C05-000",
+     "operation": "INSERT",
+     "correct": true
+    }
+   ],
+   "wrong_value_commits": [],
+   "wrong_value_commit_rate": {
+    "wrong": 0,
+    "committed": 3,
+    "rate": 0.0
+   },
+   "state_checks": {
+    "passed": 4,
+    "total": 4,
+    "failed": []
+   },
+   "duplicate_detection": {
+    "detected": 0,
+    "expected": 0,
+    "rate": null
+   },
+   "staging": {
+    "total": 6,
+    "auto_accepted": 0,
+    "review_required": 6,
+    "blocked": 2,
+    "final_status": {
+     "PENDING": 2,
+     "APPROVED": 3,
+     "REJECTED": 1,
+     "HOLD": 0
+    }
+   },
+   "auto_accept_coverage": 0.0,
+   "manual_review_rate": 1.0,
+   "rejection_accuracy": {
+    "correctly_not_committed": 1,
+    "should_not_commit": 1,
+    "wrongly_blocked_should_commit": 0
+   },
+   "safety_tests": {
+    "passed": 0,
+    "total": 0,
+    "items": []
+   },
+   "source_traceability": {
+    "traced": 3,
+    "committed": 3,
+    "rate": 1.0
+   },
+   "rule_checks": {
+    "passed": 7,
+    "total": 7,
+    "items": [
+     {
+      "scenario": "C01",
+      "check": "expected_rules",
+      "want": [
+       "M-24"
+      ],
+      "got": [
+       "M-24",
+       "S01"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "C01",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     },
+     {
+      "scenario": "C02",
+      "check": "forbidden_rules",
+      "want_absent": [
+       "M-24"
+      ],
+      "got": [],
+      "ok": true
+     },
+     {
+      "scenario": "C03",
+      "check": "forbidden_rules",
+      "want_absent": [
+       "M-24"
+      ],
+      "got": [],
+      "ok": true
+     },
+     {
+      "scenario": "C04",
+      "check": "expected_rules",
+      "want": [
+       "M-25"
+      ],
+      "got": [
+       "B09",
+       "M-25",
+       "R04"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "C04",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     },
+     {
+      "scenario": "C05",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     }
+    ]
+   },
+   "auto_approved_with_issues": 0,
+   "master_rows_without_approval_or_history": 0,
+   "mapper": "v2",
+   "auto_policy": null,
+   "fk_enabled": true,
+   "events": []
+  },
+  "log": [
+   {
+    "scenario": "C01",
+    "step": "stage",
+    "batch_id": "B-C01",
+    "reused": false,
+    "staged": [
+     "STG-B-C01-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O040"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-24",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "C01",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C01-000",
+      "action": "REJECT"
+     }
+    ]
+   },
+   {
+    "scenario": "C02",
+    "step": "stage",
+    "batch_id": "B-C02",
+    "reused": false,
+    "staged": [
+     "STG-B-C02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O041"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C02",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C02-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "C03",
+    "step": "stage",
+    "batch_id": "B-C03",
+    "reused": false,
+    "staged": [
+     "STG-B-C03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O042"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C03",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C03-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "C04",
+    "step": "stage",
+    "batch_id": "B-C04",
+    "reused": false,
+    "staged": [
+     "STG-B-C04-000",
+     "STG-B-C04-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG001-V9"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": [
+       "B09"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG001-V9",
+       "line_no": 1
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "R04",
+       "M-25"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "C05",
+    "step": "stage",
+    "batch_id": "B-C05",
+    "reused": false,
+    "staged": [
+     "STG-B-C05-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O044"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C05",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C05-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   }
+  ],
+  "final_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 23,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 114,
+   "ApprovalLog": 117,
+   "StagingRecord": 117,
+   "MappingCandidate": 49,
+   "ValidationIssue": 5
+  },
+  "base_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 20,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 111,
+   "ApprovalLog": 111,
+   "StagingRecord": 111,
+   "MappingCandidate": 0,
+   "ValidationIssue": 0
+  }
+ },
+ "rubber_stamp": {
+  "score": {
+   "field_mapping_accuracy": {
+    "correct": 24,
+    "total": 24,
+    "rate": 1.0
+   },
+   "value_mapping_accuracy": {
+    "correct": 24,
+    "total": 24,
+    "rate": 1.0
+   },
+   "wrong_field_mapping_rate": {
+    "wrong": 0,
+    "total_candidates": 24,
+    "rate": 0.0
+   },
+   "commits": [
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O041"
+     },
+     "approval_id": "APR-STG-B-C02-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O042"
+     },
+     "approval_id": "APR-STG-B-C03-000",
+     "operation": "INSERT",
+     "correct": true
+    },
+    {
+     "table": "SalesOrder",
+     "key": {
+      "order_id": "O044"
+     },
+     "approval_id": "APR-STG-B-C05-000",
+     "operation": "INSERT",
+     "correct": true
+    }
+   ],
+   "wrong_value_commits": [],
+   "wrong_value_commit_rate": {
+    "wrong": 0,
+    "committed": 3,
+    "rate": 0.0
+   },
+   "state_checks": {
+    "passed": 4,
+    "total": 4,
+    "failed": []
+   },
+   "duplicate_detection": {
+    "detected": 0,
+    "expected": 0,
+    "rate": null
+   },
+   "staging": {
+    "total": 6,
+    "auto_accepted": 0,
+    "review_required": 6,
+    "blocked": 2,
+    "final_status": {
+     "PENDING": 3,
+     "APPROVED": 3,
+     "REJECTED": 0,
+     "HOLD": 0
+    }
+   },
+   "auto_accept_coverage": 0.0,
+   "manual_review_rate": 1.0,
+   "rejection_accuracy": {
+    "correctly_not_committed": 1,
+    "should_not_commit": 1,
+    "wrongly_blocked_should_commit": 0
+   },
+   "safety_tests": {
+    "passed": 0,
+    "total": 0,
+    "items": []
+   },
+   "source_traceability": {
+    "traced": 3,
+    "committed": 3,
+    "rate": 1.0
+   },
+   "rule_checks": {
+    "passed": 7,
+    "total": 7,
+    "items": [
+     {
+      "scenario": "C01",
+      "check": "expected_rules",
+      "want": [
+       "M-24"
+      ],
+      "got": [
+       "M-24",
+       "S01"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "C01",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     },
+     {
+      "scenario": "C02",
+      "check": "forbidden_rules",
+      "want_absent": [
+       "M-24"
+      ],
+      "got": [],
+      "ok": true
+     },
+     {
+      "scenario": "C03",
+      "check": "forbidden_rules",
+      "want_absent": [
+       "M-24"
+      ],
+      "got": [],
+      "ok": true
+     },
+     {
+      "scenario": "C04",
+      "check": "expected_rules",
+      "want": [
+       "M-25"
+      ],
+      "got": [
+       "B09",
+       "M-25",
+       "R04"
+      ],
+      "ok": true
+     },
+     {
+      "scenario": "C04",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     },
+     {
+      "scenario": "C05",
+      "check": "no_auto_approval",
+      "auto_approved": 0,
+      "ok": true
+     }
+    ]
+   },
+   "auto_approved_with_issues": 0,
+   "master_rows_without_approval_or_history": 0,
+   "mapper": "v2",
+   "auto_policy": null,
+   "fk_enabled": true,
+   "events": []
+  },
+  "log": [
+   {
+    "scenario": "C01",
+    "step": "stage",
+    "batch_id": "B-C01",
+    "reused": false,
+    "staged": [
+     "STG-B-C01-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O040"
+      },
+      "operation": "INSERT",
+      "blocking": 2,
+      "review_required": true,
+      "issues": [
+       "M-24",
+       "S01"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "C01",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C01-000",
+      "action": "LEFT_PENDING",
+      "reason": "BLOCKING_ISSUES"
+     }
+    ]
+   },
+   {
+    "scenario": "C02",
+    "step": "stage",
+    "batch_id": "B-C02",
+    "reused": false,
+    "staged": [
+     "STG-B-C02-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O041"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C02",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C02-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "C03",
+    "step": "stage",
+    "batch_id": "B-C03",
+    "reused": false,
+    "staged": [
+     "STG-B-C03-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O042"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C03",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C03-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   },
+   {
+    "scenario": "C04",
+    "step": "stage",
+    "batch_id": "B-C04",
+    "reused": false,
+    "staged": [
+     "STG-B-C04-000",
+     "STG-B-C04-001"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "BOMHeader",
+      "key": {
+       "bom_id": "BOM-FG001-V9"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": [
+       "B09"
+      ]
+     },
+     {
+      "table": "BOMLine",
+      "key": {
+       "bom_id": "BOM-FG001-V9",
+       "line_no": 1
+      },
+      "operation": "INSERT",
+      "blocking": 1,
+      "review_required": true,
+      "issues": [
+       "R04",
+       "M-25"
+      ]
+     }
+    ]
+   },
+   {
+    "scenario": "C05",
+    "step": "stage",
+    "batch_id": "B-C05",
+    "reused": false,
+    "staged": [
+     "STG-B-C05-000"
+    ],
+    "auto_committed": [],
+    "duplicates": [],
+    "diff": [
+     {
+      "table": "SalesOrder",
+      "key": {
+       "order_id": "O044"
+      },
+      "operation": "INSERT",
+      "blocking": 0,
+      "review_required": true,
+      "issues": []
+     }
+    ]
+   },
+   {
+    "scenario": "C05",
+    "step": "policy",
+    "actions": [
+     {
+      "staging_id": "STG-B-C05-000",
+      "action": "APPROVE",
+      "reason": null
+     }
+    ]
+   }
+  ],
+  "final_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 23,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 114,
+   "ApprovalLog": 117,
+   "StagingRecord": 117,
+   "MappingCandidate": 49,
+   "ValidationIssue": 5
+  },
+  "base_counts": {
+   "UnitMaster": 4,
+   "ProductMaster": 5,
+   "MaterialMaster": 10,
+   "SupplierMaster": 4,
+   "SupplierItem": 12,
+   "BOMHeader": 7,
+   "BOMLine": 23,
+   "SalesOrder": 20,
+   "Inventory": 15,
+   "ProductionCapacity": 3,
+   "Routing": 8,
+   "ChangeHistory": 111,
+   "ApprovalLog": 111,
+   "StagingRecord": 111,
+   "MappingCandidate": 0,
+   "ValidationIssue": 0
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "experiment_id": "E10",
+ "status": "RUNNING",
+ "eval_set_sha256": "0ec1b86a19b16e83ebf4296b6826bfb0d2cebdfec0a13a31c63473168557b49c",
+ "ground_truth_v2_sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+ "ddl_sha256": "8830466bf9c5911540ab03c94675067e1dfaf14d0e615b85a33bc2a3c0dc08bd",
+ "rules_sha256": "84dfbdc55969c89757530b7083a70d89b05691edf1183bbb21de7ef4091671ed",
+ "code_sha256": {
+  "e10_mock_erp.py": "39b88500dd1579c149fcf3b8ff8819c0c6872eec59daee7748678d765766062d",
+  "e10_build_eval_set.py": "d8a5d746628f19931104e64457961d63e4b778876508f5eff16250dc7d6bb4f4",
+  "e10_run.py": "d22fb5bd48f826a0ff16e00fccff573705c4bd24ab903f4d07cfc1d60267ef82",
+  "e05_validate_python.py": "9f3c63af34455e9d8fa5c1fef48886858d0cf5056855028de646230cbde268c5"
+ },
+ "python": "3.11.9",
+ "sqlite": "3.45.1",
+ "pydantic": "2.14.1",
+ "external_calls": 0,
+ "comparators": {
+  "implemented": [
+   "rule_based (E02 헤더·코드표, 품명 정확 일치)",
+   "master code check",
+   "E05 Python 검증 규칙 재사용"
+  ],
+  "not_implemented": [
+   "BM25",
+   "embedding",
+   "Tri-CHEF",
+   "LLM"
+  ]
+ },
+ "auto_accept_policy": "configs/e10_mapping_rules.json auto_accept.experimental_policy_e10_v1 (실험 전용, 팀 합의 필요)"
+}

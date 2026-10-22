@@ -1,0 +1,310 @@
+{
+ "schema": "chungpamo.e10_conflict_set",
+ "version": "v1",
+ "created": "2026-10-22",
+ "base": {
+  "file": "data/canonical/ground_truth_v2.json",
+  "sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e"
+ },
+ "vendor": "A",
+ "note": "M13 개선(v2 매퍼) 검증용 독립 사례. 정답은 시나리오 정의와 E01 정답셋에서만 만들었다",
+ "scenarios": [
+  {
+   "id": "C01",
+   "title": "코드(FG003)·품명(FG002) 충돌",
+   "steps": [
+    {
+     "stage": {
+      "batch_id": "B-C01",
+      "vendor": "A",
+      "file": "orders.csv",
+      "source_file": "e10/vendor_a/b-c01_orders.csv",
+      "source_sha256": "4a99bbeae6a0804acfeae59b20b33f3a6bb54133431cb44869a4a629844acc51",
+      "document_version": "2026-10-21",
+      "mode": "STAGE",
+      "rows": [
+       {
+        "row": 2,
+        "cells": {
+         "order_no": "SO260040",
+         "qty": "50",
+         "uom": "EA",
+         "order_date": "2026-11-10",
+         "due_date": "2026-11-25",
+         "priority": "NORMAL",
+         "status": "OPEN",
+         "product_code": "0001003",
+         "product_name": "가정용 히터 B"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "policy": "B-C01"
+    }
+   ],
+   "truth": {
+    "decision": "CONFLICT",
+    "expected_rules": [
+     "M-24"
+    ],
+    "must_not_exist": [
+     [
+      "SalesOrder",
+      {
+       "order_id": "O040"
+      }
+     ]
+    ],
+    "no_auto_approval": "B-C01"
+   }
+  },
+  {
+   "id": "C02",
+   "title": "코드·품명 일치 (FG001)",
+   "steps": [
+    {
+     "stage": {
+      "batch_id": "B-C02",
+      "vendor": "A",
+      "file": "orders.csv",
+      "source_file": "e10/vendor_a/b-c02_orders.csv",
+      "source_sha256": "f1d35648acf21ea9458ac3f30193b0cf2889dd37af3d8f7390f0700ed96a77c2",
+      "document_version": "2026-10-21",
+      "mode": "STAGE",
+      "rows": [
+       {
+        "row": 2,
+        "cells": {
+         "order_no": "SO260041",
+         "qty": "50",
+         "uom": "EA",
+         "order_date": "2026-11-10",
+         "due_date": "2026-11-25",
+         "priority": "NORMAL",
+         "status": "OPEN",
+         "product_code": "0001001",
+         "product_name": "가정용 히터 A"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "policy": "B-C02"
+    }
+   ],
+   "truth": {
+    "decision": "REVIEW_REQUIRED",
+    "field_truth": {
+     "B-C02:2": {
+      "SalesOrder": {
+       "order_id": "O041",
+       "product_id": "FG001",
+       "order_qty": "50",
+       "unit": "EA",
+       "order_date": "2026-11-10",
+       "due_date": "2026-11-25",
+       "priority": "NORMAL",
+       "status": "OPEN"
+      }
+     }
+    },
+    "must_exist": [
+     [
+      "SalesOrder",
+      {
+       "order_id": "O041"
+      },
+      {
+       "product_id": "FG001"
+      }
+     ]
+    ],
+    "forbidden_rules": [
+     "M-24"
+    ]
+   }
+  },
+  {
+   "id": "C03",
+   "title": "표기만 다른 품명 + 코드 일치 (FG002)",
+   "steps": [
+    {
+     "stage": {
+      "batch_id": "B-C03",
+      "vendor": "A",
+      "file": "orders.csv",
+      "source_file": "e10/vendor_a/b-c03_orders.csv",
+      "source_sha256": "2e911a58e9e1ed7952cfe4de9aa98428b72cdd98b112594261594bd62c2e64e4",
+      "document_version": "2026-10-21",
+      "mode": "STAGE",
+      "rows": [
+       {
+        "row": 2,
+        "cells": {
+         "order_no": "SO260042",
+         "qty": "50",
+         "uom": "EA",
+         "order_date": "2026-11-10",
+         "due_date": "2026-11-25",
+         "priority": "NORMAL",
+         "status": "OPEN",
+         "product_code": "0001002",
+         "product_name": "  가정용히터 b "
+        }
+       }
+      ]
+     }
+    },
+    {
+     "policy": "B-C03"
+    }
+   ],
+   "truth": {
+    "decision": "REVIEW_REQUIRED",
+    "field_truth": {
+     "B-C03:2": {
+      "SalesOrder": {
+       "order_id": "O042",
+       "product_id": "FG002",
+       "order_qty": "50",
+       "unit": "EA",
+       "order_date": "2026-11-10",
+       "due_date": "2026-11-25",
+       "priority": "NORMAL",
+       "status": "OPEN"
+      }
+     }
+    },
+    "must_exist": [
+     [
+      "SalesOrder",
+      {
+       "order_id": "O042"
+      },
+      {
+       "product_id": "FG002"
+      }
+     ]
+    ],
+    "forbidden_rules": [
+     "M-24"
+    ]
+   }
+  },
+  {
+   "id": "C04",
+   "title": "비활성(DRAFT) BOM에 라인 추가",
+   "steps": [
+    {
+     "stage": {
+      "batch_id": "B-C04",
+      "vendor": "A",
+      "file": "bom.csv",
+      "source_file": "e10/vendor_a/b-c04_bom.csv",
+      "source_sha256": "93de942a3c5494756f0ba1fd7aed9c7307e8bac48fa9f8e63000612a5d40a33b",
+      "document_version": "2026-10-21",
+      "mode": "STAGE",
+      "rows": [
+       {
+        "row": 2,
+        "cells": {
+         "bom_code": "FG001-V9",
+         "product_code": "0001001",
+         "bom_version": "V9",
+         "status": "DRAFT",
+         "active": "N",
+         "valid_from": "2026-12-01",
+         "valid_to": "",
+         "min_qty": "0",
+         "max_qty": "",
+         "site": "",
+         "base_qty": "1",
+         "line_no": "1",
+         "component_type": "MAT",
+         "component_code": "000101",
+         "qty_per": "1",
+         "uom": "kg",
+         "scrap_rate": "0"
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "truth": {
+    "decision": "REVIEW_REQUIRED",
+    "expected_rules": [
+     "M-25"
+    ],
+    "no_auto_approval": "B-C04"
+   }
+  },
+  {
+   "id": "C05",
+   "title": "코드만 있는 정상 신규 주문 (자동 승인 기본값 확인)",
+   "steps": [
+    {
+     "stage": {
+      "batch_id": "B-C05",
+      "vendor": "A",
+      "file": "orders.csv",
+      "source_file": "e10/vendor_a/b-c05_orders.csv",
+      "source_sha256": "404b4cb5c559de2fc91a3422bf05d830d3185c9038bc87367d2dc4ccf9304552",
+      "document_version": "2026-10-21",
+      "mode": "STAGE",
+      "rows": [
+       {
+        "row": 2,
+        "cells": {
+         "order_no": "SO260044",
+         "qty": "50",
+         "uom": "EA",
+         "order_date": "2026-11-10",
+         "due_date": "2026-11-25",
+         "priority": "NORMAL",
+         "status": "OPEN",
+         "product_code": "0001001"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "policy": "B-C05"
+    }
+   ],
+   "truth": {
+    "decision": "REVIEW_REQUIRED_BY_DEFAULT",
+    "field_truth": {
+     "B-C05:2": {
+      "SalesOrder": {
+       "order_id": "O044",
+       "product_id": "FG001",
+       "order_qty": "50",
+       "unit": "EA",
+       "order_date": "2026-11-10",
+       "due_date": "2026-11-25",
+       "priority": "NORMAL",
+       "status": "OPEN"
+      }
+     }
+    },
+    "must_exist": [
+     [
+      "SalesOrder",
+      {
+       "order_id": "O044"
+      },
+      {
+       "product_id": "FG001"
+      }
+     ]
+    ],
+    "no_auto_approval_when_policy": "none"
+   }
+  }
+ ]
+}

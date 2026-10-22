@@ -1,0 +1,32 @@
+[
+ {
+  "policy": "ideal",
+  "runs": 3,
+  "run_s_median": 0.0432,
+  "run_s_min": 0.0431,
+  "run_s_max": 0.0442,
+  "per_input_row_ms_median": 8.6391,
+  "self_peak_mb_median": 35.0,
+  "input_rows": 5,
+  "repeat_wrong_value_commits": [
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "policy": "rubber_stamp",
+  "runs": 3,
+  "run_s_median": 0.043,
+  "run_s_min": 0.0428,
+  "run_s_max": 0.0435,
+  "per_input_row_ms_median": 8.5986,
+  "self_peak_mb_median": 35.0,
+  "input_rows": 5,
+  "repeat_wrong_value_commits": [
+   0,
+   0,
+   0
+  ]
+ }
+]

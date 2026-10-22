@@ -1,0 +1,35 @@
+{
+ "experiment_id": "E10",
+ "status": "RUNNING",
+ "mapper": "v2",
+ "auto_policy": "experimental",
+ "set": "conflict",
+ "eval_set_sha256": "a2d8fbccf1f51ce34acf420106b864a9f52e86455f5be93a4abed537e8aff14c",
+ "ground_truth_v2_sha256": "262dbe75dbfaf8c0c32003144d62e0b2057c61187dce4b548a457cf8819fc48e",
+ "ddl_sha256": "8830466bf9c5911540ab03c94675067e1dfaf14d0e615b85a33bc2a3c0dc08bd",
+ "rules_sha256": "656e80d9420c36524bf91566993c183818025da17de983cf9da345816ddc3ade",
+ "code_sha256": {
+  "e10_mock_erp.py": "9e47353fdd497117db774ec48e1e34638fc880c11c13803b4e3b7ec3cc8db2dd",
+  "e10_build_eval_set.py": "63d8f8cd897710e9d194e3fec4c4995e4340ec616c6dcf49d1ae3bcd1fb0f735",
+  "e10_run.py": "c267d4680bc3cbb4e270f76d339d0fb3a3e9e0599f83d3a97fbb3b99166baa02",
+  "e05_validate_python.py": "9f3c63af34455e9d8fa5c1fef48886858d0cf5056855028de646230cbde268c5"
+ },
+ "python": "3.11.9",
+ "sqlite": "3.45.1",
+ "pydantic": "2.14.1",
+ "external_calls": 0,
+ "comparators": {
+  "implemented": [
+   "rule_based (E02 헤더·코드표, 품명 정확 일치)",
+   "master code check",
+   "E05 Python 검증 규칙 재사용"
+  ],
+  "not_implemented": [
+   "BM25",
+   "embedding",
+   "Tri-CHEF",
+   "LLM"
+  ]
+ },
+ "auto_accept_policy": "configs/e10_mapping_rules.json auto_accept.experimental_policy_e10_v1 (실험 전용, 팀 합의 필요)"
+}
