@@ -2,12 +2,15 @@
 
 - 작성일: 2026-10-20 (1단계 초안)
 - 개정: 2026-10-20 2단계 보완 — E00 완료 조건·실행 결과 반영, venv + pip 확정(D-002), HWP 정답 원천 예외 및 독립 검수 규칙(E01)
+- 개정: 2026-10-21 **ERP 중심 방향 전환** — 우선순위 개정(§0.1), E10·E11 신규 추가, 의존성 갱신, E04·E06·E07·E08·E09 목적 보완. 기존 실험 ID·측정값·정답셋은 바꾸지 않았다 ([poc_direction_change_20261021.md](poc_direction_change_20261021.md), DEC-20261021-04)
 - 담당: 파서·온톨로지 담당 (구현 지원: Claude Code / 설계·검토: ChatGPT)
 - 대상 MVP: AI 기반 기업 운영계획 시뮬레이션 및 의사결정 지원
 - 관련 문서: [evaluation_protocol.md](evaluation_protocol.md), [decisions.md](decisions.md), [environment_inventory.md](environment_inventory.md)
 - 참고 자료: 팀 내부 업무분장 문서(비공개, 저장소에 포함하지 않음)
 
-> 이 문서는 계획이다. 아래의 가설과 예상 실패 유형은 검증 전 가정이며, 어떤 실험도 아직 실행되지 않았다.
+> 이 문서는 계획이다. 아래의 가설과 예상 실패 유형은 검증 전 가정이다. (2026-10-20 작성 당시에는 어떤 실험도 실행되지 않았다. 이후 실행 사실과 측정값은 §0.2 상태 표와 각 실험 절의 "실행" 문단에만 기록한다.)
+>
+> 범위 주의: 이 문서의 E00~E11은 **기술 적합성 사전 PoC**다. 충파모 팀의 전체 프로젝트는 별도로 진행되며, 사전 PoC 범위를 전체 프로젝트 범위로 해석하지 않는다.
 
 ---
 
@@ -23,6 +26,30 @@
 | 판단용 경량 검증 | E03, E04, E06, E07 | MVP 포함/후속 분리 여부를 결정하기 위한 최소 실험. 구현 범위를 넓히지 않음 |
 | 종합 | E08, E09 | 측정 결과 기반 배치·채택 판단 |
 
+위 표는 2026-10-20 제안이며 기록으로 보존한다. 2026-10-21부터는 §0.1.1을 따른다.
+
+#### 0.1.1 ERP 중심 우선순위 (2026-10-21 개정, DEC-20261021-04)
+
+변경 전 구조: 문서 파싱 → RDF/OWL → GraphDB → 예측·의사결정
+변경 후 구조: 문서 파싱 → 검색·ERP 필드 매핑 후보 → 정합성 검증 → 담당자 승인 → **모의 ERP DB** → 예측·계획 계산 → 대안 비교
+
+다음은 **확인되지 않았으므로** 관련 실험은 모두 합성 데이터와 모의 ERP(SQLite)로 설계한다: 수요기업의 ERP 보유 여부, ERP 실제 스키마, 외부 API·데이터 반입 권한, ERP 자체의 생산계획 계산 기능, 기업의 GPU·CPU·망·보안 환경, 실제 업무 규칙과 승인 절차. 모의 ERP는 실제 기업 ERP가 아니다.
+
+| 실험 | 2026-10-21 우선순위 변경 |
+|---|---|
+| E00 | 완료 유지 |
+| E01 | 완료 유지 |
+| E02 | 기존 파싱 실험 유지 |
+| E03 | v1/v2 및 외부 평가 결과 유지 |
+| E04 | **우선순위 상향** — ERP 입력 데이터 품질 관점 보완 (E04 절 개정) |
+| E05 | Baseline 확정 및 마무리 |
+| E06 | E05와 같은 정답셋으로 **최소 SHACL 비교**로 제한 (확장 조건은 E06 절) |
+| E07 | **신규 GraphDB 구축 보류** (재개 조건은 E07 절) |
+| E08 | CPU / 외부 API / CPU+API 하이브리드 비교 우선 |
+| E09 | E10·E11 평가까지 포함해 종합 판단 |
+| E10 | **신규** — 모의 ERP 매핑 PoC ([e10_erp_mapping_plan.md](e10_erp_mapping_plan.md)) |
+| E11 | **신규** — ERP 기반 의사결정 PoC ([e11_decision_interface.md](e11_decision_interface.md)) |
+
 ### 0.2 실험 목록과 상태
 
 | ID | 실험 | 상태 | 선행 실험 |
@@ -31,20 +58,47 @@
 | E01 | 제조업 공통 합성 데이터·정답셋 구성 | COMPLETED (2026-10-20 승인 — 독립 검증 143/143, pytest 48/48, 재현성 31/31, Git 보안 점검 통과. 정답셋 v2 기준, v1 보존. `results/E01_dataset/summary.md`) | E00 |
 | E02 | CSV/Excel 직접 파싱 | RUNNING — 1차 Baseline(csv + openpyxl) **완료** (2026-10-20 승인, DEC-20261020-09), pandas 비교 보류(D-016). `results/E02_tabular_parsing/summary.md` | E01 |
 | E03 | DOCX/PDF/HWP/HWPX/PPTX 직접 추출 파서 비교 | RUNNING — 1단계 설계·정답 명세 완료, 1단계-b 샘플 6개(DOCX·텍스트형 PDF·PPTX) 생성·독립 검증(2026-10-20). 스캔 PDF 보류(OCR 제외), HWP/HWPX 미측정. 직접 파서 Baseline(python-docx·python-pptx·pypdf·pdfplumber) 측정(2026-10-20, `results/E03_document_parsers/parser_baseline/`, 완료 판정 조건 D-022 대기). 외부 제작 문서 후보 8건 확보·검사·평가 설계([e03_external_testset_plan.md](e03_external_testset_plan.md)) → 외부 문서 일반화 검증·직접 파서 v2 (2026-10-20, 로컬, [e03_external_generalization_report.md](e03_external_generalization_report.md)). [e03_document_samples_plan.md](e03_document_samples_plan.md) | E01, E02 검토 |
-| E04 | 복잡한 PDF·스캔 문서: 직접 추출 vs Upstage Document Parse API | NOT_STARTED — 예비 호출 1회만 수행(2026-10-20, P-02, `results/E04_upstage_preflight/`), 본 실험 미착수. 후속 계획 [e04_upstage_plan.md](e04_upstage_plan.md) | E01, E03(PDF 직접 추출 결과) |
+| E04 | 복잡한 PDF·스캔 문서: 직접 추출 vs Upstage Document Parse API | NOT_STARTED — 본 실험 미실행. 2026-10-22 기존 호출 2회 결과로 잠정 비교([e04_direct_vs_upstage_report.md](e04_direct_vs_upstage_report.md)), 추가 호출 0. 우선순위 상향 | E01, E03(PDF 직접 추출 결과) |
+| E05 | 공통 JSON/Pydantic/SQL 데이터 검증 | RUNNING — 1차 실행 완료, **커밋 `3d9974b`로 공개**(2026-10-21): 규칙 42, 평가셋 72, python_full·sql_queries TP 99/FP 0/FN 0. 정량 합격선 미정(D-010, D-028)으로 COMPLETED 아님. Baseline 확정 대기 | E01, E02 |
+| E06 | RDFLib/RDF/SHACL 검증 | RUNNING — 측정 완료(2026-10-21, 로컬·미커밋): 정확도·Q1~Q5·변경 시나리오·S/M/L 성능(`perf_v2/`, 3회). 종합 보고서 [e06_rdf_shacl_comparison_report.md](e06_rdf_shacl_comparison_report.md). 정량 합격선 미정으로 COMPLETED 아님 | E01, E05 |
+| E07 | GraphDB/SPARQL 관계 조회 | NOT_STARTED (실험 미실행) · **기술 검토 보류** (2026-10-21, 재개 조건은 E07 절) | E06 |
+| E08 | CPU/API/하이브리드 운영 검토 | RUNNING — 2026-10-22 기존 실측 인용 비교 작성([e08_deployment_architecture_report.md](e08_deployment_architecture_report.md)), 새 인프라·API 호출 없음. 기업 환경 미확정 | E02~E07 측정 결과, E10·E11 |
+| E09 | 기술 채택 판단 및 보고서 작성 | RUNNING — 2026-10-22 최종 기술 선정 보고([e09_final_technology_selection.md](e09_final_technology_selection.md)). 운영 기술 확정 아님 | E00~E08, E10, E11 |
+| E10 | 모의 ERP 매핑 PoC (신규, 2026-10-21) | RUNNING — 1차 v1 잘못된 반영 1/7(M13) → 2026-10-22 v2 매퍼(충돌 탐지·자동 승인 기본 OFF) 잘못된 반영 0, 안전성 13/13([e10_m13_fix_report.md](e10_m13_fix_report.md)). 로컬·미커밋 | E01, E02, E03, E05 |
+| E11 | ERP 기반 의사결정 PoC (신규, 2026-10-21) | RUNNING — 2026-10-22 계약·Hard Constraint 판정 검증 11/11([e11_contract_verification_report.md](e11_contract_verification_report.md)). 예측·최적화 미구현 | E10 (데이터 계약), E01 |
 
 **전체 파싱 검증 범위 (2026-10-20 확정)**: CSV, XLSX (E02) / DOCX, PDF, HWP, HWPX, PPTX (E03) / 복잡한 PDF·스캔 문서 (E04). 세 실험 모두 공통 중간 JSON([intermediate_representation.md](intermediate_representation.md))과 형식별 지표([evaluation_protocol.md](evaluation_protocol.md) §10)를 쓴다.
-| E05 | 공통 JSON/Pydantic/SQL 데이터 검증 | NOT_STARTED | E01, E02 |
-| E06 | RDFLib/RDF/SHACL 검증 | NOT_STARTED | E01, E05 |
-| E07 | GraphDB/SPARQL 관계 조회 | NOT_STARTED | E06 |
-| E08 | CPU/API/하이브리드 운영 검토 | NOT_STARTED | E02~E07 측정 결과 |
-| E09 | 기술 채택 판단 및 보고서 작성 | NOT_STARTED | E00~E08 |
+
+2026-10-20 의존성 (보존):
 
 ```
 E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
            ├→ E03 → E04 ──────────────┼→ E08 → E09
            └──────────────────────────┘
 ```
+
+2026-10-21 개정 의존성:
+
+```
+E00 → E01 ─┬→ E02 ─┐
+           ├→ E03 ─┼→ E10 (모의 ERP 매핑) → E11 (데이터 계약: 의사결정 PoC)
+           └→ E05 ─┘        │                    │
+                 │          │                    │
+E03 + E04 → 문서 파서 선정    │                    │
+E05 → E06 → (E07 재개 여부) │                    │
+E04 ─────────────────────┬──┴────────────────────┤
+E08 ─────────────────────┴───────────────────────┴→ E09
+```
+
+| 관계 | 의미 |
+|---|---|
+| E01 → E02·E03·E05 | 정답 원천 |
+| E02·E03·E05 → E10 | 파서 출력(IR)과 검증 규칙을 매핑 입력·검증 단계로 재사용 |
+| E03·E04 → 문서 파서 선정 | 직접 파서 vs Upstage |
+| E05 → E06 | 같은 평가셋·정답·채점기 |
+| E06 → E07 재개 여부 | E07 절의 재개 조건 |
+| E10 → E11 | 승인된 모의 ERP 레코드가 계획 입력(PlanningInput)의 데이터 계약 |
+| E04·E08·E10·E11 → E09 | 종합 판단 |
 
 ### 0.3 공통 원칙
 
@@ -209,6 +263,8 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 10. 선행조건 및 미확정 사항 | 외부 API 사용 승인(회사·운영기관), API 키 발급 주체, 요금·무료 한도·데이터 보존·재학습 정책(공급사 공식 문서로 확인, 매핑·에이전트·보안 담당의 보안 검토와 연계), 테스트 예산 상한, **API의 지원 입력 형식(HWP/HWPX/PPTX 포함 여부) — 미확인, 공식 문서 확인 필요** |
 | 11. 후속 의사결정 조건 | 정확도 이익과 비용·보안 조건을 함께 비교해 "API 사용 / 특정 문서 유형만 API / 미사용" 중 판단. API 승인 불가 시 `BLOCKED`로 두고 로컬 대체안만 판단 |
 
+**2026-10-21 개정 (우선순위 상향, ERP 입력 품질 관점)**: 직접 파서와 Upstage 비교의 목적을 "ERP 필드 매핑(E10)에 넣을 수 있는 입력 품질"로 보완한다. 평가 항목: 표 검출, 행·열 구조, 셀 텍스트, 숫자·날짜·단위 보존, 병합 셀, **ERP 필수 필드 누락**(E10 계약의 필수 필드 기준), 처리시간, API 비용. 이번 개정에서 추가 API 호출은 하지 않았고, 기존 Upstage 호출 결과(예비 1회, E03 진단 1회)는 수정하지 않는다. 본 실험 착수·호출 상한은 D-021 그대로.
+
 ---
 
 ## E05. 공통 JSON/Pydantic/SQL 데이터 검증
@@ -226,6 +282,8 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 9. 결과 파일명 | `results/E05_schema_sql/metrics.csv`, `queries.sql`, `schema_change_diff.md`, `failures.md`, `summary.md`, `run_meta.json` |
 | 10. 선행조건 및 미확정 사항 | pydantic 설치 승인, DB 엔진 선택(SQLite 제안, 운영 DB와 차이 존재), 질의셋·스키마 변경 시나리오 확정 |
 | 11. 후속 의사결정 조건 | E06·E07은 이 결과 대비 "추가로 무엇을 얻는가"로 평가한다. A만으로 요구가 충족되면 B/C는 보류·후속 분리 근거가 된다 |
+
+**E05 1차 실행 (2026-10-21, RUNNING)**: 규칙 카탈로그 42개(채점 41 + INFO 1, 합성 가정 WARNING 5, NOT_MEASURED 6), 독립 평가셋 v1 72개(기대 항목 80). 4개 방식 비교 — python_full·sql_queries ERROR TP 99/FP 0/FN 0(구현 일치도이며 일반화 성능 아님), pydantic_only 재현율 0.313, sql_constraints 재현율 0.505·연쇄 거부 오탐 114. SQLite FK 기본 off 확인, E02 이관 4건 4/4 검출, 평가셋 밖 관찰에서 Pydantic lax 모드의 NaN·지수 표기 수용 결함 확인. 관계 조회 Q1~Q5·스키마 변경 시나리오는 미측정. 결과 `results/E05_schema_sql/`, 보고 [e05_data_validation_report.md](e05_data_validation_report.md).
 
 ---
 
@@ -245,6 +303,11 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 10. 선행조건 및 미확정 사항 | rdflib·pyshacl 설치 승인, Protégé 사용 여부(업무분장 기재, 설치 필요), 네임스페이스·URI 정책, 원본 위치 추적(provenance) 표현 방식 |
 | 11. 후속 의사결정 조건 | A 대비 추가 이익이 확인되지 않으면 RDF는 보류/후속 분리. 이익이 있으나 GraphDB 없이 충분하면 E07은 축소 실행 |
 
+**E06 부분 실행 (2026-10-21, RUNNING, 로컬·미커밋)**: rdflib 7.6.0·pyshacl 0.40.1 설치(DEC-20261021-03). 산출물 `ontology/e06_minimal.ttl`·`e06_shapes.ttl`(shape 418개, 채점 규칙 41개 전부), `scripts/e06_*.py`, `results/E06_rdf_shacl/`(accuracy.json, queries.json, schema_change.json; perf.json은 미완료 부분값). 측정된 값: E05 평가셋 72개에서 pyshacl ERROR TP 99/FP 0/FN 0 — E05 Python·SQL과 데이터셋별 검출 규칙 차이 0 (구현 일치도이며 일반화 성능 아님). Q1~Q5 정답 46/46 (Python·SQLite·SPARQL). Core 비교 제약 변형은 형식 오류 데이터 2개에서 pyshacl이 TypeError로 중단. rdflib가 `NaN`·`1e3`·전각 숫자를 정상 xsd:decimal로 받아들임. 성능: M(×10) 검증 hybrid 약 64 s·pyshacl 약 275 s, L(×50) hybrid 약 1,499 s (중앙값 3회, 같은 세션 E05 Python 0.20 s·SQL 0.31 s). 이 실행의 SHACL 메모리 값은 측정 버그(런처 프로세스만 측정)로 **무효**, L pyshacl·메모리는 **미측정**. 종합 보고서 미작성. 범위: [e06_scope.md](e06_scope.md).
+
+**2026-10-21 개정 — 최소 비교로 제한**: E06은 E05와 같은 정답셋으로 SQL/Python과 SHACL을 비교하는 최소 실험으로 둔다. 비교 항목: 오류 검출 차이, 관계 표현력, BOM 순환 검증, 규칙 변경 영향, RDF 변환 시간, 구현·운영 복잡도.
+E06 **확장 조건** — 다음 중 하나가 실측으로 확인될 때만 확장한다: ① 여러 ERP 간 같은 개념의 의미 충돌(E10 매핑에서 관찰), ② SQL·공통 스키마로 유지하기 어려운 관계, ③ SHACL의 명확한 검증상 이점(같은 정답셋에서 SQL/Python이 못 잡는 오류를 잡음 등), ④ 규칙 변경에 따른 운영 비용 절감(같은 변경 시나리오에서 수정 범위·회귀 위험 감소).
+
 ---
 
 ## E07. GraphDB/SPARQL 관계 조회
@@ -262,6 +325,8 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 9. 결과 파일명 | `results/E07_graphdb_sparql/metrics.csv`, `install_log.md`, `queries.rq`, `failures.md`, `summary.md`, `run_meta.json` |
 | 10. 선행조건 및 미확정 사항 | **GraphDB 사용 여부, 라이선스 조건, 설치 방법(Windows 네이티브/WSL/Docker — Docker 미설치)은 별도 확인 필요**. 대안 트리플스토어 비교 여부 |
 | 11. 후속 의사결정 조건 | 정답률이 B와 같고 운영 이점이 MVP 요구에 없으면 보류/후속 분리. 수요기업 환경 확정 후 재평가 |
+
+**2026-10-21 개정 — 신규 GraphDB 구축 보류**: 실험 상태는 `NOT_STARTED`(미실행)이고, 기술 검토는 **보류**다(두 상태를 구분한다). GraphDB는 SPARQL이 가능하다는 이유만으로 구축하지 않는다. E06 또는 E10에서 다음 중 하나가 확인될 때 재검토한다: ① RDFLib가 관계 조회 규모·속도를 충족하지 못함(목표값은 팀 합의 필요, D-010), ② 전용 그래프 저장소의 관리·질의 기능이 필요함, ③ 다중 시스템 의미 통합을 지속적으로 수행해야 함, ④ 기존 관계형 DB 대비 확실한 정량 이점. 조건이 충족되지 않으면 보류를 유지한다. 참고: E06 부분 실행에서 RDFLib SHACL 검증 시간은 규모에 따라 비선형으로 늘었으나(위 E06 문단), 이는 ①의 판단 근거로 쓰기 전에 목표값 합의와 SPARQL 조회 자체의 측정이 필요하다.
 
 ---
 
@@ -281,6 +346,8 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 10. 선행조건 및 미확정 사항 | 수요기업 GPU·망·보안 요구(미확정), 외부 API 사용 승인 절차, 호출 빈도 가정(팀 합의 필요) |
 | 11. 후속 의사결정 조건 | 수요기업 조건 확정 전에는 "조건부" 배치안으로 제시. 확정 후 재평가 |
 
+**2026-10-21 개정 — 실행 환경 3종 비교 우선**: CPU 로컬 / 외부 API / CPU+API 하이브리드. 비교 항목: GPU 없는 환경, 인터넷 불가 환경, 기업 사내망, 외부 API 데이터 전송 가능 여부, 처리시간, 메모리, API 비용, 실패 시 대체 경로, 로그·승인·데이터 보존 정책. 입력에 E10(매핑 후보 생성 방식별 비용·시간)과 E11(계획 계산 실행 위치)을 추가한다. 실제 기업의 보안 정책은 **미확정**으로 기록한다. 이번 개정은 계획 변경만이며 실험은 실행하지 않았다.
+
 ---
 
 ## E09. 기술 채택 판단 및 보고서 작성
@@ -298,6 +365,42 @@ E00 → E01 ─┬→ E02 → E05 → E06 → E07 ─┐
 | 9. 결과 파일명 | `docs/decisions.md`(갱신), `results/E09_report/tech_decision_report.md`, `results/E09_report/one_page_summary.md` |
 | 10. 선행조건 및 미확정 사항 | 정량 목표값 팀 합의, 다른 담당자 결과 취합 형식(업무분장 08절 형식) |
 | 11. 후속 의사결정 조건 | 판단 결과를 MVP 범위 확정 및 면담 Q&A 근거로 사용. `보류` 항목은 재검토 조건을 명시 |
+
+**2026-10-21 개정**: E09 입력에 E10(매핑 안전성 — 특히 잘못된 값의 승인 후 반영률)과 E11(제약 정책 준수, INFEASIBLE 판정)을 추가한다. 판단 대상 기술에 SQLite 모의 ERP, ERP 매핑 방식(규칙·검색·LLM 후보), OR-Tools(조건부), ERP 공식 API 연동(조건부)을 추가한다.
+
+---
+
+## E10. 모의 ERP 매핑 PoC (신규, 2026-10-21)
+
+| 항목 | 내용 |
+|---|---|
+| 1. 검증 목적 | 파서 출력(IR)에서 모의 ERP 필드로 가는 매핑 후보 생성 → 값 검증 → 담당자 승인 → 반영 경로가 **잘못된 값을 승인 없이 또는 승인 후 잘못 반영하지 않는지** 확인한다. 상세: [e10_erp_mapping_plan.md](e10_erp_mapping_plan.md) |
+| 2. 기술적 가설 | 규칙 기반 매핑은 정확한 코드에 강하고 유사·동명 제품에 약하다. 검색·LLM 후보는 후보 재현율을 높이지만 승인 없이 자동 반영하면 잘못된 값 반영률이 올라간다. (검증 전 가설) |
+| 3. 필요한 입력 데이터 | E01 정답셋 v2(모의 ERP 기준 데이터), E02·E03 파서 출력(IR), E05 검증 규칙. 실제 기업 데이터·실제 ERP 사용 금지 |
+| 4. 비교 대상과 Baseline | Baseline = 규칙 기반 매핑(E02 업체 코드 대응표 방식). 비교 = BM25/키워드 검색, 임베딩 검색, Tri-CHEF(검색·에이전트 담당 구현), LLM 후보 제안 — 공통 입출력 계약만 이번에 설계 |
+| 5. 정답 데이터 확보 방법 | 시나리오별 독립 정답 ([e10_evaluation_protocol.md](e10_evaluation_protocol.md)) |
+| 6. 평가 지표 | Field Mapping Accuracy, Wrong-field Mapping Rate, **Wrong-value Commit Rate**, Duplicate Detection Rate, Auto-accept Coverage, Manual Review Rate, Rejection Accuracy, 처리시간, API 비용, 원본 추적 가능률 |
+| 7. 실행 방법 | (미실행) 모의 ERP DDL([schemas/e10_mock_erp.sql](../schemas/e10_mock_erp.sql)) → 시나리오 데이터 → 후보 생성기별 실행 → 검증 → 모의 승인 → dry-run 비교 → 채점 |
+| 8. 예상 실패 유형(가설) | 동명 이품 오매핑, 단위 불일치 값의 승인, 재반입 중복, 구버전 BOM 반영, 승인 없는 본 테이블 쓰기 |
+| 9. 결과 파일명 | `results/E10_erp_mapping/` (예정) |
+| 10. 선행조건 및 미확정 사항 | 수요기업 ERP 보유 여부·스키마·반입 권한·승인 절차 미확인. LLM·임베딩 사용 시 외부 API 승인(합성 데이터만) |
+| 11. 후속 의사결정 조건 | 잘못된 값 반영률 목표(팀 합의 필요)를 넘는 방식은 자동 반영 금지. 결과는 E11 데이터 계약과 E09 판단 입력 |
+
+## E11. ERP 기반 의사결정 PoC (신규, 2026-10-21)
+
+| 항목 | 내용 |
+|---|---|
+| 1. 검증 목적 | 승인된 모의 ERP 데이터에서 계획안 2~3개를 만들고, Hard Constraint를 공통 적용해 실행 불가 계획을 INFEASIBLE로 판정하며 실행 가능한 계획끼리만 비교하는 인터페이스가 성립하는지 확인한다. 상세: [e11_decision_interface.md](e11_decision_interface.md), [e11_constraint_policy.md](e11_constraint_policy.md) |
+| 2. 기술적 가설 | 계획 계산(예측·최적화)과 제약 판정을 분리하면 가중치를 바꿔도 필수 제약 위반 계획이 선택되지 않는다. (검증 전 가설) |
+| 3. 필요한 입력 데이터 | E10에서 승인된 레코드(PlanningInput), 예측 결과(ForecastResult, 예측·최적화 담당), 시나리오 설정 |
+| 4. 비교 대상과 Baseline | Baseline = E01 decision_logic 독립 계산(규칙 계산). 비교 = 예측·최적화 담당의 계획 생성기 (OR-Tools는 조건부) |
+| 5. 정답 데이터 확보 방법 | 독립 계산 정답: 필수 시나리오(수요 1,000 / 재고 200 / 안전재고 100 → 생산 900, 자재 2 kg → 1,800 kg, 보유 1,500 kg → 부족 300 kg, 능력 800 → 100개 초과분은 외주 조건 미확인 시 자동 실행 가능 판정 금지) + E01 expected |
+| 6. 평가 지표 | 제약 위반 계획의 INFEASIBLE 판정 정확도, 미확인 조건의 자동 승인 0건, 실행 가능 계획 간 지표 비교 재현성 |
+| 7. 실행 방법 | (미실행) 계약([schemas/e11_scenario_contract.json](../schemas/e11_scenario_contract.json)) 확정 → 담당자별 구현 → 통합 평가 |
+| 8. 예상 실패 유형(가설) | 가중치로 필수 제약을 상쇄, 미확인 외주 조건을 가능으로 가정, 단위·기간 기준 불일치 |
+| 9. 결과 파일명 | `results/E11_decision/` (예정) |
+| 10. 선행조건 및 미확정 사항 | ERP 자체 생산계획 기능 여부, 외주 조건·비용, 필수 납기 정의(도메인·KPI 담당 확인) |
+| 11. 후속 의사결정 조건 | E09에서 계획 생성 방식·OR-Tools 채택 여부 판단 |
 
 ---
 

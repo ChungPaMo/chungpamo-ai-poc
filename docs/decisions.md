@@ -2,6 +2,7 @@
 
 - 작성일: 2026-10-20 (1단계 초안)
 - 개정: 2026-10-20 2단계 — 사용자 확정 결정 D-001~D-003 기록, E00 상태 반영
+- 개정: 2026-10-21 — ERP 중심 방향 전환(DEC-20261021-04): §3 판단표 실험 상태 갱신·기술 행 추가, §3.1 기술 방향, D-032~D-037. 기존 D·DEC 기록은 지우지 않았다.
 - 현재 상태: **모든 기술 채택 판단은 미결정**. 개발환경 관련 결정(D-001~D-003)만 확정되었다. E00 외에는 실험이 실행되지 않았으므로 이 문서에 기록된 성능·비용 값은 없다.
 
 ---
@@ -56,19 +57,44 @@
 
 ## 3. 기술별 판단표
 
-| 기술 | 근거 실험 | 실험 상태 | 판단 | 근거 요약 | 대체안 |
+| 기술 | 근거 실험 | 실험 상태 (2026-10-21 갱신) | 판단 | 근거 요약 | 대체안 |
 |---|---|---|---|---|---|
-| pandas/openpyxl CSV·Excel 파싱 | E02 | NOT_STARTED | 미결정 | — | 표준 csv + openpyxl |
-| python-docx (DOCX) | E03 | NOT_STARTED | 미결정 | — | 사용자 측 PDF 변환 |
-| 로컬 PDF 파서 (pypdf / PyMuPDF / pdfplumber) | E03 | NOT_STARTED | 미결정 | — | — |
-| HWPX 파서 | E03 | NOT_STARTED | 미결정 | — | 사용자 측 PDF/DOCX 변환 |
-| HWP 파서 | E03 | NOT_STARTED | 미결정 | — | 사용자 측 HWPX/PDF 변환 |
-| Upstage Document Parse API | E04 | NOT_STARTED | 미결정 | — | 로컬 PDF 파서 + 로컬 OCR |
-| 공통 JSON/Pydantic + SQL | E05 | NOT_STARTED | 미결정 | — | — (Baseline) |
-| RDFLib + RDF + SHACL | E06 | NOT_STARTED | 미결정 | — | 방식 A |
-| GraphDB + SPARQL | E07 | NOT_STARTED | 미결정 | — | RDFLib SPARQL, 방식 A |
-| OWL 추론 | — | 계획 없음 | 미결정 (필요성 확인 전 미구현) | — | SHACL·SQL 규칙 |
-| 배치 방식 (로컬/API/하이브리드) | E08 | NOT_STARTED | 미결정 | — | — |
+| pandas/openpyxl CSV·Excel 파싱 | E02 | RUNNING (표준 csv + openpyxl Baseline 완료, pandas 비교 보류 D-016) | 미결정 | `results/E02_tabular_parsing/summary.md` | 표준 csv + openpyxl |
+| python-docx (DOCX) | E03 | RUNNING (직접 파서 v1·v2, 외부 문서 평가) | 미결정 | [e03_external_generalization_report.md](e03_external_generalization_report.md) | 사용자 측 PDF 변환 |
+| 로컬 PDF 파서 (pypdf / PyMuPDF / pdfplumber) | E03 | RUNNING (pypdf·pdfplumber 측정, PyMuPDF 미설치 D-018) | 미결정 | 위와 같음 | — |
+| HWPX 파서 | E03 | 미측정 | 미결정 | — | 사용자 측 PDF/DOCX 변환 |
+| HWP 파서 | E03 | 미측정 | 미결정 | — | 사용자 측 HWPX/PDF 변환 |
+| Upstage Document Parse API | E04 | NOT_STARTED (예비 1회 + E03 진단 1회만) | 미결정 — **우선 검증** (§3.1) | — | 로컬 PDF 파서 + 로컬 OCR |
+| 공통 JSON/Pydantic + SQL | E05 | RUNNING (1차 실행 완료, 합격선 미정) | 미결정 — Baseline 확정 대기 | [e05_data_validation_report.md](e05_data_validation_report.md) | — (Baseline) |
+| RDFLib + RDF + SHACL | E06 | RUNNING (부분 실행, 성능 미완료) | 미결정 — **조건부 검토** (§3.1) | experiment_plan.md E06 실행 문단 | 방식 A |
+| GraphDB + SPARQL | E07 | NOT_STARTED · 기술 검토 보류 | **보류** (신규 구축) — 재개 조건 experiment_plan.md E07 | — | RDFLib SPARQL, 방식 A |
+| OWL 추론 | — | 계획 없음 | 미결정 (필요성 확인 전 미구현) — 범용 OWL 온톨로지 구축 **보류** | — | SHACL·SQL 규칙 |
+| 배치 방식 (로컬/API/하이브리드) | E08 | NOT_STARTED (계획 개정) | 미결정 — **우선 검증** | — | — |
+| SQLite 기반 모의 ERP | E10 | NOT_STARTED (설계만) | 미결정 — **우선 검증** | [e10_erp_mapping_plan.md](e10_erp_mapping_plan.md) | — |
+| ERP 필드 매핑 (규칙 / 검색 / LLM 후보) | E10 | NOT_STARTED (설계만) | 규칙 기반·안전성 **우선 검증**, LLM 기반 필드 추출 **조건부 검토** | — | 규칙 기반 매핑 + 사람 검토 |
+| OR-Tools | E11 | NOT_STARTED (미설치) | **조건부 검토** | — | decision_logic 규칙 계산 |
+| 외부 ERP 공식 API 연동 | — | 계획 없음 | **조건부 검토** (ERP 확인 후) | — | 파일 반입 + 모의 ERP |
+| 전사 ERP 구현 / 실기업 ERP 직접 쓰기 | — | 계획 없음 | **보류** (사전 PoC 범위 아님) | — | 모의 ERP staging + 승인 |
+
+### 3.1 ERP 중심 기술 방향 (2026-10-21, DEC-20261021-04)
+
+판단표의 "판단" 칸은 채택 결정이 아니라 **검증 우선순위**다. 채택 판단은 §1.2 기준과 실측으로만 한다.
+
+| 구분 | 기술·주제 |
+|---|---|
+| 우선 검증 | CSV/Excel 직접 파싱, DOCX/PDF 직접 파싱, Upstage Document Parse, Python/Pydantic 데이터 검증, SQLite 기반 모의 ERP, ERP 필드 매핑 안전성, CPU 및 외부 API 실행 방식 |
+| 조건부 검토 | RDF/SHACL, OR-Tools, LLM 기반 필드 추출, 외부 ERP 공식 API 연동 |
+| 보류 | GraphDB 신규 구축, 범용 OWL 온톨로지 구축, 전사 ERP 구현, 실기업 ERP 직접 쓰기 |
+
+- RDF/SHACL·GraphDB가 **불필요하다고 확정하지 않는다**. 기존 SQL·공통 스키마로 해결하기 어려운 문제가 실측으로 드러나면 재검토한다 (재개 조건: experiment_plan.md E06·E07 절).
+- 담당별 검증 범위 (공개 저장소이므로 실명 대신 역할명으로 기록한다):
+
+| 역할 | 검증 범위 |
+|---|---|
+| 파서·데이터 통합 담당 | 문서 파싱, 모의 ERP 구조, 매핑 검증, 배포·보안 |
+| 검색·에이전트 담당 | Tri-CHEF 검색, LLM 매핑 후보, Agent 비교 |
+| 예측·최적화 담당 | 예측모델, 제약조건, 계획안 생성 |
+| 도메인·KPI 담당 | 도메인 데이터, KPI, 현업 조사, UX |
 
 ---
 
@@ -99,6 +125,16 @@
 | D-025 | 외부 문서 텍스트가 담긴 정답·파서 출력·API 응답의 공개 여부 | E03 | 사용자 | **결정 (2026-10-21, DEC-20261021-01)** — 원본·텍스트 포함 정답·원문 복원 가능 출력·첨부·미확인 SmartArt/차트 원문·API 응답은 비공개, 코드·채점기·테스트·출처·해시·분할·집계·비식별 오류 통계·보고서는 검사 통과 시 공개 |
 | D-026 | 외부 DOCX·PPTX 잠정 정답(PROVISIONAL)의 사람 뷰어 검수 담당·범위 (VERIFIED_MANUAL 승격 조건) | E03 | 사용자·팀 | **방식 승인**, 담당 미배정 — 체크리스트·목록 준비([e03_external_manual_review_checklist.md](e03_external_manual_review_checklist.md)), 검수 미수행 |
 | D-027 | 직접 파서 v2 채택 여부 (v1 대체 또는 병행) | E03 | 사용자·ChatGPT | **조건부 병행 채택** (2026-10-21) — v1 유지, v2 별도 버전. 잠정 정답 의존 기능은 검수 후 확정 |
+| D-028 | E05 완료 판정 조건: 정량 합격선, 관계 조회 Q1~Q5·스키마 변경 시나리오를 E05에서 추가 수행할지(또는 E06·E07로 이관할지) | E05 | 사용자·팀 | 대기 ([e05_data_validation_report.md](e05_data_validation_report.md) §13) |
+| D-029 | 숫자·날짜 허용 표기 기준과 Pydantic strict 모드(또는 유한값 검사) 적용 여부 — E01 모델 수정 포함 | E05 | 사용자·팀 | 대기 (lax 모드가 NaN·Infinity·지수·전각 숫자 수용, report §8.3) |
+| D-030 | E05 추가 오류 코드(ERR-ENUM, ERR-IDFMT), 합성 가정 규칙 5개(S07·B09·B10·V11·V12), B12 허용오차 0.0005, NOT_MEASURED 6개의 실제 규칙 여부 | E05 | 팀·현업 | 대기 (확인 전 실제 기업 규칙으로 표현 금지) |
+| D-031 | E06 착수와 rdflib·pyshacl 설치 승인 | E06 | 사용자 | 대기 ([e06_comparison_design.md](e06_comparison_design.md)) → **승인·이행** (2026-10-21, DEC-20261021-03): 기술 검증 목적 로컬 설치, E06 부분 실행 |
+| D-032 | E05 커밋·공개 승인 (대상 목록·권장 메시지: [poc_direction_change_20261021.md](poc_direction_change_20261021.md) §5) | E05 | 사용자 | **승인·이행** (2026-10-21) — E05 전용 27개 파일, 커밋 `3d9974b`, main 일반 푸시 |
+| D-033 | E06 잔여 측정(S/M/L 성능·메모리 재측정, L 규모 pyshacl)과 E06 종합 보고서 작성 여부 | E06 | 사용자 | **승인·이행** (2026-10-21) — `perf_v2/` 3회 측정, 보고서 작성. 커밋은 별도 승인 대기 |
+| D-034 | E10 착수(데이터 적재·평가 실행)와 비교 방식 범위(임베딩·LLM 후보의 외부 API 사용 여부 — 합성 데이터만) | E10 | 사용자·팀 | 규칙 기반 1차 **승인·이행** (2026-10-21). 임베딩·LLM·Tri-CHEF는 미구현(계약만), 외부 API 미사용. 자동 승인 허용 필드는 팀 합의 필요 |
+| D-035 | E11 데이터 계약 확정(담당 간 합의)과 OR-Tools 설치 여부 | E11 | 팀 | 대기 |
+| D-036 | 수요기업 확인 항목: ERP 보유 여부·실제 스키마·외부 API/데이터 반입 권한·ERP 자체 생산계획 기능·GPU/CPU/망/보안 환경·업무 규칙과 승인 절차 | E04·E08·E10·E11 | 회사·운영기관 | 미확인 (확인 전 모든 ERP 실험은 합성 데이터·모의 ERP) |
+| D-037 | 공개 문서의 담당자 표기 방식 (CLAUDE.md: 팀원 실명 비공개 → 역할명 사용) | 전체 | 사용자 | 역할명으로 작성 (2026-10-21), 확인 대기 |
 | D-024 | 외부 문서 정답 작성 방식 승인: 공식 주석·저장소 기대값 우선, 나머지 수동 검수(검수 담당 지정), PubTables 주석 규칙(빈 셀·행 머리·헤더 정규화) 채점 반영 방식, 블라인드 프로토콜(§5) | E03 | 사용자·팀 | 대기 |
 | D-022 | E03 완료 판정 조건: 생성 도구와 다른 경로로 만든 문서(Word·PowerPoint·한글에서 저장한 파일, 선 없는 표 PDF 등) 추가 측정 필요 여부, HWP/HWPX 미측정 상태로의 완료 가능 여부 | E03 | 사용자·팀 | 대기 (직접 파서 Baseline은 같은 라이브러리 계열 왕복 결과 — `parser_baseline/summary.md` §5) |
 | D-015 | Upstage Document Parse의 지원 입력 형식(HWP/HWPX/PPTX 포함 여부) 공식 문서 확인 | E04 | 팀 | 대기 (확인 전 지원 가정 금지) |
@@ -243,3 +279,32 @@
 - 결정 내용: ① 외부 문서 원본·텍스트 포함 정답/출력·첨부·API 응답 비공개, 공개는 코드·채점기·테스트·출처·해시·분할·집계·보고서(문자열 검사 통과 시) ② v2는 v1을 대체하지 않는 별도 버전으로 조건부 병행 ③ E03 실패 사례 진단용 Upstage Standard 비교: 전체 과금 4쪽 이하, Enhanced·OCR 모델·재시도 금지, 문서 자르기 금지 ④ 사람 검수는 방식만 승인(담당 미배정)
 - 이행: 재검증(`external_verification.json`) — holdout 무결성 확인, 공식·잠정 혼합 수치 1건 분리 보고. 정답 작성기의 외부 문자열 제거(정답 불변 확인). Upstage는 조건을 만족하는 문서가 X-DV-P04(2쪽) 1건뿐이라 1회·2쪽 호출(추정 $0.02). 검수 목록 523항목 준비.
 - E03 상태 RUNNING, E04 본 실험 미착수.
+
+### DEC-20261021-02: E05 데이터 정합성·업무 규칙 검증 PoC 수행 (로컬 전용, 커밋 없음)
+- 날짜: 2026-10-21
+- 결정 주체: 사용자
+- 결정 내용: E05 Phase 1~10을 로컬에서 수행. 커밋·푸시, Upstage·유료 API, HWP/HWPX, OCR, GraphDB, 웹 프론트엔드, 시스템 통합, 기존 실험 결과 재작성 금지. 실험 결과가 평가 기준을 충족할 때에만 COMPLETED.
+- 이행: 규칙 카탈로그 v1(42개, NOT_MEASURED 6), 평가셋 v1(72개, sha256 `d666c160…`), Python·SQLite 4개 방식 검증·채점·성능 측정, E06 비교 설계. 새 패키지 설치 없음(기존 pydantic·psutil·표준 sqlite3). 외부 호출 0.
+- E05 상태 RUNNING (D-028 미결). 판정은 PoC 잠정 판단이며 운영 기술 채택 아님 (report §14).
+
+### DEC-20261021-03: E06 착수, rdflib·pyshacl 로컬 설치 (부분 실행 후 중단)
+- 날짜: 2026-10-21
+- 결정 주체: 사용자
+- 결정 내용: E06 RDFLib·SHACL 사전 PoC 수행. rdflib·pyshacl은 기술 검증 목적의 로컬 설치만 승인. 커밋·푸시·GraphDB·유료 API 금지.
+- 이행: rdflib 7.6.0, pyshacl 0.40.1 설치(의존성 owlrl·html5rdf·prettytable·pyparsing·wcwidth·importlib_metadata·zipp, 기존 패키지 업그레이드 없음, pip check 이상 없음), `requirements.lock` 반영. 정확도·Q1~Q5·변경 시나리오 측정 완료. S/M/L 성능 측정은 메모리 측정 버그 수정 후 재측정 중 사용자 지시로 중단 → D-033.
+- E06 상태 RUNNING.
+
+### DEC-20261021-04: 사전 PoC 방향을 ERP 중심으로 전환
+- 날짜: 2026-10-21
+- 결정 주체: 사용자
+- 결정 내용: 기존 실험을 폐기하지 않고 우선순위·설계를 "문서 파싱 → 검색·ERP 필드 매핑 후보 → 정합성 검증 → 담당자 승인 → 모의 ERP DB → 예측·계획 계산 → 대안 비교"로 바꾼다. E10(모의 ERP 매핑)·E11(ERP 기반 의사결정) 신규. E04·E08 우선순위 상향, E06 최소 비교로 제한, E07 신규 GraphDB 구축 보류. 수요기업 ERP 관련 사실은 미확인(D-036)이므로 합성 데이터·모의 ERP로만 설계.
+- 이행: experiment_plan.md 개정, 본 문서 §3·§3.1·D-032~D-037, E10·E11 설계 문서·DDL·계약 초안 작성(실행 없음). [poc_direction_change_20261021.md](poc_direction_change_20261021.md).
+- 기존 측정값·정답셋·결과 파일 변경 없음.
+
+### DEC-20261022-01: 사전 PoC 최종 마무리 (10월 23일 마감, 로컬 전용)
+- 날짜: 2026-10-22
+- 결정 주체: 사용자
+- 결정 내용: 기존 허용 범위(로컬 코드 수정·테스트·문서) 안에서 단계별 승인 없이 연속 수행. 유료 API 추가 호출·실제 기업 시스템 접속·커밋·푸시 금지. 장시간 재측정·대규모 평가셋 생성 금지.
+- 이행: E10 M13 수정(v2 매퍼 — 충돌 M-24, 비활성 BOM M-25, 자동 승인 기본 REVIEW_REQUIRED, 대기 중 재반입 중복), 독립 충돌 세트 5건, E11 계약 검증 11/11, E04 잠정 비교(호출 0), E08 비교, E09 최종 기술 선정, 미해결·기업 질문 목록. v1 기준선 결과·기존 정답셋 변경 없음.
+- 상태: E04 NOT_STARTED, E05~E11 RUNNING, E07 보류. 운영 기술 확정 아님.
+

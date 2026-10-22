@@ -1,0 +1,462 @@
+{
+ "checked": 57,
+ "mismatches": [],
+ "checks": [
+  {
+   "experiment": "E03",
+   "report": "e09 §2·§4",
+   "claim": "holdout 표 재현율",
+   "actual": "6/6",
+   "expected": "6/6",
+   "ok": true
+  },
+  {
+   "experiment": "E03",
+   "report": "e09 §2·§4",
+   "claim": "holdout 셀 텍스트(격자)",
+   "actual": "625/676",
+   "expected": "625/676",
+   "ok": true
+  },
+  {
+   "experiment": "E03",
+   "report": "e09 §2·§4",
+   "claim": "holdout 병합",
+   "actual": "23/30",
+   "expected": "23/30",
+   "ok": true
+  },
+  {
+   "experiment": "E04",
+   "report": "e04 §2",
+   "claim": "P-02 Upstage 호출 수·시간",
+   "actual": "1회 7.904s",
+   "expected": "1회 7.904s",
+   "ok": true
+  },
+  {
+   "experiment": "E04",
+   "report": "e04 §2",
+   "claim": "P-02 Upstage 셀",
+   "actual": "248/248",
+   "expected": "248/248",
+   "ok": true
+  },
+  {
+   "experiment": "E04",
+   "report": "e04 §3",
+   "claim": "X-DV-P04 Upstage HTML 병합",
+   "actual": "4/6",
+   "expected": "4/6",
+   "ok": true
+  },
+  {
+   "experiment": "E04",
+   "report": "e04 §3",
+   "claim": "X-DV-P04 직접 v2 병합",
+   "actual": "2/6",
+   "expected": "2/6",
+   "ok": true
+  },
+  {
+   "experiment": "E04",
+   "report": "e04 §3",
+   "claim": "X-DV-P04 호출 시간",
+   "actual": "9.845",
+   "expected": "9.845",
+   "ok": true
+  },
+  {
+   "experiment": "E05",
+   "report": "e05 report §5·§6",
+   "claim": "python_full TP/FP/FN",
+   "actual": "99/0/0",
+   "expected": "99/0/0",
+   "ok": true
+  },
+  {
+   "experiment": "E05",
+   "report": "e05 report §5·§6",
+   "claim": "sql_queries TP/FP/FN",
+   "actual": "99/0/0",
+   "expected": "99/0/0",
+   "ok": true
+  },
+  {
+   "experiment": "E05",
+   "report": "e05 report §5·§6",
+   "claim": "python_pydantic_only TP/FP/FN",
+   "actual": "31/0/68",
+   "expected": "31/0/68",
+   "ok": true
+  },
+  {
+   "experiment": "E05",
+   "report": "e05 report §5·§6",
+   "claim": "sql_constraints TP/FP/FN",
+   "actual": "50/114/49",
+   "expected": "50/114/49",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §4",
+   "claim": "pyshacl TP/FP/FN",
+   "actual": "99/0/0",
+   "expected": "99/0/0",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §4",
+   "claim": "E05 Python과 차이 데이터셋",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §4",
+   "claim": "Core 비교 제약 중단 데이터셋",
+   "actual": "2",
+   "expected": "2",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L pyshacl 검증 s",
+   "actual": "4188.9484",
+   "expected": "4188.9484",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L pyshacl 피크 MB(자체)",
+   "actual": "727.1",
+   "expected": "727.1",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L hybrid 검증 s",
+   "actual": "1540.2522",
+   "expected": "1540.2522",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L Python 검증 s",
+   "actual": "0.2013",
+   "expected": "0.2013",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L SQLite 검증 s",
+   "actual": "0.3148",
+   "expected": "0.3148",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "L 트리플",
+   "actual": "231193",
+   "expected": "231193",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §8",
+   "claim": "성능 3회 성공",
+   "actual": "True",
+   "expected": "True",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §6",
+   "claim": "Q1~Q5 정답 (세 방식)",
+   "actual": "True",
+   "expected": "True",
+   "ok": true
+  },
+  {
+   "experiment": "E06",
+   "report": "e06 report §6",
+   "claim": "판별 사례 naive 오답",
+   "actual": "['P0']",
+   "expected": "['P0']",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v1 평가셋 잘못된 반영 (ideal)",
+   "actual": "1/7",
+   "expected": "1/7",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v1 안전성 (ideal)",
+   "actual": "13/13",
+   "expected": "13/13",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v1 평가셋 잘못된 반영 (rubber_stamp)",
+   "actual": "1/7",
+   "expected": "1/7",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v1 안전성 (rubber_stamp)",
+   "actual": "13/13",
+   "expected": "13/13",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 잘못된 반영 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 오류 있는 후보 자동 승인 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 승인 없는 본 테이블 행 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 잘못된 반영 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 오류 있는 후보 자동 승인 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_review 승인 없는 본 테이블 행 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 잘못된 반영 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 오류 있는 후보 자동 승인 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 승인 없는 본 테이블 행 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 잘못된 반영 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 오류 있는 후보 자동 승인 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_eval_auto 승인 없는 본 테이블 행 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 잘못된 반영 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 오류 있는 후보 자동 승인 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 승인 없는 본 테이블 행 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 잘못된 반영 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 오류 있는 후보 자동 승인 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_review 승인 없는 본 테이블 행 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 잘못된 반영 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 오류 있는 후보 자동 승인 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 승인 없는 본 테이블 행 (ideal)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 잘못된 반영 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 오류 있는 후보 자동 승인 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v2_conflict_auto 승인 없는 본 테이블 행 (rubber_stamp)",
+   "actual": "0",
+   "expected": "0",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3",
+   "claim": "v1 충돌 세트 잘못된 반영",
+   "actual": "1/4",
+   "expected": "1/4",
+   "ok": true
+  },
+  {
+   "experiment": "E10",
+   "report": "e10_m13_fix §3 †",
+   "claim": "v2 기본 정책 상태 검사 (X02 실패 1건 기록)",
+   "actual": "23/24",
+   "expected": "23/24",
+   "ok": true
+  },
+  {
+   "experiment": "E11",
+   "report": "e11 report §2",
+   "claim": "계약 검증",
+   "actual": "11/11",
+   "expected": "11/11",
+   "ok": true
+  },
+  {
+   "experiment": "E11",
+   "report": "e11 report §2",
+   "claim": "T-01 계산",
+   "actual": "{'required_production': '900', 'required_material_kg': '1800', 'material_shortage_kg': '300', 'capacity_shortfall_units': '100'}",
+   "expected": "{'required_production': '900', 'required_material_kg': '1800', 'material_shortage_kg': '300', 'capacity_shortfall_units': '100'}",
+   "ok": true
+  },
+  {
+   "experiment": "E11",
+   "report": "e11 report §2",
+   "claim": "E01 계획안 판정",
+   "actual": "['INFEASIBLE', 'INFEASIBLE', 'INFEASIBLE']",
+   "expected": "['INFEASIBLE', 'INFEASIBLE', 'INFEASIBLE']",
+   "ok": true
+  }
+ ]
+}
