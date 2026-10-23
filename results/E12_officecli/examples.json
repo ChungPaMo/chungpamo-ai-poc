@@ -1,0 +1,1002 @@
+{
+ "note": "모든 출력은 실제 실행 결과. 'conclusion'만 해설. 외부 문서 사례는 data/raw/e12_officecli/examples_external.json (로컬 전용)",
+ "xlsx": [
+  {
+   "id": "XLSX-1",
+   "title": "문자열로 저장된 숫자 (Orders!C3 = \"30\")",
+   "file": "data/e12/X12-01_orders.xlsx",
+   "original": {
+    "xml": "<c r=\"C3\" t=\"s\"><v>14</v></c>",
+    "truth": {
+     "sheet": "Orders",
+     "cell": "C3",
+     "kind": "text",
+     "value": "30",
+     "display": "30",
+     "formula": null,
+     "note": "number_stored_as_text"
+    }
+   },
+   "baseline": {
+    "code": "load_workbook(data_only=False/True)['Orders']['C3']",
+    "value(data_only=False)": "'30'",
+    "value(data_only=True)": "'30'",
+    "data_type": "s",
+    "number_format": "General",
+    "is_date": false
+   },
+   "officecli": {
+    "command": "officecli get <file> /Orders/C3 --depth 1 --json",
+    "returncode": 0,
+    "source_unchanged": true,
+    "node": {
+     "path": "/Orders/C3",
+     "type": "cell",
+     "text": "30",
+     "preview": "C3",
+     "childCount": 0,
+     "format": {
+      "type": "SharedString"
+     },
+     "children": []
+    }
+   },
+   "comparison": "아래 baseline/officecli 필드 대조",
+   "conclusion": "두 도구 모두 문자열로 보존한다 (openpyxl data_type 's', OfficeCLI type SharedString). 차이 없음."
+  },
+  {
+   "id": "XLSX-2",
+   "title": "수식 캐시값이 0으로 남은 파일의 수식 셀 (X12-02 Orders!F2 = C2*E2)",
+   "file": "data/e12/X12-02_orders_no_formula_cache.xlsx",
+   "original": {
+    "xml": "<c r=\"F2\" s=\"1\"><f>C2*E2</f><v>0</v></c>",
+    "truth": {
+     "sheet": "Orders",
+     "cell": "F2",
+     "kind": "formula",
+     "value": 6000000,
+     "display": "6,000,000",
+     "formula": "=C2*E2",
+     "note": null
+    }
+   },
+   "baseline": {
+    "code": "load_workbook(data_only=False/True)['Orders']['F2']",
+    "value(data_only=False)": "'=C2*E2'",
+    "value(data_only=True)": "0",
+    "data_type": "f",
+    "number_format": "#,##0",
+    "is_date": false
+   },
+   "officecli": {
+    "command": "officecli get <file> /Orders/F2 --depth 1 --json",
+    "returncode": 0,
+    "source_unchanged": true,
+    "node": {
+     "path": "/Orders/F2",
+     "type": "cell",
+     "text": "0",
+     "preview": "F2",
+     "childCount": 0,
+     "format": {
+      "type": "Number",
+      "formula": "C2*E2",
+      "cachedValue": "0",
+      "computedValue": "6000000",
+      "evaluated": true,
+      "numFmtId": 164,
+      "numberformat": "#,##0"
+     },
+     "children": []
+    }
+   },
+   "comparison": "아래 baseline/officecli 필드 대조",
+   "conclusion": "openpyxl은 파일의 캐시값 0을 그대로 돌려준다 (X12-02 값 76/83). OfficeCLI는 cachedValue 0과 자체 계산한 computedValue를 함께 준다 (computedValue 사용 시 83/83). 다른 도구로 저장되어 캐시가 없는 파일에서만 의미 있는 차이다. 계산 엔진 결과는 Excel 계산과 다를 수 있어 검증 대상이다."
+  },
+  {
+   "id": "XLSX-3",
+   "title": "병합 셀 (Orders!A8:E8, BOM!E3:E4 세로 병합)",
+   "file": "data/e12/X12-01_orders.xlsx",
+   "original": {
+    "xml": "<mergeCells count=\"1\"><mergeCell ref=\"A8:E8\"/></mergeCells>",
+    "xml_bom": "<mergeCells count=\"3\"><mergeCell ref=\"A1:B1\"/><mergeCell ref=\"C1:D1\"/><mergeCell ref=\"E3:E4\"/></mergeCells>",
+    "truth": [
+     {
+      "sheet": "Orders",
+      "range": "A8:E8"
+     },
+     {
+      "sheet": "BOM",
+      "range": "A1:B1"
+     },
+     {
+      "sheet": "BOM",
+      "range": "C1:D1"
+     },
+     {
+      "sheet": "BOM",
+      "range": "E3:E4"
+     }
+    ]
+   },
+   "baseline": {
+    "code": "ws.merged_cells.ranges",
+    "Orders": [
+     "A8:E8"
+    ],
+    "BOM": [
+     "C1:D1",
+     "E3:E4",
+     "A1:B1"
+    ],
+    "Orders!B8 (덮인 셀) value": "None"
+   },
+   "officecli": {
+    "A8": {
+     "command": "officecli get <file> /Orders/A8 --depth 1 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/Orders/A8",
+      "type": "cell",
+      "text": "합계 (수식 결과는 캐시값)",
+      "preview": "A8",
+      "childCount": 0,
+      "format": {
+       "type": "SharedString",
+       "merge": "A8:E8",
+       "mergeAnchor": true
+      },
+      "children": []
+     }
+    },
+    "B8": {
+     "command": "officecli get <file> /Orders/B8 --depth 1 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/Orders/B8",
+      "type": "cell",
+      "text": "(empty)",
+      "preview": "B8",
+      "childCount": 0,
+      "format": {
+       "merge": "A8:E8"
+      },
+      "children": []
+     }
+    },
+    "E4": {
+     "command": "officecli get <file> /BOM/E4 --depth 1 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/BOM/E4",
+      "type": "cell",
+      "text": "(empty)",
+      "preview": "E4",
+      "childCount": 0,
+      "format": {
+       "merge": "E3:E4"
+      },
+      "children": []
+     }
+    }
+   },
+   "comparison": "아래 baseline/officecli 필드 대조",
+   "conclusion": "병합 범위는 같다. OfficeCLI는 덮인 셀마다 merge 범위를 붙여 주고 앵커 표시(mergeAnchor)를 준다. openpyxl은 범위 목록으로 준다. 정확도 차이 없음."
+  },
+  {
+   "id": "XLSX-4",
+   "title": "숨긴 행·열 (Orders 5행, I열)",
+   "file": "data/e12/X12-01_orders.xlsx",
+   "original": {
+    "xml_row": "<row r=\"5\" spans=\"1:9\" hidden=\"1\">",
+    "xml_cols": "<cols><col min=\"9\" max=\"9\" width=\"0\" hidden=\"1\" customWidth=\"1\"/></cols>",
+    "truth": {
+     "hidden_rows": [
+      {
+       "sheet": "Orders",
+       "row": 5
+      }
+     ],
+     "hidden_cols": [
+      {
+       "sheet": "Orders",
+       "col": "I"
+      }
+     ]
+    }
+   },
+   "baseline": {
+    "code": "ws.row_dimensions[5].hidden / ws.column_dimensions['I'].hidden",
+    "row5_hidden": true,
+    "colI_hidden": true
+   },
+   "officecli": {
+    "row5": {
+     "command": "officecli get <file> /Orders/row[5] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/Orders/row[5]",
+      "type": "row",
+      "childCount": 9,
+      "format": {
+       "hidden": true
+      },
+      "children": []
+     }
+    },
+    "query column": {
+     "command": "officecli query <file> column --json",
+     "returncode": 0,
+     "hidden": [
+      {
+       "path": "/Orders/col[I]",
+       "type": "column",
+       "preview": "I",
+       "childCount": 0,
+       "format": {
+        "width": 0,
+        "hidden": true,
+        "customWidth": true
+       },
+       "children": "0개 생략"
+      }
+     ]
+    }
+   },
+   "comparison": "아래 baseline/officecli 필드 대조",
+   "conclusion": "숨긴 행·열 모두 같게 찾는다. OfficeCLI는 열 정보를 따로 query column으로 받아야 한다 (호출 1회 추가, batch에 포함)."
+  },
+  {
+   "id": "XLSX-5",
+   "title": "잘못된 입력값이 만든 수식 오류 (Orders!C4 = \"1O50\", F4 = C4*E4)",
+   "file": "data/e12/X12-01_orders.xlsx",
+   "original": {
+    "xml": "<c r=\"F4\" s=\"1\" t=\"e\"><f>C4*E4</f><v>#VALUE!</v></c>",
+    "truth": [
+     {
+      "sheet": "Orders",
+      "cell": "C4",
+      "kind": "text",
+      "value": "1O50",
+      "display": "1O50",
+      "formula": null,
+      "note": "invalid_number"
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F4",
+      "kind": "formula",
+      "value": "#VALUE!",
+      "display": "#VALUE!",
+      "formula": "=C4*E4",
+      "note": "formula_error"
+     }
+    ]
+   },
+   "baseline": {
+    "C4": {
+     "code": "load_workbook(data_only=False/True)['Orders']['C4']",
+     "value(data_only=False)": "'1O50'",
+     "value(data_only=True)": "'1O50'",
+     "data_type": "s",
+     "number_format": "General",
+     "is_date": false
+    },
+    "F4": {
+     "code": "load_workbook(data_only=False/True)['Orders']['F4']",
+     "value(data_only=False)": "'=C4*E4'",
+     "value(data_only=True)": "'#VALUE!'",
+     "data_type": "f",
+     "number_format": "#,##0",
+     "is_date": false
+    }
+   },
+   "officecli": {
+    "C4": {
+     "command": "officecli get <file> /Orders/C4 --depth 1 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/Orders/C4",
+      "type": "cell",
+      "text": "1O50",
+      "preview": "C4",
+      "childCount": 0,
+      "format": {
+       "type": "SharedString"
+      },
+      "children": []
+     }
+    },
+    "F4": {
+     "command": "officecli get <file> /Orders/F4 --depth 1 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/Orders/F4",
+      "type": "cell",
+      "text": "#VALUE!",
+      "preview": "F4",
+      "childCount": 0,
+      "format": {
+       "type": "Error",
+       "formula": "C4*E4",
+       "cachedValue": "#VALUE!",
+       "computedValue": "#VALUE!",
+       "evaluated": true,
+       "numFmtId": 164,
+       "numberformat": "#,##0"
+      },
+      "children": []
+     }
+    }
+   },
+   "comparison": "아래 baseline/officecli 필드 대조",
+   "conclusion": "두 도구 모두 C4를 문자열 \"1O50\"으로, F4 캐시값을 #VALUE!로 준다. 잘못된 입력 판정은 어느 도구도 하지 않으며 E05 검증 단계의 몫이다."
+  }
+ ],
+ "docx": [
+  {
+   "id": "DOCX-1",
+   "title": "병합 머리글 셀 (D-01 첫 표 1행: 세로 병합 '순번'·가로 병합 '구성품')",
+   "file": "data/documents/D-01_bom_spec.docx",
+   "original": {
+    "xml_tc_1_1": "<w:tc><w:tcPr><w:tcW w:type=\"dxa\" w:w=\"1440\"/><w:vMerge w:val=\"restart\"/></w:tcPr><w:p><w:r><w:t>순번 No.</w:t></w:r></w:p></w:tc>",
+    "xml_tc_1_2": "<w:tc><w:tcPr><w:tcW w:type=\"dxa\" w:w=\"2880\"/><w:gridSpan w:val=\"2\"/></w:tcPr><w:p><w:r><w:t>구성품 Component</w:t></w:r></w:p></w:tc>",
+    "xml_tc_2_1": "<w:tc><w:tcPr><w:tcW w:type=\"dxa\" w:w=\"1440\"/><w:vMerge/></w:tcPr><w:p/></w:tc>"
+   },
+   "baseline": [
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "순번 No."
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "구성품 Component"
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 1,
+      "col": 2
+     }
+    }
+   ],
+   "officecli_ir": [
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "순번 No."
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 1,
+      "col": 1,
+      "officecli_path": "/body/tbl[1]/tr[1]/tc[1]"
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "구성품 Component"
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 1,
+      "col": 2,
+      "officecli_path": "/body/tbl[1]/tr[1]/tc[2]"
+     }
+    }
+   ],
+   "officecli": {
+    "tc_1_1": {
+     "command": "officecli get <file> /body/tbl[1]/tr[1]/tc[1] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/body/tbl[1]/tr[1]/tc[1]",
+      "type": "cell",
+      "text": "순번 No.",
+      "childCount": 1,
+      "format": {
+       "width": "1440dxa",
+       "vmerge": "restart",
+       "size": "8.5pt",
+       "bold": true
+      },
+      "children": []
+     }
+    },
+    "tc_1_2": {
+     "command": "officecli get <file> /body/tbl[1]/tr[1]/tc[2] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/body/tbl[1]/tr[1]/tc[2]",
+      "type": "cell",
+      "text": "구성품 Component",
+      "childCount": 1,
+      "format": {
+       "width": "2880dxa",
+       "colspan": 2,
+       "size": "8.5pt",
+       "bold": true
+      },
+      "children": []
+     }
+    },
+    "tc_2_1": {
+     "command": "officecli get <file> /body/tbl[1]/tr[2]/tc[1] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/body/tbl[1]/tr[2]/tc[1]",
+      "type": "cell",
+      "text": "",
+      "childCount": 1,
+      "format": {
+       "width": "1440dxa",
+       "vmerge": "continue"
+      },
+      "children": []
+     }
+    }
+   },
+   "conclusion": "OfficeCLI는 colspan(gridSpan)과 vmerge=restart/continue를 원시 값으로 준다. rowspan은 주지 않으므로 아래 행의 continue를 세는 변환이 필요하다 (e12_officecli._grid). 변환 후 v2와 같은 병합 결과.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  },
+  {
+   "id": "DOCX-2",
+   "title": "바닥글 쪽 번호 필드 (D-01 footer)",
+   "file": "data/documents/D-01_bom_spec.docx",
+   "original": {
+    "xml_footer": "<w:p><w:pPr><w:pStyle w:val=\"Footer\"/></w:pPr><w:fldSimple w:instr=\"PAGE\"><w:r><w:t>1</w:t></w:r></w:fldSimple></w:p>"
+   },
+   "baseline": [
+    {
+     "type": "footer",
+     "text": "1",
+     "location": {
+      "format": "docx",
+      "part": "footer",
+      "section_index": 0,
+      "paragraph_index": 0
+     }
+    }
+   ],
+   "officecli_ir": [
+    {
+     "type": "footer",
+     "text": "1",
+     "location": {
+      "format": "docx",
+      "part": "footer",
+      "section_index": 0,
+      "paragraph_index": 0,
+      "officecli_path": "/footer[1]/p[@paraId=00100094]"
+     }
+    }
+   ],
+   "officecli": {
+    "command": "officecli get <file> /footer[1] --depth 3 --json",
+    "returncode": 0,
+    "source_unchanged": true,
+    "node": {
+     "path": "/footer[1]",
+     "type": "footer",
+     "text": "1",
+     "childCount": 1,
+     "format": {
+      "type": "default"
+     },
+     "children": [
+      {
+       "path": "/footer[1]/p[1]",
+       "type": "paragraph",
+       "text": "",
+       "preview": "",
+       "style": "footer",
+       "childCount": 0,
+       "format": {
+        "style": "Footer",
+        "styleId": "Footer",
+        "styleName": "footer"
+       },
+       "children": [
+        {
+         "path": "/footer[1]/p[1]/field[1]",
+         "type": "field",
+         "text": "1",
+         "childCount": 0,
+         "format": {
+          "instruction": "PAGE",
+          "fieldType": "page",
+          "evaluated": true
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "conclusion": "OfficeCLI는 fldSimple 필드 결과(쪽 번호 캐시값 '1')를 문단 text에서는 빼고 footer 부분(part) text에만 넣는다. 첫 변환 코드는 문단 text만 써서 빈 값이 되었고(변환기 문제), 문단이 하나인 머리글·바닥글은 part text를 쓰도록 고친 뒤 v2와 같다. 본문 문단 안의 필드(외부 X-D04 '1 of 2'의 NUMPAGES)는 대신 쓸 상위 text가 없어 여전히 빠진다.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  },
+  {
+   "id": "DOCX-3",
+   "title": "주문 표의 수량·단위 셀 (D-02 첫 표)",
+   "file": "data/documents/D-02_order_inventory.docx",
+   "original": {
+    "xml_tc": "<w:tc><w:tcPr><w:tcW w:type=\"dxa\" w:w=\"1440\"/></w:tcPr><w:p><w:r><w:t>80 EA</w:t></w:r></w:p></w:tc>"
+   },
+   "baseline": [
+    {
+     "table": "t001",
+     "n_rows": 22,
+     "n_cols": 6,
+     "cell": {
+      "row": 3,
+      "col": 4,
+      "rowspan": 1,
+      "colspan": 1,
+      "text": "80 EA"
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 3,
+      "col": 4
+     }
+    }
+   ],
+   "officecli_ir": [
+    {
+     "table": "t001",
+     "n_rows": 22,
+     "n_cols": 6,
+     "cell": {
+      "row": 3,
+      "col": 4,
+      "rowspan": 1,
+      "colspan": 1,
+      "text": "80 EA"
+     },
+     "location": {
+      "format": "docx",
+      "part": "body",
+      "body_index": 3,
+      "table_index": 0,
+      "row": 3,
+      "col": 4,
+      "officecli_path": "/body/tbl[1]/tr[3]/tc[4]"
+     }
+    }
+   ],
+   "officecli": {
+    "command": "officecli get <file> /body/tbl[1]/tr[3]/tc[4] --depth 0 --json",
+    "returncode": 0,
+    "source_unchanged": true,
+    "node": {
+     "path": "/body/tbl[1]/tr[3]/tc[4]",
+     "type": "cell",
+     "text": "80 EA",
+     "childCount": 1,
+     "format": {
+      "width": "1440dxa",
+      "size": "8.5pt",
+      "bold": false
+     },
+     "children": []
+    }
+   },
+   "conclusion": "셀 텍스트·위치 같음. OfficeCLI 위치는 /body/tbl[1]/tr[3]/tc[4] 경로로, v2는 body_index·row·col로 준다. 데이터 형식(숫자·단위) 해석은 두 도구 모두 하지 않는다.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  }
+ ],
+ "pptx": [
+  {
+   "id": "PPTX-1",
+   "title": "병합 머리글 셀 (T-02 슬라이드 2 표 1행)",
+   "file": "data/documents/T-02_bom_spec.pptx",
+   "original": {
+    "xml_row1_tc1_3": [
+     "<a:tc rowSpan=\"2\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>순번 No.</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc gridSpan=\"2\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>구성품 Component</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>"
+    ]
+   },
+   "baseline": [
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "순번 No."
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "구성품 Component"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 4,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "소요량 Qty per unit"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 4
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 6,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "손실률(%)"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 6
+     }
+    }
+   ],
+   "officecli_ir": [
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 1,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "순번 No."
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 1,
+      "officecli_path": "/slide[2]/table[@id=3]/tr[1]/tc[1]"
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 2,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "구성품 Component"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 2,
+      "officecli_path": "/slide[2]/table[@id=3]/tr[1]/tc[2]"
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 4,
+      "rowspan": 1,
+      "colspan": 2,
+      "text": "소요량 Qty per unit"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 4,
+      "officecli_path": "/slide[2]/table[@id=3]/tr[1]/tc[4]"
+     }
+    },
+    {
+     "table": "t001",
+     "n_rows": 6,
+     "n_cols": 6,
+     "cell": {
+      "row": 1,
+      "col": 6,
+      "rowspan": 2,
+      "colspan": 1,
+      "text": "손실률(%)"
+     },
+     "location": {
+      "format": "pptx",
+      "part": "slide",
+      "slide_index": 2,
+      "shape_id": 3,
+      "row": 1,
+      "col": 6,
+      "officecli_path": "/slide[2]/table[@id=3]/tr[1]/tc[6]"
+     }
+    }
+   ],
+   "officecli": {
+    "tc_1_2": {
+     "command": "officecli get <file> /slide[2]/table[1]/tr[1]/tc[2] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/slide[2]/table[@id=3]/tr[1]/tc[2]",
+      "type": "tc",
+      "text": "구성품 Component",
+      "childCount": 0,
+      "format": {
+       "colspan": 2,
+       "font": "Malgun Gothic",
+       "size": "11pt",
+       "bold": true
+      },
+      "children": []
+     }
+    },
+    "tc_1_3": {
+     "command": "officecli get <file> /slide[2]/table[1]/tr[1]/tc[3] --depth 0 --json",
+     "returncode": 0,
+     "source_unchanged": true,
+     "node": {
+      "path": "/slide[2]/table[@id=3]/tr[1]/tc[3]",
+      "type": "tc",
+      "text": "",
+      "childCount": 0,
+      "format": {
+       "hmerge": true
+      },
+      "children": []
+     }
+    }
+   },
+   "conclusion": "OfficeCLI는 앵커에 colspan/rowspan, 덮인 셀에 hmerge/vmerge를 준다. 덮인 셀도 tc로 남으므로 tc 하나가 격자 1열이다. 첫 변환 코드는 앵커 뒤에서 colspan만큼 건너뛰어 열 수를 8로 잘못 만들었고(변환기 버그, 수정 후 재실행), 수정 후 v2와 같다.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  },
+  {
+   "id": "PPTX-2",
+   "title": "발표자 노트 (T-01)",
+   "file": "data/documents/T-01_plan_comparison.pptx",
+   "original": {
+    "xml_notes": "<p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:t>발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.</a:t></a:r></a:p></p:txBody>"
+   },
+   "baseline": [
+    {
+     "type": "speaker_notes",
+     "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.",
+     "location": {
+      "format": "pptx",
+      "part": "notes",
+      "slide_index": 4,
+      "slide_id": 259,
+      "nested_path": [
+       "notes"
+      ]
+     }
+    }
+   ],
+   "officecli_ir": [
+    {
+     "type": "speaker_notes",
+     "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.",
+     "location": {
+      "format": "pptx",
+      "part": "notes",
+      "slide_index": 4,
+      "officecli_path": "/slide[4]/notes"
+     }
+    }
+   ],
+   "officecli": {
+    "command": "officecli query <file> notes --json",
+    "returncode": 0,
+    "source_unchanged": true,
+    "results": [
+     {
+      "path": "/slide[4]/notes",
+      "type": "notes",
+      "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth.",
+      "childCount": 0,
+      "format": {
+       "text": "발표자 노트: 정답셋 v2 기준, 재고 유지비·지연 페널티는 미산정. Notes: v2 ground truth."
+      },
+      "children": []
+     }
+    ]
+   },
+   "conclusion": "노트 텍스트·슬라이드 번호 같음. OfficeCLI는 query notes 한 번으로 모든 슬라이드 노트를 준다.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  },
+  {
+   "id": "PPTX-3",
+   "title": "슬라이드에 걸쳐 이어지는 표 (T-01 슬라이드 2→3)",
+   "file": "data/documents/T-01_plan_comparison.pptx",
+   "original": {
+    "xml_slide2_row1": [
+     "<a:tc rowSpan=\"2\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>제품 Product</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc gridSpan=\"4\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>주차별 계획 수량 Weekly planned qty (EA)</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>"
+    ],
+    "xml_slide3_row1": [
+     "<a:tc rowSpan=\"2\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>제품 Product</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc gridSpan=\"4\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:ea typeface=\"Malgun Gothic\"/></a:rPr><a:t>주차별 계획 수량 Weekly planned qty (EA)</a:t></a:r></a:p></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>",
+     "<a:tc hMerge=\"1\"><a:txBody><a:bodyPr/><a:lstStyle/><a:p/></a:txBody><a:tcPr/></a:tc>"
+    ]
+   },
+   "baseline": [
+    {
+     "table_id": "t001",
+     "n_rows": 5,
+     "n_cols": 5,
+     "continuation": {
+      "continues_to": "t002",
+      "method": "header_repeat_rule",
+      "detection": "inferred"
+     },
+     "repeated_header_rows": null,
+     "slide_index": 2
+    },
+    {
+     "table_id": "t002",
+     "n_rows": 4,
+     "n_cols": 5,
+     "continuation": {
+      "continues_from": "t001",
+      "repeated_header": true,
+      "method": "header_repeat_rule",
+      "detection": "inferred"
+     },
+     "repeated_header_rows": [
+      1,
+      2
+     ],
+     "slide_index": 3
+    }
+   ],
+   "officecli_ir": [
+    {
+     "table_id": "t001",
+     "n_rows": 5,
+     "n_cols": 5,
+     "continuation": {
+      "continues_to": "t002",
+      "method": "header_repeat_rule",
+      "detection": "inferred"
+     },
+     "repeated_header_rows": null,
+     "slide_index": 2
+    },
+    {
+     "table_id": "t002",
+     "n_rows": 4,
+     "n_cols": 5,
+     "continuation": {
+      "continues_from": "t001",
+      "repeated_header": true,
+      "method": "header_repeat_rule",
+      "detection": "inferred"
+     },
+     "repeated_header_rows": [
+      1,
+      2
+     ],
+     "slide_index": 3
+    }
+   ],
+   "conclusion": "두 도구 모두 표 조각 연결 기능은 없다. 연결은 E03 공통 후처리(header_repeat_rule)를 같은 방식으로 적용한 결과다. 첫 실행에는 OfficeCLI 쪽에 이 규칙을 빠뜨려 0/1이 나왔고, 규칙을 같게 적용한 뒤 1/1이 되었다.",
+   "comparison": "baseline(E03 v2 IR) / officecli_ir(OfficeCLI → 같은 IR 변환) 대조"
+  }
+ ]
+}

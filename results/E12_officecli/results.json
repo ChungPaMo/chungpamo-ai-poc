@@ -1,0 +1,2255 @@
+{
+ "pdf": {
+  "status": "NOT_SUPPORTED",
+  "reason": "OfficeCLI v1.0.157 읽기 대상은 .docx/.xlsx/.pptx (help: <file> Office document path). PDF는 view pdf 내보내기만"
+ },
+ "xlsx": {
+  "X12-01": {
+   "openpyxl": {
+    "metrics": {
+     "value": "83/83",
+     "formula_text": "8/8",
+     "text_number_kept_as_text": "1/1",
+     "date_recognized": "10/10",
+     "blank_kept_blank": "1/1",
+     "invalid_kept_as_text": "1/1",
+     "merges": "4/4",
+     "false_merges": 0,
+     "hidden_rows": "1/1",
+     "hidden_cols": "1/1"
+    },
+    "wrong_cells": []
+   },
+   "officecli": {
+    "metrics": {
+     "value": "83/83",
+     "formula_text": "8/8",
+     "text_number_kept_as_text": "1/1",
+     "date_recognized": "10/10",
+     "blank_kept_blank": "1/1",
+     "invalid_kept_as_text": "1/1",
+     "merges": "4/4",
+     "false_merges": 0,
+     "hidden_rows": "1/1",
+     "hidden_cols": "1/1"
+    },
+    "wrong_cells": []
+   }
+  },
+  "X12-02_no_formula_cache": {
+   "openpyxl": {
+    "metrics": {
+     "value": "76/83",
+     "formula_text": "8/8",
+     "text_number_kept_as_text": "1/1",
+     "date_recognized": "10/10",
+     "blank_kept_blank": "1/1",
+     "invalid_kept_as_text": "1/1",
+     "merges": "4/4",
+     "false_merges": 0,
+     "hidden_rows": "1/1",
+     "hidden_cols": "1/1"
+    },
+    "wrong_cells": [
+     {
+      "sheet": "Orders",
+      "cell": "F2",
+      "kind": "formula",
+      "truth": "6000000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F3",
+      "kind": "formula",
+      "truth": "2850000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F4",
+      "kind": "formula",
+      "truth": "#VALUE!",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F5",
+      "kind": "formula",
+      "truth": "4800000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F8",
+      "kind": "formula",
+      "truth": "13650000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Products",
+      "cell": "C5",
+      "kind": "formula",
+      "truth": "120",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Products",
+      "cell": "C6",
+      "kind": "formula",
+      "truth": "50",
+      "got": "0",
+      "ok": false
+     }
+    ]
+   },
+   "officecli": {
+    "metrics": {
+     "value": "83/83",
+     "formula_text": "8/8",
+     "text_number_kept_as_text": "1/1",
+     "date_recognized": "10/10",
+     "blank_kept_blank": "1/1",
+     "invalid_kept_as_text": "1/1",
+     "merges": "4/4",
+     "false_merges": 0,
+     "hidden_rows": "1/1",
+     "hidden_cols": "1/1"
+    },
+    "wrong_cells": []
+   },
+   "officecli_cached_only": {
+    "metrics": {
+     "value": "76/83",
+     "formula_text": "8/8",
+     "text_number_kept_as_text": "1/1",
+     "date_recognized": "10/10",
+     "blank_kept_blank": "1/1",
+     "invalid_kept_as_text": "1/1",
+     "merges": "4/4",
+     "false_merges": 0,
+     "hidden_rows": "1/1",
+     "hidden_cols": "1/1"
+    },
+    "wrong_cells": [
+     {
+      "sheet": "Orders",
+      "cell": "F2",
+      "kind": "formula",
+      "truth": "6000000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F3",
+      "kind": "formula",
+      "truth": "2850000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F4",
+      "kind": "formula",
+      "truth": "#VALUE!",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F5",
+      "kind": "formula",
+      "truth": "4800000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Orders",
+      "cell": "F8",
+      "kind": "formula",
+      "truth": "13650000",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Products",
+      "cell": "C5",
+      "kind": "formula",
+      "truth": "120",
+      "got": "0",
+      "ok": false
+     },
+     {
+      "sheet": "Products",
+      "cell": "C6",
+      "kind": "formula",
+      "truth": "50",
+      "got": "0",
+      "ok": false
+     }
+    ]
+   }
+  },
+  "e02_vendor_agreement": [
+   {
+    "file": "data/vendor_a/vendor_a_master.xlsx",
+    "cells_compared": 445,
+    "same": 445,
+    "differences": [],
+    "n_diff": 0,
+    "merges_equal": true,
+    "openpyxl_merges": 0,
+    "officecli_merges": 0
+   },
+   {
+    "file": "data/vendor_b/vendor_b_master.xlsx",
+    "cells_compared": 532,
+    "same": 532,
+    "differences": [],
+    "n_diff": 0,
+    "merges_equal": true,
+    "openpyxl_merges": 9,
+    "officecli_merges": 9
+   }
+  ]
+ },
+ "synthetic": [
+  {
+   "doc_id": "D-01",
+   "format": "docx",
+   "truth": "GENERATED (E03 생성 정답)",
+   "baseline_v2": {
+    "doc_id": "D-01",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "python-docx",
+    "parser_version": "1.2.0",
+    "text.block.exact": "4/4",
+    "text.block.found_ignoring_whitespace": "4/4",
+    "text.block.fine_location": "4/4",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "64/64",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "8/8",
+    "cells.fine_location": "64/64",
+    "cells.text_found_ignoring_structure": "64/64",
+    "values.id": "8/8",
+    "values.quantity": "8/8",
+    "values.money": "미측정",
+    "values.unit": "8/8",
+    "values.date": "미측정",
+    "values.block_date": "4/4",
+    "values.block_qty_unit": "2/2",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS1-b01": "exact",
+    "reading_order.match_method.CS1-b03": "exact",
+    "reading_order.match_method.CS1-T1": "table_match",
+    "reading_order.match_method.CS1-T2": "table_match",
+    "reading_order.match_method.CS1-b04": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.paragraph→header": 1,
+    "block_type_pairs.heading→heading": 1,
+    "block_type_pairs.paragraph→paragraph": 1,
+    "block_type_pairs.footnote→paragraph": 1
+   },
+   "officecli": {
+    "doc_id": "D-01",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "officecli",
+    "parser_version": "1.0.157",
+    "text.block.exact": "4/4",
+    "text.block.found_ignoring_whitespace": "4/4",
+    "text.block.fine_location": "4/4",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "64/64",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "8/8",
+    "cells.fine_location": "64/64",
+    "cells.text_found_ignoring_structure": "64/64",
+    "values.id": "8/8",
+    "values.quantity": "8/8",
+    "values.money": "미측정",
+    "values.unit": "8/8",
+    "values.date": "미측정",
+    "values.block_date": "4/4",
+    "values.block_qty_unit": "2/2",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS1-b01": "exact",
+    "reading_order.match_method.CS1-b03": "exact",
+    "reading_order.match_method.CS1-T1": "table_match",
+    "reading_order.match_method.CS1-T2": "table_match",
+    "reading_order.match_method.CS1-b04": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.paragraph→header": 1,
+    "block_type_pairs.heading→heading": 1,
+    "block_type_pairs.paragraph→paragraph": 1,
+    "block_type_pairs.footnote→paragraph": 1
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.3290150000248104,
+    "convert_s": 0.0004292000085115433,
+    "cli_calls": 2,
+    "cli_wall_s": 3.3229457000270486,
+    "peak_rss_mb": 78.1,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "D-02",
+   "format": "docx",
+   "truth": "GENERATED (E03 생성 정답)",
+   "baseline_v2": {
+    "doc_id": "D-02",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "python-docx",
+    "parser_version": "1.2.0",
+    "text.block.exact": "4/4",
+    "text.block.found_ignoring_whitespace": "4/4",
+    "text.block.fine_location": "4/4",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "241/241",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "10/10",
+    "cells.fine_location": "241/241",
+    "cells.text_found_ignoring_structure": "241/241",
+    "values.id": "20/20",
+    "values.quantity": "35/35",
+    "values.money": "20/20",
+    "values.unit": "35/35",
+    "values.date": "20/20",
+    "values.block_date": "1/1",
+    "values.block_qty_unit": "미측정",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS2-b01": "exact",
+    "reading_order.match_method.CS2-b02": "exact",
+    "reading_order.match_method.CS2-T1": "table_match",
+    "reading_order.match_method.CS2-b03": "exact",
+    "reading_order.match_method.CS2-T2": "table_match",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.footer→footer": 1,
+    "block_type_pairs.heading→heading": 1,
+    "block_type_pairs.paragraph→paragraph": 2
+   },
+   "officecli": {
+    "doc_id": "D-02",
+    "status": "MEASURED",
+    "format": "docx",
+    "parser": "officecli",
+    "parser_version": "1.0.157",
+    "text.block.exact": "4/4",
+    "text.block.found_ignoring_whitespace": "4/4",
+    "text.block.fine_location": "4/4",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "241/241",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "10/10",
+    "cells.fine_location": "241/241",
+    "cells.text_found_ignoring_structure": "241/241",
+    "values.id": "20/20",
+    "values.quantity": "35/35",
+    "values.money": "20/20",
+    "values.unit": "35/35",
+    "values.date": "20/20",
+    "values.block_date": "1/1",
+    "values.block_qty_unit": "미측정",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS2-b01": "exact",
+    "reading_order.match_method.CS2-b02": "exact",
+    "reading_order.match_method.CS2-T1": "table_match",
+    "reading_order.match_method.CS2-b03": "exact",
+    "reading_order.match_method.CS2-T2": "table_match",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.footer→footer": 1,
+    "block_type_pairs.heading→heading": 1,
+    "block_type_pairs.paragraph→paragraph": 2
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.530308000044897,
+    "convert_s": 0.0006833999650552869,
+    "cli_calls": 2,
+    "cli_wall_s": 3.521593900048174,
+    "peak_rss_mb": 80.0,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "T-01",
+   "format": "pptx",
+   "truth": "GENERATED (E03 생성 정답)",
+   "baseline_v2": {
+    "doc_id": "T-01",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "parser_version": "1.0.2",
+    "text.block.exact": "3/3",
+    "text.block.found_ignoring_whitespace": "3/3",
+    "text.block.fine_location": "3/3",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "table_detection.ir_tables": 3,
+    "table_detection.truth_fragments": 3,
+    "cells.text": "62/62",
+    "cells.header_text": "19/19",
+    "cells.merge_spans": "7/7",
+    "cells.fine_location": "62/62",
+    "cells.text_found_ignoring_structure": "62/62",
+    "values.id": "미측정",
+    "values.quantity": "19/19",
+    "values.money": "12/12",
+    "values.unit": "미측정",
+    "values.date": "4/4",
+    "values.block_date": "2/2",
+    "values.block_qty_unit": "미측정",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS3-b01": "exact",
+    "reading_order.match_method.CS3-T1": "table_match",
+    "reading_order.match_method.CS3-T2": "table_match",
+    "reading_order.match_method.CS3-b02": "exact",
+    "reading_order.match_method.CS3-b03": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "1/1",
+    "linkage.precision": "1/1",
+    "linkage.repeated_header": "1/1",
+    "linkage.predicted_links": 1,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.slide_title→slide_body": 1,
+    "block_type_pairs.slide_body→slide_body": 1,
+    "block_type_pairs.speaker_notes→speaker_notes": 1
+   },
+   "officecli": {
+    "doc_id": "T-01",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "officecli",
+    "parser_version": "1.0.157",
+    "text.block.exact": "3/3",
+    "text.block.found_ignoring_whitespace": "3/3",
+    "text.block.fine_location": "3/3",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "table_detection.ir_tables": 3,
+    "table_detection.truth_fragments": 3,
+    "cells.text": "62/62",
+    "cells.header_text": "19/19",
+    "cells.merge_spans": "7/7",
+    "cells.fine_location": "62/62",
+    "cells.text_found_ignoring_structure": "62/62",
+    "values.id": "미측정",
+    "values.quantity": "19/19",
+    "values.money": "12/12",
+    "values.unit": "미측정",
+    "values.date": "4/4",
+    "values.block_date": "2/2",
+    "values.block_qty_unit": "미측정",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS3-b01": "exact",
+    "reading_order.match_method.CS3-T1": "table_match",
+    "reading_order.match_method.CS3-T2": "table_match",
+    "reading_order.match_method.CS3-b02": "exact",
+    "reading_order.match_method.CS3-b03": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "1/1",
+    "linkage.precision": "1/1",
+    "linkage.repeated_header": "1/1",
+    "linkage.predicted_links": 1,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.slide_title→slide_body": 1,
+    "block_type_pairs.slide_body→slide_body": 1,
+    "block_type_pairs.speaker_notes→speaker_notes": 1
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.9962282999185845,
+    "convert_s": 0.0005435000639408827,
+    "cli_calls": 2,
+    "cli_wall_s": 2.990135000087321,
+    "peak_rss_mb": 65.1,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "T-02",
+   "format": "pptx",
+   "truth": "GENERATED (E03 생성 정답)",
+   "baseline_v2": {
+    "doc_id": "T-02",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "python-pptx",
+    "parser_version": "1.0.2",
+    "text.block.exact": "3/3",
+    "text.block.found_ignoring_whitespace": "3/3",
+    "text.block.fine_location": "3/3",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "64/64",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "8/8",
+    "cells.fine_location": "64/64",
+    "cells.text_found_ignoring_structure": "64/64",
+    "values.id": "8/8",
+    "values.quantity": "8/8",
+    "values.money": "미측정",
+    "values.unit": "8/8",
+    "values.date": "미측정",
+    "values.block_date": "4/4",
+    "values.block_qty_unit": "2/2",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS1-b01": "exact",
+    "reading_order.match_method.CS1-b02": "exact",
+    "reading_order.match_method.CS1-T1": "table_match",
+    "reading_order.match_method.CS1-T2": "table_match",
+    "reading_order.match_method.CS1-b03": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.heading→slide_body": 1,
+    "block_type_pairs.paragraph→slide_body": 2
+   },
+   "officecli": {
+    "doc_id": "T-02",
+    "status": "MEASURED",
+    "format": "pptx",
+    "parser": "officecli",
+    "parser_version": "1.0.157",
+    "text.block.exact": "3/3",
+    "text.block.found_ignoring_whitespace": "3/3",
+    "text.block.fine_location": "3/3",
+    "text.caption.exact": "2/2",
+    "text.caption.found_ignoring_whitespace": "2/2",
+    "text.caption.fine_location": "2/2",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.ir_tables": 2,
+    "table_detection.truth_fragments": 2,
+    "cells.text": "64/64",
+    "cells.header_text": "16/16",
+    "cells.merge_spans": "8/8",
+    "cells.fine_location": "64/64",
+    "cells.text_found_ignoring_structure": "64/64",
+    "values.id": "8/8",
+    "values.quantity": "8/8",
+    "values.money": "미측정",
+    "values.unit": "8/8",
+    "values.date": "미측정",
+    "values.block_date": "4/4",
+    "values.block_qty_unit": "2/2",
+    "reading_order.matched_elements": "5/5",
+    "reading_order.pairwise_order": "10/10",
+    "reading_order.match_method.CS1-b01": "exact",
+    "reading_order.match_method.CS1-b02": "exact",
+    "reading_order.match_method.CS1-T1": "table_match",
+    "reading_order.match_method.CS1-T2": "table_match",
+    "reading_order.match_method.CS1-b03": "exact",
+    "reading_order.exact_sequence": true,
+    "linkage.recall": "미측정",
+    "linkage.precision": "미측정",
+    "linkage.repeated_header": "미측정",
+    "linkage.predicted_links": 0,
+    "linkage.false_links": 0,
+    "linkage.native_library_link_fields": "없음 — 연결은 공통 후처리 규칙(header_repeat_rule) 결과",
+    "block_type_pairs.heading→slide_body": 1,
+    "block_type_pairs.paragraph→slide_body": 2
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.0447708000428975,
+    "convert_s": 0.0005188999930396676,
+    "cli_calls": 2,
+    "cli_wall_s": 3.03789440006949,
+    "peak_rss_mb": 64.9,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  }
+ ],
+ "external": [
+  {
+   "doc_id": "X-HO-D01",
+   "split": "holdout",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "56/56",
+    "body_char.recall": "5525/5525",
+    "body_char.precision": "5525/5525",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "19/19",
+    "cells.text_loose_grid": "19/19",
+    "cells.merge_spans": "2/2",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "58/58",
+    "reading_order.pairwise_order": "1653/1653",
+    "footnotes": "1/1",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "55/56",
+    "body_char.recall": "5481/5525",
+    "body_char.precision": "5481/5481",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "19/19",
+    "cells.text_loose_grid": "19/19",
+    "cells.merge_spans": "2/2",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "57/58",
+    "reading_order.pairwise_order": "1596/1596",
+    "footnotes": "1/1",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.1663043999578804,
+    "convert_s": 0.0003208999987691641,
+    "cli_calls": 2,
+    "cli_wall_s": 3.1591807000804693,
+    "peak_rss_mb": 71.2,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-HO-D02",
+   "split": "holdout",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "7/7",
+    "body_char.recall": "385/385",
+    "body_char.precision": "385/385",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "3/3",
+    "cells.text_strict_grid": "31/31",
+    "cells.text_loose_grid": "31/31",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "10/10",
+    "reading_order.pairwise_order": "45/45",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "7/7",
+    "body_char.recall": "385/385",
+    "body_char.precision": "385/385",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "3/3",
+    "cells.text_strict_grid": "31/31",
+    "cells.text_loose_grid": "31/31",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "10/10",
+    "reading_order.pairwise_order": "45/45",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.818873399985023,
+    "convert_s": 0.0002500000409781933,
+    "cli_calls": 2,
+    "cli_wall_s": 2.8128514998825267,
+    "peak_rss_mb": 59.5,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-HO-D03",
+   "split": "holdout",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "6/6",
+    "body_char.recall": "404/404",
+    "body_char.precision": "404/404",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "4/4",
+    "cells.text_loose_grid": "4/4",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "7/7",
+    "reading_order.pairwise_order": "21/21",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "5/6",
+    "body_char.recall": "384/404",
+    "body_char.precision": "384/384",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "4/4",
+    "cells.text_loose_grid": "4/4",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "6/7",
+    "reading_order.pairwise_order": "15/15",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.798006199998781,
+    "convert_s": 0.00018640002235770226,
+    "cli_calls": 2,
+    "cli_wall_s": 2.7927365000359714,
+    "peak_rss_mb": 57.9,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-HO-T01",
+   "split": "holdout",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "3/3",
+    "shape_char.recall": "27/27",
+    "shape_char.precision": "27/27",
+    "shape_location_slide_and_id": "3/3",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "8/8",
+    "table_detection.precision": "8/8",
+    "structure.rows_cols_equal": "8/8",
+    "cells.text_strict_grid": "54/54",
+    "cells.text_loose_grid": "54/54",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 10,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "3/3",
+    "shape_char.recall": "27/27",
+    "shape_char.precision": "27/27",
+    "shape_location_slide_and_id": "3/3",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "8/8",
+    "table_detection.precision": "8/8",
+    "structure.rows_cols_equal": "8/8",
+    "cells.text_strict_grid": "54/54",
+    "cells.text_loose_grid": "54/54",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 10,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.0791378999128938,
+    "convert_s": 0.000596500001847744,
+    "cli_calls": 2,
+    "cli_wall_s": 3.0728553000371903,
+    "peak_rss_mb": 65.6,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-HO-T02",
+   "split": "holdout",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "8/8",
+    "shape_char.recall": "162/162",
+    "shape_char.precision": "162/162",
+    "shape_location_slide_and_id": "8/8",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "structure.rows_cols_equal": "3/3",
+    "cells.text_strict_grid": "4/4",
+    "cells.text_loose_grid": "4/4",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 15,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "1/1",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "8/8",
+    "shape_char.recall": "162/162",
+    "shape_char.precision": "162/162",
+    "shape_location_slide_and_id": "8/8",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "3/3",
+    "table_detection.precision": "3/3",
+    "structure.rows_cols_equal": "3/3",
+    "cells.text_strict_grid": "4/4",
+    "cells.text_loose_grid": "4/4",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 15,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "1/1",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.1137569999555126,
+    "convert_s": 0.0006014000391587615,
+    "cli_calls": 2,
+    "cli_wall_s": 3.1048460999736562,
+    "peak_rss_mb": 67.5,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-HO-T03",
+   "split": "holdout",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "19/19",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "0/19",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "inline"
+    ],
+    "extract_s": 2.657075099996291,
+    "convert_s": 0.00020779995247721672,
+    "cli_calls": 2,
+    "cli_wall_s": 2.651608800049871,
+    "peak_rss_mb": 58.7,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": [
+    "OfficeCLI get/view가 SmartArt 노드 텍스트를 주지 않음 (raw XML로만 접근)"
+   ]
+  },
+  {
+   "doc_id": "X-HO-T04",
+   "split": "holdout",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "12/12",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "12/12",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "inline"
+    ],
+    "extract_s": 2.982525400002487,
+    "convert_s": 0.00037139991763979197,
+    "cli_calls": 2,
+    "cli_wall_s": 2.976829299936071,
+    "peak_rss_mb": 62.2,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-D01",
+   "split": "blind8",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "32/32",
+    "body_char.recall": "2162/2162",
+    "body_char.precision": "2162/2162",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "12/12",
+    "cells.text_loose_grid": "12/12",
+    "cells.merge_spans": "3/3",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "34/34",
+    "reading_order.pairwise_order": "561/561",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "31/32",
+    "body_char.recall": "2142/2162",
+    "body_char.precision": "2142/2142",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "12/12",
+    "cells.text_loose_grid": "12/12",
+    "cells.merge_spans": "3/3",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "33/34",
+    "reading_order.pairwise_order": "528/528",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.065955900005065,
+    "convert_s": 0.00026430003345012665,
+    "cli_calls": 2,
+    "cli_wall_s": 3.059939199825749,
+    "peak_rss_mb": 66.9,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-D02",
+   "split": "blind8",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "54/54",
+    "body_char.recall": "5629/5629",
+    "body_char.precision": "5629/5629",
+    "body_paragraph_exact_official_only": "51/51",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "18/18",
+    "cells.text_loose_grid": "18/18",
+    "cells.merge_spans": "3/3",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "56/56",
+    "reading_order.pairwise_order": "1540/1540",
+    "footnotes": "2/2",
+    "tracked_insertions_included": "1/1",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "54/54",
+    "body_char.recall": "5629/5629",
+    "body_char.precision": "5629/5629",
+    "body_paragraph_exact_official_only": "51/51",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "18/18",
+    "cells.text_loose_grid": "18/18",
+    "cells.merge_spans": "3/3",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "56/56",
+    "reading_order.pairwise_order": "1540/1540",
+    "footnotes": "2/2",
+    "tracked_insertions_included": "1/1",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "2/2",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.3884787999559194,
+    "convert_s": 0.00031679996754974127,
+    "cli_calls": 2,
+    "cli_wall_s": 3.3813704000785947,
+    "peak_rss_mb": 74.4,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-T01",
+   "split": "blind8",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "29/29",
+    "shape_char.recall": "1649/1649",
+    "shape_char.precision": "1649/2119",
+    "shape_location_slide_and_id": "29/29",
+    "group_child_text_found": "6/6",
+    "group_nested_path_equal": "6/6",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "16/16",
+    "cells.text_loose_grid": "16/16",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 11,
+    "smartart_node_text_found": "11/11",
+    "chart_text_found": "20/20",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "29/29",
+    "shape_char.recall": "1649/1649",
+    "shape_char.precision": "1649/1754",
+    "shape_location_slide_and_id": "29/29",
+    "group_child_text_found": "6/6",
+    "group_nested_path_equal": "6/6",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "16/16",
+    "cells.text_loose_grid": "16/16",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 11,
+    "smartart_node_text_found": "0/11",
+    "chart_text_found": "20/20",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 3.777288499986753,
+    "convert_s": 0.0006254999898374081,
+    "cli_calls": 2,
+    "cli_wall_s": 3.770001000026241,
+    "peak_rss_mb": 73.3,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": [
+    "OfficeCLI get/view가 SmartArt 노드 텍스트를 주지 않음 (raw XML로만 접근)"
+   ]
+  },
+  {
+   "doc_id": "X-T02",
+   "split": "blind8",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "5/5",
+    "table_detection.precision": "5/5",
+    "structure.rows_cols_equal": "5/5",
+    "cells.text_strict_grid": "34/34",
+    "cells.text_loose_grid": "34/34",
+    "cells.merge_spans": "5/5",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 2,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "5/5",
+    "table_detection.precision": "5/5",
+    "structure.rows_cols_equal": "5/5",
+    "cells.text_strict_grid": "34/34",
+    "cells.text_loose_grid": "34/34",
+    "cells.merge_spans": "5/5",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 2,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.7490779000800103,
+    "convert_s": 0.00031889998354017735,
+    "cli_calls": 2,
+    "cli_wall_s": 2.742952600005083,
+    "peak_rss_mb": 59.7,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-D03",
+   "split": "dev",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "27/27",
+    "body_char.recall": "1873/1873",
+    "body_char.precision": "1873/1873",
+    "table_detection.recall": "5/5",
+    "table_detection.precision": "5/5",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "5/5",
+    "cells.text_strict_grid": "11/11",
+    "cells.text_loose_grid": "11/11",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 1,
+    "reading_order.matched_elements": "32/32",
+    "reading_order.pairwise_order": "496/496",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "26/27",
+    "body_char.recall": "1844/1873",
+    "body_char.precision": "1844/1889",
+    "table_detection.recall": "4/5",
+    "table_detection.precision": "4/4",
+    "table_detection.missed_tables_in_containers": 1,
+    "structure.rows_cols_equal": "4/5",
+    "cells.text_strict_grid": "9/11",
+    "cells.text_loose_grid": "9/11",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 1,
+    "reading_order.matched_elements": "30/32",
+    "reading_order.pairwise_order": "435/435",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "미측정",
+    "tracked_deletions_excluded": "미측정",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.806084999931045,
+    "convert_s": 0.00026130001060664654,
+    "cli_calls": 2,
+    "cli_wall_s": 2.800397500046529,
+    "peak_rss_mb": 59.4,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": [
+    "sdt 안 문단·표를 get/query paragraph로 받지 못해 sdt의 이어붙인 text로 대체"
+   ]
+  },
+  {
+   "doc_id": "X-D04",
+   "split": "dev",
+   "format": "docx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "body_paragraph_exact": "8/8",
+    "body_char.recall": "495/495",
+    "body_char.precision": "495/495",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "6/6",
+    "cells.text_loose_grid": "6/6",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "10/10",
+    "reading_order.pairwise_order": "45/45",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "1/1",
+    "tracked_deletions_excluded": "1/1",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli": {
+    "body_paragraph_exact": "6/8",
+    "body_char.recall": "494/495",
+    "body_char.precision": "494/497",
+    "table_detection.recall": "2/2",
+    "table_detection.precision": "2/2",
+    "table_detection.missed_tables_in_containers": 0,
+    "structure.rows_cols_equal": "2/2",
+    "cells.text_strict_grid": "6/6",
+    "cells.text_loose_grid": "6/6",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "reading_order.matched_elements": "8/10",
+    "reading_order.pairwise_order": "28/28",
+    "footnotes": "미측정",
+    "tracked_insertions_included": "1/1",
+    "tracked_deletions_excluded": "1/1",
+    "header_footer": "미측정",
+    "source_location": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.8648595000850037,
+    "convert_s": 0.00019319995772093534,
+    "cli_calls": 2,
+    "cli_wall_s": 2.859406700008549,
+    "peak_rss_mb": 59.3,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-T03",
+   "split": "dev",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "16/16",
+    "shape_char.recall": "282/282",
+    "shape_char.precision": "282/282",
+    "shape_location_slide_and_id": "16/16",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "16/16",
+    "shape_char.recall": "282/282",
+    "shape_char.precision": "282/282",
+    "shape_location_slide_and_id": "16/16",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.757883199956268,
+    "convert_s": 0.000327700050547719,
+    "cli_calls": 2,
+    "cli_wall_s": 2.7509349999018013,
+    "peak_rss_mb": 63.2,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-T04",
+   "split": "dev",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "1/1",
+    "shape_char.recall": "26/26",
+    "shape_char.precision": "26/26",
+    "shape_location_slide_and_id": "1/1",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "6/6",
+    "cells.text_loose_grid": "6/6",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "1/1",
+    "shape_char.recall": "26/26",
+    "shape_char.precision": "26/26",
+    "shape_location_slide_and_id": "1/1",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "1/1",
+    "table_detection.precision": "1/1",
+    "structure.rows_cols_equal": "1/1",
+    "cells.text_strict_grid": "6/6",
+    "cells.text_loose_grid": "6/6",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "inline"
+    ],
+    "extract_s": 2.754062799969688,
+    "convert_s": 0.00027520000003278255,
+    "cli_calls": 2,
+    "cli_wall_s": 2.748718300019391,
+    "peak_rss_mb": 60.3,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  },
+  {
+   "doc_id": "X-DV-T01",
+   "split": "dev",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "2/2",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "0/2",
+    "chart_text_found": "미측정",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "inline"
+    ],
+    "extract_s": 2.6577496000099927,
+    "convert_s": 0.00017420004587620497,
+    "cli_calls": 2,
+    "cli_wall_s": 2.6524443000089377,
+    "peak_rss_mb": 57.2,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": [
+    "OfficeCLI get/view가 SmartArt 노드 텍스트를 주지 않음 (raw XML로만 접근)"
+   ]
+  },
+  {
+   "doc_id": "X-DV-T02",
+   "split": "dev",
+   "format": "pptx",
+   "truth": "PROVISIONAL (잠정 정답, 사람 검수 없음)",
+   "baseline_v2": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "5/5",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli": {
+    "slides_count_equal": true,
+    "shape_text_exact": "미측정",
+    "shape_char.recall": "미측정",
+    "shape_char.precision": "미측정",
+    "shape_location_slide_and_id": "미측정",
+    "group_child_text_found": "미측정",
+    "group_nested_path_equal": "미측정",
+    "table_detection.recall": "미측정",
+    "table_detection.precision": "미측정",
+    "structure.rows_cols_equal": "미측정",
+    "cells.text_strict_grid": "미측정",
+    "cells.text_loose_grid": "미측정",
+    "cells.merge_spans": "미측정",
+    "cells.false_merges": 0,
+    "cells.empty_truth_cells": 0,
+    "smartart_node_text_found": "미측정",
+    "chart_text_found": "5/5",
+    "notes_exact": "미측정",
+    "reading_order": "미측정"
+   },
+   "officecli_run": {
+    "ok": true,
+    "batch_output": [
+     "file"
+    ],
+    "extract_s": 2.902881000074558,
+    "convert_s": 0.0002280999906361103,
+    "cli_calls": 2,
+    "cli_wall_s": 2.8968147000996396,
+    "peak_rss_mb": 61.3,
+    "source_unchanged": true,
+    "copy_rewritten_by_batch": true,
+    "returncodes": [
+     0,
+     0
+    ]
+   },
+   "officecli_diagnostics": []
+  }
+ ],
+ "perf": [
+  {
+   "doc": "data/e12/X12-01_orders.xlsx",
+   "format": "xlsx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.5467,
+     "repeat_median": 0.5508,
+     "all_median": 0.5467
+    },
+    "parse_s": {
+     "first": 0.1649,
+     "repeat_median": 0.1667,
+     "all_median": 0.1658
+    },
+    "peak_rss_mb": 47.8,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.4307,
+     "repeat_median": 2.4252,
+     "all_median": 2.4307
+    },
+    "convert_s": {
+     "first": null,
+     "repeat_median": null,
+     "all_median": null
+    },
+    "peak_rss_mb": 51.8,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/vendor_b/vendor_b_master.xlsx",
+   "format": "xlsx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.5638,
+     "repeat_median": 0.5586,
+     "all_median": 0.5602
+    },
+    "parse_s": {
+     "first": 0.1824,
+     "repeat_median": 0.1802,
+     "all_median": 0.1809
+    },
+    "peak_rss_mb": 48.5,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.442,
+     "repeat_median": 2.4704,
+     "all_median": 2.4667
+    },
+    "convert_s": {
+     "first": null,
+     "repeat_median": null,
+     "all_median": null
+    },
+    "peak_rss_mb": 54.0,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/documents/D-01_bom_spec.docx",
+   "format": "docx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3682,
+     "repeat_median": 0.371,
+     "all_median": 0.3682
+    },
+    "parse_s": {
+     "first": 0.0152,
+     "repeat_median": 0.0152,
+     "all_median": 0.0152
+    },
+    "peak_rss_mb": 45.1,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 3.3217,
+     "repeat_median": 3.3077,
+     "all_median": 3.3118
+    },
+    "convert_s": {
+     "first": 0.0003,
+     "repeat_median": 0.0003,
+     "all_median": 0.0003
+    },
+    "peak_rss_mb": 77.9,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/documents/D-02_order_inventory.docx",
+   "format": "docx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3738,
+     "repeat_median": 0.371,
+     "all_median": 0.3718
+    },
+    "parse_s": {
+     "first": 0.0191,
+     "repeat_median": 0.0191,
+     "all_median": 0.0191
+    },
+    "peak_rss_mb": 45.9,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 3.5171,
+     "repeat_median": 3.5476,
+     "all_median": 3.5436
+    },
+    "convert_s": {
+     "first": 0.0006,
+     "repeat_median": 0.0006,
+     "all_median": 0.0006
+    },
+    "peak_rss_mb": 79.2,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/documents/T-01_plan_comparison.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3605,
+     "repeat_median": 0.3747,
+     "all_median": 0.3655
+    },
+    "parse_s": {
+     "first": 0.0176,
+     "repeat_median": 0.0177,
+     "all_median": 0.0176
+    },
+    "peak_rss_mb": 40.9,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.9214,
+     "repeat_median": 2.9841,
+     "all_median": 2.9655
+    },
+    "convert_s": {
+     "first": 0.0004,
+     "repeat_median": 0.0005,
+     "all_median": 0.0004
+    },
+    "peak_rss_mb": 65.0,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/documents/T-02_bom_spec.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3971,
+     "repeat_median": 0.3712,
+     "all_median": 0.3713
+    },
+    "parse_s": {
+     "first": 0.017,
+     "repeat_median": 0.0165,
+     "all_median": 0.0166
+    },
+    "peak_rss_mb": 40.9,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.9792,
+     "repeat_median": 2.9052,
+     "all_median": 2.9131
+    },
+    "convert_s": {
+     "first": 0.0004,
+     "repeat_median": 0.0005,
+     "all_median": 0.0005
+    },
+    "peak_rss_mb": 64.9,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/docx/demo.docx",
+   "format": "docx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3462,
+     "repeat_median": 0.3811,
+     "all_median": 0.3576
+    },
+    "parse_s": {
+     "first": 0.0085,
+     "repeat_median": 0.0086,
+     "all_median": 0.0085
+    },
+    "peak_rss_mb": 39.6,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 3.0723,
+     "repeat_median": 3.1077,
+     "all_median": 3.0995
+    },
+    "convert_s": {
+     "first": 0.0004,
+     "repeat_median": 0.0004,
+     "all_median": 0.0004
+    },
+    "peak_rss_mb": 71.2,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/docx/table-styles.docx",
+   "format": "docx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3713,
+     "repeat_median": 0.3924,
+     "all_median": 0.3728
+    },
+    "parse_s": {
+     "first": 0.0062,
+     "repeat_median": 0.0065,
+     "all_median": 0.0064
+    },
+    "peak_rss_mb": 39.5,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.8841,
+     "repeat_median": 2.8184,
+     "all_median": 2.8736
+    },
+    "convert_s": {
+     "first": 0.0002,
+     "repeat_median": 0.0003,
+     "all_median": 0.0002
+    },
+    "peak_rss_mb": 59.5,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/docx/sections-and-revisions.docx",
+   "format": "docx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3592,
+     "repeat_median": 0.3579,
+     "all_median": 0.3592
+    },
+    "parse_s": {
+     "first": 0.0069,
+     "repeat_median": 0.0066,
+     "all_median": 0.0067
+    },
+    "peak_rss_mb": 39.2,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.7755,
+     "repeat_median": 2.761,
+     "all_median": 2.7673
+    },
+    "convert_s": {
+     "first": 0.0002,
+     "repeat_median": 0.0002,
+     "all_median": 0.0002
+    },
+    "peak_rss_mb": 57.9,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/pptx/table.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3634,
+     "repeat_median": 0.3763,
+     "all_median": 0.3758
+    },
+    "parse_s": {
+     "first": 0.0181,
+     "repeat_median": 0.018,
+     "all_median": 0.0181
+    },
+    "peak_rss_mb": 41.2,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.9501,
+     "repeat_median": 2.9079,
+     "all_median": 2.9501
+    },
+    "convert_s": {
+     "first": 0.0003,
+     "repeat_median": 0.0004,
+     "all_median": 0.0004
+    },
+    "peak_rss_mb": 65.9,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/pptx/read-stress.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.387,
+     "repeat_median": 0.3764,
+     "all_median": 0.3766
+    },
+    "parse_s": {
+     "first": 0.0272,
+     "repeat_median": 0.0276,
+     "all_median": 0.0273
+    },
+    "peak_rss_mb": 43.7,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 3.0895,
+     "repeat_median": 3.1595,
+     "all_median": 3.1128
+    },
+    "convert_s": {
+     "first": 0.0006,
+     "repeat_median": 0.0007,
+     "all_median": 0.0006
+    },
+    "peak_rss_mb": 67.5,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/pptx/smartart-families.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.3637,
+     "repeat_median": 0.3805,
+     "all_median": 0.3718
+    },
+    "parse_s": {
+     "first": 0.0132,
+     "repeat_median": 0.0134,
+     "all_median": 0.0132
+    },
+    "peak_rss_mb": 41.1,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.7682,
+     "repeat_median": 2.7085,
+     "all_median": 2.7123
+    },
+    "convert_s": {
+     "first": 0.0002,
+     "repeat_median": 0.0002,
+     "all_median": 0.0002
+    },
+    "peak_rss_mb": 58.6,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  },
+  {
+   "doc": "data/raw/external_documents/pptx/chart-legend-entry.pptx",
+   "format": "pptx",
+   "baseline": {
+    "wall_s": {
+     "first": 0.375,
+     "repeat_median": 0.4185,
+     "all_median": 0.3917
+    },
+    "parse_s": {
+     "first": 0.0114,
+     "repeat_median": 0.0123,
+     "all_median": 0.0118
+    },
+    "peak_rss_mb": 41.0,
+    "failed": 0
+   },
+   "officecli": {
+    "wall_s": {
+     "first": 2.9633,
+     "repeat_median": 2.9634,
+     "all_median": 2.9633
+    },
+    "convert_s": {
+     "first": 0.0003,
+     "repeat_median": 0.0003,
+     "all_median": 0.0003
+    },
+    "peak_rss_mb": 62.2,
+    "failed": 0,
+    "cli_calls": 2
+   }
+  }
+ ],
+ "network": {
+  "documents": 13,
+  "with_remote_connection": {},
+  "OFFICECLI_SKIP_UPDATE": "1"
+ }
+}

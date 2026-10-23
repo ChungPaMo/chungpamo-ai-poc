@@ -1,0 +1,22 @@
+{
+ "experiment_id": "E12",
+ "status": "RUNNING",
+ "run_timestamp": "2026-10-23T13:54:31+09:00",
+ "officecli": {
+  "version": "1.0.157",
+  "sha256": "bd64eba587e56cc71709cdd1f38ae9ac77cd65a9c8ea744b0996897c0557e343",
+  "source": "GitHub Release v1.0.157 (officecli-win-x64.exe)",
+  "signed": false,
+  "license": "Apache-2.0",
+  "env": "OFFICECLI_SKIP_UPDATE=1"
+ },
+ "baseline": {
+  "xlsx": "openpyxl 3.1.5",
+  "docx": "E03 v2 python-docx",
+  "pptx": "E03 v2 python-pptx"
+ },
+ "python": "3.11.9",
+ "external_calls": "none (paid API 0)",
+ "repeats": 3,
+ "inputs_unchanged_after_run": true
+}

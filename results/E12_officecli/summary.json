@@ -1,0 +1,461 @@
+{
+ "source": "results/E12_officecli/results.json",
+ "pdf": "NOT_SUPPORTED",
+ "xlsx": {
+  "X12-01": {
+   "openpyxl": {
+    "value": "83/83",
+    "formula_text": "8/8",
+    "text_number_kept_as_text": "1/1",
+    "date_recognized": "10/10",
+    "blank_kept_blank": "1/1",
+    "invalid_kept_as_text": "1/1",
+    "merges": "4/4",
+    "false_merges": 0,
+    "hidden_rows": "1/1",
+    "hidden_cols": "1/1"
+   },
+   "officecli": {
+    "value": "83/83",
+    "formula_text": "8/8",
+    "text_number_kept_as_text": "1/1",
+    "date_recognized": "10/10",
+    "blank_kept_blank": "1/1",
+    "invalid_kept_as_text": "1/1",
+    "merges": "4/4",
+    "false_merges": 0,
+    "hidden_rows": "1/1",
+    "hidden_cols": "1/1"
+   }
+  },
+  "X12-02_no_formula_cache": {
+   "openpyxl": {
+    "value": "76/83",
+    "formula_text": "8/8",
+    "text_number_kept_as_text": "1/1",
+    "date_recognized": "10/10",
+    "blank_kept_blank": "1/1",
+    "invalid_kept_as_text": "1/1",
+    "merges": "4/4",
+    "false_merges": 0,
+    "hidden_rows": "1/1",
+    "hidden_cols": "1/1"
+   },
+   "officecli": {
+    "value": "83/83",
+    "formula_text": "8/8",
+    "text_number_kept_as_text": "1/1",
+    "date_recognized": "10/10",
+    "blank_kept_blank": "1/1",
+    "invalid_kept_as_text": "1/1",
+    "merges": "4/4",
+    "false_merges": 0,
+    "hidden_rows": "1/1",
+    "hidden_cols": "1/1"
+   },
+   "officecli_cached_only": {
+    "value": "76/83",
+    "formula_text": "8/8",
+    "text_number_kept_as_text": "1/1",
+    "date_recognized": "10/10",
+    "blank_kept_blank": "1/1",
+    "invalid_kept_as_text": "1/1",
+    "merges": "4/4",
+    "false_merges": 0,
+    "hidden_rows": "1/1",
+    "hidden_cols": "1/1"
+   }
+  },
+  "e02_vendor_agreement": [
+   {
+    "file": "data/vendor_a/vendor_a_master.xlsx",
+    "cells_compared": 445,
+    "same": 445,
+    "merges_equal": true
+   },
+   {
+    "file": "data/vendor_b/vendor_b_master.xlsx",
+    "cells_compared": 532,
+    "same": 532,
+    "merges_equal": true
+   }
+  ]
+ },
+ "synthetic": {
+  "truth": "GENERATED",
+  "documents": [
+   "D-01",
+   "D-02",
+   "T-01",
+   "T-02"
+  ],
+  "baseline_v2": {
+   "text.block.exact": "14/14",
+   "text.caption.exact": "8/8",
+   "table_detection.recall": "9/9",
+   "table_detection.precision": "9/9",
+   "cells.text": "431/431",
+   "cells.header_text": "67/67",
+   "cells.merge_spans": "33/33",
+   "cells.fine_location": "431/431",
+   "reading_order.pairwise_order": "40/40",
+   "linkage.recall": "1/1"
+  },
+  "officecli": {
+   "text.block.exact": "14/14",
+   "text.caption.exact": "8/8",
+   "table_detection.recall": "9/9",
+   "table_detection.precision": "9/9",
+   "cells.text": "431/431",
+   "cells.header_text": "67/67",
+   "cells.merge_spans": "33/33",
+   "cells.fine_location": "431/431",
+   "reading_order.pairwise_order": "40/40",
+   "linkage.recall": "1/1"
+  }
+ },
+ "external": {
+  "holdout": {
+   "truth": "PROVISIONAL",
+   "documents": [
+    "X-HO-D01",
+    "X-HO-D02",
+    "X-HO-D03",
+    "X-HO-T01",
+    "X-HO-T02",
+    "X-HO-T03",
+    "X-HO-T04"
+   ],
+   "baseline_v2": {
+    "body_paragraph_exact": "69/69",
+    "body_char.recall": "6314/6314",
+    "body_char.precision": "6314/6314",
+    "table_detection.recall": "17/17",
+    "table_detection.precision": "17/17",
+    "structure.rows_cols_equal": "17/17",
+    "cells.text_strict_grid": "112/112",
+    "cells.text_loose_grid": "112/112",
+    "cells.merge_spans": "2/2",
+    "footnotes": "1/1",
+    "header_footer": "2/2",
+    "reading_order.pairwise_order": "1719/1719",
+    "shape_text_exact": "11/11",
+    "shape_char.recall": "189/189",
+    "shape_location_slide_and_id": "11/11",
+    "smartart_node_text_found": "19/19",
+    "chart_text_found": "12/12"
+   },
+   "officecli": {
+    "body_paragraph_exact": "67/69",
+    "body_char.recall": "6250/6314",
+    "body_char.precision": "6250/6250",
+    "table_detection.recall": "17/17",
+    "table_detection.precision": "17/17",
+    "structure.rows_cols_equal": "17/17",
+    "cells.text_strict_grid": "112/112",
+    "cells.text_loose_grid": "112/112",
+    "cells.merge_spans": "2/2",
+    "footnotes": "1/1",
+    "header_footer": "2/2",
+    "reading_order.pairwise_order": "1656/1656",
+    "shape_text_exact": "11/11",
+    "shape_char.recall": "189/189",
+    "shape_location_slide_and_id": "11/11",
+    "smartart_node_text_found": "0/19",
+    "chart_text_found": "12/12"
+   },
+   "differing_documents": [
+    "X-HO-D01",
+    "X-HO-D03",
+    "X-HO-T03"
+   ]
+  },
+  "blind8": {
+   "truth": "PROVISIONAL",
+   "documents": [
+    "X-D01",
+    "X-D02",
+    "X-T01",
+    "X-T02"
+   ],
+   "baseline_v2": {
+    "body_paragraph_exact": "86/86",
+    "body_char.recall": "7791/7791",
+    "body_char.precision": "7791/7791",
+    "table_detection.recall": "10/10",
+    "table_detection.precision": "10/10",
+    "structure.rows_cols_equal": "10/10",
+    "cells.text_strict_grid": "80/80",
+    "cells.text_loose_grid": "80/80",
+    "cells.merge_spans": "11/11",
+    "header_footer": "4/4",
+    "reading_order.pairwise_order": "2101/2101",
+    "footnotes": "2/2",
+    "shape_text_exact": "29/29",
+    "shape_char.recall": "1649/1649",
+    "shape_location_slide_and_id": "29/29",
+    "smartart_node_text_found": "11/11",
+    "chart_text_found": "20/20"
+   },
+   "officecli": {
+    "body_paragraph_exact": "85/86",
+    "body_char.recall": "7771/7791",
+    "body_char.precision": "7771/7771",
+    "table_detection.recall": "10/10",
+    "table_detection.precision": "10/10",
+    "structure.rows_cols_equal": "10/10",
+    "cells.text_strict_grid": "80/80",
+    "cells.text_loose_grid": "80/80",
+    "cells.merge_spans": "11/11",
+    "header_footer": "4/4",
+    "reading_order.pairwise_order": "2068/2068",
+    "footnotes": "2/2",
+    "shape_text_exact": "29/29",
+    "shape_char.recall": "1649/1649",
+    "shape_location_slide_and_id": "29/29",
+    "smartart_node_text_found": "0/11",
+    "chart_text_found": "20/20"
+   },
+   "differing_documents": [
+    "X-D01",
+    "X-T01"
+   ]
+  },
+  "dev": {
+   "truth": "PROVISIONAL",
+   "documents": [
+    "X-D03",
+    "X-D04",
+    "X-T03",
+    "X-T04",
+    "X-DV-T01",
+    "X-DV-T02"
+   ],
+   "baseline_v2": {
+    "body_paragraph_exact": "35/35",
+    "body_char.recall": "2368/2368",
+    "body_char.precision": "2368/2368",
+    "table_detection.recall": "8/8",
+    "table_detection.precision": "8/8",
+    "structure.rows_cols_equal": "8/8",
+    "cells.text_strict_grid": "23/23",
+    "cells.text_loose_grid": "23/23",
+    "reading_order.pairwise_order": "541/541",
+    "shape_text_exact": "17/17",
+    "shape_char.recall": "308/308",
+    "shape_location_slide_and_id": "17/17",
+    "smartart_node_text_found": "2/2",
+    "chart_text_found": "5/5"
+   },
+   "officecli": {
+    "body_paragraph_exact": "32/35",
+    "body_char.recall": "2338/2368",
+    "body_char.precision": "2338/2386",
+    "table_detection.recall": "7/8",
+    "table_detection.precision": "7/7",
+    "structure.rows_cols_equal": "7/8",
+    "cells.text_strict_grid": "21/23",
+    "cells.text_loose_grid": "21/23",
+    "reading_order.pairwise_order": "463/463",
+    "shape_text_exact": "17/17",
+    "shape_char.recall": "308/308",
+    "shape_location_slide_and_id": "17/17",
+    "smartart_node_text_found": "0/2",
+    "chart_text_found": "5/5"
+   },
+   "differing_documents": [
+    "X-D03",
+    "X-D04",
+    "X-DV-T01"
+   ]
+  }
+ },
+ "officecli_runs": {
+  "documents": 21,
+  "failed": 0,
+  "source_changed": 0,
+  "temp_copy_rewritten_by_batch": 21
+ },
+ "perf": [
+  {
+   "doc": "X12-01_orders.xlsx",
+   "format": "xlsx",
+   "baseline_first_s": 0.5467,
+   "baseline_repeat_median_s": 0.5508,
+   "baseline_peak_mb": 47.8,
+   "officecli_first_s": 2.4307,
+   "officecli_repeat_median_s": 2.4252,
+   "officecli_peak_mb": 51.8,
+   "ratio_all_median": 4.4,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "vendor_b_master.xlsx",
+   "format": "xlsx",
+   "baseline_first_s": 0.5638,
+   "baseline_repeat_median_s": 0.5586,
+   "baseline_peak_mb": 48.5,
+   "officecli_first_s": 2.442,
+   "officecli_repeat_median_s": 2.4704,
+   "officecli_peak_mb": 54.0,
+   "ratio_all_median": 4.4,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "D-01_bom_spec.docx",
+   "format": "docx",
+   "baseline_first_s": 0.3682,
+   "baseline_repeat_median_s": 0.371,
+   "baseline_peak_mb": 45.1,
+   "officecli_first_s": 3.3217,
+   "officecli_repeat_median_s": 3.3077,
+   "officecli_peak_mb": 77.9,
+   "ratio_all_median": 9.0,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "D-02_order_inventory.docx",
+   "format": "docx",
+   "baseline_first_s": 0.3738,
+   "baseline_repeat_median_s": 0.371,
+   "baseline_peak_mb": 45.9,
+   "officecli_first_s": 3.5171,
+   "officecli_repeat_median_s": 3.5476,
+   "officecli_peak_mb": 79.2,
+   "ratio_all_median": 9.5,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "T-01_plan_comparison.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.3605,
+   "baseline_repeat_median_s": 0.3747,
+   "baseline_peak_mb": 40.9,
+   "officecli_first_s": 2.9214,
+   "officecli_repeat_median_s": 2.9841,
+   "officecli_peak_mb": 65.0,
+   "ratio_all_median": 8.1,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "T-02_bom_spec.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.3971,
+   "baseline_repeat_median_s": 0.3712,
+   "baseline_peak_mb": 40.9,
+   "officecli_first_s": 2.9792,
+   "officecli_repeat_median_s": 2.9052,
+   "officecli_peak_mb": 64.9,
+   "ratio_all_median": 7.8,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:demo.docx",
+   "format": "docx",
+   "baseline_first_s": 0.3462,
+   "baseline_repeat_median_s": 0.3811,
+   "baseline_peak_mb": 39.6,
+   "officecli_first_s": 3.0723,
+   "officecli_repeat_median_s": 3.1077,
+   "officecli_peak_mb": 71.2,
+   "ratio_all_median": 8.7,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:table-styles.docx",
+   "format": "docx",
+   "baseline_first_s": 0.3713,
+   "baseline_repeat_median_s": 0.3924,
+   "baseline_peak_mb": 39.5,
+   "officecli_first_s": 2.8841,
+   "officecli_repeat_median_s": 2.8184,
+   "officecli_peak_mb": 59.5,
+   "ratio_all_median": 7.7,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:sections-and-revisions.docx",
+   "format": "docx",
+   "baseline_first_s": 0.3592,
+   "baseline_repeat_median_s": 0.3579,
+   "baseline_peak_mb": 39.2,
+   "officecli_first_s": 2.7755,
+   "officecli_repeat_median_s": 2.761,
+   "officecli_peak_mb": 57.9,
+   "ratio_all_median": 7.7,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:table.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.3634,
+   "baseline_repeat_median_s": 0.3763,
+   "baseline_peak_mb": 41.2,
+   "officecli_first_s": 2.9501,
+   "officecli_repeat_median_s": 2.9079,
+   "officecli_peak_mb": 65.9,
+   "ratio_all_median": 7.9,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:read-stress.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.387,
+   "baseline_repeat_median_s": 0.3764,
+   "baseline_peak_mb": 43.7,
+   "officecli_first_s": 3.0895,
+   "officecli_repeat_median_s": 3.1595,
+   "officecli_peak_mb": 67.5,
+   "ratio_all_median": 8.3,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:smartart-families.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.3637,
+   "baseline_repeat_median_s": 0.3805,
+   "baseline_peak_mb": 41.1,
+   "officecli_first_s": 2.7682,
+   "officecli_repeat_median_s": 2.7085,
+   "officecli_peak_mb": 58.6,
+   "ratio_all_median": 7.3,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  },
+  {
+   "doc": "external:chart-legend-entry.pptx",
+   "format": "pptx",
+   "baseline_first_s": 0.375,
+   "baseline_repeat_median_s": 0.4185,
+   "baseline_peak_mb": 41.0,
+   "officecli_first_s": 2.9633,
+   "officecli_repeat_median_s": 2.9634,
+   "officecli_peak_mb": 62.2,
+   "ratio_all_median": 7.6,
+   "failed": 0,
+   "officecli_cli_calls": 2
+  }
+ ],
+ "perf_overall": {
+  "ratio_median": 7.8,
+  "ratio_min": 4.4,
+  "ratio_max": 9.5,
+  "failed_runs": 0
+ },
+ "network": {
+  "documents": 13,
+  "with_remote_connection": {},
+  "OFFICECLI_SKIP_UPDATE": "1"
+ }
+}

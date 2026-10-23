@@ -1,0 +1,807 @@
+{
+ "schema": "chungpamo.e12_xlsx_truth",
+ "version": "v1",
+ "created": "2026-10-23",
+ "file": "data/e12/X12-01_orders.xlsx",
+ "sha256": "e91875d16d0ddab67536efa19ae89ea4433cb112bafd8185e6dd29642940f887",
+ "variant_no_formula_cache": {
+  "file": "data/e12/X12-02_orders_no_formula_cache.xlsx",
+  "sha256": "f46c418a561132bb6f85660012c9836a7ddb77db4404aed2ef197c32c9679982",
+  "note": "같은 셀·수식, 수식 캐시값만 0 — 정답 값은 X12-01과 같은 계산 결과"
+ },
+ "status": "GENERATED (생성기 명세 — 생성 정답)",
+ "sheets": [
+  "Orders",
+  "BOM",
+  "Products"
+ ],
+ "cells": [
+  {
+   "sheet": "Orders",
+   "cell": "A1",
+   "kind": "text",
+   "value": "주문번호",
+   "display": "주문번호",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B1",
+   "kind": "text",
+   "value": "제품코드",
+   "display": "제품코드",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C1",
+   "kind": "text",
+   "value": "수량",
+   "display": "수량",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D1",
+   "kind": "text",
+   "value": "단위",
+   "display": "단위",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E1",
+   "kind": "text",
+   "value": "단가",
+   "display": "단가",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F1",
+   "kind": "text",
+   "value": "금액",
+   "display": "금액",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G1",
+   "kind": "text",
+   "value": "주문일",
+   "display": "주문일",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H1",
+   "kind": "text",
+   "value": "납기일",
+   "display": "납기일",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "I1",
+   "kind": "text",
+   "value": "비고",
+   "display": "비고",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A2",
+   "kind": "text",
+   "value": "SO260101",
+   "display": "SO260101",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B2",
+   "kind": "text",
+   "value": "FG001",
+   "display": "FG001",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C2",
+   "kind": "number",
+   "value": 50,
+   "display": "50",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D2",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E2",
+   "kind": "number",
+   "value": 120000,
+   "display": "120,000",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F2",
+   "kind": "formula",
+   "value": 6000000,
+   "display": "6,000,000",
+   "formula": "=C2*E2",
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G2",
+   "kind": "date",
+   "value": "2026-11-10",
+   "display": "2026-11-10",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H2",
+   "kind": "date",
+   "value": "2026-11-25",
+   "display": "2026-11-25",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A3",
+   "kind": "text",
+   "value": "SO260102",
+   "display": "SO260102",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B3",
+   "kind": "text",
+   "value": "FG002",
+   "display": "FG002",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C3",
+   "kind": "text",
+   "value": "30",
+   "display": "30",
+   "formula": null,
+   "note": "number_stored_as_text"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D3",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E3",
+   "kind": "number",
+   "value": 95000,
+   "display": "95,000",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F3",
+   "kind": "formula",
+   "value": 2850000,
+   "display": "2,850,000",
+   "formula": "=C3*E3",
+   "note": "text_number_in_formula"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G3",
+   "kind": "date",
+   "value": "2026-11-11",
+   "display": "2026-11-11",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H3",
+   "kind": "date",
+   "value": "2026-11-28",
+   "display": "2026-11-28",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "I3",
+   "kind": "text",
+   "value": "수량이 문자열로 저장됨",
+   "display": "수량이 문자열로 저장됨",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A4",
+   "kind": "text",
+   "value": "SO260103",
+   "display": "SO260103",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B4",
+   "kind": "text",
+   "value": "FG003",
+   "display": "FG003",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C4",
+   "kind": "text",
+   "value": "1O50",
+   "display": "1O50",
+   "formula": null,
+   "note": "invalid_number"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D4",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E4",
+   "kind": "number",
+   "value": 210000,
+   "display": "210,000",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F4",
+   "kind": "formula",
+   "value": "#VALUE!",
+   "display": "#VALUE!",
+   "formula": "=C4*E4",
+   "note": "formula_error"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G4",
+   "kind": "date",
+   "value": "2026-11-12",
+   "display": "2026-11-12",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H4",
+   "kind": "date",
+   "value": "2026-12-02",
+   "display": "2026-12-02",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "I4",
+   "kind": "text",
+   "value": "잘못된 수량 (영문자 O)",
+   "display": "잘못된 수량 (영문자 O)",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A5",
+   "kind": "text",
+   "value": "SO260104",
+   "display": "SO260104",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B5",
+   "kind": "text",
+   "value": "SF001",
+   "display": "SF001",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C5",
+   "kind": "number",
+   "value": 120,
+   "display": "120",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D5",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E5",
+   "kind": "number",
+   "value": 40000,
+   "display": "40,000",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F5",
+   "kind": "formula",
+   "value": 4800000,
+   "display": "4,800,000",
+   "formula": "=C5*E5",
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G5",
+   "kind": "date",
+   "value": "2026-11-13",
+   "display": "2026-11-13",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H5",
+   "kind": "date",
+   "value": "2026-11-30",
+   "display": "2026-11-30",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "I5",
+   "kind": "text",
+   "value": "숨긴 행",
+   "display": "숨긴 행",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A6",
+   "kind": "text",
+   "value": "SO260105",
+   "display": "SO260105",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "B6",
+   "kind": "text",
+   "value": "FG001",
+   "display": "FG001",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "C6",
+   "kind": "number",
+   "value": 15,
+   "display": "15",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "D6",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "E6",
+   "kind": "blank",
+   "value": null,
+   "display": "",
+   "formula": null,
+   "note": "blank"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F6",
+   "kind": "formula",
+   "value": 0,
+   "display": "0",
+   "formula": "=C6*E6",
+   "note": "blank_operand"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "G6",
+   "kind": "date",
+   "value": "2026-11-14",
+   "display": "2026-11-14",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "H6",
+   "kind": "date",
+   "value": "2026-12-01",
+   "display": "2026-12-01",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "I6",
+   "kind": "text",
+   "value": "단가 빈 셀",
+   "display": "단가 빈 셀",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Orders",
+   "cell": "A8",
+   "kind": "text",
+   "value": "합계 (수식 결과는 캐시값)",
+   "display": "합계 (수식 결과는 캐시값)",
+   "formula": null,
+   "note": "merged A8:E8"
+  },
+  {
+   "sheet": "Orders",
+   "cell": "F8",
+   "kind": "formula",
+   "value": 13650000,
+   "display": "13,650,000",
+   "formula": "=SUM(F2,F3,F5,F6)",
+   "note": "SUM 일부 (오류 셀 F4 제외)"
+  },
+  {
+   "sheet": "BOM",
+   "cell": "A1",
+   "kind": "text",
+   "value": "구성품",
+   "display": "구성품",
+   "formula": null,
+   "note": "merged A1:B1"
+  },
+  {
+   "sheet": "BOM",
+   "cell": "C1",
+   "kind": "text",
+   "value": "소요량",
+   "display": "소요량",
+   "formula": null,
+   "note": "merged C1:D1"
+  },
+  {
+   "sheet": "BOM",
+   "cell": "A2",
+   "kind": "text",
+   "value": "코드",
+   "display": "코드",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "B2",
+   "kind": "text",
+   "value": "명칭",
+   "display": "명칭",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "C2",
+   "kind": "text",
+   "value": "수량",
+   "display": "수량",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "D2",
+   "kind": "text",
+   "value": "단위",
+   "display": "단위",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "E3",
+   "kind": "text",
+   "value": "FG001 V1",
+   "display": "FG001 V1",
+   "formula": null,
+   "note": "merged E3:E4 (세로)"
+  },
+  {
+   "sheet": "BOM",
+   "cell": "A3",
+   "kind": "text",
+   "value": "M001",
+   "display": "M001",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "B3",
+   "kind": "text",
+   "value": "강판",
+   "display": "강판",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "C3",
+   "kind": "number",
+   "value": 1.2,
+   "display": "1.2",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "D3",
+   "kind": "text",
+   "value": "kg",
+   "display": "kg",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "A4",
+   "kind": "text",
+   "value": "M006",
+   "display": "M006",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "B4",
+   "kind": "text",
+   "value": "전원 케이블",
+   "display": "전원 케이블",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "C4",
+   "kind": "number",
+   "value": 1,
+   "display": "1",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "BOM",
+   "cell": "D4",
+   "kind": "text",
+   "value": "EA",
+   "display": "EA",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "A1",
+   "kind": "text",
+   "value": "제품코드",
+   "display": "제품코드",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "B1",
+   "kind": "text",
+   "value": "제품명",
+   "display": "제품명",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "C1",
+   "kind": "text",
+   "value": "안전재고",
+   "display": "안전재고",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "A2",
+   "kind": "text",
+   "value": "FG001",
+   "display": "FG001",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "B2",
+   "kind": "text",
+   "value": "가정용 히터 A",
+   "display": "가정용 히터 A",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "C2",
+   "kind": "number",
+   "value": 50,
+   "display": "50",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "A3",
+   "kind": "text",
+   "value": "FG002",
+   "display": "FG002",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "B3",
+   "kind": "text",
+   "value": "가정용 히터 B",
+   "display": "가정용 히터 B",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "C3",
+   "kind": "number",
+   "value": 30,
+   "display": "30",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "A4",
+   "kind": "text",
+   "value": "FG003",
+   "display": "FG003",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "B4",
+   "kind": "text",
+   "value": "산업용 송풍기 C",
+   "display": "산업용 송풍기 C",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "C4",
+   "kind": "number",
+   "value": 40,
+   "display": "40",
+   "formula": null,
+   "note": null
+  },
+  {
+   "sheet": "Products",
+   "cell": "C5",
+   "kind": "formula",
+   "value": 120,
+   "display": "120",
+   "formula": "=SUM(C2:C4)",
+   "note": "같은 시트 합"
+  },
+  {
+   "sheet": "Products",
+   "cell": "C6",
+   "kind": "formula",
+   "value": 50,
+   "display": "50",
+   "formula": "=Orders!C2",
+   "note": "다른 시트 참조"
+  }
+ ],
+ "merges": [
+  {
+   "sheet": "Orders",
+   "range": "A8:E8"
+  },
+  {
+   "sheet": "BOM",
+   "range": "A1:B1"
+  },
+  {
+   "sheet": "BOM",
+   "range": "C1:D1"
+  },
+  {
+   "sheet": "BOM",
+   "range": "E3:E4"
+  }
+ ],
+ "hidden_rows": [
+  {
+   "sheet": "Orders",
+   "row": 5
+  }
+ ],
+ "hidden_cols": [
+  {
+   "sheet": "Orders",
+   "col": "I"
+  }
+ ],
+ "note": "수식 셀의 value는 생성 시 함께 저장한 캐시 계산값. display는 Excel 표시 형식 기준 기대 문자열"
+}
